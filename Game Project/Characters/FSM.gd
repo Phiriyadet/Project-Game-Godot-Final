@@ -1,43 +1,45 @@
-extends Area2D
+extends Node
 
-class_name Hitbox
+class_name FiniteStateMachine
 
-export(int) var damage: int = 1
-var knockback_direction: Vector2 = Vector2.ZERO
-export(int) var knockback_force: int = 300
+var states: Dictionary = {}
+var previous_state: int = -1
+var state: int = -1 setget set_state
 
-var body_inside: bool = false
-
-onready var collision_shape: CollisionShape2D = get_child(0)
-onready var timer: Timer = Timer.new()
+onready var parent: Character = get_parent()
+onready var animation_player: AnimationPlayer = parent.get_node("AnimationPlayer")
 
 
-func _init() -> void:
-	var __ = connect("body_entered", self, "_on_body_entered")
-	__ = connect("body_exited", self, "_on_body_exited")
+func _physics_process(delta: float) -> void:
+	if state != -1:
+		_state_logic(delta)
+		var transition: int = _get_transition()
+		if transition != -1:
+			set_state(transition)
+
+
+func _state_logic(_delta: float) -> void:
+	pass
 	
 	
-func _ready() -> void:
-	assert(collision_shape != null)
-	timer.wait_time = 1
-	add_child(timer)
+func _get_transition() -> int:
+	return -1
+
+
+func _add_state(new_state: String) -> void:
+	states[new_state] = states.size()
 	
 	
-func _on_body_entered(body: PhysicsBody2D) -> void:
-	body_inside = true
-	timer.start()
-	while body_inside:
-		_collide(body)
-		yield(timer, "timeout")
+func set_state(new_state: int) -> void:
+	_exit_state(state)
+	previous_state = state
+	state = new_state
+	_enter_state(previous_state, state)
+
+
+func _enter_state(_previous_state: int, _new_state: int) -> void:
+	pass
 	
 	
-func _on_body_exited(_body: KinematicBody2D) -> void:
-	body_inside = false
-	timer.stop()
-	
-	
-func _collide(body: KinematicBody2D) -> void:
-	if body == null or not body.has_method("take_damage"):
-		queue_free()
-	else:
-		body.take_damage(damage, knockback_direction, knockback_force)
+func _exit_state(_state_exited: int) -> void:
+	pass
