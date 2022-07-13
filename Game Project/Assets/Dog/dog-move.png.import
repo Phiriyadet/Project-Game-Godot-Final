@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dog-run.png-0ebc9b02ea468bbab8853ce859e64d69.stex"
+path="res://.import/dog-move.png-3c78bf10178b3b340bea632a4bc98b10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dog/dog-run.png"
-dest_files=[ "res://.import/dog-run.png-0ebc9b02ea468bbab8853ce859e64d69.stex" ]
+source_file="res://Assets/Dog/dog-move.png"
+dest_files=[ "res://.import/dog-move.png-3c78bf10178b3b340bea632a4bc98b10.stex" ]
 
 [params]
 
