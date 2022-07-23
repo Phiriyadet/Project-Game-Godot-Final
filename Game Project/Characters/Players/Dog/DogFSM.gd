@@ -4,7 +4,8 @@ extends FiniteStateMachine
 func _init() -> void:
 	_add_state("idle")
 	_add_state("move")
-	
+	_add_state("hurt")
+	_add_state("dead")
 	
 	
 func _ready() -> void:
@@ -35,4 +36,7 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("idle")
 		states.move:
 			animation_player.play("move")
-
+		states.hurt:
+			animation_player.play("hurt")
+		states.dead:
+			animation_player.play("dead")
