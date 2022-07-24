@@ -5,11 +5,14 @@
 
 [node name="World" type="Node2D"]
 
-[node name="Dog" parent="." instance=ExtResource( 1 )]
-flying = null
-
 [node name="Shrek-t-post" parent="." instance=ExtResource( 2 )]
 position = Vector2( 74, -6 )
 
 [node name="Shrek-t-post2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -71, -1 )
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Dog" parent="Player" instance=ExtResource( 1 )]
+
+[node name="Node2D" type="Node2D" parent="."]
