@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Dog/dog-idle.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Players/Dog/Dog.gd" type="Script" id=3]
 [ext_resource path="res://Characters/Players/Dog/DogFSM.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Dog/dog-move.png" type="Texture" id=5]
+[ext_resource path="res://Weapons/BonkBat.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 2 )
@@ -263,10 +264,18 @@ anims/hurt = SubResource( 25 )
 anims/idle = SubResource( 12 )
 anims/move = SubResource( 13 )
 
-[node name="Haste" type="Timer" parent="." index="4"]
+[node name="Haste" parent="." index="4"]
 autostart = true
 
 [node name="PickupRadius" type="Area2D" parent="." index="5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRadius" index="0"]
 shape = SubResource( 23 )
+
+[node name="Weapons" type="Node2D" parent="." index="6"]
+
+[node name="BonkBat" parent="Weapons" index="0" instance=ExtResource( 6 )]
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="." index="7"]
+current = true

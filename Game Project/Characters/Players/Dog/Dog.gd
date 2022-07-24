@@ -1,5 +1,9 @@
 extends Character
 
+onready var weapons: Node2D = get_node("Weapons")
+
+
+
 func _ready():
 	pass # Replace with function body.
 
@@ -19,3 +23,6 @@ func get_input() -> void:
 		
 
 	
+
+
+

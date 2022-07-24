@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Hitbox",
 "language": "GDScript",
 "path": "res://Characters/Hitbox.gd"
+}, {
+"base": "Node2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
 "Enemy": "",
 "FiniteStateMachine": "",
-"Hitbox": ""
+"Hitbox": "",
+"Weapon": "res://Assets/Weapon/bat.png"
 }
 
 [application]
