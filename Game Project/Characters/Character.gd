@@ -4,13 +4,14 @@ class_name Character
 
 const FRICTION: float = 0.15
 
-export(int) var max_hp: int = 2
-export(int) var hp: int = 2 setget set_hp
-export(int) var atk = 1 
-export(int) var spd = 100 
-export(float) var crt = 0.25 
+export(int) var max_hp: int = 100 
+export(int) var hp: int = 100 setget set_hp, get_hp
+export(float) var atk = 1 setget set_atk, get_atk
+export(float) var spd = 100 setget set_spd, get_spd
+export(float) var crt = 0.25 setget set_crt, get_crt
+export(float) var haste = 0 setget set_haste, get_haste
 
-signal hp_changed(new_hp)
+#signal hp_changed(new_hp)
 
 export(int) var accerelation: int = 40
 
@@ -30,10 +31,10 @@ func _physics_process(_delta: float) -> void:
 func move() -> void:
 	mov_direction = mov_direction.normalized()
 	velocity += mov_direction * accerelation
-	velocity = velocity.clamped(spd) #ไม่เกิน max_speed
+	velocity = velocity.clamped(self.spd) #ไม่เกิน max_speed
 	
 	
-func take_damage(dam: int, dir: Vector2, force: int) -> void:
+func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
 		
 		self.hp -= dam
@@ -46,7 +47,34 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			velocity += dir * force * 2
 		
 		
-func set_hp(new_hp: int) -> void:
+func set_hp(new_hp: int):
 	hp = clamp(new_hp, 0, max_hp)
-	print_debug(hp)
-	emit_signal("hp_changed", hp)
+#	print_debug(hp)
+#	emit_signal("hp_changed", hp)
+
+func get_hp():
+	return hp
+
+func set_atk(new_atk):
+	atk += new_atk
+	
+func get_atk():
+	return atk
+	
+func set_spd(new_spd):
+	spd += new_spd
+	
+func get_spd():
+	return spd
+	
+func set_crt(new_crt):
+	crt += new_crt
+	
+func get_crt():
+	return crt
+	
+func set_haste(new_haste):
+	haste += new_haste
+	
+func get_haste():
+	return haste 

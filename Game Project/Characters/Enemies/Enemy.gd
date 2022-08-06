@@ -7,11 +7,11 @@ onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 
 
 
-func _ready() -> void:
+func _ready():
 	pass
 
 
-func chase() -> void:
+func chase():
 
 	if player:
 		mov_direction = (player.position - position).normalized()

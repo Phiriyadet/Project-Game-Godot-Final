@@ -1,50 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Weapon/bat.png" type="Texture" id=2]
+[ext_resource path="res://Weapons/WeaponHitbox.gd" type="Script" id=3]
+[ext_resource path="res://Weapons/BonkBat.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.24264
-height = 73.5391
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Node2D:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 220.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Node2D/Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 50.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Node2D/Sprite/Hitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
+height = 74.9533
 
 [sub_resource type="Animation" id=3]
 resource_name = "attack"
@@ -56,10 +19,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -90.0, 120.0, 120.0 ]
+"values": [ -90.0, 120.0, 120.0, -90.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Node2D/Sprite:rotation_degrees")
@@ -68,10 +31,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.15, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -45.0, 40.0, 50.0, 50.0 ]
+"values": [ -45.0, 40.0, 50.0, 50.0, -45.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Node2D/Sprite/Hitbox/CollisionShape2D:disabled")
@@ -88,24 +51,37 @@ tracks/2/keys = {
 
 [node name="BonkBat" instance=ExtResource( 1 )]
 scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
 
 [node name="Node2D" parent="." index="0"]
-rotation = 3.83972
+rotation = -1.5708
 
 [node name="Sprite" parent="Node2D" index="0"]
-position = Vector2( 10, 5 )
-rotation = 0.872665
+position = Vector2( 40, 20 )
+rotation = -0.785398
 texture = ExtResource( 2 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 rotation = 0.785398
 shape = SubResource( 1 )
-disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
-anims/RESET = SubResource( 2 )
+[node name="CoolDownTimer" parent="." index="1"]
+autostart = true
+
+[node name="AnimationPlayer" parent="." index="2"]
 anims/attack = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+
+[node name="Label" type="Label" parent="CanvasLayer" index="0"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "w"
+
+[connection signal="area_entered" from="Node2D/Sprite/Hitbox" to="Node2D/Sprite/Hitbox" method="_on_Hitbox_area_entered"]
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
