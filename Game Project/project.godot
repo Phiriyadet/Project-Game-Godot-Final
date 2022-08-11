@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://Weapons/Weapon.gd"
+}, {
+"base": "Enemy",
+"class": "shrek",
+"language": "GDScript",
+"path": "res://Characters/Enemies/Shrek-t-post/Shrek-t-post.gd"
 } ]
 _global_script_class_icons={
 "BonkBat": "res://Assets/Weapon/bat.png",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "Enemy": "",
 "FiniteStateMachine": "",
 "Hitbox": "",
-"Weapon": ""
+"Weapon": "",
+"shrek": "res://Assets/Shrek-t-post/shrek-t-pose.png"
 }
 
 [application]

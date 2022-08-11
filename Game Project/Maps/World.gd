@@ -1,9 +1,10 @@
 extends Node2D
 
 var Enemy = preload ("res://Characters/Enemies/Shrek-t-post/Shrek-t-post.tscn")
+onready var player := $"%Dog" as KinematicBody2D
 
-onready var HUD = get_node("HUD")
-onready var count_time = get_node("HUD/CountTime")
+onready var HUD := $"%HUD" as CanvasLayer
+onready var count_time := $"%CountTime" as Timer
 
 
 # Declare member variables here. Examples:
@@ -26,7 +27,7 @@ func _ready():
 func _on_CountTime_timeout():
 	t += 1
 	HUD.update_time(t)
-	var player = get_node("Player/Dog")
+#	var player = get_node("Player/Dog")
 	var e = Enemy.instance()
 	e.position = player.position + Vector2(1000,0).rotated(rand_range(0,2*PI))
 	add_child(e)
