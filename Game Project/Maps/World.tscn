@@ -16,13 +16,16 @@ texture = ExtResource( 2 )
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Dog" parent="Player" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 script = ExtResource( 4 )
 
 [node name="Time" type="Label" parent="HUD"]
+unique_name_in_owner = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -20.0
@@ -32,5 +35,6 @@ text = "0"
 align = 1
 
 [node name="CountTime" type="Timer" parent="HUD"]
+unique_name_in_owner = true
 
 [connection signal="timeout" from="HUD/CountTime" to="." method="_on_CountTime_timeout"]

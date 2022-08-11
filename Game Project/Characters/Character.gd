@@ -6,7 +6,7 @@ const FRICTION: float = 0.15
 
 export(int) var max_hp: int = 100 
 export(int) var hp: int = 100 setget set_hp, get_hp
-export(float) var atk = 1 setget set_atk, get_atk
+export(float) var atk = 0 setget set_atk, get_atk
 export(float) var spd = 100 setget set_spd, get_spd
 export(float) var crt = 0.25 setget set_crt, get_crt
 export(float) var haste = 0 setget set_haste, get_haste
@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 func move() -> void:
 	mov_direction = mov_direction.normalized()
 	velocity += mov_direction * accerelation
-	velocity = velocity.clamped(self.spd) #ไม่เกิน max_speed
+	velocity = velocity.limit_length(self.spd) #ไม่เกิน max_speed
 	
 	
 func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
