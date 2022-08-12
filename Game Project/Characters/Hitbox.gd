@@ -2,7 +2,7 @@ extends Area2D
 class_name Hitbox
 
 
-export(int) var damage = 50 setget set_damage, gat_damage
+export(int) var damage = 0 setget set_damage, get_damage
 var knockback_direction: Vector2 = Vector2.ZERO
 export(int) var knockback_force: int = 100
 
@@ -38,15 +38,15 @@ func _on_body_exited(_body):
 	timer.stop()
 	
 	
-func _collide(body):
+func _collide(body): #ส่ง damage ไปยัง body
 	if body == null or not body.has_method("take_damage"):
 		queue_free()
 	else:
 		body.take_damage(damage, knockback_direction, knockback_force)
 
-func set_damage(atk):
-	damage = damage + atk
-	print_debug(damage)
+func set_damage(new_damage):
+	damage = new_damage
+#	print_debug(damage)
 	
-func gat_damage():
+func get_damage():
 	return damage

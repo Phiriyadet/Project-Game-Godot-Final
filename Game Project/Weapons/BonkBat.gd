@@ -6,8 +6,7 @@ class_name BonkBat, "res://Assets/Weapon/bat.png"
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	cool_down_timer.start()
+
 	
 func _process(_delta):
 	if Input.is_action_pressed("ui_left"):
@@ -15,12 +14,5 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_right"):
 		scale.x = 0.5
 			
-func attack():
-	animation_player.play("attack")
-	
-	
 
-
-func _on_CoolDownTimer_timeout():
-	attack()
 

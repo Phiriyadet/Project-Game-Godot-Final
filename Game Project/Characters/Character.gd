@@ -6,10 +6,10 @@ const FRICTION: float = 0.15
 
 export(int) var max_hp: int = 100 
 export(int) var hp: int = 100 setget set_hp, get_hp
-export(float) var atk = 0 setget set_atk, get_atk
-export(float) var spd = 100 setget set_spd, get_spd
+export(int) var atk = 0 setget set_atk, get_atk
+export(int) var spd = 100 setget set_spd, get_spd
 export(float) var crt = 0.25 setget set_crt, get_crt
-export(float) var haste = 0 setget set_haste, get_haste
+export(int) var haste = 0 setget set_haste, get_haste
 
 #signal hp_changed(new_hp)
 
@@ -47,7 +47,7 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 			velocity += dir * force * 2
 		
 		
-func set_hp(new_hp: int):
+func set_hp(new_hp):
 	hp = clamp(new_hp, 0, max_hp)
 #	print_debug(hp)
 #	emit_signal("hp_changed", hp)

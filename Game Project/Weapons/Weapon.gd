@@ -10,11 +10,11 @@ onready var cool_down_timer: Timer = get_node("CoolDownTimer")
 func _init():
 	pass
 func _ready():
-	pass
+	cool_down_timer.start()
 	
-func _process(_delta):
-	pass
-#	if player_flip == false:
-#		animated_sprite.flip_h = false
-#	if player_flip == true:
-#		animated_sprite.flip_h = true
+func attack():
+	animation_player.play("attack")
+	
+
+func _on_CoolDownTimer_timeout():
+	attack()

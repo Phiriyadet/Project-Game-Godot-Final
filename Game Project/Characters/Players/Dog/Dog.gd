@@ -1,5 +1,7 @@
 extends Character
 
+class_name Dog, "res://Assets/Dog/dog-idle-1.png"
+
 onready var bonkbat:= $"%BonkBat" as Node2D
 onready var pickup_radius = get_node("PickupRadius/CollisionShape2D").shape.radius
 

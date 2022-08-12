@@ -1,6 +1,11 @@
 extends Node2D
 
-var Enemy = preload ("res://Characters/Enemies/Shrek-t-post/Shrek-t-post.tscn")
+const ENEMY_SCENES: Dictionary = { 
+	'SHREK_TPOST': preload ("res://Characters/Enemies/Shrek-t-post/Shrek-t-post.tscn"),
+	'CURSED_CAT':preload("res://Characters/Enemies/Cursed_cat/CursedCat.tscn")
+
+}
+
 onready var player := $"%Dog" as KinematicBody2D
 
 onready var HUD := $"%HUD" as CanvasLayer
@@ -9,6 +14,7 @@ onready var count_time := $"%CountTime" as Timer
 
 # Declare member variables here. Examples:
 var t = 0
+var enemy :KinematicBody2D
 
 
 func _init():
@@ -27,9 +33,12 @@ func _ready():
 func _on_CountTime_timeout():
 	t += 1
 	HUD.update_time(t)
-#	var player = get_node("Player/Dog")
-	var e = Enemy.instance()
-	e.position = player.position + Vector2(1000,0).rotated(rand_range(0,2*PI))
-	add_child(e)
+	if randi() % 2 == 0:
+		enemy = ENEMY_SCENES.SHREK_TPOST.instance()
+	else:
+		enemy = ENEMY_SCENES.CURSED_CAT.instance()
+	
+	enemy.position = player.position + Vector2(1000,0).rotated(rand_range(0,2*PI))
+	add_child(enemy)
 	
 	
