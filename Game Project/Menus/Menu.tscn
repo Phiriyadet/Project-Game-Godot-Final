@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menus/Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 1.0
+margin_right = 6.0
+margin_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 155.0
+margin_top = 28.0
+margin_right = 295.0
+margin_bottom = 148.0
+
+[node name="startBtn" type="Button" parent="VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 20.0
+text = "START"
+
+[node name="shopBtn" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 140.0
+margin_bottom = 44.0
+text = "SHOP"
+
+[node name="setingBtn" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 140.0
+margin_bottom = 68.0
+text = "SETTING"
+
+[node name="creditBtn" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 140.0
+margin_bottom = 92.0
+text = "CREDIT"
+
+[node name="quitBtn" type="Button" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 140.0
+margin_bottom = 116.0
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/startBtn" to="." method="_on_startBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitBtn" to="." method="_on_quitBtn_pressed"]

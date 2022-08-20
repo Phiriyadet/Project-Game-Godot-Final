@@ -37,4 +37,12 @@ align = 1
 [node name="CountTime" type="Timer" parent="HUD"]
 unique_name_in_owner = true
 
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [connection signal="timeout" from="HUD/CountTime" to="." method="_on_CountTime_timeout"]
