@@ -1,24 +1,24 @@
 extends FiniteStateMachine
 
 
-func _init() -> void:
+func _init():
 	_add_state("idle")
 	_add_state("move")
 	_add_state("hurt")
 	_add_state("dead")
 	
 	
-func _ready() -> void:
+func _ready():
 	set_state(states.idle)
 	
 	
-func _state_logic(_delta: float) -> void:
+func _state_logic(_delta: float):
 	if state == states.idle or state == states.move:
 		parent.get_input()
 		parent.move()
 	
 	
-func _get_transition() -> int:
+func _get_transition():
 	match state:
 		states.idle:
 			if parent.velocity.length() > 10:
@@ -30,7 +30,7 @@ func _get_transition() -> int:
 	return -1
 	
 	
-func _enter_state(_previous_state: int, new_state: int) -> void:
+func _enter_state(_previous_state: int, new_state: int):
 	match new_state:
 		states.idle:
 			animation_player.play("idle")
