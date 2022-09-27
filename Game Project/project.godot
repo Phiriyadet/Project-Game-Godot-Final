@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Weapon",
 "class": "BonkBat",
 "language": "GDScript",
-"path": "res://Weapons/BonkBat.gd"
+"path": "res://Weapons/BonkBat/BonkBat.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Character",
@@ -20,9 +20,9 @@ _global_script_classes=[ {
 "path": "res://Characters/Character.gd"
 }, {
 "base": "Character",
-"class": "Dog",
+"class": "CursedCat",
 "language": "GDScript",
-"path": "res://Characters/Players/Dog/Dog.gd"
+"path": "res://Characters/Enemies/CursedCat/CursedCat.gd"
 }, {
 "base": "Character",
 "class": "Enemy",
@@ -39,37 +39,43 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Hitbox.gd"
 }, {
+"base": "Character",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Characters/Players/Player.gd"
+}, {
+"base": "FiniteStateMachine",
+"class": "PlayerFSM",
+"language": "GDScript",
+"path": "res://Characters/Players/PlayerFSM.gd"
+}, {
+"base": "Player",
+"class": "TheDog",
+"language": "GDScript",
+"path": "res://Characters/Players/TheDog/TheDog.gd"
+}, {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://Weapons/Weapon.gd"
-}, {
-"base": "Enemy",
-"class": "cursed_cat",
-"language": "GDScript",
-"path": "res://Characters/Enemies/Cursed_cat/CursedCat.gd"
-}, {
-"base": "Enemy",
-"class": "shrek",
-"language": "GDScript",
-"path": "res://Characters/Enemies/Shrek-t-post/Shrek-t-post.gd"
 } ]
 _global_script_class_icons={
-"BonkBat": "res://Assets/Weapon/bat.png",
+"BonkBat": "res://Assets/Weapons/bonk-bat/bat.png",
 "Character": "",
-"Dog": "res://Assets/Dog/dog-idle-1.png",
+"CursedCat": "res://Assets/Characters/Enemies/Cursed_cat/cursed_cat-idle-1.png",
 "Enemy": "",
 "FiniteStateMachine": "",
 "Hitbox": "",
-"Weapon": "",
-"cursed_cat": "res://Assets/Cursed_cat/cursed_cat-idle-1.png",
-"shrek": "res://Assets/Shrek-t-post/shrek-t-pose.png"
+"Player": "",
+"PlayerFSM": "",
+"TheDog": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
+"Weapon": ""
 }
 
 [application]
 
 config/name="Game Project Final"
-run/main_scene="res://Menus/Menu.tscn"
+run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -80,6 +86,10 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg" )
 
 [input]
 
@@ -117,6 +127,7 @@ ui_down={
 2d_physics/layer_1="Worid"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Prop"
 
 [physics]
 
@@ -124,4 +135,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

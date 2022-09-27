@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bonk-By-Tuna.mp3-49374a8c21180dc57a1fe81eb2b153ab.mp3str"
+
+[deps]
+
+source_file="res://Assets/Weapons/bonk-bat/bonk-By-Tuna.mp3"
+dest_files=[ "res://.import/bonk-By-Tuna.mp3-49374a8c21180dc57a1fe81eb2b153ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

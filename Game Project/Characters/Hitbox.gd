@@ -2,9 +2,9 @@ extends Area2D
 class_name Hitbox
 
 
-export(int) var damage = 0 setget set_damage, get_damage
+export(int) var damage = 1 setget set_damage, get_damage
 var knockback_direction: Vector2 = Vector2.ZERO
-export(int) var knockback_force: int = 100
+export(int) var knockback_force: int = 300
 
 var body_inside: bool = false
 
@@ -19,7 +19,7 @@ func _init():
 	
 func _ready():
 
-	self.set_damage(1)
+#	self.set_damage(1)
 	assert(collision_shape != null)
 	timer.wait_time = 1
 	add_child(timer)
