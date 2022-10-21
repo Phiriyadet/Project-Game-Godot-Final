@@ -187,7 +187,4 @@ anims/move = SubResource( 4 )
 [node name="PathTimer" type="Timer" parent="." index="5"]
 autostart = true
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
-enabled = true
-
 [connection signal="timeout" from="PathTimer" to="." method="_on_PathTimer_timeout"]

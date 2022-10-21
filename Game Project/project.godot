@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game Project Final"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -89,7 +89,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [input]
 

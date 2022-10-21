@@ -11,15 +11,10 @@ onready var hitbox := get_node("Hitbox")
 onready var path_timer: Timer = get_node("PathTimer")
 onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 
-onready var line2d = $Lind2D
-onready var los = $RayCast2D
 
-	
 func chase():
 	
 	if player:
-#		los.look_at(player.global_position)
-#		check_player_in_detection()
 		generate_path()
 		navigate()
 	
@@ -67,7 +62,6 @@ func chase():
 func navigate():	# Define the next position to go to
 	if path.size() > 0:
 		mov_direction = global_position.direction_to(path[1]) 
-		
 		# If reached the destination, remove this point from path array
 		if global_position == path[0]:
 			path.pop_front()

@@ -22,3 +22,7 @@ func _on_startBtn_pressed():
 
 func _on_quitBtn_pressed():
 	get_tree().quit()
+
+
+func _on_creditsBtn_pressed():
+	get_tree().change_scene("res://Menus/Credits.tscn")

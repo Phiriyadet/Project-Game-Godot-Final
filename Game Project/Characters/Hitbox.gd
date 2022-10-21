@@ -4,7 +4,7 @@ class_name Hitbox
 
 export(int) var damage = 1 setget set_damage, get_damage
 var knockback_direction: Vector2 = Vector2.ZERO
-export(int) var knockback_force: int = 300
+export(int) var knockback_force: int = 100
 
 var body_inside: bool = false
 
