@@ -20,7 +20,7 @@ margin_bottom = 197.0
 [node name="startBtn" type="Button" parent="VBoxContainer"]
 margin_right = 140.0
 margin_bottom = 20.0
-text = "START"
+text = "start"
 
 [node name="shopBtn" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
