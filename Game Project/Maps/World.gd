@@ -5,7 +5,7 @@ const ENEMY_SCENES: Dictionary = {
 	"HalfCat":preload("res://Characters/Enemies/HalfCat/HalfCat.tscn")
 }
 
-onready var player := $"%TheDog" as KinematicBody2D
+onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 onready var HUD := $"%HUD" as CanvasLayer
 onready var count_time := $"%CountTime" as Timer
 onready var nav := $Areas/Area

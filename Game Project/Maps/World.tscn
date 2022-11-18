@@ -15,7 +15,6 @@ script = ExtResource( 2 )
 [node name="Player" type="Node2D" parent="."]
 
 [node name="TheDog" parent="Player" instance=ExtResource( 4 )]
-unique_name_in_owner = true
 
 [node name="Enemy" type="Node2D" parent="."]
 

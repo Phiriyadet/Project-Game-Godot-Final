@@ -8,7 +8,7 @@ onready var navigation: Navigation2D = get_tree().current_scene.get_node("Areas"
 onready var hitbox := get_node("Hitbox")
 #onready var hitbox_coll := get_node("Hitbox/CollisionShape2D")
 #onready var colli := get_node("CollisionShape2D")
-onready var path_timer: Timer = get_node("PathTimer")
+#onready var path_timer: Timer = get_node("PathTimer")
 onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 
 
