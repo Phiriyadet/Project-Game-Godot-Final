@@ -1,11 +1,28 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Enemies/EnemyFSM.gd" type="Script" id=2]
 [ext_resource path="res://Characters/Hitbox.gd" type="Script" id=3]
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Characters/Enemies/Half_cat/halfie_cat.png" type="Texture" id=5]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=6]
 resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
@@ -13,7 +30,7 @@ animations = [ {
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
@@ -84,8 +101,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "hurt"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -135,8 +151,7 @@ tracks/3/keys = {
 "values": [ "move" ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "move"
+[sub_resource type="Animation" id=8]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -164,14 +179,14 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="Enemy" instance=ExtResource( 4 )]
+[node name="Enemy" groups=["Enemy"] instance=ExtResource( 4 )]
 script = ExtResource( 1 )
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="1"]
-frames = SubResource( 1 )
+frames = SubResource( 6 )
 animation = "move"
 
 [node name="Hitbox" type="Area2D" parent="." index="3"]
@@ -181,8 +196,8 @@ script = ExtResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/dead = SubResource( 5 )
-anims/hurt = SubResource( 3 )
-anims/move = SubResource( 4 )
+anims/hurt = SubResource( 7 )
+anims/move = SubResource( 8 )
 
 [node name="PathTimer" type="Timer" parent="." index="5"]
 autostart = true

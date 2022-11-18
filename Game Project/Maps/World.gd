@@ -1,7 +1,8 @@
 extends Node2D
 
 const ENEMY_SCENES: Dictionary = { 
-	"CURSED_CAT":preload("res://Characters/Enemies/CursedCat/CursedCat.tscn")
+	"CursedCat":preload("res://Characters/Enemies/CursedCat/CursedCat.tscn"),
+	"HalfCat":preload("res://Characters/Enemies/HalfCat/HalfCat.tscn")
 }
 
 onready var player := $"%TheDog" as KinematicBody2D
@@ -30,12 +31,12 @@ func _ready():
 func _on_CountTime_timeout():
 	t += 1
 	HUD.update_time(t)
-#	if randi() % 2 == 0:
-#		enemy = ENEMY_SCENES.SHREK_TPOST.instance()
-#	else:
-#		enemy = ENEMY_SCENES.CURSED_CAT.instance()
+	if randi() % 2 == 0:
+		enemy = ENEMY_SCENES.HalfCat.instance()
+	else:
+		enemy = ENEMY_SCENES.CursedCat.instance()
 
-	enemy = ENEMY_SCENES.CURSED_CAT.instance()
+#	enemy = ENEMY_SCENES.CURSED_CAT.instance()
 	enemy.position = player.position + Vector2(300,0).rotated(rand_range(0,2*PI))
 	nav.call_deferred("add_child", enemy)
 	
