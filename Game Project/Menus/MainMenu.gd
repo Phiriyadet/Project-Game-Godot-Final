@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_startBtn_pressed():
-	get_tree().change_scene("res://Maps/World.tscn")
+	get_tree().change_scene("res://Menus/SelectPlayer.tscn")
 
 
 func _on_quitBtn_pressed():
