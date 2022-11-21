@@ -45,6 +45,11 @@ _global_script_classes=[ {
 "path": "res://Characters/Hitbox.gd"
 }, {
 "base": "Character",
+"class": "MonkeyCaesar",
+"language": "GDScript",
+"path": "res://Characters/Players/MonkeyCaesar/MonkeyCaesar.gd"
+}, {
+"base": "Character",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Characters/Players/Player.gd"
@@ -72,6 +77,7 @@ _global_script_class_icons={
 "FiniteStateMachine": "",
 "HalfCat": "res://Assets/Characters/Enemies/Half_cat/halfiecat-1.png",
 "Hitbox": "",
+"MonkeyCaesar": "res://Assets/Characters/Players/Monkey/monkey-idle-1.png",
 "Player": "",
 "PlayerFSM": "",
 "TheDog": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
@@ -141,5 +147,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

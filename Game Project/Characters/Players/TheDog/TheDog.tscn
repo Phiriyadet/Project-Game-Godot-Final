@@ -68,8 +68,6 @@ max_hp = 50
 hp = 50
 atk = 15
 spd = 50
-crt = 5.0
-haste = null
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 11 )

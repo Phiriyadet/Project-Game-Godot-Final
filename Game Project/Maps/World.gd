@@ -5,19 +5,23 @@ const ENEMY_SCENES: Dictionary = {
 	"HalfCat":preload("res://Characters/Enemies/HalfCat/HalfCat.tscn")
 }
 
-onready var player := get_tree().current_scene.get_node("Player").get_child(0)
-onready var HUD := $"%HUD" as CanvasLayer
-onready var count_time := $"%CountTime" as Timer
+onready var player := get_node("Player").get_child(0) as KinematicBody2D
+#var player
+onready var HUD := $HUD as CanvasLayer
+onready var count_time := $HUD/CountTime as Timer 
 onready var nav := $Areas/Area
-
+onready var p := $Player as Node2D
 # Declare member variables here. Examples:
 var t = 0
 var enemy :KinematicBody2D
 
 
+	
+	
+	
 func _init():
 	randomize()
-	
+#	player = select_player
 	var screen_size = OS.get_screen_size()
 	var window_size = OS.get_window_size()
 	
@@ -26,6 +30,8 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	
+#	p.add_child(player)
 	count_time.start()
 
 func _on_CountTime_timeout():

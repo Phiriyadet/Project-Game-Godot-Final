@@ -11,7 +11,7 @@ onready var hitbox := get_node("Hitbox")
 #onready var path_timer: Timer = get_node("PathTimer")
 onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 
-
+#ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น
 func chase():
 	
 	if player:
