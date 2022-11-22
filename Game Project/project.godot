@@ -90,6 +90,11 @@ config/name="Game Project Final"
 run/main_scene="res://Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MainMenu="*res://Menus/MainMenu.tscn"
+SelectPlayer="*res://Maps/SelectPlayer.gd"
+
 [display]
 
 window/size/width=480
