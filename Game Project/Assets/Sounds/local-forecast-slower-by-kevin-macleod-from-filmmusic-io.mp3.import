@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/local-forecast-slower-by-kevin-macleod-from-filmmusic-io.mp3-8a4d76c34327b0b4a5358995976440cc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/local-forecast-slower-by-kevin-macleod-from-filmmusic-io.mp3"
+dest_files=[ "res://.import/local-forecast-slower-by-kevin-macleod-from-filmmusic-io.mp3-8a4d76c34327b0b4a5358995976440cc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

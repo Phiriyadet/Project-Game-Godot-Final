@@ -18,40 +18,34 @@ margin_top = 77.0
 margin_right = 307.0
 margin_bottom = 197.0
 
-[node name="startBtn" type="Button" parent="VBoxContainer"]
+[node name="StartBtn" type="Button" parent="VBoxContainer"]
 margin_right = 140.0
 margin_bottom = 25.0
 custom_fonts/font = ExtResource( 2 )
 text = "เริ่มเกม"
 
-[node name="shopBtn" type="Button" parent="VBoxContainer"]
+[node name="SettingBtn" type="Button" parent="VBoxContainer"]
 margin_top = 29.0
 margin_right = 140.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 2 )
-text = "SHOP"
+text = "ตั้งค่า"
 
-[node name="settingBtn" type="Button" parent="VBoxContainer"]
+[node name="CreditsBtn" type="Button" parent="VBoxContainer"]
 margin_top = 58.0
 margin_right = 140.0
 margin_bottom = 83.0
 custom_fonts/font = ExtResource( 2 )
-text = "SETTING"
+text = "เครดิต"
 
-[node name="creditsBtn" type="Button" parent="VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="VBoxContainer"]
 margin_top = 87.0
 margin_right = 140.0
 margin_bottom = 112.0
 custom_fonts/font = ExtResource( 2 )
-text = "CREDITS"
+text = "ออก"
 
-[node name="quitBtn" type="Button" parent="VBoxContainer"]
-margin_top = 116.0
-margin_right = 140.0
-margin_bottom = 141.0
-custom_fonts/font = ExtResource( 2 )
-text = "QUIT"
-
-[connection signal="pressed" from="VBoxContainer/startBtn" to="." method="_on_startBtn_pressed"]
-[connection signal="pressed" from="VBoxContainer/creditsBtn" to="." method="_on_creditsBtn_pressed"]
-[connection signal="pressed" from="VBoxContainer/quitBtn" to="." method="_on_quitBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingBtn" to="." method="_on_SettingBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsBtn" to="." method="_on_CreditsBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]

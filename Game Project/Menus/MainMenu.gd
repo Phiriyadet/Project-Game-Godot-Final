@@ -16,13 +16,17 @@ func _ready():
 #	pass
 
 
-func _on_startBtn_pressed():
+func _on_StartBtn_pressed():
 	get_tree().change_scene("res://Menus/SelectPlayer.tscn")
 
 
-func _on_quitBtn_pressed():
+func _on_QuitBtn_pressed():
 	get_tree().quit()
 
 
-func _on_creditsBtn_pressed():
+func _on_CreditsBtn_pressed():
 	get_tree().change_scene("res://Menus/Credits.tscn")
+
+
+func _on_SettingBtn_pressed():
+	get_tree().change_scene("res://Menus/Settings.tscn")

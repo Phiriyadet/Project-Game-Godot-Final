@@ -94,6 +94,7 @@ config/icon="res://icon.png"
 
 MainMenu="*res://Menus/MainMenu.tscn"
 SelectPlayer="*res://Maps/SelectPlayer.gd"
+BackgroundMusic="*res://Menus/BackgroundMusic.tscn"
 
 [display]
 
