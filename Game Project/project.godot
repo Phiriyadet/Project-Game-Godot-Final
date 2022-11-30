@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Characters/Character.gd"
 }, {
 "base": "Character",
+"class": "Cockroach",
+"language": "GDScript",
+"path": "res://Characters/Enemies/Cockroach/Cockroach.gd"
+}, {
+"base": "Character",
 "class": "CursedCat",
 "language": "GDScript",
 "path": "res://Characters/Enemies/CursedCat/CursedCat.gd"
@@ -72,6 +77,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BonkBat": "res://Assets/Weapons/bonk-bat/bat.png",
 "Character": "",
+"Cockroach": "res://Assets/Characters/Enemies/Cockroach_dancing/cockroach-1.png",
 "CursedCat": "res://Assets/Characters/Enemies/Cursed_cat/cursed_cat-idle-1.png",
 "Enemy": "",
 "FiniteStateMachine": "",
