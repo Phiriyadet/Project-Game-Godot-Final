@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TX Tileset Stone Ground.png-2913f5af6fa6848a6ac01c419b9ffd85.stex"
+path="res://.import/takemymoney.png-8bd6d4023801fd3413b07d7f8c5569b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art Top Down - Basic/Texture/TX Tileset Stone Ground.png"
-dest_files=[ "res://.import/TX Tileset Stone Ground.png-2913f5af6fa6848a6ac01c419b9ffd85.stex" ]
+source_file="res://Assets/Items/takemymoney.png"
+dest_files=[ "res://.import/takemymoney.png-8bd6d4023801fd3413b07d7f8c5569b1.stex" ]
 
 [params]
 

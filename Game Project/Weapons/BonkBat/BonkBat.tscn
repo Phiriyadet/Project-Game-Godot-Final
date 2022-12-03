@@ -83,7 +83,6 @@ script = ExtResource( 2 )
 rotation = -1.5708
 
 [node name="Sprite" parent="Node2D" index="0"]
-visible = false
 position = Vector2( 30, 50 )
 rotation = -0.785398
 texture = ExtResource( 3 )
@@ -94,7 +93,6 @@ damage = 40
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 rotation = 0.785398
 shape = SubResource( 1 )
-disabled = true
 
 [node name="CoolDownTimer" parent="." index="1"]
 wait_time = 3.0

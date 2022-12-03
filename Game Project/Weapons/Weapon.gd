@@ -10,13 +10,13 @@ onready var cool_down_timer: Timer = get_node("CoolDownTimer")
 
 func _init():
 	pass
+	
 func _ready():
 	cool_down_timer.start()
 	
 func attack():
 	animation_player.play("attack")
 	
-
 func _on_CoolDownTimer_timeout():
 	attack()
 	

@@ -12,7 +12,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	music.playing = true
+	pass
 	
 func _on_FullScreen_CheckButton_pressed():
 	if fullscreen_checkbutton.pressed == true:

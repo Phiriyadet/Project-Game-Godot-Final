@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TX Shadow.png-0a125b316fb4080379dd6398408cecb5.stex"
+path="res://.import/TX Shadow.png-87164af5e0fd414c0433362f1c097bd4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art Top Down - Basic/Texture/TX Shadow.png"
-dest_files=[ "res://.import/TX Shadow.png-0a125b316fb4080379dd6398408cecb5.stex" ]
+source_file="res://Assets/Pixel Art Top Down - Basic/Texture/TX Shadow.png"
+dest_files=[ "res://.import/TX Shadow.png-87164af5e0fd414c0433362f1c097bd4.stex" ]
 
 [params]
 

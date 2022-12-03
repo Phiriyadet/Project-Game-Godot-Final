@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TX Tileset Grass.png-2b4d4825f7ac3e64bc84b45d2d3e292e.stex"
+path="res://.import/TX Player.png-00408d3e60f7c4b379c1d08af3d1a806.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art Top Down - Basic/Texture/TX Tileset Grass.png"
-dest_files=[ "res://.import/TX Tileset Grass.png-2b4d4825f7ac3e64bc84b45d2d3e292e.stex" ]
+source_file="res://Assets/Pixel Art Top Down - Basic/Texture/TX Player.png"
+dest_files=[ "res://.import/TX Player.png-00408d3e60f7c4b379c1d08af3d1a806.stex" ]
 
 [params]
 
