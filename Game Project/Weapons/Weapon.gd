@@ -18,7 +18,8 @@ func attack():
 	animation_player.play("attack")
 	
 func _on_CoolDownTimer_timeout():
-	attack()
+#	attack()
+	animation_player.play("attack")
 	
 func set_atk_w(new_atk):
 	atk_w += new_atk

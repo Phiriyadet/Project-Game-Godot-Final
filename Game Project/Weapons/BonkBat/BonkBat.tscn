@@ -78,6 +78,9 @@ tracks/4/keys = {
 [node name="BonkBat" instance=ExtResource( 1 )]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Node2D" parent="." index="0"]
 rotation = -1.5708
@@ -101,14 +104,5 @@ autostart = true
 [node name="AnimationPlayer" parent="." index="2"]
 anims/attack = SubResource( 3 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
-
-[node name="Label" type="Label" parent="CanvasLayer" index="0"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "w"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource( 4 )
-
-[connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]

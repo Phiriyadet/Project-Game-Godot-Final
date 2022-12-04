@@ -15,8 +15,9 @@ onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 func chase():
 	
 	if player:
-		generate_path()
-		navigate()
+		mov_direction = global_position.direction_to(player.global_position)
+#		generate_path()
+#		navigate()
 	
 
 #	if path:
