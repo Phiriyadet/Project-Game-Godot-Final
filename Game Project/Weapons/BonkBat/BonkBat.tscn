@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Weapons/BonkBat/BonkBat.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Weapons/bonk-bat/bat.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Weapons/bonk-bat/bonk-By-Tuna.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/bonk-By-Tuna.mp3" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.24264
@@ -104,5 +105,5 @@ autostart = true
 [node name="AnimationPlayer" parent="." index="2"]
 anims/attack = SubResource( 3 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
-stream = ExtResource( 4 )
+[node name="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource( 5 )
