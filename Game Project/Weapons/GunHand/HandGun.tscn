@@ -28,4 +28,3 @@ autostart = true
 
 [node name="SpawnBulletPossition2D" type="Position2D" parent="Anchor" index="0"]
 position = Vector2( 120, -60 )
-scale = Vector2( 1, 1 )
