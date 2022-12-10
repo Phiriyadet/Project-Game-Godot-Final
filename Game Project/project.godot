@@ -109,7 +109,7 @@ _global_script_class_icons={
 "PepeTheFrog": "res://Assets/Characters/Players/Pepe/pepe-idle-1.png",
 "Player": "",
 "PlayerFSM": "",
-"Punch": "",
+"Punch": "res://Assets/Weapons/punch/punch.png",
 "TheDog": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
 "Weapon": ""
 }
