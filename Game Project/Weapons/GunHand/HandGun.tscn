@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Weapons/gunhand/gunhand-1.png" type="Texture" id=1]
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=2]
@@ -7,25 +7,6 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.0001
 height = 42.0
-
-[sub_resource type="Animation" id=2]
-resource_local_to_scene = true
-resource_name = "attack"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "shoot"
-} ]
-}
 
 [node name="HandGun" instance=ExtResource( 2 )]
 scale = Vector2( 0.2, 0.2 )
@@ -43,10 +24,8 @@ shape = SubResource( 1 )
 [node name="CoolDownTimer" parent="." index="1"]
 autostart = true
 
-[node name="AnimationPlayer" parent="." index="2"]
-anims/attack = SubResource( 2 )
-
 [node name="Anchor" type="Node2D" parent="." index="3"]
 
 [node name="SpawnBulletPossition2D" type="Position2D" parent="Anchor" index="0"]
 position = Vector2( 120, -60 )
+scale = Vector2( 1, 1 )

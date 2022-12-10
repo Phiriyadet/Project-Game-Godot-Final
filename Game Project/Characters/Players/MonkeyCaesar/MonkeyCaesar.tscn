@@ -56,7 +56,7 @@ animations = [ {
 height = 36.0
 
 [sub_resource type="CircleShape2D" id=11]
-radius = 20.0
+radius = 28.2843
 
 [node name="MonkeyCaesar" instance=ExtResource( 3 )]
 script = ExtResource( 4 )

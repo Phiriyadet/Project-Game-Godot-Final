@@ -79,11 +79,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Players/PlayerFSM.gd"
 }, {
-"base": "Node2D",
-"class": "Punch",
-"language": "GDScript",
-"path": "res://Weapons/Punch/Punch.gd"
-}, {
 "base": "Player",
 "class": "TheDog",
 "language": "GDScript",
@@ -109,7 +104,6 @@ _global_script_class_icons={
 "PepeTheFrog": "res://Assets/Characters/Players/Pepe/pepe-idle-1.png",
 "Player": "",
 "PlayerFSM": "",
-"Punch": "",
 "TheDog": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
 "Weapon": ""
 }
