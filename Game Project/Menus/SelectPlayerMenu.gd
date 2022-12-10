@@ -44,3 +44,9 @@ func _on_TextureRect2_pressed():
 	playBtn.disabled = false
 	SelectPlayer.player_select = "Monkey"
 #	.0GlobalWorld.get_node("Player").add_child(Monkey)
+
+
+func _on_TextureRect3_pressed():
+	label.text = "Frog"
+	playBtn.disabled = false
+	SelectPlayer.player_select = "Frog"

@@ -6,7 +6,8 @@ const ENEMY_SCENES: Dictionary = {
 }
 const PLAYER_SCENES: Dictionary = {
 	"Dog":preload("res://Characters/Players/TheDog/TheDog.tscn"),
-	"Monkey":preload("res://Characters/Players/MonkeyCaesar/MonkeyCaesar.tscn")
+	"Monkey":preload("res://Characters/Players/MonkeyCaesar/MonkeyCaesar.tscn"),
+	"Frog":preload("res://Characters/Players/PepeTheFrog/PepeTheFrog.tscn")
 }
  
 #onready var player := get_node("Player").get_child(0) as KinematicBody2D
@@ -22,11 +23,14 @@ var player_in_map : KinematicBody2D
 
 	
 func select_player(select_player):
-	if select_player == "Dog":
-		player = PLAYER_SCENES.Dog.instance()
-	if select_player == "Monkey":
-		player = PLAYER_SCENES.Monkey.instance()
-	
+	match select_player:
+		"Dog":
+			player = PLAYER_SCENES.Dog.instance()
+		"Monkey":
+			player = PLAYER_SCENES.Monkey.instance()
+		"Frog":
+			player = PLAYER_SCENES.Frog.instance()
+			
 func _init():
 	randomize()
 	var screen_size = OS.get_screen_size()

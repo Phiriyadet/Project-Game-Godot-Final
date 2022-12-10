@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_StartBtn_pressed():
-	get_tree().change_scene("res://Menus/SelectPlayer.tscn")
+	get_tree().change_scene("res://Menus/SelectPlayerMenu.tscn")
 
 
 func _on_QuitBtn_pressed():
