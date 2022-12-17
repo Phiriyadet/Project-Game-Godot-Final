@@ -13,13 +13,12 @@ func launch(initial_position: Vector2, dir: Vector2, speed: int):
 	knockback_direction = dir
 	speed2 = speed
 	rotation += dir.angle() 
-	print_debug(dir)
-	$Timer.start(5)
+	$Timer.start()
 	
 
 func _physics_process(delta: float):
 	position += direction * speed2 * delta / 2
-	print_debug(direction)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

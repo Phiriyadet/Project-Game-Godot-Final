@@ -30,6 +30,12 @@ func _physics_process(_delta: float):
 	
 func move():
 	mov_direction = mov_direction.normalized()
+	
+	if mov_direction.x < 0:
+		animated_sprite.flip_h  = true
+	else:
+		animated_sprite.flip_h  = false
+			
 	velocity += mov_direction * accerelation
 	velocity = velocity.limit_length(self.spd) #ไม่เกิน max_speed
 	

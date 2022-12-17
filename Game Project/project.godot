@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Ameno",
+"language": "GDScript",
+"path": "res://Skills/Ameno/Ameno.gd"
+}, {
 "base": "Weapon",
 "class": "BonkBat",
 "language": "GDScript",
@@ -84,6 +89,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Weapons/Punch/Punch.gd"
 }, {
+"base": "Node2D",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://Skills/Skill.gd"
+}, {
+"base": "Resource",
+"class": "Spawn_info",
+"language": "GDScript",
+"path": "res://Characters/Enemies/Spawn.gd"
+}, {
 "base": "Player",
 "class": "TheDog",
 "language": "GDScript",
@@ -95,6 +110,7 @@ _global_script_classes=[ {
 "path": "res://Weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
+"Ameno": "",
 "BonkBat": "res://Assets/Weapons/bonk-bat/bat.png",
 "Bullet": "res://Assets/Weapons/gunhand/gunhand-2.png",
 "Character": "",
@@ -110,6 +126,8 @@ _global_script_class_icons={
 "Player": "",
 "PlayerFSM": "",
 "Punch": "res://Assets/Weapons/punch/punch.png",
+"Skill": "",
+"Spawn_info": "",
 "TheDog": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
 "Weapon": ""
 }
