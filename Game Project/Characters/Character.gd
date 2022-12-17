@@ -33,7 +33,7 @@ func move():
 	
 	if mov_direction.x < 0:
 		animated_sprite.flip_h  = true
-	else:
+	if mov_direction.x > 0:
 		animated_sprite.flip_h  = false
 			
 	velocity += mov_direction * accerelation

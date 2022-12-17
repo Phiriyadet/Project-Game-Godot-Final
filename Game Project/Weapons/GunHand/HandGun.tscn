@@ -9,7 +9,7 @@ radius = 11.0001
 height = 42.0
 
 [node name="HandGun" instance=ExtResource( 2 )]
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( -0.2, 0.2 )
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="Node2D" index="0"]

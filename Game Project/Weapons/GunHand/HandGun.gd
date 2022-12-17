@@ -20,7 +20,7 @@ func shoot():
 func _process(_delta):
 	if Input.is_action_pressed("ui_left"):
 		scale.x = -0.2
-		spos.position.x = 5
+		spos.position.x = 120
 		spos.rotation_degrees = 180
 		side = -400.0
 		
