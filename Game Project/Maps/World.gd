@@ -9,21 +9,26 @@ const PLAYER_SCENES: Dictionary = {
 	"Monkey":preload("res://Characters/Players/MonkeyCaesar/MonkeyCaesar.tscn"),
 	"Frog":preload("res://Characters/Players/PepeTheFrog/PepeTheFrog.tscn")
 }
+#const ENEMY_SPAWNS: Dictionary={
+#	0:{"time_start":0,"time_end":5,"enemy":ENEMY_SCENES.CursedCat,
+#	"enemy_number":1,"enemy_spawn_delay":0,"spawn_delay_counter" : 0},
+#	1:{"time_start":10,"time_end":20,"enemy":ENEMY_SCENES.HalfCat,
+#	"enemy_number":5,"enemy_spawn_delay":0,"spawn_delay_counter" : 0},
+#}
 const ENEMY_SPAWNS: Dictionary={
 	0:{"time_start":0,"time_end":5,"enemy":ENEMY_SCENES.CursedCat,
-	"enemy_number":5,"enemy_spawn_delay":0},
-	1:{"time_start":5,"time_end":10,"enemy":ENEMY_SCENES.HalfCat,
-	"enemy_number":5,"enemy_spawn_delay":0},
+	"enemy_number":1,"enemy_spawn_delay":0,"spawn_delay_counter" : 0},
+	
 }
 #onready var player := get_node("Player").get_child(0) as KinematicBody2D
 var player 
 onready var HUD := $HUD as CanvasLayer
 onready var count_time := $HUD/CountTime as Timer 
 onready var _pause_menu = $HUD/Pause
-onready var nav := $Areas/Area
+onready var nav := $Area
 onready var p := $Player 
 # Declare member variables here. Examples:
-var t = 0
+var time = 0
 var enemy :KinematicBody2D
 var player_in_map : KinematicBody2D
 
@@ -61,15 +66,30 @@ func _unhandled_input(event):
 		tree.paused = not tree.paused
 	
 func _on_CountTime_timeout():
-	t += 1
-	HUD.update_time(t)
-	if randi() % 2 == 0:
-		enemy = ENEMY_SCENES.HalfCat.instance()
-	else:
-		enemy = ENEMY_SCENES.CursedCat.instance()
-
+	time += 1
+	HUD.update_time(time)
+#	if randi() % 2 == 0:
+#		enemy = ENEMY_SCENES.HalfCat.instance()
+#	else:
+#		enemy = ENEMY_SCENES.CursedCat.instance()
+#	print(ENEMY_SPAWNS)
+	for i in ENEMY_SPAWNS:
+		print(i)
+		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
+			if ENEMY_SPAWNS[i]["spawn_delay_counter"] < ENEMY_SPAWNS[i]["enemy_spawn_delay"]:
+				ENEMY_SPAWNS[i]["spawn_delay_counter"] += 1
+			else:
+				ENEMY_SPAWNS[i]["spawn_delay_counter"] = 0
+				
+				var counter = 0
+				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
+					var enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
+					enemy_spawn.position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
+					nav.call_deferred("add_child", enemy_spawn)
+					counter += 1
+#
 #	enemy = ENEMY_SCENES.CURSED_CAT.instance()
-	enemy.position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
-	nav.call_deferred("add_child", enemy)
+#	enemy.position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
+#	nav.call_deferred("add_child", enemy)
 	
 	

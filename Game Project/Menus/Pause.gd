@@ -12,3 +12,6 @@ func _ready():
 
 func close():
 	get_tree().paused = false
+
+func open():
+	show()

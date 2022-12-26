@@ -104,5 +104,5 @@ autostart = true
 [node name="AnimationPlayer" parent="." index="2"]
 anims/attack = SubResource( 3 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource( 4 )

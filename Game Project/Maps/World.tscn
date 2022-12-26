@@ -31,9 +31,9 @@ align = 1
 
 [node name="CountTime" type="Timer" parent="HUD"]
 
-[node name="Areas" type="Navigation2D" parent="."]
+[node name="Area" parent="." instance=ExtResource( 3 )]
 
-[node name="Area" parent="Areas" instance=ExtResource( 3 )]
+[node name="Areas" type="Navigation2D" parent="."]
 
 [node name="Player" type="Node2D" parent="."]
 
@@ -41,4 +41,4 @@ align = 1
 
 [connection signal="timeout" from="HUD/CountTime" to="." method="_on_CountTime_timeout"]
 
-[editable path="Areas/Area"]
+[editable path="Area"]
