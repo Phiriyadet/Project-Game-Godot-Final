@@ -62,7 +62,7 @@ func get_hp():
 	return hp
 
 func set_atk(new_atk):
-	atk += new_atk
+	atk = new_atk
 	
 func get_atk():
 	return atk

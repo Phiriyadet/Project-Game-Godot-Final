@@ -59,7 +59,8 @@ radius = 13.0
 height = 22.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 14.0
+resource_local_to_scene = true
+radius = 20.0
 
 [node name="TheDog" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

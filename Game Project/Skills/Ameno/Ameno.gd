@@ -5,7 +5,7 @@ extends "res://Skills/Skill.gd"
 # var a = 2
 # var b = "text"
 class_name Ameno
-var pickup_radius
+var pickup_radius 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pickup_radius = 0

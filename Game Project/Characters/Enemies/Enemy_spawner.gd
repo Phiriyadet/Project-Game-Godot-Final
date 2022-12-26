@@ -40,8 +40,7 @@ func _on_Timer_timeout():
 				var counter = 0
 				while counter < i.enemy_number:
 					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.global_position = get_random_position()
+					enemy_spawn.global_position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
 					add_child(enemy_spawn)
 					counter += 1
-func get_random_position():
-	
+					

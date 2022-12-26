@@ -1,26 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Enemies/EnemyFSM.gd" type="Script" id=2]
 [ext_resource path="res://Characters/Hitbox.gd" type="Script" id=3]
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Characters/Enemies/Half_cat/halfie_cat.png" type="Texture" id=5]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 5 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 5 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 5 )
-region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=6]
 resource_local_to_scene = true
@@ -30,7 +13,7 @@ animations = [ {
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [  ],
 "loop": true,
 "name": "move",
 "speed": 5.0

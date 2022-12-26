@@ -3,24 +3,26 @@ extends Character
 class_name Player
 
 
-export(float) var pickup_radius = 100 setget set_pickup, get_pickup
+export(float) var pickup_radius  setget set_pickup, get_pickup
 
 onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")
 onready var items: Node2D = get_node("Weapons")
-onready var radius = get_node("PickupRadius/CollisionShape2D").shape.radius
+onready var picradius:CollisionShape2D = get_node("PickupRadius/CollisionShape2D")
 
 
 func _ready():
 	pass
 
 func _process(delta):
-	radius = self.pickup_radius
-	print(radius)
+	
+#	picradius.shape.radius = self.pickup_radius 
+#	print(picradius.shape.radius)
 	for skill in skills.get_children():
 		match  skill.name:
 			"Ameno":
 				skill.level_skill
+#				print_debug(skill.picup_radius)
 	
 
 func get_input():
@@ -43,7 +45,7 @@ func get_input():
 			
 	
 func set_pickup(new_pick):
-	pickup_radius += new_pick
+	pickup_radius = new_pick
 
 func get_pickup():
 	return pickup_radius

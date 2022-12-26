@@ -9,11 +9,17 @@ const PLAYER_SCENES: Dictionary = {
 	"Monkey":preload("res://Characters/Players/MonkeyCaesar/MonkeyCaesar.tscn"),
 	"Frog":preload("res://Characters/Players/PepeTheFrog/PepeTheFrog.tscn")
 }
- 
+const ENEMY_SPAWNS: Dictionary={
+	0:{"time_start":0,"time_end":5,"enemy":ENEMY_SCENES.CursedCat,
+	"enemy_number":5,"enemy_spawn_delay":0},
+	1:{"time_start":5,"time_end":10,"enemy":ENEMY_SCENES.HalfCat,
+	"enemy_number":5,"enemy_spawn_delay":0},
+}
 #onready var player := get_node("Player").get_child(0) as KinematicBody2D
 var player 
 onready var HUD := $HUD as CanvasLayer
 onready var count_time := $HUD/CountTime as Timer 
+onready var _pause_menu = $HUD/Pause
 onready var nav := $Areas/Area
 onready var p := $Player 
 # Declare member variables here. Examples:
@@ -48,7 +54,12 @@ func _ready():
 	if p.get_child_count()>0:
 		player_in_map = p.get_child(0)
 		count_time.start()	
-		
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		var tree = get_tree()
+		tree.paused = not tree.paused
+	
 func _on_CountTime_timeout():
 	t += 1
 	HUD.update_time(t)
