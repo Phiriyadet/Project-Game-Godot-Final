@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Players/MonkeyCaesar/MonkeyCaesar.gd"
 }, {
+"base": "Node2D",
+"class": "Nokia3310",
+"language": "GDScript",
+"path": "res://Weapons/Nokia3310/Nokia3310.gd"
+}, {
 "base": "Character",
 "class": "PepeTheFrog",
 "language": "GDScript",
@@ -127,6 +132,7 @@ _global_script_class_icons={
 "HandGun": "res://Assets/Weapons/gunhand/gunhand-1.png",
 "Hitbox": "",
 "MonkeyCaesar": "res://Assets/Characters/Players/Monkey/monkey-idle-1.png",
+"Nokia3310": "res://Assets/Weapons/indestructible_nokia_3310/Indestructible_Nokia_3310.png",
 "PepeTheFrog": "res://Assets/Characters/Players/Pepe/pepe-idle-1.png",
 "Player": "",
 "PlayerFSM": "",
