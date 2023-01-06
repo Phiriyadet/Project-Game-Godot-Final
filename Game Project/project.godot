@@ -156,6 +156,10 @@ MainMenu="*res://Menus/MainMenu.tscn"
 SelectPlayer="*res://Maps/SelectPlayer.gd"
 BackgroundMusic="*res://Menus/BackgroundMusic.tscn"
 
+[debug]
+
+gdscript/completion/autocomplete_setters_and_getters=true
+
 [display]
 
 window/size/width=480

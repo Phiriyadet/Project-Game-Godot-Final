@@ -12,6 +12,15 @@ func _ready():
 
 func close():
 	get_tree().paused = false
+	hide()
 
 func open():
 	show()
+
+
+func _on_ResumeBtn_pressed():
+	close()
+
+
+func _on_ExitBtn_pressed():
+	get_tree().quit()
