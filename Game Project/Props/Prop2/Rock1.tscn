@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Props/Prop2/Main_Prop.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 20.9207
+height = 16.1739
+
+[node name="Node2D" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="0"]
+position = Vector2( -32, 30 )
+tile_data = PoolIntArray( -65536, 7, 0 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 2 )
+rotation = -1.56207
+shape = SubResource( 1 )

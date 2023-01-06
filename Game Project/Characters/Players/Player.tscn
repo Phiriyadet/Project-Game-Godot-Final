@@ -200,3 +200,4 @@ anims/move = SubResource( 4 )
 [node name="Skills" type="Node2D" parent="." index="7"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="8"]
+zoom = Vector2( 2, 2 )

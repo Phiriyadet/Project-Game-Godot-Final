@@ -18,14 +18,10 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Box1" type="StaticBody2D"]
+[node name="Node2D" type="StaticBody2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 49, -48 )
 tile_set = SubResource( 1 )
 format = 1
-tile_data = PoolIntArray( 65535, 0, 0 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PoolVector2Array( -11, -17, -5, -22, 7, -22, 14, -16, 14, 6, 7, 13, -5, 13, -12, 6, -12, -16 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
