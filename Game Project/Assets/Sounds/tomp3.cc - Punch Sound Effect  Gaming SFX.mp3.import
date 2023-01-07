@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3-052359fac9626734966f9fc670f81750.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3"
+dest_files=[ "res://.import/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3-052359fac9626734966f9fc670f81750.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

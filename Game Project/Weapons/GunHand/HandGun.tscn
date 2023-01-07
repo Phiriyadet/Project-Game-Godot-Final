@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Weapons/GunHand/HandGun.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/gunhand/gunhand-1.png" type="Texture" id=2]
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sounds/tomp3.cc - Pew sound effect.mp3" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 12.0
@@ -11,7 +12,7 @@ height = 34.0
 [sub_resource type="Animation" id=2]
 resource_local_to_scene = true
 resource_name = "attack"
-length = 0.5
+length = 0.7
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -25,6 +26,20 @@ tracks/0/keys = {
 "args": [  ],
 "method": "shoot"
 } ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [node name="HandGun" instance=ExtResource( 3 )]
@@ -47,3 +62,6 @@ position = Vector2( 180, -85 )
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/attack = SubResource( 2 )
+
+[node name="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 4 )
