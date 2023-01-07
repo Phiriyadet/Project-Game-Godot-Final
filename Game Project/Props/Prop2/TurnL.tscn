@@ -10,8 +10,9 @@ height = 12.0
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2( -15, -19 )
-tile_data = PoolIntArray( 0, 21, 0 )
+tile_data = PoolIntArray( 0, 15, 0 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )

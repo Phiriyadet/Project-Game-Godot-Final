@@ -13,5 +13,6 @@ position = Vector2( -16, 17 )
 tile_data = PoolIntArray( -65536, 0, 0 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2( 0, -4 )
 shape = SubResource( 1 )
