@@ -9,8 +9,9 @@ extents = Vector2( 9, 8.5 )
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2( 48, 27 )
-tile_data = PoolIntArray( -1, 6, 0 )
+tile_data = PoolIntArray( -1, 7, 0 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2( 0, 9.5 )
 shape = SubResource( 1 )

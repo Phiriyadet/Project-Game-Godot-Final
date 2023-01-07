@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menus/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Maps/World.gd" type="Script" id=2]
 [ext_resource path="res://Maps/Areas/Area.tscn" type="PackedScene" id=3]
 [ext_resource path="res://font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Menus/Pause.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Props/Prop2/Box1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Props/Prop2/Box2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Props/Prop2/TurnR.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Props/Prop2/chair.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Props/Prop2/Rock2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Props/Prop2/jar3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Props/Prop2/Rock1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Props/Prop2/RIP1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Props/Prop2/RIP2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Props/Prop2/jar1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Props/Prop2/TMT.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Props/Prop2/Tree1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Props/Prop2/jar2.tscn" type="PackedScene" id=18]
 
 [node name="World" type="Node2D"]
 pause_mode = 2
@@ -12,6 +25,7 @@ script = ExtResource( 2 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 script = ExtResource( 1 )
 
 [node name="Pause" parent="HUD" instance=ExtResource( 5 )]
@@ -46,6 +60,78 @@ tile_data = PoolIntArray( -9109718, 1, 0, -9109717, 0, 0, -9109716, 0, 0, -91097
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Enemy" type="Node2D" parent="."]
+
+[node name="Node2D21" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1, -123 )
+
+[node name="Node2D22" parent="." instance=ExtResource( 12 )]
+position = Vector2( -218, -163 )
+
+[node name="Node2D23" parent="." instance=ExtResource( 13 )]
+position = Vector2( 366, -268 )
+
+[node name="Node2D24" parent="." instance=ExtResource( 13 )]
+position = Vector2( 415, -268 )
+
+[node name="Node2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 137, 70 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 107, 123 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 464, -268 )
+
+[node name="Node2D4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 366, -222 )
+
+[node name="Node2D5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 415, -223 )
+
+[node name="Node2D6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 464, -223 )
+
+[node name="Node2D7" parent="." instance=ExtResource( 17 )]
+position = Vector2( -267, -194 )
+
+[node name="Node2D8" parent="." instance=ExtResource( 17 )]
+position = Vector2( -209, 181 )
+
+[node name="Node2D9" parent="." instance=ExtResource( 17 )]
+position = Vector2( 87, -273 )
+
+[node name="Node2D10" parent="." instance=ExtResource( 17 )]
+position = Vector2( -148, 235 )
+
+[node name="Node2D11" parent="." instance=ExtResource( 17 )]
+position = Vector2( -242, 257 )
+
+[node name="Node2D12" parent="." instance=ExtResource( 17 )]
+position = Vector2( 186, 113 )
+
+[node name="Node2D13" parent="." instance=ExtResource( 17 )]
+position = Vector2( -421, 78 )
+
+[node name="Node2D14" parent="." instance=ExtResource( 17 )]
+position = Vector2( 94, 293 )
+
+[node name="Node2D15" parent="." instance=ExtResource( 15 )]
+position = Vector2( 327, -85 )
+
+[node name="Node2D16" parent="." instance=ExtResource( 18 )]
+position = Vector2( 352, -82 )
+
+[node name="Node2D17" parent="." instance=ExtResource( 11 )]
+position = Vector2( 378, -79 )
+
+[node name="Node2D18" parent="." instance=ExtResource( 9 )]
+position = Vector2( 174, 320 )
+
+[node name="Node2D19" parent="." instance=ExtResource( 10 )]
+position = Vector2( -497, 265 )
+
+[node name="Node2D20" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1, 226 )
 
 [connection signal="timeout" from="HUD/CountTime" to="." method="_on_CountTime_timeout"]
 
