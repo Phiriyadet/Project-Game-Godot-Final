@@ -7,21 +7,21 @@ var direction: Vector2 = Vector2.ZERO
 var speed: int = 0
 
 
-func launch(initial_position: Vector2, dir: Vector2, spd: int):
+func launch(initial_position: Vector2, dir: Vector2, spd: int, attack:int):
 	position = initial_position
 	direction = dir
 	knockback_direction = dir
 	speed = spd
 	rotation += dir.angle() 
 	$Timer.start()
-	
+	self.damage = attack
 
 func _physics_process(delta: float):
 	position += direction * speed * delta / 2
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

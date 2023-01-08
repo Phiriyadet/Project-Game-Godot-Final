@@ -23,7 +23,7 @@ const ENEMY_SPAWNS: Dictionary={
 #onready var player := get_node("Player").get_child(0) as KinematicBody2D
 var player 
 onready var HUD := $HUD as CanvasLayer
-onready var count_time := $HUD/CountTime as Timer 
+onready var count_time := $CountTime as Timer 
 onready var _pause_menu = $HUD/Pause
 onready var nav := $Area
 onready var p := $Player 
@@ -60,14 +60,14 @@ func _ready():
 		player_in_map = p.get_child(0)
 		count_time.start()	
 
-func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
-		var tree = get_tree()
-		tree.paused = not tree.paused
-		if tree.paused:
-			_pause_menu.open()
-		else:
-			_pause_menu.close()
+#func _unhandled_input(event):
+#	if event.is_action_pressed("pause"):
+#		var tree = get_tree()
+#		tree.paused = not tree.paused
+#		if tree.paused:
+#			_pause_menu.open()
+#		else:
+#			_pause_menu.close()
 	
 func _on_CountTime_timeout():
 	time += 1
