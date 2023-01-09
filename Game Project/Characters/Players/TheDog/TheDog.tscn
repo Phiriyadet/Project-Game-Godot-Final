@@ -5,7 +5,7 @@
 [ext_resource path="res://Skills/Ameno/Ameno.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-idle.png" type="Texture" id=5]
-[ext_resource path="res://Weapons/GunHand/HandGun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Weapons/BonkBat/BonkBat.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Items/TakeMyMoney/TakeMyMoney.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=3]
@@ -90,7 +90,7 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="PickupRadius" index="0"]
 shape = SubResource( 2 )
 
-[node name="HandGun" parent="Weapons" index="0" instance=ExtResource( 6 )]
+[node name="BonkBat" parent="Weapons" index="0" instance=ExtResource( 6 )]
 
 [node name="Ameno" parent="Skills" index="0" instance=ExtResource( 3 )]
 
