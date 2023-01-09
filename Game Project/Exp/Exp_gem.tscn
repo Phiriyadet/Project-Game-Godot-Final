@@ -7,6 +7,7 @@
 radius = 29.0172
 
 [node name="Exp_gem" type="Area2D"]
+scale = Vector2( 0.05, 0.05 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

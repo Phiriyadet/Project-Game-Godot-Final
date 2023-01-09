@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/Player.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/GUI/ExpBar/ExpBar-1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/GUI/ExpBar/Exp.png" type="Texture" id=7]
 [ext_resource path="res://font9.tres" type="DynamicFont" id=8]
+[ext_resource path="res://font16.tres" type="DynamicFont" id=9]
 
 [sub_resource type="SpriteFrames" id=5]
 resource_local_to_scene = true
@@ -245,10 +246,19 @@ value = 50.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
-[node name="Label" type="Label" parent="CanvasLayer/GUI" index="2"]
+[node name="Level" type="Label" parent="CanvasLayer/GUI" index="2"]
 margin_left = 248.0
 margin_top = 385.0
 margin_right = 280.0
 margin_bottom = 398.0
 custom_fonts/font = ExtResource( 8 )
 text = "LV. 1"
+
+[node name="EnemyDestroyedCount" type="Label" parent="CanvasLayer/GUI" index="3"]
+margin_left = 672.0
+margin_top = 145.0
+margin_right = 712.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 9 )
+text = "0
+"

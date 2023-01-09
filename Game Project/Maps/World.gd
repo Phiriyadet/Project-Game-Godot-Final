@@ -27,6 +27,7 @@ onready var count_time := $CountTime as Timer
 onready var _pause_menu = $HUD/Pause
 onready var nav := $Area
 onready var p := $Player 
+onready var enemy_group := $EnemyGroup
 # Declare member variables here. Examples:
 var time = 0
 var enemy :KinematicBody2D
@@ -89,7 +90,7 @@ func _on_CountTime_timeout():
 				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
 					var enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
 					enemy_spawn.position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
-					nav.call_deferred("add_child", enemy_spawn)
+					enemy_group.call_deferred("add_child", enemy_spawn)
 					counter += 1
 #
 #	enemy = ENEMY_SCENES.CURSED_CAT.instance()

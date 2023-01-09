@@ -21,3 +21,7 @@ func _on_FullScreen_CheckButton_pressed():
 	else:
 		OS.set_window_fullscreen(false)
 #		OS.set_window_resizable(true)
+
+
+func _on_BackBtn_pressed():
+	get_tree().change_scene("res://Menus/MainMenu.tscn")

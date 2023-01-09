@@ -10,7 +10,8 @@ onready var hitbox := get_node("Hitbox")
 #onready var colli := get_node("CollisionShape2D")
 #onready var path_timer: Timer = get_node("PathTimer")
 onready var player := get_tree().current_scene.get_node("Player").get_child(0)
-
+onready var loot := get_tree().current_scene.get_node("Loot")
+onready var exp_gem = preload("res://Exp/Exp_gem.tscn")
 #ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น
 func chase():
 	
@@ -58,7 +59,10 @@ func chase():
 #	line2d.points = path
 
 
-
+func dropgem():
+	var new_gem = exp_gem.instance()
+	new_gem.global_position = global_position
+	loot.call_deferred("add_child", new_gem)	
 
 func navigate():	# Define the next position to go to
 	if path.size() > 0:
