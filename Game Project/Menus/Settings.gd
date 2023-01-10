@@ -25,3 +25,11 @@ func _on_FullScreen_CheckButton_pressed():
 
 func _on_BackBtn_pressed():
 	get_tree().change_scene("res://Menus/MainMenu.tscn")
+
+
+func _on_Music_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+
+
+func _on_Sounds_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sounds"), value)

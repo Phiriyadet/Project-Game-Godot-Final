@@ -28,6 +28,7 @@ script = ExtResource( 1 )
 anims/attack = SubResource( 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = "Sounds"
 
 [connection signal="area_entered" from="Node2D/Sprite/Hitbox" to="Node2D/Sprite/Hitbox" method="_on_Hitbox_area_entered"]
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
