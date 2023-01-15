@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-move.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Characters/Players/MonkeyCaesar/MonkeyCaesar.gd" type="Script" id=4]
 [ext_resource path="res://Weapons/GunHand/HandGun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -58,6 +59,13 @@ height = 36.0
 [sub_resource type="CircleShape2D" id=11]
 radius = 28.2843
 
+[sub_resource type="CircleShape2D" id=12]
+radius = 1.0
+
+[sub_resource type="DynamicFont" id=13]
+resource_local_to_scene = true
+font_data = ExtResource( 6 )
+
 [node name="MonkeyCaesar" instance=ExtResource( 3 )]
 script = ExtResource( 4 )
 __meta__ = {
@@ -75,7 +83,13 @@ shape = SubResource( 10 )
 [node name="CollisionShape2D" parent="PickupRadius" index="0"]
 shape = SubResource( 11 )
 
+[node name="CollisionShape2D" parent="CollectArea" index="0"]
+shape = SubResource( 12 )
+
 [node name="HandGun" parent="Weapons" index="0" instance=ExtResource( 5 )]
 
-[node name="Camera2D" parent="." index="8"]
+[node name="Camera2D" parent="." index="9"]
 current = true
+
+[node name="EnemyDestroyedCount" parent="CanvasLayer/GUI" index="3"]
+custom_fonts/font = SubResource( 13 )

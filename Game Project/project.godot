@@ -109,7 +109,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Enemies/Spawn.gd"
 }, {
-"base": "Player",
+"base": "Character",
 "class": "TheDog",
 "language": "GDScript",
 "path": "res://Characters/Players/TheDog/TheDog.gd"

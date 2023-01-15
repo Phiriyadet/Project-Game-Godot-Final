@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Pew sound effect.mp3-5af616ce0595a39015d43f79a4683c9e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/tomp3.cc - Pew sound effect.mp3"
+dest_files=[ "res://.import/tomp3.cc - Pew sound effect.mp3-5af616ce0595a39015d43f79a4683c9e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

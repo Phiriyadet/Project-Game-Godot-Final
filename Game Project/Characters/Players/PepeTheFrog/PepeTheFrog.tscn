@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/PepeTheFrog/PepeTheFrog.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-idle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-move.png" type="Texture" id=4]
 [ext_resource path="res://Weapons/Punch/Punch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
@@ -58,6 +59,13 @@ height = 36.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 20.0
 
+[sub_resource type="CircleShape2D" id=12]
+radius = 1.0
+
+[sub_resource type="DynamicFont" id=13]
+resource_local_to_scene = true
+font_data = ExtResource( 6 )
+
 [node name="PepeTheFrog" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
@@ -70,7 +78,13 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" parent="PickupRadius" index="0"]
 shape = SubResource( 2 )
 
+[node name="CollisionShape2D" parent="CollectArea" index="0"]
+shape = SubResource( 12 )
+
 [node name="Punch" parent="Weapons" index="0" instance=ExtResource( 5 )]
 
-[node name="Camera2D" parent="." index="8"]
+[node name="Camera2D" parent="." index="9"]
 current = true
+
+[node name="EnemyDestroyedCount" parent="CanvasLayer/GUI" index="3"]
+custom_fonts/font = SubResource( 13 )

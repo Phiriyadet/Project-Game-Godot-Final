@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bonk-By-Tuna.mp3-1be07245fb5b09a7da1e6e2a1971fd6b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/bonk-By-Tuna.mp3"
+dest_files=[ "res://.import/bonk-By-Tuna.mp3-1be07245fb5b09a7da1e6e2a1971fd6b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
