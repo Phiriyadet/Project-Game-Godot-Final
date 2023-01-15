@@ -93,45 +93,245 @@ margin_bottom = 227.0
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel"]
 margin_right = 40.0
 margin_bottom = 40.0
+custom_constants/separation = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_right = 76.0
-margin_bottom = 40.0
+margin_right = 88.0
+margin_bottom = 154.0
+custom_constants/separation = 14
+
+[node name="Label" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
+margin_right = 88.0
+margin_bottom = 14.0
+
+[node name="Label2" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 88.0
+margin_bottom = 42.0
+text = "ATK"
+
+[node name="Label3" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 88.0
+margin_bottom = 70.0
+text = "HP"
+
+[node name="Label4" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 88.0
+margin_bottom = 98.0
+text = "SPD"
+
+[node name="Label5" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 88.0
+margin_bottom = 126.0
+text = "Pickup Radius"
 
 [node name="HFlowContainer" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
-margin_right = 76.0
+margin_top = 140.0
+margin_right = 88.0
+margin_bottom = 140.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer/HFlowContainer"]
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 88.0
+margin_bottom = 154.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
+margin_left = 103.0
+margin_right = 131.0
+margin_bottom = 154.0
+custom_constants/separation = 14
+
+[node name="Label" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer4"]
+margin_right = 28.0
 margin_bottom = 14.0
 
-[node name="Label" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer/HFlowContainer"]
-margin_right = 36.0
-margin_bottom = 14.0
-text = "AAAA"
+[node name="Label2" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer4"]
+margin_top = 28.0
+margin_right = 28.0
+margin_bottom = 42.0
+text = "10 $"
 
-[node name="Label2" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer/HFlowContainer"]
-margin_left = 40.0
-margin_right = 76.0
-margin_bottom = 14.0
-text = "AAAA"
+[node name="Label3" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer4"]
+margin_top = 56.0
+margin_right = 28.0
+margin_bottom = 70.0
+text = "10 $"
+
+[node name="Label4" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer4"]
+margin_top = 84.0
+margin_right = 28.0
+margin_bottom = 98.0
+text = "10 $"
+
+[node name="Label5" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer4"]
+margin_top = 112.0
+margin_right = 28.0
+margin_bottom = 126.0
+text = "10 $"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
+margin_left = 146.0
+margin_right = 217.0
+margin_bottom = 154.0
+custom_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3"]
+margin_top = 24.0
+margin_right = 71.0
+margin_bottom = 48.0
+
+[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 24.0
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer"]
+margin_left = 21.0
+margin_right = 47.0
+margin_bottom = 24.0
+custom_constants/minimum_spaces = 4
+
+[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer"]
+margin_left = 51.0
+margin_right = 71.0
+margin_bottom = 24.0
+text = "+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3"]
+margin_top = 51.0
+margin_right = 71.0
+margin_bottom = 75.0
+
+[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+margin_right = 17.0
+margin_bottom = 24.0
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+margin_left = 21.0
+margin_right = 47.0
+margin_bottom = 24.0
+custom_constants/minimum_spaces = 4
+
+[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+margin_left = 51.0
+margin_right = 71.0
+margin_bottom = 24.0
+text = "+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3"]
+margin_top = 78.0
+margin_right = 71.0
+margin_bottom = 102.0
+
+[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer3"]
+margin_right = 17.0
+margin_bottom = 24.0
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer3"]
+margin_left = 21.0
+margin_right = 47.0
+margin_bottom = 24.0
+custom_constants/minimum_spaces = 4
+
+[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer3"]
+margin_left = 51.0
+margin_right = 71.0
+margin_bottom = 24.0
+text = "+"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3"]
+margin_top = 105.0
+margin_right = 71.0
+margin_bottom = 129.0
+
+[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer4"]
+margin_right = 17.0
+margin_bottom = 24.0
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer4"]
+margin_left = 21.0
+margin_right = 47.0
+margin_bottom = 24.0
+custom_constants/minimum_spaces = 4
+
+[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer3/HBoxContainer4"]
+margin_left = 51.0
+margin_right = 71.0
+margin_bottom = 24.0
+text = "+"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_left = 80.0
-margin_right = 156.0
-margin_bottom = 40.0
+margin_left = 232.0
+margin_right = 417.0
+margin_bottom = 154.0
+custom_constants/separation = 24
 
-[node name="HFlowContainer" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2"]
-margin_right = 76.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2"]
+margin_right = 185.0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 24.0
+margin_right = 185.0
+margin_bottom = 44.0
+custom_constants/separation = 9
+alignment = 1
+
+[node name="Label6" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+margin_top = 3.0
+margin_right = 75.0
+margin_bottom = 17.0
+text = "Special Skill"
+
+[node name="Label" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+margin_left = 84.0
+margin_top = 3.0
+margin_right = 140.0
+margin_bottom = 17.0
+text = "10,000 $"
+
+[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+margin_left = 149.0
+margin_right = 185.0
+margin_bottom = 20.0
+text = "Buy"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 68.0
+margin_right = 185.0
+margin_bottom = 82.0
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/HBoxContainer2"]
 margin_bottom = 14.0
 
-[node name="Label" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/HFlowContainer"]
-margin_right = 36.0
-margin_bottom = 14.0
-text = "BBBB"
+[node name="VBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 106.0
+margin_right = 185.0
+margin_bottom = 126.0
+custom_constants/separation = 22
 
-[node name="Label2" type="Label" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/HFlowContainer"]
-margin_left = 40.0
-margin_right = 76.0
-margin_bottom = 14.0
-text = "BBBB"
+[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_right = 54.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Cancel"
+
+[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/VBoxContainer2/VBoxContainer"]
+margin_left = 76.0
+margin_right = 138.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+text = "Confirm"
 
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_left = 24.0
