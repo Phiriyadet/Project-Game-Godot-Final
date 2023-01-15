@@ -333,6 +333,33 @@ margin_bottom = 20.0
 size_flags_horizontal = 0
 text = "Confirm"
 
+[node name="VBoxContainer" type="HBoxContainer" parent="ColorRect"]
+margin_right = 99.0
+margin_bottom = 40.0
+custom_constants/separation = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+margin_left = 11.0
+margin_top = 13.0
+margin_right = 47.0
+margin_bottom = 27.0
+text = "Coin :"
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer"]
+margin_left = 51.0
+margin_top = 13.0
+margin_right = 75.0
+margin_bottom = 27.0
+text = "100"
+
+[node name="Label3" type="Label" parent="ColorRect/VBoxContainer"]
+margin_left = 79.0
+margin_top = 13.0
+margin_right = 87.0
+margin_bottom = 27.0
+text = "$"
+
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_left = 24.0
 margin_top = 90.0
