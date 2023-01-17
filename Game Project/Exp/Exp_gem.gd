@@ -22,9 +22,10 @@ func _physics_process(delta):
 #	pass
 func grab():
 	sound.play()
-	collision.call_deferred("set","disabled", true)
+	sound.stop()
+	#collision.call_deferred("set","disabled", true)
 	return experience
 
 
 func _on_Effect_Collected_finished():
-	pass # Replace with function body.
+	queue_free()

@@ -23,5 +23,6 @@ shape = SubResource( 1 )
 
 [node name="Effect_Collected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+bus = "Sounds"
 
 [connection signal="finished" from="Effect_Collected" to="." method="_on_Effect_Collected_finished"]

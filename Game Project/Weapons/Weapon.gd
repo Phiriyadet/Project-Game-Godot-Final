@@ -15,6 +15,7 @@ func _init():
 func _ready():
 	cool_down_timer.start()
 	self.atk_all = player.atk + atk_w
+	
 func _process(delta):
 #	self.atk_w += player.atk
 	hitbox.damage = self.atk_all

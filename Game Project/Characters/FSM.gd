@@ -34,10 +34,10 @@ func set_state(new_state: int):
 	_exit_state(state)
 	previous_state = state
 	state = new_state
-	_enter_state(previous_state, state)
+	_enter_state( state)
 
 
-func _enter_state(_previous_state: int, _new_state: int):
+func _enter_state( _new_state: int):
 	pass
 	
 	

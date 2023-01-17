@@ -26,11 +26,14 @@ func _get_transition():
 		states.move:
 			if parent.velocity.length() < 10:
 				return states.idle
+		states.hurt:
+			if not animation_player.is_playing():
+				return states.idle
 		
 	return -1
 	
 	
-func _enter_state(_previous_state: int, new_state: int):
+func _enter_state(new_state: int):
 	match new_state:
 		states.idle:
 			animation_player.play("idle")

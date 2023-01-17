@@ -18,12 +18,11 @@ var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
 
 func _ready():
-	healthBar.max_value = self.max_hp
-	healthBar.value = self.hp
+	set_healthbar()
 	set_expbar(experience, calculate_experiencecap())
 	
 func _process(delta):
-	
+	set_healthbar()
 #	picradius.shape.radius = self.pickup_radius 
 #	print(picradius.shape.radius)
 	for skill in skills.get_children():
@@ -67,22 +66,27 @@ func calculate_experience(gem_exp): #คำนวน exp ที่เก็บ�
 
 func calculate_experiencecap():#คำนวน exp ที่ต้องการในการอัพเลเวล
 	var exp_cap = experience_level
-	if experience_level < 20:
-		exp_cap = experience_level*5
-	elif exp_cap < 40:
-		exp_cap = 95 + (experience_level-19)*8
-	else:
-		exp_cap = 255 + (experience_level-39)*12
-	return exp_cap
+#	if experience_level < 20:
+#		exp_cap = experience_level*5
+#	elif exp_cap < 40:
+#		exp_cap = 95 + (experience_level-19)*8
+#	else:
+#		exp_cap = 255 + (experience_level-39)*12
+	return exp_cap * 5
 
 func set_expbar(set_value = 1, set_max_value = 100):
 	experienceBar.value = set_value
 	experienceBar.max_value = set_max_value			
 
+func set_healthbar():
+	healthBar.max_value = self.max_hp
+	healthBar.value = self.hp
+	
 func levelup():
 	levelLabel.text = str("LV. ",experience_level)
 	
-	
+func gameover():
+	pass
 		
 func set_pickup(new_pick):
 	pickup_radius = new_pick
@@ -100,3 +104,8 @@ func _on_CollectArea_area_entered(area):
 	if area.is_in_group("loot"):
 		var gem_exp = area.grab() 
 		calculate_experience(gem_exp)
+
+
+func _on_Player_hp_changed(new_hp):
+	set_healthbar()
+#	healthBar.value = new_hp

@@ -6,7 +6,7 @@ extends Control
 # var b = "text"
 
 onready var fullscreen_checkbutton = $VBoxContainer/FullScreen_CheckButton
-onready var music = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

@@ -4,7 +4,7 @@ class_name Enemy
 
 var path: = []
 #onready var player := get_tree().current_scene.get_node("Player").get_child(0)
-onready var navigation: Navigation2D = get_tree().current_scene.get_node("Areas")
+
 onready var hitbox := get_node("Hitbox")
 #onready var hitbox_coll := get_node("Hitbox/CollisionShape2D")
 #onready var colli := get_node("CollisionShape2D")
@@ -12,6 +12,8 @@ onready var hitbox := get_node("Hitbox")
 onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 onready var loot := get_tree().current_scene.get_node("Loot")
 onready var exp_gem = preload("res://Exp/Exp_gem.tscn")
+
+export(int) var  exp_enemy = 1 setget set_expmon, get_expmon
 #ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น
 func chase():
 	
@@ -62,16 +64,22 @@ func chase():
 func dropgem():
 	var new_gem = exp_gem.instance()
 	new_gem.global_position = global_position
+	new_gem.experience = exp_enemy
 	loot.call_deferred("add_child", new_gem)	
 
-func navigate():	# Define the next position to go to
-	if path.size() > 0:
-		mov_direction = global_position.direction_to(path[1]) 
-		# If reached the destination, remove this point from path array
-		if global_position == path[0]:
-			path.pop_front()
-
-func generate_path():	# It's obvious
-	if navigation != null and player != null:
-		path = navigation.get_simple_path(global_position, player.global_position, false)
+#func navigate():	# Define the next position to go to
+#	if path.size() > 0:
+#		mov_direction = global_position.direction_to(path[1]) 
+#		# If reached the destination, remove this point from path array
+#		if global_position == path[0]:
+#			path.pop_front()
+#
+#func generate_path():	# It's obvious
+#	if navigation != null and player != null:
+#		path = navigation.get_simple_path(global_position, player.global_position, false)
 		
+func set_expmon(new_exp):
+	exp_enemy = new_exp
+	
+func get_expmon():
+	return exp_enemy

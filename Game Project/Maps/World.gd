@@ -18,6 +18,8 @@ const PLAYER_SCENES: Dictionary = {
 const ENEMY_SPAWNS: Dictionary={
 	0:{"time_start":0,"time_end":5,"enemy":ENEMY_SCENES.CursedCat,
 	"enemy_number":2,"enemy_spawn_delay":0,"spawn_delay_counter" : 0},
+		1:{"time_start":10,"time_end":15,"enemy":ENEMY_SCENES.CursedCat,
+	"enemy_number":3,"enemy_spawn_delay":0,"spawn_delay_counter" : 3},
 	
 }
 #onready var player := get_node("Player").get_child(0) as KinematicBody2D
@@ -79,7 +81,7 @@ func _on_CountTime_timeout():
 #		enemy = ENEMY_SCENES.CursedCat.instance()
 #	print(ENEMY_SPAWNS)
 	for i in ENEMY_SPAWNS:
-		print(i)
+#		print(i)
 		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
 			if ENEMY_SPAWNS[i]["spawn_delay_counter"] < ENEMY_SPAWNS[i]["enemy_spawn_delay"]:
 				ENEMY_SPAWNS[i]["spawn_delay_counter"] += 1

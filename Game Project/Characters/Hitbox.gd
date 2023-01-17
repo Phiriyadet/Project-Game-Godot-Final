@@ -26,11 +26,16 @@ func _ready():
 	
 	
 func _on_body_entered(body):# body ของตัวที่โดน
-	body_inside = true
-	timer.start()
-	while body_inside:
-		_collide(body)
-		yield(timer, "timeout")
+	if body == null or not body.has_method("take_damage"):#มี error
+#		queue_free()
+		print_debug(body)
+	else:
+		body.take_damage(damage, knockback_direction, knockback_force)
+#	body_inside = true
+#	timer.start()
+#	while body_inside:
+#		_collide(body)
+#		yield(timer, "timeout")
 	
 	
 func _on_body_exited(_body):
@@ -39,7 +44,7 @@ func _on_body_exited(_body):
 	
 	
 func _collide(body): #ส่ง damage ไปยัง body
-	if body == null or not body.has_method("take_damage"):
+	if body == null or not body.has_method("take_damage"):#มี error
 		queue_free()
 	else:
 		body.take_damage(damage, knockback_direction, knockback_force)

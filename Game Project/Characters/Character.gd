@@ -12,7 +12,7 @@ export(int) var spd = 100 setget set_spd, get_spd
 #export(float) var crt = 0.25 setget set_crt, get_crt
 #export(int) var haste = 0 setget set_haste, get_haste
 
-#signal hp_changed(new_hp)
+signal hp_changed(new_hp)
 
 
 
@@ -44,7 +44,11 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
 
 		self.hp -= dam
-
+		if is_in_group("player"):
+			if self.hp == 0:
+				print("player dead")
+			emit_signal("hp_changed", self.hp)
+			
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force
@@ -56,7 +60,7 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 func set_hp(new_hp):
 	hp = clamp(new_hp, 0, max_hp)
 #	print_debug(hp)
-#	emit_signal("hp_changed", hp)
+	
 
 func get_hp():
 	return hp
