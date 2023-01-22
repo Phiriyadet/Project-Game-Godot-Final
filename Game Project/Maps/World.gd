@@ -27,6 +27,7 @@ var player
 onready var HUD := $HUD as CanvasLayer
 onready var count_time := $CountTime as Timer 
 onready var _pause_menu = $HUD/Pause
+
 onready var nav := $Area
 onready var p := $Player 
 onready var enemy_group := $EnemyGroup
@@ -55,7 +56,7 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	select_player(SelectPlayer.player_select)
+	select_player(Global.player_select)
 	if p != null and player != null:
 		p.add_child(player)
 		
@@ -100,3 +101,4 @@ func _on_CountTime_timeout():
 #	nav.call_deferred("add_child", enemy)
 	
 	
+

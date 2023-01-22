@@ -1,9 +1,6 @@
 extends "res://Characters/Players/Player.gd"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 class_name PepeTheFrog , "res://Assets/Characters/Players/Pepe/pepe-idle-1.png"
 
 # Called when the node enters the scene tree for the first time.

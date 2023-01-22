@@ -159,7 +159,7 @@ config/icon="res://icon.png"
 [autoload]
 
 MainMenu="*res://Menus/MainMenu.tscn"
-SelectPlayer="*res://Maps/SelectPlayer.gd"
+Global="*res://Maps/Global.gd"
 BackgroundMusic="*res://Menus/BackgroundMusic.tscn"
 
 [debug]

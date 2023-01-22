@@ -12,9 +12,8 @@ export(int) var spd = 100 setget set_spd, get_spd
 #export(float) var crt = 0.25 setget set_crt, get_crt
 #export(int) var haste = 0 setget set_haste, get_haste
 
-signal hp_changed(new_hp)
-
-
+signal hp_changed
+signal enemy_killed
 
 onready var state_machine: Node = get_node("FiniteStateMachine")#สถานะตัวละคร เช่น เดิน วิ่ง
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
@@ -44,15 +43,19 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
 
 		self.hp -= dam
-		if is_in_group("player"):
-			if self.hp == 0:
-				print("player dead")
-			emit_signal("hp_changed", self.hp)
+		
 			
 		if hp > 0:
+			if is_in_group("player"):
+				emit_signal("hp_changed")
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force
 		else:
+			if is_in_group("player"):
+				print("player dead")
+			if is_in_group("enemy"):
+				Global.enemy_dead_count+=1
+				print("enemy dead")
 			state_machine.set_state(state_machine.states.dead)
 			velocity += dir * force * 2
 		

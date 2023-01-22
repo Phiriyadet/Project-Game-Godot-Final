@@ -44,7 +44,7 @@ func _on_TextureRect_pressed():
 	label.text = "Dog"
 	
 	playBtn.disabled = false
-	SelectPlayer.player_select = "Dog"
+	Global.player_select = "Dog"
 #	GlobalWorld.get_node("Player").add_child(Dog)
 
 
@@ -52,7 +52,7 @@ func _on_TextureRect2_pressed():
 	label.text = "Monkey"
 	
 	playBtn.disabled = false
-	SelectPlayer.player_select = "Monkey"
+	Global.player_select = "Monkey"
 #	.0GlobalWorld.get_node("Player").add_child(Monkey)
 
 
@@ -60,4 +60,4 @@ func _on_TextureRect3_pressed():
 	label.text = "Frog"
 	 
 	playBtn.disabled = false
-	SelectPlayer.player_select = "Frog"
+	Global.player_select = "Frog"

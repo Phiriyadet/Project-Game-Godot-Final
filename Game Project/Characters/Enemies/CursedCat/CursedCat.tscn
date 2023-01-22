@@ -112,6 +112,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+hp = 20
+atk = 5
 spd = 20
 
 [node name="AnimatedSprite" parent="." index="1"]
@@ -120,9 +122,6 @@ frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 4 )
-
-[node name="Hitbox" parent="." index="3"]
-damage = 20
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 5 )

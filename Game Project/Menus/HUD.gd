@@ -6,6 +6,7 @@ extends CanvasLayer
 # var b = "text"
 onready var time := $Time as Label
 onready var _pause_menu = $Pause
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -27,3 +28,4 @@ func update_time(t):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+

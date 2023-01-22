@@ -165,8 +165,9 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="Enemy" groups=["Enemy"] instance=ExtResource( 4 )]
+[node name="Enemy" groups=["enemy"] instance=ExtResource( 4 )]
 script = ExtResource( 1 )
+atk = 20
 exp_enemy = 1
 
 [node name="FiniteStateMachine" parent="." index="0"]
@@ -187,6 +188,3 @@ script = ExtResource( 3 )
 anims/dead = SubResource( 5 )
 anims/hurt = SubResource( 7 )
 anims/move = SubResource( 8 )
-
-[node name="PathTimer" type="Timer" parent="." index="5"]
-autostart = true

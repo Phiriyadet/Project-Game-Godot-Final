@@ -12,10 +12,12 @@ onready var picradius:CollisionShape2D = get_node("PickupRadius/CollisionShape2D
 onready var healthBar:TextureProgress = get_node("CanvasLayer/GUI/HealthBar")
 onready var experienceBar:TextureProgress = get_node("CanvasLayer/GUI/ExpBar")
 onready var levelLabel: Label = get_node("CanvasLayer/GUI/Level")
+onready var enemyDesCount : Label= get_node("CanvasLayer/GUI/EnemyDestroyedCount")
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
+
 
 func _ready():
 	set_healthbar()
@@ -23,6 +25,7 @@ func _ready():
 	
 func _process(delta):
 	set_healthbar()
+	enemyDesCount.text = str(Global.enemy_dead_count)
 #	picradius.shape.radius = self.pickup_radius 
 #	print(picradius.shape.radius)
 	for skill in skills.get_children():
@@ -86,7 +89,7 @@ func levelup():
 	levelLabel.text = str("LV. ",experience_level)
 	
 func gameover():
-	pass
+	print("Game Over")
 		
 func set_pickup(new_pick):
 	pickup_radius = new_pick
@@ -106,6 +109,13 @@ func _on_CollectArea_area_entered(area):
 		calculate_experience(gem_exp)
 
 
-func _on_Player_hp_changed(new_hp):
+func _on_Player_hp_changed():
 	set_healthbar()
 #	healthBar.value = new_hp
+
+
+
+func _on_Player_enemy_killed():
+	Global.enemy_dead_count+=1
+	print("enemy dead", Global.enemy_dead_count)
+	enemyDesCount.text = str(Global.enemy_dead_count)
