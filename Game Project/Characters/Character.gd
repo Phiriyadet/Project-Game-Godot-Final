@@ -15,6 +15,7 @@ export(int) var spd = 100 setget set_spd, get_spd
 signal hp_changed
 signal enemy_killed
 
+
 onready var state_machine: Node = get_node("FiniteStateMachine")#สถานะตัวละคร เช่น เดิน วิ่ง
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
@@ -53,6 +54,7 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 		else:
 			if is_in_group("player"):
 				print("player dead")
+				Global.player_dead = true
 			if is_in_group("enemy"):
 				Global.enemy_dead_count+=1
 				print("enemy dead")

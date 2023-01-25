@@ -72,6 +72,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+max_hp = 50
+hp = 50
+atk = 10
+spd = 60
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 11 )

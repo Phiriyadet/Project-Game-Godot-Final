@@ -16,8 +16,7 @@ func chase():
 	hitbox.damage = self.atk
 	if player:
 		mov_direction = global_position.direction_to(player.global_position)
-#		generate_path()
-#		navigate()
+
 func dropgem():
 	var new_gem = exp_gem.instance()
 	new_gem.global_position = global_position

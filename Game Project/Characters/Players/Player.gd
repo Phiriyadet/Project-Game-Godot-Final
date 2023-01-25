@@ -58,6 +58,7 @@ func calculate_experience(gem_exp): #คำนวน exp ที่เก็บ�
 	if experience + collected_experience >= exp_required: #level up
 		collected_experience -= exp_required-experience #
 		experience_level += 1
+		Global.level_player = experience_level
 		experience = 0
 		exp_required = calculate_experiencecap()
 		levelup()

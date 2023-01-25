@@ -7,6 +7,8 @@ extends Node
 
 var player_select setget set_player, get_player
 var enemy_dead_count = 0
+var player_dead = false
+var level_player = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

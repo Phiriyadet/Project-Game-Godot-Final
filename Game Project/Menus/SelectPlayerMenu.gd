@@ -22,7 +22,7 @@ onready var playBtn:Button = get_node("PlayBtn")
 
 func _ready():
 	playBtn.disabled = true
-
+	Global.enemy_dead_count = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
