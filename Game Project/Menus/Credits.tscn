@@ -28,11 +28,11 @@ margin_right = 201.0
 margin_bottom = 60.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
-bbcode_text = "Creat By 2 Student
+bbcode_text = "ทำโดยนักศึกษา 2 คน
 
 [color=green][url=https://godotengine.org/license]GODOT[/url][/color]"
 tab_size = 16
-text = "Creat By 2 Student
+text = "ทำโดยนักศึกษา 2 คน
 
 GODOT"
 fit_content_height = true

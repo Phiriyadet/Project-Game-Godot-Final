@@ -82,24 +82,24 @@ func _on_CountTime_timeout():
 #	else:
 #		enemy = ENEMY_SCENES.CursedCat.instance()
 #	print(ENEMY_SPAWNS)
-	for i in ENEMY_SPAWNS:
-#		print(i)
-		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
-#			if ENEMY_SPAWNS[i]["spawn_delay_counter"] < ENEMY_SPAWNS[i]["enemy_spawn_delay"]:
-#				ENEMY_SPAWNS[i]["spawn_delay_counter"] += 1
-#			else:
-#				ENEMY_SPAWNS[i]["spawn_delay_counter"] = 0
-				
-				var counter = 0
-				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
-					var enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
-					enemy_spawn.position = player_in_map.position + Vector2(500,0).rotated(rand_range(0,2*PI))
-					enemy_group.call_deferred("add_child", enemy_spawn)
-					counter += 1
+#	for i in ENEMY_SPAWNS:
+##		print(i)
+#		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
+##			if ENEMY_SPAWNS[i]["spawn_delay_counter"] < ENEMY_SPAWNS[i]["enemy_spawn_delay"]:
+##				ENEMY_SPAWNS[i]["spawn_delay_counter"] += 1
+##			else:
+##				ENEMY_SPAWNS[i]["spawn_delay_counter"] = 0
 #
-#	enemy = ENEMY_SCENES.CURSED_CAT.instance()
-#	enemy.position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
-#	nav.call_deferred("add_child", enemy)
+#				var counter = 0
+#				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
+#					var enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
+#					enemy_spawn.position = player_in_map.position + Vector2(500,0).rotated(rand_range(0,2*PI))
+#					enemy_group.call_deferred("add_child", enemy_spawn)
+#					counter += 1
+##
+	enemy = ENEMY_SCENES.CursedCat.instance()
+	enemy.position = player_in_map.position + Vector2(500,100).rotated(rand_range(0,2*PI))
+	nav.call_deferred("add_child", enemy)
 	
 	
 
