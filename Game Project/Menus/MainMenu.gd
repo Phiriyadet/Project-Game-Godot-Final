@@ -14,7 +14,7 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.player_dead = false
-
+	Global.level_player = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

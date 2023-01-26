@@ -17,8 +17,8 @@ func _process(delta):
 	if Global.player_dead:
 		var tree = get_tree()
 		tree.paused = true
-		score.text = str(Global.enemy_dead_count)
-		coin.text = str(((Global.enemy_dead_count*100)+(Global.level_player*2000))/1000)
+		score.text = str((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))
+		coin.text = str(((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))/1000)
 		
 		show()
 
