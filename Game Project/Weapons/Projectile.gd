@@ -19,15 +19,5 @@ func launch(initial_position: Vector2, dir: Vector2, spd: int, attack:int):
 func _physics_process(delta: float):
 	position += direction * speed * delta / 2
 	
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Timer_timeout():
 	queue_free() # Replace with function body.

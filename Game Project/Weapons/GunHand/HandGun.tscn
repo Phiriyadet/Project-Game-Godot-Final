@@ -58,7 +58,7 @@ shape = SubResource( 1 )
 [node name="Anchor" type="Node2D" parent="." index="1"]
 position = Vector2( 180, -85 )
 
-[node name="SpawnBulletPossition2D" type="Position2D" parent="Anchor" index="0"]
+[node name="SpawnBulletPosition2D" type="Position2D" parent="Anchor" index="0"]
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/attack = SubResource( 2 )

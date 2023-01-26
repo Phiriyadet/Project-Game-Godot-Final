@@ -6,7 +6,7 @@ class_name HandGun, "res://Assets/Weapons/gunhand/gunhand-1.png"
 # var b = "text"
 const BULLET_SCENE: PackedScene = preload("res://Weapons/GunHand/Bullet.tscn")
 var side = 400.0
-onready var spos = $Anchor/SpawnBulletPossition2D
+onready var spos = $Anchor/SpawnBulletPosition2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

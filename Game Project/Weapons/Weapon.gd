@@ -14,11 +14,12 @@ func _init():
 	
 func _ready():
 	cool_down_timer.start()
-	self.atk_all = player.atk + atk_w
+	self.atk_all = player.atk + self.atk_w
 	
 func _process(delta):
-#	self.atk_w += player.atk
+	self.atk_all = player.atk + self.atk_w
 	hitbox.damage = self.atk_all
+	print("damage:", self.atk_all)
 	
 func attack():
 	animation_player.play("attack")

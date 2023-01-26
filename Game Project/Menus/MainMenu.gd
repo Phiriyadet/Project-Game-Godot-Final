@@ -13,7 +13,7 @@ func _init():
 	OS.set_window_position(screen_size * 0.5 - window_size * 0.5)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Global.player_dead = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
