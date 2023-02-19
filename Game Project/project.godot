@@ -109,10 +109,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Enemies/Spawn.gd"
 }, {
+"base": "Node2D",
+"class": "TakeMyMoney",
+"language": "GDScript",
+"path": "res://Items/TakeMyMoney/TakeMyMoney.gd"
+}, {
 "base": "Character",
 "class": "TheDog",
 "language": "GDScript",
-"path": "res://Characters/Players/TheDog/TheDog.gd"
+"path": "res://Characters/Players/TheDog/TheDoge.gd"
 }, {
 "base": "Character",
 "class": "UgandaKnuckles",
@@ -145,6 +150,7 @@ _global_script_class_icons={
 "Punch": "res://Assets/Weapons/punch/punch.png",
 "Skill": "",
 "Spawn_info": "",
+"TakeMyMoney": "res://Assets/Items/takemymoney.png",
 "TheDog": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
 "UgandaKnuckles": "res://Assets/Characters/Enemies/Uganda_knuckles/uganda_knuckles-1.png",
 "Weapon": ""

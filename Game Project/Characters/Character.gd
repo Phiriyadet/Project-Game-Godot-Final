@@ -2,54 +2,72 @@ extends KinematicBody2D
 
 class_name Character
 
+# Constant for friction
 const FRICTION: float = 0.15
-export(int) var accerelation: int = 20#ความเชื่อย
 
+# Acceleration of the character
+export(int) var acceleration: int = 20
+
+# Maximum and current hitpoints of the character
 export(int) var max_hp: int = 100 
 export(int) var hp: int = 100 setget set_hp, get_hp
+
+# Attack power of the character
 export(int) var atk = 0 setget set_atk, get_atk
+
+# Speed of the character
 export(int) var spd = 100 setget set_spd, get_spd
-#export(float) var crt = 0.25 setget set_crt, get_crt
-#export(int) var haste = 0 setget set_haste, get_haste
 
+# Signals for when hp changes 
 signal hp_changed
-signal enemy_killed
 
 
-onready var state_machine: Node = get_node("FiniteStateMachine")#สถานะตัวละคร เช่น เดิน วิ่ง
+# Reference to the FiniteStateMachine and AnimatedSprite nodes
+onready var state_machine: Node = get_node("FiniteStateMachine")
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
-var mov_direction: Vector2 = Vector2.ZERO #เปลี่ยนทิศทางการเคลื่อนที่
-var velocity: Vector2 = Vector2.ZERO #ความเร็ว
+# Vector for movement direction and velocity
+var mov_direction: Vector2 = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO
 
 
 func _physics_process(_delta: float):
+	 # Move and slide the character based on their velocity
 	velocity = move_and_slide(velocity)
-	velocity = lerp(velocity, Vector2.ZERO, FRICTION) #ค่อยๆ ลดความเร็วลง
+	# Slowly decrease the velocity over time using lerp
+	velocity = lerp(velocity, Vector2.ZERO, FRICTION)
 	
 	
 func move():
+	# Normalize the movement direction and update the character's animation and velocity based on it
 	mov_direction = mov_direction.normalized()
 	
+	# Flip the animation if the character is moving left
 	if mov_direction.x < 0:
 		animated_sprite.flip_h  = true
+	# Unflip the animation if the character is moving right
 	if mov_direction.x > 0:
 		animated_sprite.flip_h  = false
 			
-	velocity += mov_direction * accerelation
-	velocity = velocity.limit_length(self.spd) #ไม่เกิน max_speed
+	# Increase the velocity based on the movement direction and acceleration
+	velocity += mov_direction * acceleration
+	# Limit the velocity to the character's max speed
+	velocity = velocity.limit_length(self.spd)
 	
 	
 func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
+	# Check if the character is not already in a hurt or dead state
 	if state_machine.state != state_machine.states.hurt and state_machine.state != state_machine.states.dead:
-
+		# Decrement the hitpoints by the damage amount
 		self.hp -= dam
-		
-			
+		# Check if the character is still alive
 		if hp > 0:
+			# If the character is in the player group, emit the hp_changed signal
 			if is_in_group("player"):
 				emit_signal("hp_changed")
+			# Set the state machine to the hurt state
 			state_machine.set_state(state_machine.states.hurt)
+			# Increase the velocity based on the direction and force of the attack
 			velocity += dir * force
 		else:
 			if is_in_group("player"):

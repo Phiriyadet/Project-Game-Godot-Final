@@ -21,8 +21,8 @@ func _process(delta):
 	hitbox.damage = self.atk_all
 	print("damage:", self.atk_all)
 	
-func attack():
-	animation_player.play("attack")
+#func attack():
+#	animation_player.play("attack")
 	
 func _on_CoolDownTimer_timeout():
 #	attack()

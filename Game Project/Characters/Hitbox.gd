@@ -27,7 +27,7 @@ func _ready():
 	
 func _on_body_entered(body):# body ของตัวที่โดน
 	if body == null or not body.has_method("take_damage"):#มี error
-#		queue_free()
+		queue_free()
 		print_debug(body)
 	else:
 		body.take_damage(damage, knockback_direction, knockback_force)

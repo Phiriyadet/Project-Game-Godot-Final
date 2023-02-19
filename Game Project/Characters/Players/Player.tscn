@@ -273,6 +273,7 @@ anims/move = SubResource( 4 )
 [node name="Skills" type="Node2D" parent="." index="8"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="9"]
+current = true
 zoom = Vector2( 2, 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]

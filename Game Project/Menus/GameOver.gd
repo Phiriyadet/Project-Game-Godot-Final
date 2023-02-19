@@ -1,9 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var score = $ColorRect/Score as Label
 onready var coin = $ColorRect/Coin as Label
 

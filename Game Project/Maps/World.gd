@@ -5,7 +5,7 @@ const ENEMY_SCENES: Dictionary = {
 	"HalfCat":preload("res://Characters/Enemies/HalfCat/HalfCat.tscn")
 }
 const PLAYER_SCENES: Dictionary = {
-	"Dog":preload("res://Characters/Players/TheDog/TheDog.tscn"),
+	"Dog":preload("res://Characters/Players/TheDog/TheDoge.tscn"),
 	"Monkey":preload("res://Characters/Players/MonkeyCaesar/MonkeyCaesar.tscn"),
 	"Frog":preload("res://Characters/Players/PepeTheFrog/PepeTheFrog.tscn")
 }

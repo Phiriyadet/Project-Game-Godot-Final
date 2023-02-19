@@ -116,7 +116,3 @@ func _on_Player_hp_changed():
 
 
 
-func _on_Player_enemy_killed():
-	Global.enemy_dead_count+=1
-	print("enemy dead", Global.enemy_dead_count)
-	enemyDesCount.text = str(Global.enemy_dead_count)
