@@ -9,6 +9,7 @@ var target = null
 var speed = -60.0
 onready var sound: AudioStreamPlayer2D = get_node("Effect_Collected")
 onready var collision:CollisionShape2D = get_node("CollisionShape2D")
+onready var time:Timer = get_node("Timer")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,11 +22,13 @@ func _physics_process(delta):
 #func _process(delta):
 #	pass
 func grab():
-	sound.play()
-	sound.stop()
+	sound.playing = true
+	time.start()
 	#collision.call_deferred("set","disabled", true)
 	return experience
 
-
-func _on_Effect_Collected_finished():
+func _on_Timer_timeout():
+	print_debug("Effect Finished")
+	sound.playing = false
 	queue_free()
+

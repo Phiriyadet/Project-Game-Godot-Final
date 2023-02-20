@@ -25,4 +25,8 @@ shape = SubResource( 1 )
 stream = ExtResource( 3 )
 bus = "Sounds"
 
-[connection signal="finished" from="Effect_Collected" to="." method="_on_Effect_Collected_finished"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
