@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Weapons/two_guitars/two_guitars.png" type="Texture" id=2]
+[ext_resource path="res://Weapons/TwoGuitars/TwoGuitars.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 28.0
+height = 16.0
+
+[sub_resource type="Animation" id=2]
+resource_local_to_scene = true
+resource_name = "attack"
+length = 0.5
+
+[node name="TwoGuitars" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="Node2D" index="0"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/attack = SubResource( 2 )
