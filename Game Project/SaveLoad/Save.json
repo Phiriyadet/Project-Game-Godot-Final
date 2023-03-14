@@ -1,11 +1,10 @@
 {
-    "Coin": {
-      "Num_Coin": 0
-    },
-    "Players": [
-      {
-        "ID_Character": "001",
-        "Name": "Doge",
+  "Coin": {
+    "Num_Coin": 0
+  },
+  "Players": [
+    {
+      "The Doge": {
         "Max_HP": 50,
         "HP": 50,
         "ATK": 15,
@@ -13,19 +12,15 @@
         "Pickup_Radius": 20,
         "Spacial_Skill": false
       },
-      {
-        "ID_Character": "002",
-        "Name": "Monkey caesar",
-        "Max_HP": 40,
+      "Monkey Caesar": {
+        "Max_HP": 50,
         "HP": 40,
         "ATK": 20,
         "SPD": 50,
         "Pickup_Radius": 20,
         "Spacial_Skill": false
       },
-      {
-        "ID_Character": "003",
-        "Name": "Pepe the frog",
+      "Pepe the Frog": {
         "Max_HP": 50,
         "HP": 50,
         "ATK": 10,
@@ -33,5 +28,6 @@
         "Pickup_Radius": 20,
         "Spacial_Skill": false
       }
-    ]
-  }
+    }
+  ]
+}

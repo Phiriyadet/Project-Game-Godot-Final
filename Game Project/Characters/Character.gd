@@ -9,7 +9,7 @@ const FRICTION: float = 0.15
 export(int) var acceleration: int = 20
 
 # Maximum and current hitpoints of the character
-export(int) var max_hp: int = 100 
+export(int) var max_hp: int = 100  setget set_maxhp, get_maxhp
 export(int) var hp: int = 100 setget set_hp, get_hp
 
 # Attack power of the character
@@ -81,12 +81,19 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 		
 		
 func set_hp(new_hp):
-	hp = clamp(new_hp, 0, max_hp)
+	hp = clamp(new_hp, 0, self.max_hp)
 #	print_debug(hp)
 	
 
 func get_hp():
 	return hp
+	
+func set_maxhp(new_maxhp):
+	max_hp = new_maxhp
+
+
+func get_maxhp():
+	return max_hp
 
 func set_atk(new_atk):
 	atk = new_atk

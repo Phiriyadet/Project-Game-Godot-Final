@@ -4,6 +4,7 @@ class_name Player
 
 
 export(float) var pickup_radius  setget set_pickup, get_pickup
+export(bool) var spacial_skill = false setget set_sskill, get_sskill
 
 onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")
@@ -32,7 +33,7 @@ func _process(delta):
 		match  skill.name:
 			"Ameno":
 				skill.level_skill
-#				print_debug(skill.picup_radius)
+
 	
 
 func get_input():
@@ -70,12 +71,12 @@ func calculate_experience(gem_exp): #คำนวน exp ที่เก็บ�
 
 func calculate_experiencecap():#คำนวน exp ที่ต้องการในการอัพเลเวล
 	var exp_cap = experience_level
-#	if experience_level < 20:
-#		exp_cap = experience_level*5
-#	elif exp_cap < 40:
-#		exp_cap = 95 + (experience_level-19)*8
-#	else:
-#		exp_cap = 255 + (experience_level-39)*12
+	if experience_level < 20:
+		exp_cap = experience_level*5
+	elif exp_cap < 40:
+		exp_cap = 95 + (experience_level-19)*8
+	else:
+		exp_cap = 255 + (experience_level-39)*12
 	return exp_cap * 5
 
 func set_expbar(set_value = 1, set_max_value = 100):
@@ -97,7 +98,12 @@ func set_pickup(new_pick):
 
 func get_pickup():
 	return pickup_radius
-
+	
+func set_sskill(bs):
+	spacial_skill = bs
+	
+func get_sskill():
+	return spacial_skill
 
 func _on_PickupRadius_area_entered(area):
 	if area.is_in_group("loot"):
