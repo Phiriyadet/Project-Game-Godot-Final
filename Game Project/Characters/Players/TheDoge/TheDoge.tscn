@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-idle.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Characters/Players/TheDog/TheDoge.gd" type="Script" id=5]
+[ext_resource path="res://Characters/Players/TheDoge/TheDoge.gd" type="Script" id=5]
 [ext_resource path="res://Weapons/BonkBat/BonkBat.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -69,7 +69,11 @@ font_data = ExtResource( 1 )
 
 [node name="TheDoge" instance=ExtResource( 4 )]
 script = ExtResource( 5 )
-pickup_radius = 0.0
+max_hp = 50
+hp = 50
+atk = 15
+spd = 50
+spacial_skill = false
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 9 )

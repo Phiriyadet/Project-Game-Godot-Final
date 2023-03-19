@@ -76,6 +76,7 @@ max_hp = 50
 hp = 50
 atk = 10
 spd = 60
+spacial_skill = false
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 11 )
@@ -90,9 +91,6 @@ shape = SubResource( 2 )
 shape = SubResource( 12 )
 
 [node name="Punch" parent="Weapons" index="0" instance=ExtResource( 5 )]
-
-[node name="Camera2D" parent="." index="9"]
-current = true
 
 [node name="EnemyDestroyedCount" parent="CanvasLayer/GUI" index="3"]
 custom_fonts/font = SubResource( 13 )

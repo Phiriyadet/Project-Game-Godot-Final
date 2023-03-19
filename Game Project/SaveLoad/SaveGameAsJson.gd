@@ -7,7 +7,7 @@ const SAVE_GAME_PATH := "user://save.json"
 
 var version := 1
 
-var	Dog = TheDog.new()
+var	Dog = TheDoge.new()
 var	Monkey = MonkeyCaesar.new()
 var	Frog = PepeTheFrog.new()
 var num_coin = 0
@@ -17,6 +17,51 @@ var _file := File.new()
 
 func save_exists() -> bool:
 	return _file.file_exists(SAVE_GAME_PATH)
+
+
+func write_savegame_init():
+	var error := _file.open(SAVE_GAME_PATH, File.WRITE)
+	if error != OK:
+		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [SAVE_GAME_PATH, error])
+		return
+	
+	var data := {
+		"Coin": {
+		"Num_Coin": 0
+	  },
+	  "Players": 
+		{
+		  "The_Doge": {
+		"Max_HP": 50,
+		"HP": 50,
+		"ATK": 15,
+		"SPD": 50,
+		"Pickup_Radius": 20,
+		"Spacial_Skill": false
+	  },
+	  "Monkey_Caesar": {
+		"Max_HP": 40,
+		"HP": 40,
+		"ATK": 20,
+		"SPD": 50,
+		"Pickup_Radius": 20,
+		"Spacial_Skill": false
+	  },
+	  "Pepe_The_Frog": {
+		"Max_HP": 50,
+		"HP": 50,
+		"ATK": 10,
+		"SPD": 60,
+		"Pickup_Radius": 20,
+		"Spacial_Skill": false
+	  }
+		}
+	  
+	  }
+		
+	var json_string := JSON.print(data)
+	_file.store_string(json_string)
+	_file.close()
 
 
 func write_savegame():
@@ -29,7 +74,7 @@ func write_savegame():
 	"Coin": {
 	"Num_Coin": num_coin
   },
-  "Players": [
+  "Players": 
 	{
 	  "The_Doge": {
 		"Max_HP": Dog.max_hp,
@@ -56,7 +101,7 @@ func write_savegame():
 		"Spacial_Skill": Frog.spacial_skill
 	  }
 	}
-  ]
+  
   }
 	
 	var json_string := JSON.print(data)
@@ -76,35 +121,28 @@ func load_savegame():
 	var data: Dictionary = JSON.parse(content).result
 	num_coin = data.Coin.Num_Coin
 
-#	Dog = TheDog.new()
+#	Dog = TheDoge.new()
 #	Monkey = MonkeyCaesar.new()
 #	Frog = PepeTheFrog.new()
+
+	Dog.max_hp = data.Players.The_Doge.Max_HP
+	Dog.hp = data.Players.The_Doge.HP
+	Dog.atk = data.Players.The_Doge.ATK
+	Dog.spd = data.Players.The_Doge.SPD
+	Dog.pickup_radius = data.Players.The_Doge.Pickup_Radius
+	Dog.spacial_skill = data.Players.The_Doge.Spacial_Skill
+
+	Monkey.max_hp = data.Players.Monkey_Caesar.Max_HP
+	Monkey.hp = data.Players.Monkey_Caesar.HP
+	Monkey.atk = data.Players.Monkey_Caesar.ATK
+	Monkey.spd = data.Players.Monkey_Caesar.SPD
+	Monkey.pickup_radius = data.Players.Monkey_Caesar.Pickup_Radius
+	Monkey.spacial_skill = data.Players.Monkey_Caesar.Spacial_Skill
+
+	Frog.max_hp = data.Players.Pepe_The_Frog.Max_HP
+	Frog.hp = data.Players.Pepe_The_Frog.HP
+	Frog.atk = data.Players.Pepe_The_Frog.ATK
+	Frog.spd = data.Players.Pepe_The_Frog.SPD
+	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
+	Frog.spacial_skill = data.Players.Pepe_The_Frog.Spacial_Skill
 #
-#	Dog.max_hp = data.Players.The_Dog.Max_HP
-#	Dog.hp = data.Players.The_Dog.HP
-#	Dog.atk = data.Players.The_Dog.ATK
-#	Dog.spd = data.Players.The_Dog.SPD
-#	Dog.pickup_radius = data.Players.The_Dog.Pickup_Radius
-#	Dog.spacial_skill = data.Players.The_Dog.Spacial_Skill
-#
-#	Monkey.max_hp = data.Players.Monkey_Ceasar.Max_HP
-#	Monkey.hp = data.Players.Monkey_Ceasar.HP
-#	Monkey.atk = data.Players.Monkey_Ceasar.ATK
-#	Monkey.spd = data.Players.Monkey_Ceasar.SPD
-#	Monkey.pickup_radius = data.Players.Monkey_Ceasar.Pickup_Radius
-#	Monkey.spacial_skill = data.Players.Monkey_Ceasar.Spacial_Skill
-#
-#	Frog.max_hp = data.Players.Pepe_The_Frog.Max_HP
-#	Frog.hp = data.Players.Pepe_The_Frog.HP
-#	Frog.atk = data.Players.Pepe_The_Frog.ATK
-#	Frog.spd = data.Players.Pepe_The_Frog.SPD
-#	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
-#	Frog.spacial_skill = data.Players.Pepe_The_Frog.Spacial_Skill
-#
-
-
-	
-	
-
-
-

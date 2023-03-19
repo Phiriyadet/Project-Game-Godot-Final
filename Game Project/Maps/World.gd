@@ -5,7 +5,7 @@ const ENEMY_SCENES: Dictionary = {
 	"HalfCat":preload("res://Characters/Enemies/HalfCat/HalfCat.tscn")
 }
 const PLAYER_SCENES: Dictionary = {
-	"Dog":preload("res://Characters/Players/TheDog/TheDoge.tscn"),
+	"Dog":preload("res://Characters/Players/TheDoge/TheDoge.tscn"),
 	"Monkey":preload("res://Characters/Players/MonkeyCaesar/MonkeyCaesar.tscn"),
 	"Frog":preload("res://Characters/Players/PepeTheFrog/PepeTheFrog.tscn")
 }
@@ -40,7 +40,7 @@ var player_in_map : KinematicBody2D
 	
 func select_player(select_player):
 	match select_player:
-		"Dog":
+		"Doge":
 			player = PLAYER_SCENES.Dog.instance()
 		"Monkey":
 			player = PLAYER_SCENES.Monkey.instance()
@@ -59,6 +59,8 @@ func _ready():
 	randomize()
 	select_player(Global.player_select)
 	if p != null and player != null:
+		 
+		print_debug(Global.player_status.HP)
 		p.add_child(player)
 		
 	if p.get_child_count()>0:

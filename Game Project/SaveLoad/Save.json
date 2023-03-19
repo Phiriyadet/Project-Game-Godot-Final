@@ -2,7 +2,7 @@
   "Coin": {
     "Num_Coin": 0
   },
-  "Players": [
+  "Players": 
     {
       "The Doge": {
         "Max_HP": 50,
@@ -29,5 +29,5 @@
         "Spacial_Skill": false
       }
     }
-  ]
+  
 }

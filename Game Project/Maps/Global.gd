@@ -6,6 +6,7 @@ extends Node
 # var b = "text"
 
 var player_select setget set_player, get_player
+var player_status setget set_playerstatus, get_playerstatus
 var enemy_dead_count = 0
 var player_dead = false
 var level_player = 1
@@ -18,6 +19,9 @@ func set_player(p):
 	
 func get_player():
 	return player_select
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func set_playerstatus(ps):
+	player_status = ps
+	
+func get_playerstatus():
+	return player_status
