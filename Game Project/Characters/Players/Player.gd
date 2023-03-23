@@ -15,6 +15,7 @@ onready var experienceBar:TextureProgress = get_node("CanvasLayer/GUI/ExpBar")
 onready var levelLabel: Label = get_node("CanvasLayer/GUI/Level")
 onready var enemyDesCount : Label= get_node("CanvasLayer/GUI/EnemyDestroyedCount")
 
+
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
@@ -22,6 +23,7 @@ var collected_experience = 0 #exp ที่เก็บได้ใหม่
 
 func _ready():
 	set_healthbar()
+	
 	set_expbar(experience, calculate_experiencecap())
 	
 func _process(delta):

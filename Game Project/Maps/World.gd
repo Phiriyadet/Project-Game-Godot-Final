@@ -60,7 +60,13 @@ func _ready():
 	select_player(Global.player_select)
 	if p != null and player != null:
 		 
-		print_debug(Global.player_status.HP)
+		# print_debug(Global.player_status.HP)
+		player.max_hp = Global.player_status.HP
+		player.hp = Global.player_status.HP
+		player.atk = Global.player_status.ATK
+		player.spd = Global.player_status.SPD
+		player.pickup_radius = Global.player_status.Pickup_Radius
+		player.spacial_skill = Global.player_status.Spacial_Skill
 		p.add_child(player)
 		
 	if p.get_child_count()>0:
