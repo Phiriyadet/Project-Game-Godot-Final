@@ -69,75 +69,99 @@ tile_data = PoolIntArray( -9109718, 1, 0, -9109717, 0, 0, -9109716, 0, 0, -91097
 
 [node name="Node2D21" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1, -123 )
+z_index = 0
 
 [node name="Node2D22" parent="." instance=ExtResource( 12 )]
 position = Vector2( -218, -163 )
+z_index = 0
 
 [node name="Node2D23" parent="." instance=ExtResource( 13 )]
 position = Vector2( 366, -268 )
+z_index = 0
 
 [node name="Node2D24" parent="." instance=ExtResource( 13 )]
 position = Vector2( 415, -268 )
+z_index = 0
 
 [node name="Node2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 137, 70 )
+z_index = 0
 
 [node name="Node2D2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 107, 123 )
+z_index = 0
 
 [node name="Node2D3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 464, -268 )
+z_index = 0
 
 [node name="Node2D4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 366, -222 )
+z_index = 0
 
 [node name="Node2D5" parent="." instance=ExtResource( 14 )]
 position = Vector2( 415, -223 )
+z_index = 0
 
 [node name="Node2D6" parent="." instance=ExtResource( 14 )]
 position = Vector2( 464, -223 )
+z_index = 0
 
 [node name="Node2D7" parent="." instance=ExtResource( 17 )]
 position = Vector2( -267, -194 )
+z_index = 0
 
 [node name="Node2D8" parent="." instance=ExtResource( 17 )]
 position = Vector2( -209, 181 )
+z_index = 0
 
 [node name="Node2D9" parent="." instance=ExtResource( 17 )]
 position = Vector2( 87, -273 )
+z_index = 0
 
 [node name="Node2D10" parent="." instance=ExtResource( 17 )]
 position = Vector2( -148, 235 )
+z_index = 0
 
 [node name="Node2D11" parent="." instance=ExtResource( 17 )]
 position = Vector2( -242, 257 )
+z_index = 0
 
 [node name="Node2D12" parent="." instance=ExtResource( 17 )]
 position = Vector2( 186, 113 )
+z_index = 0
 
 [node name="Node2D13" parent="." instance=ExtResource( 17 )]
 position = Vector2( -421, 78 )
+z_index = 0
 
 [node name="Node2D14" parent="." instance=ExtResource( 17 )]
 position = Vector2( 94, 293 )
+z_index = 0
 
 [node name="Node2D15" parent="." instance=ExtResource( 15 )]
 position = Vector2( 327, -85 )
+z_index = 0
 
 [node name="Node2D16" parent="." instance=ExtResource( 18 )]
 position = Vector2( 352, -82 )
+z_index = 0
 
 [node name="Node2D17" parent="." instance=ExtResource( 11 )]
 position = Vector2( 378, -79 )
+z_index = 0
 
 [node name="Node2D18" parent="." instance=ExtResource( 9 )]
 position = Vector2( 174, 320 )
+z_index = 0
 
 [node name="Node2D19" parent="." instance=ExtResource( 10 )]
 position = Vector2( -497, 265 )
+z_index = 0
 
 [node name="Node2D20" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1, 226 )
+z_index = 0
 
 [connection signal="timeout" from="CountTime" to="." method="_on_CountTime_timeout"]
 

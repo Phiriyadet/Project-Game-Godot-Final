@@ -16,3 +16,7 @@ tile_data = PoolIntArray( 0, 15, 0 )
 visible = false
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
+
+[node name="TileMap2" parent="." index="2"]
+position = Vector2( -14, -19 )
+tile_data = PoolIntArray( 0, 14, 0 )
