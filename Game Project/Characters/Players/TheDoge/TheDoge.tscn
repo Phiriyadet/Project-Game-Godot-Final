@@ -54,8 +54,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=11]
-radius = 16.0
-height = 24.0
+radius = 11.0
+height = 22.0
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 20.0
@@ -72,12 +72,12 @@ script = ExtResource( 5 )
 max_hp = 50
 hp = 50
 spd = 50
-spacial_skill = false
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 9 )
 
 [node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( 1, -1 )
 shape = SubResource( 11 )
 
 [node name="CollisionShape2D" parent="PickupRadius" index="0"]

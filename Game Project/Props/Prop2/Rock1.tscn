@@ -17,3 +17,7 @@ visible = false
 position = Vector2( 0, 2 )
 rotation = -1.56207
 shape = SubResource( 1 )
+
+[node name="TileMap2" parent="." index="2"]
+position = Vector2( -28, 30 )
+tile_data = PoolIntArray( -65536, 7, 0 )
