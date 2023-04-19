@@ -9,12 +9,16 @@ onready var spdL = $ColorRect/Panel/HBoxContainer/StatusContainer/spdL
 onready var prL = $ColorRect/Panel/HBoxContainer/StatusContainer/prL
 onready var ssL = $ColorRect/Panel/HBoxContainer/StatusContainer/ssL
 onready var playBtn:Button = get_node("PlayBtn") 
+onready var players_cont = $ColorRect/PlayersContainer
+onready var doge_btn = $ColorRect/PlayersContainer/VBoxContainer/DogTextureRect
+onready var monkey_btn = $ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect
+onready var frog_btn = $ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect
 
-var hp_d =0
-var atk_d=0
-var spd_d=0
-var pr_d=0
-var ss_d=false
+var hp_d = 0
+var atk_d = 0
+var spd_d = 0
+var pr_d = 0
+var ss_d = false
 
 var hp_m=0
 var atk_m=0
@@ -30,7 +34,11 @@ var ss_f=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	doge_btn.self_modulate = Color(0,0,0,1)
+	monkey_btn.self_modulate = Color(0,0,0,1)
+	frog_btn.self_modulate = Color(0,0,0,1)
 	# disable play button when the scene is loaded
+	
 	playBtn.disabled = true
 	# set global variable enemy_dead_count to 0
 	Global.enemy_dead_count = 0
@@ -102,6 +110,9 @@ func _on_PlayBtn_pressed():
 func _on_TextureRect_pressed():
 	# set label text to "Dog"
 	#label.text = "Dog"
+	doge_btn.self_modulate = Color(1,1,1,1)
+	monkey_btn.self_modulate = Color(0,0,0,1)
+	frog_btn.self_modulate = Color(0,0,0,1)
 	setStatusLabel(hp_d,atk_d,spd_d,pr_d, ss_d)	
 	# enable play button
 	playBtn.disabled = false
@@ -118,6 +129,9 @@ func _on_TextureRect_pressed():
 func _on_TextureRect2_pressed():
 	# set label text to "Monkey"
 	#label.text = "Monkey"
+	doge_btn.self_modulate = Color(0,0,0,1)
+	monkey_btn.self_modulate = Color(1,1,1,1)
+	frog_btn.self_modulate = Color(0,0,0,1)
 	setStatusLabel(hp_m,atk_m,spd_m,pr_m, ss_m)
 	# enable play button
 	playBtn.disabled = false
@@ -134,6 +148,9 @@ func _on_TextureRect2_pressed():
 func _on_TextureRect3_pressed():
 	# set label text to "Frog"
 	#label.text = "Frog"
+	doge_btn.self_modulate = Color(0,0,0,1)
+	monkey_btn.self_modulate = Color(0,0,0,1)
+	frog_btn.self_modulate = Color(1,1,1,1)
 	setStatusLabel(hp_f,atk_f,spd_f,pr_f, ss_f)
 	# enable play button
 	playBtn.disabled = false
@@ -152,3 +169,132 @@ func setStatusLabel(hp, atk, spd, pr, ss):
 	spdL.text = str(spd)
 	prL.text = str(pr)
 	ssL.text = str(ss)
+
+
+
+func _on_plus_hp_pressed():
+	match Global.player_select:
+		"Doge":
+			hp_d = clamp(hp_d + 10,10,100)
+			hpL.text = str(hp_d)
+		"Monkey":
+			hp_m = clamp(hp_m + 10,10,100)
+			hpL.text = str(hp_m)
+		"Frog":
+			hp_f = clamp(hp_f + 10,10,100)
+			hpL.text = str(hp_f)
+
+
+func _on_minus_hp_pressed():
+	match Global.player_select:
+		"Doge":
+			hp_d = clamp(hp_d - 10,10,100)
+			hpL.text = str(hp_d)
+		"Monkey":
+			hp_m = clamp(hp_m - 10,10,100)
+			hpL.text = str(hp_m)
+		"Frog":
+			hp_f = clamp(hp_f - 10,10,100)
+			hpL.text = str(hp_f)
+
+
+func _on_plus_atk_pressed():
+	match Global.player_select:
+		"Doge":
+			atk_d = atk_d + 10
+			atkL.text = str(atk_d)
+		"Monkey":
+			atk_m = atk_m + 10
+			atkL.text = str(atk_m)
+		"Frog":
+			atk_f = atk_f + 10
+			atkL.text = str(atk_f)
+
+
+func _on_minus_atk_pressed():
+	match Global.player_select:
+		"Doge":
+			atk_d = atk_d - 10
+			atkL.text = str(atk_d)
+		"Monkey":
+			atk_m = atk_m - 10
+			atkL.text = str(atk_m)
+		"Frog":
+			atk_f = atk_f - 10
+			atkL.text = str(atk_f)
+
+
+func _on_plus_spd_pressed():
+	match Global.player_select:
+		"Doge":
+			spd_d = spd_d + 10
+			spdL.text = str(spd_d)
+		"Monkey":
+			spd_m = spd_m + 10
+			spdL.text = str(spd_m)
+		"Frog":
+			spd_f = spd_f + 10
+			spdL.text = str(spd_f)
+
+
+func _on_minus_spd_pressed():
+	match Global.player_select:
+		"Doge":
+			spd_d = spd_d - 10
+			spdL.text = str(spd_d)
+		"Monkey":
+			spd_m = spd_m - 10
+			spdL.text = str(spd_m)
+		"Frog":
+			spd_f = spd_f - 10
+			spdL.text = str(spd_f)
+
+func _on_plus_pickupR_pressed():
+	match Global.player_select:
+		"Doge":
+			pr_d = pr_d + 10
+			prL.text = str(pr_d)
+		"Monkey":
+			pr_m = pr_m + 10
+			prL.text = str(pr_m)
+		"Frog":
+			pr_f = pr_f + 10
+			prL.text = str(pr_f)
+
+
+func _on_minus_pickupR_pressed():
+	match Global.player_select:
+		"Doge":
+			pr_d = pr_d - 10
+			prL.text = str(pr_d)
+		"Monkey":
+			pr_m = pr_m - 10
+			prL.text = str(pr_m)
+		"Frog":
+			pr_f = pr_f - 10
+			prL.text = str(pr_f)
+
+
+func _on_switch_skill_toggled(button_pressed):
+	if button_pressed:
+		match Global.player_select:
+			"Doge":
+				ss_d = true
+				ssL.text = str(ss_d)
+			"Monkey":
+				ss_m = true
+				ssL.text = str(ss_m)
+			"Frog":
+				ss_f = true
+				ssL.text = str(ss_f)
+	if button_pressed != true:
+		match Global.player_select:
+			"Doge":
+				ss_d = false
+				ssL.text = str(ss_d)
+			"Monkey":
+				ss_m = false
+				ssL.text = str(ss_m)
+			"Frog":
+				ss_f = false
+				ssL.text = str(ss_f)	

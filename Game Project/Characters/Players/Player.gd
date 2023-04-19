@@ -29,7 +29,7 @@ func _ready():
 func _process(delta):
 	set_healthbar()
 	enemyDesCount.text = str(Global.enemy_dead_count)
-#	picradius.shape.radius = self.pickup_radius 
+	picradius.shape.radius = self.pickup_radius 
 #	print(picradius.shape.radius)
 	for skill in skills.get_children():
 		match  skill.name:

@@ -21,6 +21,8 @@ margin_bottom = 197.0
 [node name="StartBtn" type="Button" parent="VBoxContainer"]
 margin_right = 140.0
 margin_bottom = 25.0
+focus_neighbour_top = NodePath("../QuitBtn")
+focus_neighbour_bottom = NodePath("../SettingBtn")
 custom_fonts/font = ExtResource( 2 )
 text = "เริ่มเกม"
 
@@ -28,6 +30,8 @@ text = "เริ่มเกม"
 margin_top = 29.0
 margin_right = 140.0
 margin_bottom = 54.0
+focus_neighbour_top = NodePath("../StartBtn")
+focus_neighbour_bottom = NodePath("../CreditsBtn")
 custom_fonts/font = ExtResource( 2 )
 text = "ตั้งค่า"
 
@@ -35,6 +39,8 @@ text = "ตั้งค่า"
 margin_top = 58.0
 margin_right = 140.0
 margin_bottom = 83.0
+focus_neighbour_top = NodePath("../SettingBtn")
+focus_neighbour_bottom = NodePath("../QuitBtn")
 custom_fonts/font = ExtResource( 2 )
 text = "เครดิต"
 
@@ -42,6 +48,8 @@ text = "เครดิต"
 margin_top = 87.0
 margin_right = 140.0
 margin_bottom = 112.0
+focus_neighbour_top = NodePath("../CreditsBtn")
+focus_neighbour_bottom = NodePath("../StartBtn")
 custom_fonts/font = ExtResource( 2 )
 text = "ออก"
 

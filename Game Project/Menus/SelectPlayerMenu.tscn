@@ -22,7 +22,7 @@ margin_right = 480.0
 margin_bottom = 270.0
 color = Color( 0.145098, 0.133333, 0.133333, 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+[node name="PlayersContainer" type="HBoxContainer" parent="ColorRect"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -100.0
@@ -31,16 +31,19 @@ margin_bottom = 82.0
 grow_horizontal = 0
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PlayersContainer"]
 margin_right = 64.0
 margin_bottom = 87.0
 
-[node name="TextureRect" type="TextureButton" parent="ColorRect/HBoxContainer/VBoxContainer"]
+[node name="DogTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer"]
+self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../VBoxContainer3/FrogTextureRect")
+focus_neighbour_right = NodePath("../../VBoxContainer2/MonkeyTextureRect")
 texture_normal = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/PlayersContainer/VBoxContainer"]
 margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 87.0
@@ -48,17 +51,20 @@ custom_fonts/font = ExtResource( 5 )
 text = "Dog"
 align = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/PlayersContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 87.0
 
-[node name="TextureRect2" type="TextureButton" parent="ColorRect/HBoxContainer/VBoxContainer2"]
+[node name="MonkeyTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer2"]
+self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../VBoxContainer/DogTextureRect")
+focus_neighbour_right = NodePath("../../VBoxContainer3/FrogTextureRect")
 texture_normal = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="ColorRect/PlayersContainer/VBoxContainer2"]
 margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 87.0
@@ -66,17 +72,20 @@ custom_fonts/font = ExtResource( 5 )
 text = "Monkey"
 align = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/PlayersContainer"]
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 87.0
 
-[node name="TextureRect3" type="TextureButton" parent="ColorRect/HBoxContainer/VBoxContainer3"]
+[node name="FrogTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer3"]
+self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../VBoxContainer2/MonkeyTextureRect")
+focus_neighbour_right = NodePath("../../VBoxContainer/DogTextureRect")
 texture_normal = ExtResource( 4 )
 
-[node name="Label" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="ColorRect/PlayersContainer/VBoxContainer3"]
 margin_top = 68.0
 margin_right = 64.0
 margin_bottom = 87.0
@@ -186,13 +195,13 @@ margin_right = 76.0
 margin_bottom = 20.0
 alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer"]
+[node name="plus_hp" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer"]
 margin_left = 17.0
 margin_right = 37.0
 margin_bottom = 20.0
 text = "+"
 
-[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer"]
+[node name="minus_hp" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer"]
 margin_left = 41.0
 margin_right = 58.0
 margin_bottom = 20.0
@@ -204,13 +213,13 @@ margin_right = 76.0
 margin_bottom = 44.0
 alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2"]
+[node name="plus_atk" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2"]
 margin_left = 17.0
 margin_right = 37.0
 margin_bottom = 20.0
 text = "+"
 
-[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2"]
+[node name="minus_atk" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2"]
 margin_left = 41.0
 margin_right = 58.0
 margin_bottom = 20.0
@@ -222,13 +231,13 @@ margin_right = 76.0
 margin_bottom = 68.0
 alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3"]
+[node name="plus_spd" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3"]
 margin_left = 17.0
 margin_right = 37.0
 margin_bottom = 20.0
 text = "+"
 
-[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3"]
+[node name="minus_spd" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3"]
 margin_left = 41.0
 margin_right = 58.0
 margin_bottom = 20.0
@@ -240,19 +249,19 @@ margin_right = 76.0
 margin_bottom = 92.0
 alignment = 1
 
-[node name="Button" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4"]
+[node name="plus_pickupR" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4"]
 margin_left = 17.0
 margin_right = 37.0
 margin_bottom = 20.0
 text = "+"
 
-[node name="Button2" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4"]
+[node name="minus_pickupR" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4"]
 margin_left = 41.0
 margin_right = 58.0
 margin_bottom = 20.0
 text = "-"
 
-[node name="Button5" type="CheckButton" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
+[node name="switch_skill" type="CheckButton" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
 margin_top = 96.0
 margin_right = 76.0
 margin_bottom = 136.0
@@ -305,8 +314,17 @@ margin_right = 311.0
 margin_bottom = 260.0
 text = "play"
 
-[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/TextureRect" to="." method="_on_TextureRect_pressed"]
-[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer2/TextureRect2" to="." method="_on_TextureRect2_pressed"]
-[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer3/TextureRect3" to="." method="_on_TextureRect3_pressed"]
+[connection signal="pressed" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_TextureRect_pressed"]
+[connection signal="pressed" from="ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect" to="." method="_on_TextureRect2_pressed"]
+[connection signal="pressed" from="ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect" to="." method="_on_TextureRect3_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer/plus_hp" to="." method="_on_plus_hp_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer/minus_hp" to="." method="_on_minus_hp_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2/plus_atk" to="." method="_on_plus_atk_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2/minus_atk" to="." method="_on_minus_atk_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3/plus_spd" to="." method="_on_plus_spd_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3/minus_spd" to="." method="_on_minus_spd_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4/plus_pickupR" to="." method="_on_plus_pickupR_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4/minus_pickupR" to="." method="_on_minus_pickupR_pressed"]
+[connection signal="toggled" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/switch_skill" to="." method="_on_switch_skill_toggled"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]

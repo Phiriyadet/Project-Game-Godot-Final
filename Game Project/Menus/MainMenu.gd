@@ -1,9 +1,7 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var start_btn := $VBoxContainer/StartBtn
 
 func _init():
 	randomize()
@@ -13,8 +11,10 @@ func _init():
 	OS.set_window_position(screen_size * 0.5 - window_size * 0.5)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	start_btn.grab_focus()
 	Global.player_dead = false
 	Global.level_player = 1
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
