@@ -96,6 +96,30 @@ func _save_game():
 
 	_save.write_savegame()
 
+func setGlobalStausDoge():
+	Global.player_status = {"Max_HP": hp_d,
+	"HP": hp_d,
+	"ATK": atk_d,
+	"SPD": spd_d,
+	"Pickup_Radius": pr_d,
+	"Spacial_Skill": ss_d}
+	
+func setGlobalStausMonkey():
+	Global.player_status = {"Max_HP": hp_m,
+	"HP": hp_m,
+	"ATK": atk_m,
+	"SPD": spd_m,
+	"Pickup_Radius": pr_m,
+	"Spacial_Skill": ss_m}
+	
+func setGlobalStausFrog():
+	Global.player_status = {"Max_HP": hp_f,
+	"HP": hp_f,
+	"ATK": atk_f,
+	"SPD": spd_f,
+	"Pickup_Radius": pr_f,
+	"Spacial_Skill": ss_f}
+	
 # called when the Back button is pressed
 func _on_BackBtn_pressed():
 	# change to main menu scene
@@ -118,12 +142,7 @@ func _on_TextureRect_pressed():
 	playBtn.disabled = false
 	# set global variable player_select to "Dog"
 	Global.player_select = "Doge"
-	Global.player_status = {"Max_HP": hp_d,
-	"HP": hp_d,
-	"ATK": atk_d,
-	"SPD": spd_d,
-	"Pickup_Radius": pr_d,
-	"Spacial_Skill": ss_d}
+	setGlobalStausDoge()
 
 # called when the TextureRect2 is pressed
 func _on_TextureRect2_pressed():
@@ -137,12 +156,7 @@ func _on_TextureRect2_pressed():
 	playBtn.disabled = false
 	# set global variable player_select to "Monkey"
 	Global.player_select = "Monkey"
-	Global.player_status = {"Max_HP": hp_m,
-	"HP": hp_m,
-	"ATK": atk_m,
-	"SPD": spd_m,
-	"Pickup_Radius": pr_m,
-	"Spacial_Skill": ss_m}
+	setGlobalStausMonkey()
 
 # called when the TextureRect3 is pressed
 func _on_TextureRect3_pressed():
@@ -156,12 +170,7 @@ func _on_TextureRect3_pressed():
 	playBtn.disabled = false
 	# set global variable player_select to "Frog"
 	Global.player_select = "Frog"
-	Global.player_status = {"Max_HP": hp_f,
-	"HP": hp_f,
-	"ATK": atk_f,
-	"SPD": spd_f,
-	"Pickup_Radius": pr_f,
-	"Spacial_Skill": ss_f}
+	setGlobalStausFrog()
 
 func setStatusLabel(hp, atk, spd, pr, ss):
 	hpL.text = str(hp)	
@@ -171,18 +180,24 @@ func setStatusLabel(hp, atk, spd, pr, ss):
 	ssL.text = str(ss)
 
 
-
+	
 func _on_plus_hp_pressed():
 	match Global.player_select:
 		"Doge":
 			hp_d = clamp(hp_d + 10,10,100)
 			hpL.text = str(hp_d)
+			setGlobalStausDoge()
 		"Monkey":
 			hp_m = clamp(hp_m + 10,10,100)
 			hpL.text = str(hp_m)
+			
+			setGlobalStausMonkey()
 		"Frog":
 			hp_f = clamp(hp_f + 10,10,100)
 			hpL.text = str(hp_f)
+			
+			setGlobalStausFrog()
+	_save_game()
 
 
 func _on_minus_hp_pressed():
@@ -190,89 +205,112 @@ func _on_minus_hp_pressed():
 		"Doge":
 			hp_d = clamp(hp_d - 10,10,100)
 			hpL.text = str(hp_d)
+			setGlobalStausDoge()
 		"Monkey":
 			hp_m = clamp(hp_m - 10,10,100)
 			hpL.text = str(hp_m)
+			setGlobalStausMonkey()
 		"Frog":
 			hp_f = clamp(hp_f - 10,10,100)
 			hpL.text = str(hp_f)
-
+			setGlobalStausFrog()
+	_save_game()
 
 func _on_plus_atk_pressed():
 	match Global.player_select:
 		"Doge":
-			atk_d = atk_d + 10
+			atk_d = clamp(atk_d + 10, 10, 100)
 			atkL.text = str(atk_d)
+			setGlobalStausDoge()
 		"Monkey":
-			atk_m = atk_m + 10
+			atk_m = clamp(atk_m + 10, 10, 100)
 			atkL.text = str(atk_m)
+			setGlobalStausMonkey()
 		"Frog":
-			atk_f = atk_f + 10
+			atk_f = clamp(atk_f + 10, 10, 100)
 			atkL.text = str(atk_f)
-
+			setGlobalStausFrog()
+	_save_game()
 
 func _on_minus_atk_pressed():
 	match Global.player_select:
 		"Doge":
-			atk_d = atk_d - 10
+			atk_d = clamp(atk_d - 10, 10, 100)
 			atkL.text = str(atk_d)
+			setGlobalStausDoge()
 		"Monkey":
-			atk_m = atk_m - 10
+			atk_m = clamp(atk_m - 10, 10, 100)
 			atkL.text = str(atk_m)
+			setGlobalStausMonkey()
 		"Frog":
-			atk_f = atk_f - 10
+			atk_f = clamp(atk_f - 10, 10, 100)
 			atkL.text = str(atk_f)
-
+			setGlobalStausFrog()
+	_save_game()
 
 func _on_plus_spd_pressed():
 	match Global.player_select:
 		"Doge":
-			spd_d = spd_d + 10
+			spd_d = clamp(spd_d + 10, 10, 100)
 			spdL.text = str(spd_d)
+			setGlobalStausDoge()
 		"Monkey":
-			spd_m = spd_m + 10
+			spd_m = clamp(spd_m + 10, 10, 100)
 			spdL.text = str(spd_m)
+			setGlobalStausMonkey()
 		"Frog":
-			spd_f = spd_f + 10
+			spd_f = clamp(spd_f + 10, 10, 100)
 			spdL.text = str(spd_f)
-
+			setGlobalStausFrog()
+	_save_game()
 
 func _on_minus_spd_pressed():
 	match Global.player_select:
 		"Doge":
-			spd_d = spd_d - 10
+			spd_d = clamp(spd_d - 10, 10, 100)
 			spdL.text = str(spd_d)
+			setGlobalStausDoge()
 		"Monkey":
-			spd_m = spd_m - 10
+			spd_m = clamp(spd_m - 10, 10, 100)
 			spdL.text = str(spd_m)
+			setGlobalStausMonkey()
 		"Frog":
-			spd_f = spd_f - 10
+			spd_f = clamp(spd_f - 10, 10, 100)
 			spdL.text = str(spd_f)
+			setGlobalStausFrog()
+	_save_game()
 
 func _on_plus_pickupR_pressed():
 	match Global.player_select:
 		"Doge":
-			pr_d = pr_d + 10
+			pr_d = clamp(pr_d + 10, 10, 100)
 			prL.text = str(pr_d)
+			setGlobalStausDoge()
 		"Monkey":
-			pr_m = pr_m + 10
+			pr_m = clamp(pr_m + 10, 10, 100)
 			prL.text = str(pr_m)
+			setGlobalStausMonkey()
 		"Frog":
-			pr_f = pr_f + 10
+			pr_f = clamp(pr_f + 10, 10, 100)
 			prL.text = str(pr_f)
-
+			setGlobalStausFrog()
+	_save_game()
 
 func _on_minus_pickupR_pressed():
 	match Global.player_select:
 		"Doge":
-			pr_d = pr_d - 10
+			pr_d = clamp(pr_d - 10, 10, 100)
 			prL.text = str(pr_d)
+			setGlobalStausDoge()
 		"Monkey":
-			pr_m = pr_m - 10
+			pr_m = clamp(pr_m - 10, 10, 100)
 			prL.text = str(pr_m)
+			setGlobalStausMonkey()
 		"Frog":
-			pr_f = pr_f - 10
+			pr_f = clamp(pr_f - 10, 10, 100)
 			prL.text = str(pr_f)
+			setGlobalStausFrog()
+	_save_game()
 
 
 func _on_switch_skill_toggled(button_pressed):
@@ -281,20 +319,27 @@ func _on_switch_skill_toggled(button_pressed):
 			"Doge":
 				ss_d = true
 				ssL.text = str(ss_d)
+				setGlobalStausDoge()
 			"Monkey":
 				ss_m = true
 				ssL.text = str(ss_m)
+				setGlobalStausMonkey()
 			"Frog":
 				ss_f = true
 				ssL.text = str(ss_f)
+				setGlobalStausFrog()
 	if button_pressed != true:
 		match Global.player_select:
 			"Doge":
 				ss_d = false
 				ssL.text = str(ss_d)
+				setGlobalStausDoge()
 			"Monkey":
 				ss_m = false
 				ssL.text = str(ss_m)
+				setGlobalStausMonkey()
 			"Frog":
 				ss_f = false
-				ssL.text = str(ss_f)	
+				ssL.text = str(ss_f)
+				setGlobalStausFrog()	
+	_save_game()
