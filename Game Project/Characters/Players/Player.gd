@@ -30,12 +30,17 @@ func _process(delta):
 	set_healthbar()
 	enemyDesCount.text = str(Global.enemy_dead_count)
 	picradius.shape.radius = self.pickup_radius 
-#	print(picradius.shape.radius)
+
+	
+				
+func get_skill():
 	for skill in skills.get_children():
 		match  skill.name:
 			"Ameno":
-				skill.level_skill
-
+				self.pickup_radius += skill.pickup_radius
+				
+			"Family":
+				self.max_hp += skill.max_hp
 	
 
 func get_input():

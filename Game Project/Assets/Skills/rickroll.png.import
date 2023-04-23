@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pumpkin_dance.png-b6c8eef9d8d81a80c08044e1af4aba97.stex"
+path="res://.import/rickroll.png-c474e3178df8b2a08ba2b7a788dc296f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/pumpkin_dance.png"
-dest_files=[ "res://.import/pumpkin_dance.png-b6c8eef9d8d81a80c08044e1af4aba97.stex" ]
+source_file="res://Assets/Skills/rickroll.png"
+dest_files=[ "res://.import/rickroll.png-c474e3178df8b2a08ba2b7a788dc296f.stex" ]
 
 [params]
 

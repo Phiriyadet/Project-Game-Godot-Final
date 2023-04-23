@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pumpkin_dance.png-b6c8eef9d8d81a80c08044e1af4aba97.stex"
+path="res://.import/this_is_fine .png-623014c579e3b076c0509f8949182c3b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/pumpkin_dance.png"
-dest_files=[ "res://.import/pumpkin_dance.png-b6c8eef9d8d81a80c08044e1af4aba97.stex" ]
+source_file="res://Assets/Skills/this_is_fine .png"
+dest_files=[ "res://.import/this_is_fine .png-623014c579e3b076c0509f8949182c3b.stex" ]
 
 [params]
 

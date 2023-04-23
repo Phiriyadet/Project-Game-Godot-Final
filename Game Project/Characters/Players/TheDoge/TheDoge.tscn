@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Characters/Players/TheDoge/TheDoge.gd" type="Script" id=5]
 [ext_resource path="res://Weapons/BonkBat/BonkBat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Skills/Ameno/Ameno.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Skills/Family/Family.tscn" type="PackedScene" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -87,6 +89,10 @@ shape = SubResource( 12 )
 shape = SubResource( 13 )
 
 [node name="BonkBat" parent="Weapons" index="0" instance=ExtResource( 6 )]
+
+[node name="Ameno" parent="Skills" index="0" instance=ExtResource( 7 )]
+
+[node name="Family" parent="Skills" index="1" instance=ExtResource( 8 )]
 
 [node name="EnemyDestroyedCount" parent="CanvasLayer/GUI" index="3"]
 custom_fonts/font = SubResource( 10 )

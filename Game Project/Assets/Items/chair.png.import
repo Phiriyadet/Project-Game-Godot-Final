@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pumpkin_dance.png-b6c8eef9d8d81a80c08044e1af4aba97.stex"
+path="res://.import/chair.png-64de972095bef757f75c1e20462c5e53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/pumpkin_dance.png"
-dest_files=[ "res://.import/pumpkin_dance.png-b6c8eef9d8d81a80c08044e1af4aba97.stex" ]
+source_file="res://Assets/Items/chair.png"
+dest_files=[ "res://.import/chair.png-64de972095bef757f75c1e20462c5e53.stex" ]
 
 [params]
 
