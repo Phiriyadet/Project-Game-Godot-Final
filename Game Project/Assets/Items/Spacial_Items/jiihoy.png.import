@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/omlette.png-7bbb3e5e226aaf4ca2e6826a4810b235.stex"
+path="res://.import/jiihoy.png-2b468ca7c3d92104ab2df1ac688452ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/omlette.png"
-dest_files=[ "res://.import/omlette.png-7bbb3e5e226aaf4ca2e6826a4810b235.stex" ]
+source_file="res://Assets/Items/Spacial_Items/jiihoy.png"
+dest_files=[ "res://.import/jiihoy.png-2b468ca7c3d92104ab2df1ac688452ff.stex" ]
 
 [params]
 
