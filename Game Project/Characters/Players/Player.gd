@@ -10,16 +10,18 @@ onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")
 onready var items: Node2D = get_node("Weapons")
 onready var picradius:CollisionShape2D = get_node("PickupRadius/CollisionShape2D")
-onready var healthBar:TextureProgress = get_node("CanvasLayer/GUI/HealthBar")
-onready var experienceBar:TextureProgress = get_node("CanvasLayer/GUI/ExpBar")
-onready var levelLabel: Label = get_node("CanvasLayer/GUI/Level")
-onready var enemyDesCount : Label= get_node("CanvasLayer/GUI/EnemyDestroyedCount")
-
+onready var healthBar:TextureProgress = get_node("UI/GUI/HealthBar")
+onready var experienceBar:TextureProgress = get_node("UI/GUI/ExpBar")
+onready var levelLabel: Label = get_node("UI/GUI/Level")
+onready var enemyDesCount : Label= get_node("UI/GUI/EnemyDestroyedCount")
+onready var sSkillP: TextureProgress = get_node("UI/GUI/SpacialSkillProgress")
+onready var cooldawnTimer:Timer = get_node("CoolDawnTimer")
+onready var tween:Tween = get_node("UI/GUI/Tween")
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
-
+var can_active_sSkill: bool = true
 
 func _ready():
 	set_healthbar()
@@ -60,6 +62,18 @@ func get_input():
 	if Input.is_action_pressed("ui_up"):
 		mov_direction += Vector2.UP
 	
+	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill:
+		can_active_sSkill = false
+		cooldawnTimer.start()
+		recharge_sskill(cooldawnTimer.wait_time)
+
+func recharge_sskill(time:float):
+#	sSkillP.value
+	var __ = tween.interpolate_property(sSkillP, "value", 100, 0, time)
+	assert(__)
+	__ = tween.start()
+	assert(__)
+			
 func calculate_experience(gem_exp): #คำนวน exp ที่เก็บได้
 	var exp_required = calculate_experiencecap()
 	collected_experience += gem_exp
@@ -129,3 +143,7 @@ func _on_Player_hp_changed():
 
 
 
+
+
+func _on_CoolDawnTimer_timeout():
+	can_active_sSkill = true
