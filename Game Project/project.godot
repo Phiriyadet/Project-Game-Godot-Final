@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Skills/Ameno/Ameno.gd"
 }, {
+"base": "Node2D",
+"class": "Amogus",
+"language": "GDScript",
+"path": "res://Items/Amogus/Amogus.gd"
+}, {
 "base": "Weapon",
 "class": "BonkBat",
 "language": "GDScript",
@@ -85,6 +90,11 @@ _global_script_classes=[ {
 "path": "res://Characters/Players/MonkeyCaesar/MonkeyCaesar.gd"
 }, {
 "base": "Node2D",
+"class": "NanomachinesSon",
+"language": "GDScript",
+"path": "res://Items/NanomachinesSon/NanomachinesSon.gd"
+}, {
+"base": "Node2D",
 "class": "Nokia3310",
 "language": "GDScript",
 "path": "res://Weapons/Nokia3310/Nokia3310.gd"
@@ -134,6 +144,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Players/TheDoge/TheDoge.gd"
 }, {
+"base": "Node2D",
+"class": "TheMotivation",
+"language": "GDScript",
+"path": "res://Items/TheMotivation/TheMotivation.gd"
+}, {
+"base": "Node2D",
+"class": "ThePumpkinDance",
+"language": "GDScript",
+"path": "res://Items/ThePumpkinDance/ThePumpkinDance.gd"
+}, {
 "base": "Character",
 "class": "UgandaKnuckles",
 "language": "GDScript",
@@ -146,6 +166,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Ameno": "",
+"Amogus": "res://Assets/Items/amogus.png",
 "BonkBat": "res://Assets/Weapons/bonk-bat/bat.png",
 "BonkMissile": "res://Assets/Weapons/bonk-missile/bonk_missile-1.png",
 "Bullet": "res://Assets/Weapons/gunhand/gunhand-2.png",
@@ -160,6 +181,7 @@ _global_script_class_icons={
 "HandGun": "res://Assets/Weapons/gunhand/gunhand-1.png",
 "Hitbox": "",
 "MonkeyCaesar": "res://Assets/Characters/Players/Monkey/monkey-idle-1.png",
+"NanomachinesSon": "res://Assets/Items/hearth_nms.png",
 "Nokia3310": "res://Assets/Weapons/indestructible_nokia_3310/Indestructible_Nokia_3310.png",
 "PepeTheFrog": "res://Assets/Characters/Players/Pepe/pepe-idle-1.png",
 "Player": "",
@@ -170,6 +192,8 @@ _global_script_class_icons={
 "Spawn_info": "",
 "TakeMyMoney": "res://Assets/Items/takemymoney.png",
 "TheDoge": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
+"TheMotivation": "res://Assets/Items/chair.png",
+"ThePumpkinDance": "res://Assets/Items/pumpkin_dance-5.png",
 "UgandaKnuckles": "res://Assets/Characters/Enemies/Uganda_knuckles/uganda_knuckles-1.png",
 "Weapon": ""
 }
