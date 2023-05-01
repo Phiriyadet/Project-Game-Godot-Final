@@ -18,6 +18,8 @@ onready var sSkillP: TextureProgress = get_node("UI/GUI/SpacialSkillProgress")
 onready var cooldawnTimer:Timer = get_node("CoolDawnTimer")
 onready var tween:Tween = get_node("UI/GUI/Tween")
 
+onready var LevelUp = get_node("UI/GUI/LevelUp")
+
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
@@ -25,6 +27,7 @@ var can_active_sSkill: bool = true
 
 func _ready():
 	set_healthbar()
+	LevelUp.hide()
 	
 	set_expbar(experience, calculate_experiencecap())
 	
@@ -50,6 +53,8 @@ func get_input():
 	mov_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_down"):
 		mov_direction += Vector2.DOWN
+		LevelUp.visible = true
+		get_tree().paused = true
 		
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
@@ -98,7 +103,7 @@ func calculate_experiencecap():#คำนวน exp ที่ต้องกา�
 		exp_cap = 95 + (experience_level-19)*8
 	else:
 		exp_cap = 255 + (experience_level-39)*12
-	return exp_cap * 5
+	return exp_cap * 2
 
 func set_expbar(set_value = 1, set_max_value = 100):
 	experienceBar.value = set_value
@@ -110,6 +115,8 @@ func set_healthbar():
 	
 func levelup():
 	levelLabel.text = str("LV. ",experience_level)
+	LevelUp.show()
+	get_tree().paused = true
 	
 func gameover():
 	print("Game Over")
@@ -147,3 +154,8 @@ func _on_Player_hp_changed():
 
 func _on_CoolDawnTimer_timeout():
 	can_active_sSkill = true
+
+
+func _on_TextureButton_pressed():
+	LevelUp.hide()
+	get_tree().paused = false

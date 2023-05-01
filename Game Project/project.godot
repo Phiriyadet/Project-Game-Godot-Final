@@ -135,6 +135,11 @@ _global_script_classes=[ {
 "path": "res://Characters/Enemies/Spawn.gd"
 }, {
 "base": "Node2D",
+"class": "SuezCanalJam",
+"language": "GDScript",
+"path": "res://Items/SuezCanalJam/SuezCanalJam.gd"
+}, {
+"base": "Node2D",
 "class": "TakeMyMoney",
 "language": "GDScript",
 "path": "res://Items/TakeMyMoney/TakeMyMoney.gd"
@@ -190,6 +195,7 @@ _global_script_class_icons={
 "SaveGameAsJson": "",
 "Skill": "",
 "Spawn_info": "",
+"SuezCanalJam": "res://Assets/Items/evergreen.png",
 "TakeMyMoney": "res://Assets/Items/takemymoney.png",
 "TheDoge": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
 "TheMotivation": "res://Assets/Items/chair.png",

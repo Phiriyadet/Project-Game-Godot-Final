@@ -111,7 +111,7 @@ __meta__ = {
 "_edit_group_": true
 }
 hp = 20
-atk = 5
+atk = 0
 spd = 20
 
 [node name="AnimatedSprite" parent="." index="1"]
