@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Characters/Enemies/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Enemies/LaughingWolvesBanner/LaughingWolvesBanner.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Characters/Enemies/Laughing_Wolves_Banner/Laughing_Wolves_Banner.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 86, 64 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 86, 0, 86, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 172, 0, 86, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 258, 0, 86, 64 )
+
+[sub_resource type="SpriteFrames" id=5]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 11.0
+height = 58.0
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 11.0
+height = 64.0
+
+[node name="LaughingWolvesBanner" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+atk = 0
+
+[node name="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 5 )
+frame = 3
+
+[node name="CollisionShape2D" parent="." index="2"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+rotation = 1.5708
+shape = SubResource( 7 )

@@ -53,8 +53,8 @@ func get_input():
 	mov_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_down"):
 		mov_direction += Vector2.DOWN
-		LevelUp.visible = true
-		get_tree().paused = true
+		
+
 		
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
@@ -115,7 +115,7 @@ func set_healthbar():
 	
 func levelup():
 	levelLabel.text = str("LV. ",experience_level)
-	LevelUp.show()
+	LevelUp.visible = true
 	get_tree().paused = true
 	
 func gameover():
@@ -157,5 +157,5 @@ func _on_CoolDawnTimer_timeout():
 
 
 func _on_TextureButton_pressed():
-	LevelUp.hide()
+	LevelUp.visible = false
 	get_tree().paused = false
