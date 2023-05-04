@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/this_is_fine .png-623014c579e3b076c0509f8949182c3b.stex"
+path="res://.import/this_is_fine.png-34e66a3e5cc683f904e442a004f5905d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Skills/this_is_fine .png"
-dest_files=[ "res://.import/this_is_fine .png-623014c579e3b076c0509f8949182c3b.stex" ]
+source_file="res://Assets/Skills/this_is_fine.png"
+dest_files=[ "res://.import/this_is_fine.png-34e66a3e5cc683f904e442a004f5905d.stex" ]
 
 [params]
 

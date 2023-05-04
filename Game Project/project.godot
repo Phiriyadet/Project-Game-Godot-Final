@@ -79,6 +79,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/FSM.gd"
 }, {
+"base": "Node2D",
+"class": "Gigachad",
+"language": "GDScript",
+"path": "res://Skills/Gigachad/Gigachad.gd"
+}, {
+"base": "Node2D",
+"class": "GottaGoFast",
+"language": "GDScript",
+"path": "res://Skills/GottaGoFast/GottaGoFast.gd"
+}, {
 "base": "Character",
 "class": "HalfCat",
 "language": "GDScript",
@@ -143,6 +153,11 @@ _global_script_classes=[ {
 "class": "Punch",
 "language": "GDScript",
 "path": "res://Weapons/Punch/Punch.gd"
+}, {
+"base": "Node2D",
+"class": "Rickroll",
+"language": "GDScript",
+"path": "res://Skills/Rickroll/Rickroll.gd"
 }, {
 "base": "Reference",
 "class": "SaveGameAsJson",
@@ -224,6 +239,8 @@ _global_script_class_icons={
 "Exp_gem": "res://Assets/Exp/exp_gem.png",
 "Family": "",
 "FiniteStateMachine": "",
+"Gigachad": "res://Assets/Skills/gigachad.png",
+"GottaGoFast": "res://Assets/Skills/gotta_go_fast.png",
 "HalfCat": "res://Assets/Characters/Enemies/Half_cat/halfiecat-1.png",
 "HandGun": "res://Assets/Weapons/gunhand/gunhand-1.png",
 "Hitbox": "",
@@ -237,6 +254,7 @@ _global_script_class_icons={
 "PlayerFSM": "",
 "PopCat": "res://Assets/Characters/Enemies/Pop_cat/pop_cat-1.png",
 "Punch": "res://Assets/Weapons/punch/punch.png",
+"Rickroll": "res://Assets/Skills/rickroll.png",
 "SaveGameAsJson": "",
 "ShrekTPost": "res://Assets/Characters/Enemies/Shrek-t-post/shrek-t-pose-1.png",
 "Skill": "",
