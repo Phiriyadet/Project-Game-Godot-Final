@@ -4,7 +4,7 @@ class_name Skill
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export(int) var level_skill = 1 setget set_level_skill
+export(int) var level_skill = 1 setget set_newlevel_skill
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +15,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func set_level_skill(new_level_skill:int):
-	level_skill = new_level_skill
+func set_newlevel_skill(level_skill:int):
+	level_skill = clamp(level_skill+1,1,7)
 	

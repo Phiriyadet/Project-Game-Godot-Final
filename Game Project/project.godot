@@ -209,6 +209,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Items/ThePumpkinDance/ThePumpkinDance.gd"
 }, {
+"base": "Node2D",
+"class": "ThisIsFine",
+"language": "GDScript",
+"path": "res://Skills/ThisIsFine/ThisIsFine.gd"
+}, {
 "base": "Character",
 "class": "UgandaKnuckles",
 "language": "GDScript",
@@ -265,6 +270,7 @@ _global_script_class_icons={
 "TheDoge": "res://Assets/Characters/Players/Dog/dog-idle-1.png",
 "TheMotivation": "res://Assets/Items/chair.png",
 "ThePumpkinDance": "res://Assets/Items/pumpkin_dance-5.png",
+"ThisIsFine": "res://Assets/Skills/this_is_fine.png",
 "UgandaKnuckles": "res://Assets/Characters/Enemies/Uganda_knuckles/uganda_knuckles-1.png",
 "UnfinishedHorse": "res://Assets/Characters/Enemies/Unfinished_horse/unfinished_horse-1.png",
 "Weapon": ""
