@@ -79,7 +79,8 @@ tracks/4/keys = {
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_editor_description_": "ขอบเขตการโจมตี ตามทิศที่เดินไป ระยะโจมตี กลาง เวลาคูลดาวน์ 3 วินาที "
 }
 
 [node name="Node2D" parent="." index="0"]

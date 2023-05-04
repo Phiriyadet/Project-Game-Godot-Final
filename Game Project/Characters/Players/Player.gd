@@ -19,6 +19,8 @@ onready var cooldawnTimer:Timer = get_node("CoolDawnTimer")
 onready var tween:Tween = get_node("UI/GUI/Tween")
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
+onready var upOp = get_node("UI/GUI/LevelUp/UpgradeOption")
+onready var upgradeOp = preload("res://Characters/Players/UpgradeOption.tscn")
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
@@ -115,6 +117,14 @@ func set_healthbar():
 	
 func levelup():
 	levelLabel.text = str("LV. ",experience_level)
+	
+	var options = 0
+	var optionsmax = 3
+	while options < optionsmax:
+		var option_choice = upgradeOp.instance()
+		
+		upOp.add_child(option_choice)
+		options += 1
 	LevelUp.visible = true
 	get_tree().paused = true
 	

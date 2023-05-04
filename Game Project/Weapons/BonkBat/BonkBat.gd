@@ -12,6 +12,7 @@ func _process(_delta):
 		scale.x = -0.5
 	if Input.is_action_pressed("ui_right"):
 		scale.x = 0.5
+	print_debug(self.editor_description)
 			
 
 
