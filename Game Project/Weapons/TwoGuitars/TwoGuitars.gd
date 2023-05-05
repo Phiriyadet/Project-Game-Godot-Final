@@ -1,16 +1,18 @@
 extends "res://Weapons/Weapon.gd"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+class_name TwoGuitars, "res://Assets/Weapons/two_guitars/two_guitars.png"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	if Input.is_action_pressed("ui_left"):
+		scale.x = -0.5
+	if Input.is_action_pressed("ui_right"):
+		scale.x = 0.5
+	if Input.is_action_pressed("ui_down"): 
+		scale.y = 0.5
+	if Input.is_action_pressed("ui_up"): 
+		scale.y = -0.5

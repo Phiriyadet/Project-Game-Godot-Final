@@ -118,14 +118,15 @@ func set_healthbar():
 func levelup():
 	levelLabel.text = str("LV. ",experience_level)
 	
-	var options = 0
-	var optionsmax = 3
-	while options < optionsmax:
-		var option_choice = upgradeOp.instance()
-		
-		upOp.add_child(option_choice)
-		options += 1
-	LevelUp.visible = true
+#	var options = 0
+#	var optionsmax = 3
+#	while options < optionsmax:
+#		var option_choice = upgradeOp.instance()
+#
+#		upOp.add_child(option_choice)
+#		options += 1
+#	LevelUp.visible = true
+	LevelUp.show()
 	get_tree().paused = true
 	
 func gameover():
@@ -167,5 +168,6 @@ func _on_CoolDawnTimer_timeout():
 
 
 func _on_TextureButton_pressed():
-	LevelUp.visible = false
+#	LevelUp.visible = false
+	LevelUp.hide()
 	get_tree().paused = false
