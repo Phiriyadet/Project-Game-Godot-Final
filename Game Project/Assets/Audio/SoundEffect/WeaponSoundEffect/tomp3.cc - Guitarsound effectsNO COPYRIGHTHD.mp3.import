@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Guitarsound effectsNO COPYRIGHTHD.mp3-0dd3e35c867284f5123ce11d3763a7c6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/WeaponSoundEffect/tomp3.cc - Guitarsound effectsNO COPYRIGHTHD.mp3"
+dest_files=[ "res://.import/tomp3.cc - Guitarsound effectsNO COPYRIGHTHD.mp3-0dd3e35c867284f5123ce11d3763a7c6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

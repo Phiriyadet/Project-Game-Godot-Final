@@ -15,10 +15,11 @@ func _process(_delta):
 		scaleX = -0.5
 		scale.x = scaleX
 		rotation_degrees = 0
-	if Input.is_action_pressed("ui_up"):
-		rotation_degrees = -90
-	if Input.is_action_pressed("ui_down"):
-		rotation_degrees = 90
+#	if Input.is_action_pressed("ui_up"):
+#		rotation_degrees = -90
+#
+#	if Input.is_action_pressed("ui_down"):
+#		rotation_degrees = 90
 		
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_up"):
 #		self.look_at(Vector2.RIGHT)

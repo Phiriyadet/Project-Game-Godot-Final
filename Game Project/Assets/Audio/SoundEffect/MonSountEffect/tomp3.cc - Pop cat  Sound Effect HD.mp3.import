@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Pop cat  Sound Effect HD.mp3-01b0b97d678323e1727d8dfca836031b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/MonSountEffect/tomp3.cc - Pop cat  Sound Effect HD.mp3"
+dest_files=[ "res://.import/tomp3.cc - Pop cat  Sound Effect HD.mp3-01b0b97d678323e1727d8dfca836031b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

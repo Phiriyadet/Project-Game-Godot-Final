@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3-2882c4b8214f49ab0b68cda1dd21139d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/WeaponSoundEffect/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3"
+dest_files=[ "res://.import/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3-2882c4b8214f49ab0b68cda1dd21139d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

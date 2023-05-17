@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Missile launch Sound effect.mp3-6a4ecc17dd434fcd72dcdb20bde72175.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/WeaponSoundEffect/tomp3.cc - Missile launch Sound effect.mp3"
+dest_files=[ "res://.import/tomp3.cc - Missile launch Sound effect.mp3-6a4ecc17dd434fcd72dcdb20bde72175.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

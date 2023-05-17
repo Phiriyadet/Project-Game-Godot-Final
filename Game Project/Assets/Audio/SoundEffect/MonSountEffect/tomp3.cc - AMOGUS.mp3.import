@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - AMOGUS.mp3-a44c34464baf3c9dbc6f9bbe41c89222.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/MonSountEffect/tomp3.cc - AMOGUS.mp3"
+dest_files=[ "res://.import/tomp3.cc - AMOGUS.mp3-a44c34464baf3c9dbc6f9bbe41c89222.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

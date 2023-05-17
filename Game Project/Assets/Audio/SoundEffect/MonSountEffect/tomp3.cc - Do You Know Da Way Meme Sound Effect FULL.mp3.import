@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Do You Know Da Way Meme Sound Effect FULL.mp3-6ba0b0a3bd36738854816d695ee29454.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/MonSountEffect/tomp3.cc - Do You Know Da Way Meme Sound Effect FULL.mp3"
+dest_files=[ "res://.import/tomp3.cc - Do You Know Da Way Meme Sound Effect FULL.mp3-6ba0b0a3bd36738854816d695ee29454.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
