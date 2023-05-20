@@ -27,6 +27,9 @@ var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
 var can_active_sSkill: bool = true
 
+var collected_upgrades = []
+var upgrade_options = []
+
 func _ready():
 	set_healthbar()
 	LevelUp.hide()
@@ -118,17 +121,42 @@ func set_healthbar():
 func levelup():
 	levelLabel.text = str("LV. ",experience_level)
 	
-#	var options = 0
-#	var optionsmax = 3
+	var options = 0
+	var optionsmax = 3
 #	while options < optionsmax:
 #		var option_choice = upgradeOp.instance()
-#
+#		option_choice.item = get_random_item()
 #		upOp.add_child(option_choice)
 #		options += 1
-#	LevelUp.visible = true
-	LevelUp.show()
+	LevelUp.visible = true
+#	LevelUp.show()
 	get_tree().paused = true
+
 	
+func get_random_item():
+	var dblist = []
+	for i in UpgradeDb.UPGRADES:
+		if i in collected_upgrades: #Find already collected upgrades
+			pass
+		elif i in upgrade_options: #If the upgrade is already an option
+			pass
+		elif UpgradeDb.UPGRADES[i]["type"] == "item": #Don't pick food
+			pass
+		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: #Check for PreRequisites
+			for n in UpgradeDb.UPGRADES[i]["prerequisite"]:
+				if not n in collected_upgrades:
+					pass
+				else:
+					dblist.append(i)
+		else: #If there are no prequisites
+			dblist.append(i)
+	if dblist.size() > 0:
+		var randomitem = dblist[rand_range(0,dblist.size()-1)]
+		upgrade_options.append(randomitem)
+		return randomitem
+	else:
+		return null
+			
 func gameover():
 	print("Game Over")
 		
@@ -168,6 +196,6 @@ func _on_CoolDawnTimer_timeout():
 
 
 func _on_TextureButton_pressed():
-#	LevelUp.visible = false
-	LevelUp.hide()
+	LevelUp.visible = false
+#	LevelUp.hide()
 	get_tree().paused = false

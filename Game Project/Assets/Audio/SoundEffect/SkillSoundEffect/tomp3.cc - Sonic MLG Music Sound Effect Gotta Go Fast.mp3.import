@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tomp3.cc - Sonic MLG Music Sound Effect Gotta Go Fast.mp3-c706ad34da4f1c1a7c66f777bfe2b3b6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/SkillSoundEffect/tomp3.cc - Sonic MLG Music Sound Effect Gotta Go Fast.mp3"
+dest_files=[ "res://.import/tomp3.cc - Sonic MLG Music Sound Effect Gotta Go Fast.mp3-c706ad34da4f1c1a7c66f777bfe2b3b6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

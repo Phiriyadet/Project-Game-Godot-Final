@@ -9,6 +9,7 @@
 [ext_resource path="res://Skills/Ameno/Ameno.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Skills/Family/Family.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDog-idle.png" type="Texture" id=9]
+[ext_resource path="res://Weapons/TwoGuitars/TwoGuitars.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -66,10 +67,6 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id=13]
 radius = 1.0
 
-[sub_resource type="DynamicFont" id=15]
-resource_local_to_scene = true
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=14]
 resource_local_to_scene = true
 font_data = ExtResource( 1 )
@@ -96,6 +93,8 @@ shape = SubResource( 13 )
 
 [node name="BonkBat" parent="Weapons" index="0" instance=ExtResource( 6 )]
 
+[node name="TwoGuitars" parent="Weapons" index="1" instance=ExtResource( 10 )]
+
 [node name="Ameno" parent="Skills" index="0" instance=ExtResource( 7 )]
 
 [node name="Family" parent="Skills" index="1" instance=ExtResource( 8 )]
@@ -105,9 +104,6 @@ margin_left = 456.0
 margin_top = 208.0
 margin_right = 552.0
 margin_bottom = 320.0
-
-[node name="Label" parent="UI/GUI/LevelUp" index="0"]
-custom_fonts/font = SubResource( 15 )
 
 [node name="SpacialSkillProgress" parent="UI/GUI" index="3"]
 texture_under = ExtResource( 9 )

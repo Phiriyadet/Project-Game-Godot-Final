@@ -1,6 +1,5 @@
 extends Node
-
-
+class_name UpgradeDb
 
 const ITEM_PATH = "res://Assets/Items/"
 const WEAPON_PATH = "res://Textures/Items/Weapons/"

@@ -4,7 +4,8 @@ extends "res://Characters/Players/Player.gd"
 class_name TheDoge, "res://Assets/Characters/Players/Dog/dog-idle-1.png"
 
 func _ready():
-	print_debug("test atk:", self.atk)
+	pass
+#	print_debug("test atk:", self.atk)
 # 	self.max_hp = 50
 # 	self.hp = 50
 # 	self.atk = 15

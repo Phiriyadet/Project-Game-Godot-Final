@@ -1,16 +1,34 @@
 extends ColorRect
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var lbl_name = $lbl_name
+onready var lbl_desription = $lbl_description
+onready var lbl_level = $lbl_level
+onready var itemIcon = $ColorRect/ItemIcon
 
+#@onready var player = get_tree().get_first_node_in_group("player")
 
-# Called when the node enters the scene tree for the first time.
+var mouse_over = false
+var item = null
+
+signal selected_upgrade(upgrade)
+
 func _ready():
-	pass # Replace with function body.
+#	connect("selected_upgrade",Callable(player,"upgrade_character"))
+#	if item == null:
+#		item = "food"
+	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
+	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
+	lbl_level.text = UpgradeDb.UPGRADES[item]["level"]
+	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 
+func _on_mouse_entered():
+	mouse_over = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_mouse_exited():
+	mouse_over = false
+
+#func _input(event):
+#	if event.is_action("click"):
+#		if mouse_over:
+#			emit_signal("selected_upgrade",item)

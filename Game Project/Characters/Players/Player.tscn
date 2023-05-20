@@ -11,7 +11,7 @@
 [ext_resource path="res://font16.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Assets/UI assets pack 2/UI assets pack 2/UI books & more.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Skills/spacial_skills/bg_skill.png" type="Texture" id=11]
-[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://Characters/Players/LevelUp.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=5]
 resource_local_to_scene = true
@@ -298,36 +298,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="LevelUp" type="Panel" parent="UI/GUI" index="0"]
-pause_mode = 2
-visible = false
-anchor_left = 0.45
-anchor_top = 0.412
-anchor_right = 0.45
-anchor_bottom = 0.412
-margin_left = -16.0
-margin_top = -24.128
-margin_right = 112.0
-margin_bottom = 103.872
-
-[node name="Label" type="Label" parent="UI/GUI/LevelUp" index="0"]
-margin_left = 16.0
-margin_right = 78.0
-margin_bottom = 19.0
-custom_fonts/font = ExtResource( 9 )
-text = "Level UP"
-align = 1
-valign = 1
-
-[node name="UpgradeOption" type="VBoxContainer" parent="UI/GUI/LevelUp" index="1"]
-margin_top = 24.0
-margin_right = 96.0
-margin_bottom = 92.0
-
-[node name="TextureButton" type="TextureButton" parent="UI/GUI/LevelUp/UpgradeOption" index="0"]
-margin_right = 96.0
-margin_bottom = 64.0
-texture_normal = ExtResource( 12 )
+[node name="LevelUp" parent="UI/GUI" index="0" instance=ExtResource( 12 )]
 
 [node name="Tween" type="Tween" parent="UI/GUI" index="1"]
 
@@ -392,4 +363,3 @@ tile_data = PoolIntArray( 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_CollectArea_area_entered"]
 [connection signal="timeout" from="CoolDawnTimer" to="." method="_on_CoolDawnTimer_timeout"]
-[connection signal="pressed" from="UI/GUI/LevelUp/UpgradeOption/TextureButton" to="." method="_on_TextureButton_pressed"]
