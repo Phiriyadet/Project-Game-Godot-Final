@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Items/SpacialItems/SpacialItem.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/SpacialItems/It'sTimeToStop/It'sTimeToStop.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Items/Spacial_Items/it's_time_to_stop.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 56.0
+
+[node name="It\'sTimeToStop" instance=ExtResource( 1 )]
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="Area2D" index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="Area2D" index="1"]
+shape = SubResource( 1 )
