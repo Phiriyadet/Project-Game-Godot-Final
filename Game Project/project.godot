@@ -244,11 +244,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Enemies/UnfinishedHorse/UnfinishedHorse.gd"
 }, {
-"base": "Node",
-"class": "UpgradeDb",
-"language": "GDScript",
-"path": "res://Characters/upgrade_db.gd"
-}, {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
@@ -276,7 +271,7 @@ _global_script_class_icons={
 "HandGun": "res://Assets/Weapons/gunhand/gunhand-1.png",
 "Hitbox": "",
 "ItsTimeToStop": "res://Assets/Items/Spacial_Items/it's_time_to_stop.png",
-"JiiHoy": "",
+"JiiHoy": "res://Assets/Items/Spacial_Items/jiihoy.png",
 "LaughingWolvesBanner": "res://Assets/Characters/Enemies/Laughing_Wolves_Banner/Laughing_Wolves_Banner-1.png",
 "MonkeyCaesar": "res://Assets/Characters/Players/Monkey/monkey-idle-1.png",
 "NanomachinesSon": "res://Assets/Items/hearth_nms.png",
@@ -302,7 +297,6 @@ _global_script_class_icons={
 "TwoGuitars": "res://Assets/Weapons/two_guitars/two_guitars.png",
 "UgandaKnuckles": "res://Assets/Characters/Enemies/Uganda_knuckles/uganda_knuckles-1.png",
 "UnfinishedHorse": "res://Assets/Characters/Enemies/Unfinished_horse/unfinished_horse-1.png",
-"UpgradeDb": "",
 "Weapon": ""
 }
 
@@ -317,6 +311,7 @@ config/icon="res://icon.png"
 MainMenu="*res://Menus/MainMenu.tscn"
 Global="*res://Maps/Global.gd"
 BackgroundMusic="*res://Menus/BackgroundMusic.tscn"
+UpgradeDb="*res://Characters/upgrade_db.gd"
 
 [debug]
 

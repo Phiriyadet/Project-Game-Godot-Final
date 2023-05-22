@@ -1,8 +1,6 @@
 extends Node2D
 
 
-
-
 onready var tween = $Area2D/Tween 
 onready var collision_shape2D: CollisionShape2D = $Area2D/CollisionShape2D
 # Called when the node enters the scene tree for the first time.

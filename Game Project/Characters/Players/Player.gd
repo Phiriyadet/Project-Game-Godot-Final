@@ -123,11 +123,11 @@ func levelup():
 	
 	var options = 0
 	var optionsmax = 3
-#	while options < optionsmax:
-#		var option_choice = upgradeOp.instance()
-#		option_choice.item = get_random_item()
-#		upOp.add_child(option_choice)
-#		options += 1
+	while options < optionsmax:
+		var option_choice = upgradeOp.instance()
+		option_choice.item = get_random_item()
+		upOp.add_child(option_choice)
+		options += 1
 	LevelUp.visible = true
 #	LevelUp.show()
 	get_tree().paused = true

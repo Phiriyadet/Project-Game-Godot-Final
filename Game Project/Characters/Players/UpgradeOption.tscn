@@ -4,6 +4,7 @@
 [ext_resource path="res://Characters/Players/UpgradeOption.gd" type="Script" id=2]
 
 [node name="UpgradeOption" type="ColorRect"]
+pause_mode = 2
 margin_right = 128.0
 margin_bottom = 48.0
 color = Color( 0.545098, 0.545098, 0.545098, 1 )
@@ -14,20 +15,21 @@ margin_right = 24.0
 margin_bottom = 24.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
-margin_right = 40.0
-margin_bottom = 32.0
+[node name="ItemIcon" type="TextureRect" parent="ColorRect"]
+margin_right = 24.0
+margin_bottom = 24.0
 
 [node name="lbl_name" type="Label" parent="."]
 margin_left = 32.0
-margin_right = 80.0
+margin_right = 88.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "Name"
 
 [node name="lbl_description" type="Label" parent="."]
+margin_left = 8.0
 margin_top = 24.0
-margin_right = 128.0
+margin_right = 120.0
 margin_bottom = 46.0
 custom_fonts/font = ExtResource( 1 )
 text = "descrition"
