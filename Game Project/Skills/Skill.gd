@@ -1,9 +1,9 @@
 extends Node2D
 
 class_name Skill
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
+
 export(int) var level_skill = 1 setget set_newlevel_skill
 
 # Called when the node enters the scene tree for the first time.

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://font16.tres" type="DynamicFont" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="LevelUp" type="Panel"]
 pause_mode = 2
@@ -15,8 +14,10 @@ margin_right = 112.0
 margin_bottom = 103.872
 
 [node name="Label" type="Label" parent="."]
-margin_left = 16.0
-margin_right = 78.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.0
+margin_right = 31.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "Level UP"
@@ -24,11 +25,11 @@ align = 1
 valign = 1
 
 [node name="UpgradeOption" type="VBoxContainer" parent="."]
-margin_top = 24.0
-margin_right = 96.0
-margin_bottom = 92.0
-
-[node name="TextureButton" type="TextureButton" parent="UpgradeOption"]
-margin_right = 96.0
-margin_bottom = 64.0
-texture_normal = ExtResource( 2 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -34.0
+margin_right = 48.0
+margin_bottom = 34.0

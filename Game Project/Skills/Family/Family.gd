@@ -1,6 +1,6 @@
 extends "res://Skills/Skill.gd"
 
-class_name Family
+class_name Family, "res://Assets/Skills/family.png"
 
 
 var max_hp
@@ -13,10 +13,10 @@ func _ready():
 func _process(delta):
 	match level_skill:
 			1,2:
-				max_hp += 20
+				player.max_hp += 20
 			3,4:
-				max_hp += 40
+				player.max_hp += 40
 			5,6:
-				max_hp += 60
+				player.max_hp += 60
 			7:
-				max_hp += 80
+				player.max_hp += 80

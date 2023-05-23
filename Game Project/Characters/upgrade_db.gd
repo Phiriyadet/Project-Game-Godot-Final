@@ -2,7 +2,7 @@ extends Node
 
 const ITEM_PATH = "res://Assets/Items/"
 const SKILL_PATH = "res://Assets/Skills/"
-const WEAPON_PATH = "res://Textures/Items/Weapons/"
+const WEAPON_PATH = "res://Assets/Weapons/"
 
 const UPGRADES = {
 	

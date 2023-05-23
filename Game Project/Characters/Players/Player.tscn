@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/Player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/UI assets pack 2/UI assets pack 2/UI books & more.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Skills/spacial_skills/bg_skill.png" type="Texture" id=11]
 [ext_resource path="res://Characters/Players/LevelUp.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="SpriteFrames" id=5]
 resource_local_to_scene = true
@@ -179,6 +180,10 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
+[sub_resource type="DynamicFont" id=7]
+resource_local_to_scene = true
+font_data = ExtResource( 13 )
+
 [sub_resource type="TileSet" id=6]
 0/name = "UI books & more.png 0"
 0/texture = ExtResource( 10 )
@@ -300,7 +305,11 @@ __meta__ = {
 [node name="LevelUp" parent="UI/GUI" index="0" instance=ExtResource( 12 )]
 visible = false
 
+[node name="Label" parent="UI/GUI/LevelUp" index="0"]
+custom_fonts/font = SubResource( 7 )
+
 [node name="Tween" type="Tween" parent="UI/GUI" index="1"]
+pause_mode = 2
 
 [node name="HealthBar" type="TextureProgress" parent="UI/GUI" index="2"]
 anchor_left = 0.5
@@ -359,7 +368,13 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0 )
 
+[node name="CollectedWeapons" type="GridContainer" parent="UI/GUI" index="8"]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_CollectArea_area_entered"]
 [connection signal="timeout" from="CoolDawnTimer" to="." method="_on_CoolDawnTimer_timeout"]
+
+[editable path="UI/GUI/LevelUp"]

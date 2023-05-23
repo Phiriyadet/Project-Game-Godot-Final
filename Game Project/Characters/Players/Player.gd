@@ -42,15 +42,22 @@ func _process(delta):
 	picradius.shape.radius = self.pickup_radius 
 
 	
-				
-func get_skill():
-	for skill in skills.get_children():
-		match  skill.name:
-			"Ameno":
-				self.pickup_radius += skill.pickup_radius
-				
-			"Family":
-				self.max_hp += skill.max_hp
+#func get_skill():
+#	for skill in skills.get_children():
+#		match  skill.name:
+#			"Ameno":
+#				self.pickup_radius += skill.pickup_radius
+#
+#			"Family":
+#				self.max_hp += skill.max_hp
+#
+#			"Gigachad":
+#
+#			"GottaGoFast":
+#
+#			"rickroll":
+#
+#			"ThisIsFine":
 	
 
 func get_input():
