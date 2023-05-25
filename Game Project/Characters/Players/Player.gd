@@ -32,33 +32,32 @@ var upgrade_options = []
 
 func _ready():
 	set_healthbar()
-	LevelUp.hide()
-	
+	LevelUp.visible = false
 	set_expbar(experience, calculate_experiencecap())
+	get_skill()
 	
 func _process(delta):
 	set_healthbar()
 	enemyDesCount.text = str(Global.enemy_dead_count)
 	picradius.shape.radius = self.pickup_radius 
+	
 
 	
-#func get_skill():
-#	for skill in skills.get_children():
-#		match  skill.name:
-#			"Ameno":
-#				self.pickup_radius += skill.pickup_radius
-#
-#			"Family":
-#				self.max_hp += skill.max_hp
-#
-#			"Gigachad":
-#
-#			"GottaGoFast":
-#
-#			"rickroll":
-#
-#			"ThisIsFine":
-	
+func get_skill():
+	for skill in skills.get_children():
+		match  skill.name:
+			"Ameno":
+				print_debug("have skil Ameno\npickupradius: ",self.pickup_radius)
+			"Family":
+				print_debug("have skil Fanily\nmax_hp: ",self.max_hp)
+			"Gigachad":
+				print_debug("have skil Fanily")
+			"GottaGoFast":
+				print_debug("have skil Fanily")
+			"rickroll":
+				print_debug("have skil Fanily")
+			"ThisIsFine":
+				print_debug("have skil Fanily")
 
 func get_input():
 	

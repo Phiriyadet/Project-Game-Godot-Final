@@ -255,7 +255,7 @@ _global_script_classes=[ {
 "path": "res://Weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
-"Ameno": "",
+"Ameno": "res://Assets/Skills/ameno.png",
 "Amogus": "res://Assets/Items/amogus.png",
 "BonkBat": "res://Assets/Weapons/bonk-bat/bat.png",
 "BonkMissile": "res://Assets/Weapons/bonk-missile/bonk_missile-1.png",
@@ -267,7 +267,7 @@ _global_script_class_icons={
 "EggDog": "res://Assets/Characters/Enemies/Egg_dog/eegdog-1.png",
 "Enemy": "",
 "Exp_gem": "res://Assets/Exp/exp_gem.png",
-"Family": "",
+"Family": "res://Assets/Skills/family.png",
 "FiniteStateMachine": "",
 "Gigachad": "res://Assets/Skills/gigachad.png",
 "GiornosPiano": "res://Assets/Items/Spacial_Items/Giorno's_Piano.png",
@@ -335,7 +335,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/node_referencer/plugin.cfg" )
 
 [input]
 

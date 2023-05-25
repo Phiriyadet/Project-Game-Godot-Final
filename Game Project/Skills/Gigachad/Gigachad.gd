@@ -2,16 +2,20 @@ extends "res://Skills/Skill.gd"
 
 
 class_name Gigachad,"res://Assets/Skills/gigachad.png"
-onready var timer = $Timer
+
+
+### Automatic References Start ###
+onready var _timer: Timer = $Timer
+
 var hp
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hp = 0
-	timer.start()
+	_timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
 
 
 func _on_Timer_timeout():

@@ -28,13 +28,13 @@ func _process(delta):
 	position = Vector2(x, y)
 	match level_item:
 		1,2:
-			appearace_timer.wait_time += 5
+			appearance_timer.wait_time += 5
 		3,4:
-			appearace_timer.wait_time += 8
+			appearance_timer.wait_time += 8
 		5,6:
-			appearace_timer.wait_time += 11
+			appearance_timer.wait_time += 11
 		7:
-			appearace_timer.wait_time += 14
+			appearance_timer.wait_time += 14
 
 
 

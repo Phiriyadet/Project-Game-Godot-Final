@@ -1,18 +1,17 @@
 extends "res://Skills/Skill.gd"
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 class_name Ameno, "res://Assets/Skills/ameno.png"
 var pickup_radius 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pickup_radius = 0
-
+#	pickup_radius = 0
+	check_level_skill()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func check_level_skill():
 	match level_skill:
 			1,2:
 				player.pickup_radius += 10

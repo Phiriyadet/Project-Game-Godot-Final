@@ -303,7 +303,10 @@ __meta__ = {
 }
 
 [node name="LevelUp" parent="UI/GUI" index="0" instance=ExtResource( 12 )]
-visible = false
+margin_left = -56.0
+margin_top = -64.128
+margin_right = 144.0
+margin_bottom = 160.872
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 7 )
