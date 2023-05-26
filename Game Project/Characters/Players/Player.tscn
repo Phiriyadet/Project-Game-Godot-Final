@@ -294,27 +294,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -480.0
-margin_top = -271.0
-margin_right = 480.0
-margin_bottom = 273.0
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="LevelUp" parent="UI/GUI" index="0" instance=ExtResource( 12 )]
-margin_left = -56.0
-margin_top = -64.128
-margin_right = 144.0
-margin_bottom = 160.872
-
-[node name="Label" parent="UI/GUI/LevelUp" index="0"]
-custom_fonts/font = SubResource( 7 )
-
-[node name="Tween" type="Tween" parent="UI/GUI" index="1"]
-pause_mode = 2
-
-[node name="HealthBar" type="TextureProgress" parent="UI/GUI" index="2"]
+[node name="HealthBar" type="TextureProgress" parent="UI/GUI" index="0"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -327,11 +315,23 @@ value = 50.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 
+[node name="LevelUp" parent="UI/GUI" index="1" instance=ExtResource( 12 )]
+margin_top = -144.0
+margin_bottom = 140.0
+
+[node name="Label" parent="UI/GUI/LevelUp" index="0"]
+custom_fonts/font = SubResource( 7 )
+
+[node name="Tween" type="Tween" parent="UI/GUI" index="2"]
+pause_mode = 2
+
 [node name="SpacialSkillProgress" type="TextureProgress" parent="UI/GUI" index="3"]
-margin_left = 248.0
-margin_top = 312.0
-margin_right = 312.0
-margin_bottom = 376.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -104.0
+margin_right = 88.0
+margin_bottom = -40.0
 texture_progress = ExtResource( 11 )
 fill_mode = 8
 
@@ -340,27 +340,29 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -192.0
-margin_top = -159.0
-margin_right = 448.0
-margin_bottom = -151.0
+margin_left = -224.0
+margin_top = -24.0
+margin_right = 176.0
+margin_bottom = -16.0
 value = 50.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
 
 [node name="Level" type="Label" parent="UI/GUI" index="5"]
-margin_left = 248.0
-margin_top = 385.0
-margin_right = 280.0
-margin_bottom = 398.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = -24.0
+margin_right = 88.0
+margin_bottom = -11.0
 custom_fonts/font = ExtResource( 8 )
 text = "LV. 1"
 
 [node name="EnemyDestroyedCount" type="Label" parent="UI/GUI" index="6"]
-margin_left = 672.0
-margin_top = 145.0
-margin_right = 712.0
-margin_bottom = 176.0
+margin_left = 584.0
+margin_top = 16.0
+margin_right = 624.0
+margin_bottom = 57.0
 custom_fonts/font = ExtResource( 9 )
 text = "0
 "
@@ -369,11 +371,13 @@ text = "0
 tile_set = SubResource( 6 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0 )
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0 )
 
 [node name="CollectedWeapons" type="GridContainer" parent="UI/GUI" index="8"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 80.0
+margin_bottom = 48.0
 
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]

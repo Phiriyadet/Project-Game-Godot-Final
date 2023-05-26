@@ -25,6 +25,6 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	#check group of body
-	old_spd = body.spd
-	body.spd = body.spd-(body.spd*slow)
-	print_debug('in body: ',body.spd)
+	old_spd = body.get_spd()
+	body.set_spd(body.get_spd()-(body.get_spd()*slow))
+	print_debug('in body: ',body.get_spd())

@@ -10,6 +10,8 @@ onready var itemIcon = $ColorRect/ItemIcon
 
 var mouse_over = false
 var item = null
+var new_width = 64
+var new_height = 64
 
 signal selected_upgrade(upgrade)
 
@@ -20,7 +22,14 @@ func _ready():
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
 	lbl_level.text = UpgradeDb.UPGRADES[item]["level"]
-	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+	var iconPath = UpgradeDb.UPGRADES[item]["icon"]
+	var texture = load(iconPath)
+	if texture is ImageTexture:
+		var imageTexture = texture as ImageTexture
+		imageTexture.resize(new_width, new_height)  # Replace new_width and new_height with your desired dimensions
+		itemIcon.texture = imageTexture
+	else:
+		print("Texture is not an ImageTexture.")
 
 func _on_mouse_entered():
 	mouse_over = true

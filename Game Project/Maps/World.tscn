@@ -48,16 +48,20 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -20.0
 margin_right = 20.0
-margin_bottom = 14.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 4 )
 text = "0"
 align = 1
 
 [node name="GameOver" parent="HUD" instance=ExtResource( 19 )]
-margin_left = 176.0
-margin_top = 88.0
-margin_right = -176.0
-margin_bottom = -54.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
 
 [node name="Area" parent="." instance=ExtResource( 3 )]
 
