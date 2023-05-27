@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://font16.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Characters/Players/UpgradeOption.tscn" type="PackedScene" id=2]
 
 [node name="LevelUp" type="Panel"]
 pause_mode = 2
@@ -35,14 +34,3 @@ margin_top = -122.0
 margin_right = 90.0
 margin_bottom = 138.0
 custom_constants/separation = 86
-
-[node name="UpgradeOption" parent="UpgradeOption" instance=ExtResource( 2 )]
-margin_bottom = 0.0
-
-[node name="UpgradeOption2" parent="UpgradeOption" instance=ExtResource( 2 )]
-margin_top = 86.0
-margin_bottom = 86.0
-
-[node name="UpgradeOption3" parent="UpgradeOption" instance=ExtResource( 2 )]
-margin_top = 172.0
-margin_bottom = 172.0

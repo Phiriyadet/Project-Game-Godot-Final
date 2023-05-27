@@ -103,7 +103,7 @@ shape = SubResource( 13 )
 
 [node name="Family" parent="Skills" index="1" instance=ExtResource( 8 )]
 
-[node name="LevelUp" parent="UI/GUI" index="0"]
+[node name="LevelUp" parent="UI/GUI" index="1"]
 margin_left = 456.0
 margin_top = 208.0
 margin_right = 552.0

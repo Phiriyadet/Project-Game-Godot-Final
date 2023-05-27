@@ -22,14 +22,8 @@ func _ready():
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
 	lbl_level.text = UpgradeDb.UPGRADES[item]["level"]
-	var iconPath = UpgradeDb.UPGRADES[item]["icon"]
-	var texture = load(iconPath)
-	if texture is ImageTexture:
-		var imageTexture = texture as ImageTexture
-		imageTexture.resize(new_width, new_height)  # Replace new_width and new_height with your desired dimensions
-		itemIcon.texture = imageTexture
-	else:
-		print("Texture is not an ImageTexture.")
+	itemIcon = load(UpgradeDb.UPGRADES[item]["icon"])
+	
 
 func _on_mouse_entered():
 	mouse_over = true

@@ -1,13 +1,13 @@
 extends Node
 
-const ITEM_PATH = "res://Assets/Items/"
-const SKILL_PATH = "res://Assets/Skills/"
-const WEAPON_PATH = "res://Assets/Weapons/"
+const ITEM_PATH = "res://Assets/ResizeTexture/Items/"
+const SKILL_PATH = "res://Assets/ResizeTexture/Skills/"
+const WEAPON_PATH = "res://Assets/ResizeTexture/Weapons/"
 
 const UPGRADES = {
 	
 	"BonkBat":{
-		"icon": WEAPON_PATH + "bonk-bat/bat.png",
+		"icon": WEAPON_PATH + "bat.png",
 		"displayname": "Bonk Bat",
 		"details": "Bonk Bat have ",
 		"level": "Level: 1",
@@ -15,7 +15,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"BonkMissile":{
-		"icon": WEAPON_PATH + "bonk-missile/bonk_missile-1.png",
+		"icon": WEAPON_PATH + "bonk_missile.png",
 		"displayname": "Bonk Missile",
 		"details": "Bonk Missile have ",
 		"level": "Level: 1",
@@ -23,7 +23,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"GunHand":{
-		"icon": WEAPON_PATH + "gunhand/gunhand-1.png",
+		"icon": WEAPON_PATH + "gunhand.png",
 		"displayname": "Gun Hand",
 		"details": "Gun Hand have ",
 		"level": "Level: 1",
@@ -31,7 +31,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"Nokia3310":{
-		"icon": WEAPON_PATH + "indestructible_nokia_3310/Indestructible_Nokia_3310.png",
+		"icon": WEAPON_PATH + "indestructible_nokia3310.png",
 		"displayname": "Nokia3310",
 		"details": "Nokia3310 have ",
 		"level": "Level: 1",
@@ -39,7 +39,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"Punch":{
-		"icon": WEAPON_PATH + "punch/punch.png",
+		"icon": WEAPON_PATH + "punch.png",
 		"displayname": "Punch",
 		"details": "Punch have ",
 		"level": "Level: 1",
@@ -47,7 +47,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"TwoGuitars":{
-		"icon": WEAPON_PATH + "two_guitars/two_guitars.png",
+		"icon": WEAPON_PATH + "two_guitars.png",
 		"displayname": "Two Guitars",
 		"details": "Two Guitars have ",
 		"level": "Level: 1",
@@ -145,7 +145,7 @@ const UPGRADES = {
 		"type": "item"
 	},
 	"ThePumpkinDance": {
-		"icon": ITEM_PATH + "pumpkin_dance-5.png.png",
+		"icon": ITEM_PATH + "pumpkin_dance.png.png",
 		"displayname": "The Pumpkin Dance",
 		"details": "The Pumpkin Dance have ",
 		"level": "Level: 1",

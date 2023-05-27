@@ -14,15 +14,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_item:
-		1,2:
-			timer.time += 5
-		3,4:
-			timer.time += 8
-		5,6:
-			timer.time += 11
-		7:
-			timer.time += 14
+#	match level_item:
+#		1,2:
+#			timer.wait_time += 5
+#		3,4:
+#			timer.wait_time += 8
+#		5,6:
+#			timer.wait_time += 11
+#		7:
+#			timer.wait_time += 14
 #	print_debug("SCJ pos: ",self.global_position)
 	if Input.is_action_pressed("ui_right"):
 		rotation_degrees = -90
