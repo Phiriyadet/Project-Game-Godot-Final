@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Weapons/BonkMissile/SpawMissile.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 514, 291 )
+
+[node name="SpawMissile" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+monitorable = false
+script = ExtResource( 1 )
+
+[node name="Timer_Cooldown" type="Timer" parent="."]
+wait_time = 0.075
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="Timer_Attak" type="Timer" parent="."]
+wait_time = 3.5
+
+[connection signal="area_entered" from="." to="." method="_on_SpawMissile_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_SpawMissile_area_exited"]
+[connection signal="timeout" from="Timer_Cooldown" to="." method="_on_Timer_Cooldown_timeout"]
+[connection signal="timeout" from="Timer_Attak" to="." method="_on_Timer_Attak_timeout"]

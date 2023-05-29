@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Skills/Family/Family.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDog-idle.png" type="Texture" id=9]
 [ext_resource path="res://Weapons/TwoGuitars/TwoGuitars.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Weapons/BonkMissile/SpawMissile.tscn" type="PackedScene" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -98,6 +99,8 @@ shape = SubResource( 13 )
 [node name="BonkBat" parent="Weapons" index="0" instance=ExtResource( 6 )]
 
 [node name="TwoGuitars" parent="Weapons" index="1" instance=ExtResource( 10 )]
+
+[node name="SpawMissile" parent="Weapons" index="2" instance=ExtResource( 11 )]
 
 [node name="Ameno" parent="Skills" index="0" instance=ExtResource( 7 )]
 
