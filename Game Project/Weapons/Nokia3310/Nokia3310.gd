@@ -12,5 +12,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_pressed("ui_left"):
+		scale.x = -0.2
+	if Input.is_action_pressed("ui_right"):
+		scale.x = 0.2

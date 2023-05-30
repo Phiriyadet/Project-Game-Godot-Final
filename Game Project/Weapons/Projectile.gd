@@ -1,4 +1,4 @@
-extends Hitbox
+extends "res://Weapons/WeaponHitbox.gd"
 
 class_name Bullet,"res://Assets/Weapons/gunhand/gunhand-2.png"
 

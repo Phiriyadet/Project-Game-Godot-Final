@@ -184,6 +184,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SaveLoad/SaveGameAsJson.gd"
 }, {
+"base": "Reference",
+"class": "SaveGameSettings",
+"language": "GDScript",
+"path": "res://SaveLoad/SaveGameSettings.gd"
+}, {
 "base": "Character",
 "class": "ShrekTPost",
 "language": "GDScript",
@@ -258,7 +263,7 @@ _global_script_class_icons={
 "Ameno": "res://Assets/Skills/ameno.png",
 "Amogus": "res://Assets/Items/amogus.png",
 "BonkBat": "res://Assets/Weapons/bonk-bat/bat.png",
-"BonkMissile": "",
+"BonkMissile": "res://Assets/Weapons/bonk-missile/bonk_missile-2.png",
 "Bullet": "res://Assets/Weapons/gunhand/gunhand-2.png",
 "Character": "",
 "Cockroach": "res://Assets/Characters/Enemies/Cockroach_dancing/cockroach-1.png",
@@ -290,6 +295,7 @@ _global_script_class_icons={
 "Punch": "res://Assets/Weapons/punch/punch.png",
 "Rickroll": "res://Assets/Skills/rickroll.png",
 "SaveGameAsJson": "",
+"SaveGameSettings": "",
 "ShrekTPost": "res://Assets/Characters/Enemies/Shrek-t-post/shrek-t-pose-1.png",
 "Skill": "",
 "Spawn_info": "",

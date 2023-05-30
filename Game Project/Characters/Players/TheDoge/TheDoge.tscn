@@ -10,7 +10,7 @@
 [ext_resource path="res://Skills/Family/Family.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDog-idle.png" type="Texture" id=9]
 [ext_resource path="res://Weapons/TwoGuitars/TwoGuitars.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Weapons/BonkMissile/SpawMissile.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Weapons/BonkMissile/BonkMissile.tscn" type="PackedScene" id=11]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -100,7 +100,7 @@ shape = SubResource( 13 )
 
 [node name="TwoGuitars" parent="Weapons" index="1" instance=ExtResource( 10 )]
 
-[node name="SpawMissile" parent="Weapons" index="2" instance=ExtResource( 11 )]
+[node name="BonkMissile" parent="Weapons" index="2" instance=ExtResource( 11 )]
 
 [node name="Ameno" parent="Skills" index="0" instance=ExtResource( 7 )]
 
