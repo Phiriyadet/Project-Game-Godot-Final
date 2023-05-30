@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Weapons/BonkMissile/BonkMissile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/bonk-missile/bonk_missile-1.png" type="Texture" id=2]
@@ -41,9 +41,6 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4 ]
 }
 
-[sub_resource type="CircleShape2D" id=12]
-radius = 360.0
-
 [node name="BonkMissile" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 
@@ -66,15 +63,7 @@ texture = ExtResource( 2 )
 anims/RESET = SubResource( 10 )
 anims/attack = SubResource( 9 )
 
-[node name="AttackTimer" type="Timer" parent="." index="5"]
+[node name="Timer_QF" type="Timer" parent="." index="5"]
+wait_time = 5.0
 
-[node name="DetectEnemy" type="Area2D" parent="." index="6"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectEnemy" index="0"]
-shape = SubResource( 12 )
-
-[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
-[connection signal="area_entered" from="DetectEnemy" to="." method="_on_DetectEnemy_area_entered"]
-[connection signal="area_exited" from="DetectEnemy" to="." method="_on_DetectEnemy_area_exited"]
+[connection signal="timeout" from="Timer_QF" to="." method="_on_Timer_QF_timeout"]
