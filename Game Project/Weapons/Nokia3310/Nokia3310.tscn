@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Effects/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Audio/SoundEffect/WeaponSoundEffect/tomp3.cc - Funny Nokia notification sound.mp3" type="AudioStream" id=5]
 
+
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
 height = 58.0
@@ -151,7 +152,10 @@ script = ExtResource( 3 )
 position = Vector2( 60, 0 )
 
 [node name="Sprite" parent="Node2D" index="0"]
+<<<<<<< Updated upstream
 visible = false
+=======
+>>>>>>> Stashed changes
 scale = Vector2( 2.45614, 2.34375 )
 texture = ExtResource( 1 )
 
@@ -159,7 +163,6 @@ texture = ExtResource( 1 )
 position = Vector2( 0, 3 )
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( 140, 90 )
@@ -174,3 +177,13 @@ anims/attack = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="." index="5"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." index="6"]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

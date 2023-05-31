@@ -13,6 +13,7 @@ func _ready():
 	pass
 	
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
 	if Input.is_action_pressed("ui_left"):
@@ -21,4 +22,14 @@ func _process(delta):
 		scale.x = 0.2
 
 
+func check_level_weapon():
+	match level_weapon:
+		1,2:
+			self.atk_w += 50
+		3,4:
+			self.atk_w += 80
+		5,6:
+			self.atk_w += 120
+		7:
+			self.atk_w += 180
 
