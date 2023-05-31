@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/Player.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Assets/GUI/ExpBar/Exp.png" type="Texture" id=7]
 [ext_resource path="res://font9.tres" type="DynamicFont" id=8]
 [ext_resource path="res://font16.tres" type="DynamicFont" id=9]
-[ext_resource path="res://Assets/UI assets pack 2/UI assets pack 2/UI books & more.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Skills/spacial_skills/bg_skill.png" type="Texture" id=11]
 [ext_resource path="res://Characters/Players/LevelUp.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=13]
@@ -184,68 +183,6 @@ tracks/1/keys = {
 resource_local_to_scene = true
 font_data = ExtResource( 13 )
 
-[sub_resource type="TileSet" id=6]
-0/name = "UI books & more.png 0"
-0/texture = ExtResource( 10 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 640, 416, 16, 16 )
-0/tile_mode = 1
-0/autotile/bitmask_mode = 0
-0/autotile/bitmask_flags = [  ]
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-1/name = "UI books & more.png 1"
-1/texture = ExtResource( 10 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 640, 416, 32, 32 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "UI books & more.png 2"
-2/texture = ExtResource( 10 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 640, 416, 16, 16 )
-2/tile_mode = 1
-2/autotile/bitmask_mode = 0
-2/autotile/bitmask_flags = [  ]
-2/autotile/icon_coordinate = Vector2( 0, 0 )
-2/autotile/tile_size = Vector2( 16, 16 )
-2/autotile/spacing = 0
-2/autotile/occluder_map = [  ]
-2/autotile/navpoly_map = [  ]
-2/autotile/priority_map = [  ]
-2/autotile/z_index_map = [  ]
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-
 [node name="Player" groups=["player"] instance=ExtResource( 1 )]
 collision_layer = 2
 collision_mask = 13
@@ -367,17 +304,19 @@ custom_fonts/font = ExtResource( 9 )
 text = "0
 "
 
-[node name="Sprite" type="TileMap" parent="UI/GUI" index="7"]
-tile_set = SubResource( 6 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0 )
-
-[node name="CollectedWeapons" type="GridContainer" parent="UI/GUI" index="8"]
+[node name="CollectedWeapons" type="GridContainer" parent="UI/GUI" index="7"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 80.0
+margin_bottom = 32.0
+columns = 4
+
+[node name="CollectedItems" type="GridContainer" parent="UI/GUI" index="8"]
+margin_left = 16.0
+margin_top = 32.0
+margin_right = 80.0
 margin_bottom = 48.0
+columns = 4
 
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]

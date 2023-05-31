@@ -3,6 +3,12 @@ extends Character
 class_name Player
 
 
+### Automatic References Start ###
+onready var _collected_items: GridContainer = $UI/GUI/CollectedItems
+onready var _collected_weapons: GridContainer = $UI/GUI/CollectedWeapons
+### Automatic References Stop ###
+
+
 export(float) var pickup_radius  setget set_pickup, get_pickup
 export(bool) var spacial_skill = false setget set_sskill, get_sskill
 
@@ -21,6 +27,7 @@ onready var tween:Tween = get_node("UI/GUI/Tween")
 onready var LevelUp = get_node("UI/GUI/LevelUp")
 onready var upOp = get_node("UI/GUI/LevelUp/UpgradeOption")
 onready var upgradeOp = preload("res://Characters/Players/UpgradeOption.tscn")
+onready var collectedItems = preload("res://Characters/Players/GUI/ItemContainer.tscn")
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
@@ -162,7 +169,23 @@ func get_random_item():
 		return randomitem
 	else:
 		return null
-			
+
+func adjust_gui_collection(upgrade):
+	var get_upgraded_displaynames = UpgradeDb.UPGRADES[upgrade]["displayname"]
+	var get_type = UpgradeDb.UPGRADES[upgrade]["type"]
+	if get_type != "skill":
+		var get_collected_displaynames = []
+		for i in collected_upgrades:
+			get_collected_displaynames.append(UpgradeDb.UPGRADES[i]["displayname"])
+		if not get_upgraded_displaynames in get_collected_displaynames:
+			var new_item = collectedItems.instantiate()
+			new_item.upgrade = upgrade
+			match get_type:
+				"weapon":
+					_collected_weapons.add_child(new_item)
+				"item":
+					_collected_items.add_child(new_item)
+
 func gameover():
 	print("Game Over")
 		

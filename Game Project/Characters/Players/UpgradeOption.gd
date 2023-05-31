@@ -22,8 +22,8 @@ func _ready():
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
 	lbl_level.text = UpgradeDb.UPGRADES[item]["level"]
-	itemIcon = load(UpgradeDb.UPGRADES[item]["icon"])
-	
+	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+#	print_debug("item icon: ",UpgradeDb.UPGRADES[item]["icon"])
 
 func _on_mouse_entered():
 	mouse_over = true
