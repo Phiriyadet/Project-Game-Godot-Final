@@ -48,6 +48,15 @@ func _process(_delta):
 #		rotation -= rotation_speed * _delta
 		
 
-
+func check_level_weapon():
+	match level_weapon:
+		1,2:
+			self.atk_w += 40
+		3,4:
+			self.atk_w += 60
+		5,6:
+			self.atk_w += 100
+		7:
+			self.atk_w += 120
 
 

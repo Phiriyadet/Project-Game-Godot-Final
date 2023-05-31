@@ -50,3 +50,13 @@ func _process(_delta):
 		scale.x = -0.5
 		rotation_degrees = -90
 
+func check_level_weapon():
+	match level_weapon:
+		1,2:
+			self.atk_w += 30
+		3,4:
+			self.atk_w += 50
+		5,6:
+			self.atk_w += 70
+		7:
+			self.atk_w += 90

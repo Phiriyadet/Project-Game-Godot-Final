@@ -10,10 +10,9 @@ var check = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	pass
-	thisNode.visible = false
-	ef.visible = false
-	$Timer.start()
+	pass
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
@@ -23,12 +22,14 @@ func _process(delta):
 		scale.x = 0.2
 
 
-func _on_Timer_timeout():
-	thisNode.visible = true
-	ef.visible = true
-	$Timer2.start()
+func check_level_weapon():
+	match level_weapon:
+		1,2:
+			self.atk_w += 50
+		3,4:
+			self.atk_w += 80
+		5,6:
+			self.atk_w += 120
+		7:
+			self.atk_w += 180
 
-func _on_Timer2_timeout():
-	thisNode.visible = false
-	ef.visible = false
-	$Timer.start()

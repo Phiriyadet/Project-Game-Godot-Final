@@ -144,7 +144,21 @@ func levelup():
 	LevelUp.visible = true
 #	LevelUp.show()
 	get_tree().paused = true
-
+	
+func upgrade_character(upgrade):
+#	match upgrade:
+#		pass
+	adjust_gui_collection(upgrade)
+#	var option_children = upgradeOptions.get_children()
+#	for i in option_children:
+#		i.queue_free()
+#	upgrade_options.clear()
+#	collected_upgrades.append(upgrade)
+#	levelUpContainer.visible = false
+#	levelUpContainer.position = Vector2(800,50)
+	LevelUp.visible = false
+	get_tree().paused = false
+	calculate_experience(0)
 	
 func get_random_item():
 	var dblist = []
@@ -217,14 +231,7 @@ func _on_Player_hp_changed():
 #	healthBar.value = new_hp
 
 
-
-
-
 func _on_CoolDawnTimer_timeout():
 	can_active_sSkill = true
 
 
-func _on_TextureButton_pressed():
-	LevelUp.visible = false
-#	LevelUp.hide()
-	get_tree().paused = false

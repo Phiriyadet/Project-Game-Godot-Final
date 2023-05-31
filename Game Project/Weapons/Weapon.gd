@@ -43,3 +43,14 @@ func get_atk_all():
 	
 func set_newlevel_weapon(level_weapon:int):
 	level_weapon = clamp(level_weapon+1, 1, 7)
+	
+func check_level_weapon():
+	match level_weapon:
+			1,2:
+				pass
+			3,4:
+				pass
+			5,6:
+				pass
+			7:
+				pass
