@@ -17,3 +17,14 @@ func _process(delta):
 		scale.x = -1
 	if Input.is_action_pressed("ui_right"):
 		scale.x = 1
+
+func check_level_weapon():
+	match level_weapon:
+		1,2:
+			self.atk_w += 60
+		3,4:
+			self.atk_w += 80
+		5,6:
+			self.atk_w += 100
+		7:
+			self.atk_w += 180

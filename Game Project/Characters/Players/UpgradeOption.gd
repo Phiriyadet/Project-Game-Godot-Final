@@ -6,17 +6,16 @@ onready var lbl_desription = $lbl_description
 onready var lbl_level = $lbl_level
 onready var itemIcon = $ColorRect/ItemIcon
 
-#@onready var player = get_tree().get_first_node_in_group("player")
+onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 
 var mouse_over = false
 var item = null
-var new_width = 64
-var new_height = 64
+
 
 signal selected_upgrade(upgrade)
 
 func _ready():
-#	connect("selected_upgrade",Callable(player,"upgrade_character"))
+	connect("selected_upgrade",player,"upgrade_character")
 #	if item == null:
 #		item = "food"
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
@@ -31,7 +30,11 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	mouse_over = false
 
-#func _input(event):
-#	if event.is_action("click"):
-#		if mouse_over:
-#			emit_signal("selected_upgrade",item)
+func _input(event):
+	if event.is_action_pressed("click"):
+		if mouse_over:
+			print_debug("item select:", item)
+			emit_signal("selected_upgrade", item)
+
+
+

@@ -21,3 +21,13 @@ func _physics_process(delta):
 func _on_Timer_QF_timeout():
 	queue_free()
 	
+func check_level_weapon():
+	match level_weapon:
+		1,2:
+			self.atk_w += 40
+		3,4:
+			self.atk_w += 60
+		5,6:
+			self.atk_w += 80
+		7:
+			self.atk_w += 100
