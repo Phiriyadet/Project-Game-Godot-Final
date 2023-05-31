@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDog-idle.png" type="Texture" id=9]
 [ext_resource path="res://Weapons/TwoGuitars/TwoGuitars.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Weapons/BonkMissile/SpawMissile.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Weapons/Nokia3310/Nokia3310.tscn" type="PackedScene" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -96,18 +97,17 @@ shape = SubResource( 12 )
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 13 )
 
-[node name="BonkBat" parent="Weapons" index="0" instance=ExtResource( 6 )]
+[node name="Nokia3310" parent="Weapons" index="0" instance=ExtResource( 12 )]
 
-[node name="TwoGuitars" parent="Weapons" index="1" instance=ExtResource( 10 )]
+[node name="BonkBat" parent="Weapons" index="1" instance=ExtResource( 6 )]
 
-[node name="SpawMissile" parent="Weapons" index="2" instance=ExtResource( 11 )]
+[node name="TwoGuitars" parent="Weapons" index="2" instance=ExtResource( 10 )]
+
+[node name="SpawMissile" parent="Weapons" index="3" instance=ExtResource( 11 )]
 
 [node name="Ameno" parent="Skills" index="0" instance=ExtResource( 7 )]
 
 [node name="Family" parent="Skills" index="1" instance=ExtResource( 8 )]
-
-[node name="Camera2D" parent="." index="9"]
-zoom = Vector2( 5, 5 )
 
 [node name="LevelUp" parent="UI/GUI" index="1"]
 margin_left = 456.0
