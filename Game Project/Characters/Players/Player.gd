@@ -23,6 +23,7 @@ onready var enemyDesCount : Label= get_node("UI/GUI/EnemyDestroyedCount")
 onready var sSkillP: TextureProgress = get_node("UI/GUI/SpacialSkillProgress")
 onready var cooldawnTimer:Timer = get_node("CoolDawnTimer")
 onready var tween:Tween = get_node("UI/GUI/Tween")
+onready var animationPlayer: AnimationPlayer = get_node("AnimationPlayer") 
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
 onready var upOp = get_node("UI/GUI/LevelUp/UpgradeOption")
@@ -72,8 +73,6 @@ func get_input():
 	if Input.is_action_pressed("ui_down"):
 		mov_direction += Vector2.DOWN
 		
-
-		
 	if Input.is_action_pressed("ui_left"):
 		mov_direction += Vector2.LEFT
 #		animated_sprite.flip_h  = true
@@ -88,6 +87,7 @@ func get_input():
 	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill:
 		can_active_sSkill = false
 		cooldawnTimer.start()
+		animationPlayer.play("spacial_attack")
 		recharge_sskill(cooldawnTimer.wait_time)
 
 func recharge_sskill(time:float):

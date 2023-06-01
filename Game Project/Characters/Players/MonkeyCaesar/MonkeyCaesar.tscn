@@ -85,6 +85,7 @@ atk = 50
 spd = 50
 
 [node name="AnimatedSprite" parent="." index="1"]
+visible = true
 frames = SubResource( 9 )
 frame = 3
 
@@ -102,6 +103,9 @@ shape = SubResource( 12 )
 [node name="Nokia3310" parent="Weapons" index="1" instance=ExtResource( 9 )]
 
 [node name="SuezCanalJam" parent="Items" index="0" instance=ExtResource( 8 )]
+
+[node name="Sprite" parent="." index="9"]
+position = Vector2( 24, 0 )
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 14 )
