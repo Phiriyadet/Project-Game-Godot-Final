@@ -345,22 +345,20 @@ animation = "move"
 position = Vector2( 1, -1 )
 shape = SubResource( 11 )
 
-[node name="SpacialSkill" type="Node2D" parent="." index="3"]
-visible = false
-
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
-position = Vector2( 30, -10 )
+position = Vector2( 30, 9.99998 )
 z_index = -1
 texture = ExtResource( 13 )
 hframes = 4
-frame = 2
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Sprite" index="0"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Sprite/Hitbox" index="0"]
 shape = SubResource( 23 )
-disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 24 )
