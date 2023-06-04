@@ -63,7 +63,7 @@ height = 24.0
 [sub_resource type="Animation" id=20]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpacialSkill/Sprite:frame")
+tracks/0/path = NodePath("SpacialSkill/Monkey1:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -73,6 +73,66 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpacialSkill/Monkey4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 74 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpacialSkill/Monkey4:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpacialSkill/Monkey2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -74, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SpacialSkill/Monkey1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 74, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SpacialSkill/Monkey3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -74 ) ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -236,28 +296,100 @@ resource_local_to_scene = true
 resource_name = "spacial_attack"
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpacialSkill/Sprite:position")
+tracks/0/path = NodePath("SpacialSkill/Monkey1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 64, 0 ) ]
+"values": [ Vector2( 64, 0 ), Vector2( 74, 0 ), Vector2( 84, 0 ), Vector2( 94, 0 ), Vector2( 104, 0 ), Vector2( 114, 0 ), Vector2( 124, 0 ), Vector2( 134, 0 ), Vector2( 144, 0 ), Vector2( 154, 0 ), Vector2( 164, 0 ), Vector2( 174, 0 ), Vector2( 184, 0 ), Vector2( 194, 0 ), Vector2( 204, 0 ), Vector2( 214, 0 ), Vector2( 224, 0 ), Vector2( 234, 0 ), Vector2( 244, 0 ), Vector2( 254, 0 ), Vector2( 264, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("SpacialSkill/Sprite:frame")
+tracks/1/path = NodePath("SpacialSkill/Monkey1:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpacialSkill/Monkey2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -64, 0 ), Vector2( -74, 0 ), Vector2( -84, 0 ), Vector2( -94, 0 ), Vector2( -104, 0 ), Vector2( -114, 0 ), Vector2( -124, 0 ), Vector2( -134, 0 ), Vector2( -144, 0 ), Vector2( -154, 0 ), Vector2( -164, 0 ), Vector2( -174, 0 ), Vector2( -184, 0 ), Vector2( -194, 0 ), Vector2( -204, 0 ), Vector2( -214, 0 ), Vector2( -224, 0 ), Vector2( -234, 0 ), Vector2( -244, 0 ), Vector2( -254, 0 ), Vector2( -264, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpacialSkill/Monkey3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -64 ), Vector2( 0, -74 ), Vector2( 0, -84 ), Vector2( 0, -94 ), Vector2( 0, -104 ), Vector2( 0, -114 ), Vector2( 0, -124 ), Vector2( 0, -134 ), Vector2( 0, -144 ), Vector2( 0, -154 ), Vector2( 0, -164 ), Vector2( 0, -174 ), Vector2( 0, -184 ), Vector2( 0, -194 ), Vector2( 0, -204 ), Vector2( 0, -214 ), Vector2( 0, -224 ), Vector2( 0, -234 ), Vector2( 0, -244 ), Vector2( 0, -254 ), Vector2( 0, -264 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SpacialSkill/Monkey4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 64 ), Vector2( 0, 74 ), Vector2( 0, 84 ), Vector2( 0, 94 ), Vector2( 0, 104 ), Vector2( 0, 114 ), Vector2( 0, 124 ), Vector2( 0, 134 ), Vector2( 0, 144 ), Vector2( 0, 154 ), Vector2( 0, 164 ), Vector2( 0, 174 ), Vector2( 0, 184 ), Vector2( 0, 194 ), Vector2( 0, 204 ), Vector2( 0, 214 ), Vector2( 0, 224 ), Vector2( 0, 234 ), Vector2( 0, 244 ), Vector2( 0, 254 ), Vector2( 0, 264 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SpacialSkill/Monkey2:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SpacialSkill/Monkey3:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SpacialSkill/Monkey4:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3 ]
 }
 
 [sub_resource type="CircleShape2D" id=11]
@@ -291,28 +423,31 @@ frame = 3
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 10 )
 
-[node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
-position = Vector2( 64, 0 )
+[node name="Monkey1" type="Sprite" parent="SpacialSkill" index="0"]
+position = Vector2( 74, 0 )
 texture = ExtResource( 2 )
 hframes = 4
 frame = 1
 
-[node name="Sprite2" type="Sprite" parent="SpacialSkill" index="1"]
-position = Vector2( -64, 0 )
+[node name="Monkey2" type="Sprite" parent="SpacialSkill" index="1"]
+position = Vector2( -74, 0 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
-[node name="Sprite3" type="Sprite" parent="SpacialSkill" index="2"]
-position = Vector2( 0, -64 )
+[node name="Monkey3" type="Sprite" parent="SpacialSkill" index="2"]
+position = Vector2( 0, -74 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
-[node name="Sprite4" type="Sprite" parent="SpacialSkill" index="3"]
-position = Vector2( 0, 64 )
+[node name="Monkey4" type="Sprite" parent="SpacialSkill" index="3"]
+position = Vector2( 0, 74 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 1
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 20 )
