@@ -44,6 +44,7 @@ func _ready():
 	set_expbar(experience, calculate_experiencecap())
 	get_skill()
 	
+	
 func _process(delta):
 	set_healthbar()
 	enemyDesCount.text = str(Global.enemy_dead_count)
@@ -143,15 +144,15 @@ func levelup():
 		options += 1
 	LevelUp.visible = true
 #	LevelUp.show()
-#	get_tree().paused = true
+	get_tree().paused = true
 	
 func upgrade_character(upgrade):
 #	match upgrade:
 #		pass
 	adjust_gui_collection(upgrade)
-#	var option_children = upgradeOptions.get_children()
-#	for i in option_children:
-#		i.queue_free()
+	var option_children = upOp.get_children()
+	for i in option_children:
+		i.queue_free()
 #	upgrade_options.clear()
 #	collected_upgrades.append(upgrade)
 #	levelUpContainer.visible = false

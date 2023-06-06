@@ -7,12 +7,14 @@
 pause_mode = 2
 margin_right = 180.0
 margin_bottom = 88.0
+mouse_filter = 1
 color = Color( 0.482353, 0.482353, 0.482353, 1 )
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 64.0
 margin_bottom = 64.0
+mouse_filter = 1
 color = Color( 0, 0, 0, 1 )
 
 [node name="ItemIcon" type="TextureRect" parent="ColorRect"]
@@ -25,6 +27,7 @@ margin_left = 72.0
 margin_top = 8.0
 margin_right = 128.0
 margin_bottom = 56.0
+mouse_filter = 1
 custom_fonts/font = ExtResource( 1 )
 text = "Name"
 autowrap = true

@@ -26,13 +26,18 @@ func _ready():
 
 func _on_mouse_entered():
 	mouse_over = true
+	print("enter")
 
 func _on_mouse_exited():
 	mouse_over = false
+	print("exit")
 	
 func _input(event):
+	
 	if event.is_action_pressed("click"):
+#		print("i'm here")
+#		print_debug("item select:", item)
 		if mouse_over:
 			print_debug("item select:", item)
-			emit_signal("selected_upgrade", item)
+#			emit_signal("selected_upgrade", item)
 

@@ -8,7 +8,7 @@ func _ready():
 	self.max_hp = 50
 	self.hp = 50
 	self.atk = 15
-	self.spd = 50
+	self.spd = 500
 	self.pickup_radius = 20
 	self.spacial_skill = false
 

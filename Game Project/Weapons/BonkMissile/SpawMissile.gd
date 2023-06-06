@@ -34,7 +34,6 @@ func _on_Timer_Cooldown_timeout():
 	var Missile_attack = Missile.instance()
 	Missile_attack.position = position
 	Missile_attack.target = get_random_target()
-	print(Missile_ammo)
 	if Missile_ammo > 0:
 		Missile_ammo -= 1
 		add_child(Missile_attack)
