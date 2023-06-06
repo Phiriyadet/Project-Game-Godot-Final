@@ -29,12 +29,10 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_over = false
-
+	
 func _input(event):
 	if event.is_action_pressed("click"):
 		if mouse_over:
 			print_debug("item select:", item)
 			emit_signal("selected_upgrade", item)
-
-
 

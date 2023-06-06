@@ -4,6 +4,7 @@
 [ext_resource path="res://Characters/Players/UpgradeOption.gd" type="Script" id=2]
 
 [node name="UpgradeOption" type="ColorRect"]
+pause_mode = 2
 margin_right = 180.0
 margin_bottom = 88.0
 color = Color( 0.482353, 0.482353, 0.482353, 1 )

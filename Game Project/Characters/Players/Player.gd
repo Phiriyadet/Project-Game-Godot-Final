@@ -143,7 +143,7 @@ func levelup():
 		options += 1
 	LevelUp.visible = true
 #	LevelUp.show()
-	get_tree().paused = true
+#	get_tree().paused = true
 	
 func upgrade_character(upgrade):
 #	match upgrade:
@@ -233,5 +233,4 @@ func _on_Player_hp_changed():
 
 func _on_CoolDawnTimer_timeout():
 	can_active_sSkill = true
-
 

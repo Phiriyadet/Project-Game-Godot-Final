@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Characters/Players/TheDoge/TheDoge.gd" type="Script" id=5]
 [ext_resource path="res://Weapons/BonkBat/BonkBat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Skills/Ameno/Ameno.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Skills/Family/Family.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDog-idle.png" type="Texture" id=9]
 [ext_resource path="res://Weapons/TwoGuitars/TwoGuitars.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Weapons/BonkMissile/SpawMissile.tscn" type="PackedScene" id=11]
@@ -346,11 +344,9 @@ position = Vector2( 1, -1 )
 shape = SubResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
-position = Vector2( 30, 9.99998 )
 z_index = -1
 texture = ExtResource( 13 )
 hframes = 4
-frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Sprite" index="0"]
 collision_layer = 0
@@ -384,16 +380,6 @@ visible = false
 visible = false
 
 [node name="SpawMissile" parent="Weapons" index="3" instance=ExtResource( 11 )]
-
-[node name="Ameno" parent="Skills" index="0" instance=ExtResource( 7 )]
-
-[node name="Family" parent="Skills" index="1" instance=ExtResource( 8 )]
-
-[node name="LevelUp" parent="UI/GUI" index="1"]
-margin_left = 456.0
-margin_top = 208.0
-margin_right = 552.0
-margin_bottom = 320.0
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 15 )
