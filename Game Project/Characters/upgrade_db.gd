@@ -1,9 +1,28 @@
 extends Node
-
 const ITEM_PATH = "res://Assets/ResizeTexture/Items/"
 const SKILL_PATH = "res://Assets/ResizeTexture/Skills/"
 const WEAPON_PATH = "res://Assets/ResizeTexture/Weapons/"
+const UPGRADE_SCENES : Dictionary = {
+	"BonkBat":preload("res://Weapons/BonkBat/BonkBat.tscn"),
+	"BonkMissile":preload("res://Weapons/BonkMissile/SpawnMissile.tscn"),
+	"GunHand":preload("res://Weapons/GunHand/GunHand.tscn"),
+	"Nokia3310":preload("res://Weapons/Nokia3310/Nokia3310.tscn"),
+	"Punch":preload("res://Weapons/Punch/Punch.tscn"),
+	"TwoGuitars":preload("res://Weapons/TwoGuitars/TwoGuitars.tscn"),
+	"Ameno":preload("res://Skills/Ameno/Ameno.tscn"),
+	"Family":preload("res://Skills/Family/Family.tscn"),
+	"Gigachad":preload("res://Skills/Gigachad/Gigachad.tscn"),
+	"GottaGoFast":preload("res://Skills/GottaGoFast/GottaGoFast.tscn"),
+	"Rickroll":preload("res://Skills/Rickroll/Rickroll.tscn"),
+	"ThisIsFine":preload("res://Skills/ThisIsFine/ThisIsFine.tscn"),
+	"Amogus":preload("res://Items/Amogus/Amogus.tscn"),
+	"NanomachinesSon":preload("res://Items/NanomachinesSon/NanomachinesSon.tscn"),
+	"SuezCanalJam":preload("res://Items/SuezCanalJam/SuezCanalJam.tscn"),
+	"TakeMyMoney":preload("res://Items/ThePumpkinDance/ThePumpkinDance.tscn"),
+	"TheMotivation":preload("res://Items/TheMotivation/TheMotivation.tscn"),
+	"ThePumpkinDance":preload("res://Items/ThePumpkinDance/ThePumpkinDance.tscn"),
 
+}
 const UPGRADES = {
 	
 	"BonkBat":{

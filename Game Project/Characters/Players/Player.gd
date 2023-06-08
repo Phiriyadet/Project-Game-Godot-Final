@@ -27,8 +27,8 @@ onready var animationPlayer: AnimationPlayer = get_node("AnimationPlayer")
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
 onready var upOp = get_node("UI/GUI/LevelUp/UpgradeOption")
-onready var upgradeOp = preload("res://Characters/Players/UpgradeOption.tscn")
-onready var collectedItems = preload("res://Characters/Players/GUI/ItemContainer.tscn")
+onready var upgradeOpScene = preload("res://Characters/Players/UpgradeOption.tscn")
+onready var collectedItemsScene = preload("res://Characters/Players/GUI/ItemContainer.tscn")
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
@@ -138,7 +138,7 @@ func levelup():
 	var options = 0
 	var optionsmax = 3
 	while options < optionsmax:
-		var option_choice = upgradeOp.instance()
+		var option_choice = upgradeOpScene.instance()
 		option_choice.item = get_random_item()
 		upOp.add_child(option_choice)
 		options += 1
@@ -147,16 +147,83 @@ func levelup():
 	get_tree().paused = true
 	
 func upgrade_character(upgrade):
-#	match upgrade:
-#		pass
+	var w
+	match upgrade:
+		#weapon
+		"BonkBat":
+			if not weapons.has_node("BonkBat"):
+				w = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
+				weapons.add_child(w)
+			else:
+				w = weapons.get_node("BonkBat")
+				w.set_newlevel_weapon(w.level_weapon)
+		"BonkMissile":
+			if not weapons.has_node("BonkMissile"):
+				w = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
+				weapons.add_child(w)
+			else:
+				w = weapons.get_node("BonkMissile")
+				w.set_newlevel_weapon(w.level_weapon)
+		"GunHand":
+			if not weapons.has_node("GunHand"):
+				w = UpgradeDb.UPGRADE_SCENES.GunHand.instance()
+				weapons.add_child(w)
+			else:
+				w = weapons.get_node("GunHand")
+				w.set_newlevel_weapon(w.level_weapon)
+		"Nokia3310":
+			if not weapons.has_node("Nokia3310"):
+				w = UpgradeDb.UPGRADE_SCENES.Nokia3310.instance()
+				weapons.add_child(w)
+			else:
+				w = weapons.get_node("Nokia3310")
+				w.set_newlevel_weapon(w.level_weapon)
+		"Punch":
+			if not weapons.has_node("Punch"):
+				w = UpgradeDb.UPGRADE_SCENES.Punch.instance()
+				weapons.add_child(w)
+			else:
+				w = weapons.get_node("Punch")
+				w.set_newlevel_weapon(w.level_weapon)
+		"TwoGuitars":
+			if not weapons.has_node("TwoGuitars"):
+				w = UpgradeDb.UPGRADE_SCENES.TwoGuitars.instance()
+				weapons.add_child(w)
+			else:
+				w = weapons.get_node("TwoGuitars")
+				w.set_newlevel_weapon(w.level_weapon)
+		#skill
+		"Ameno":
+			pass
+		"Family":
+			pass
+		"Gigachad":
+			pass
+		"GottaGoFast":
+			pass
+		"Rickroll":
+			pass
+		"ThisIsFine":
+			pass
+		#item
+		"Amogus":
+			pass
+		"NanomachinesSon":
+			pass
+		"SuezCanalJam":
+			pass
+		"TakeMyMoney":
+			pass
+		"TheMotivation":
+			pass
+		"ThePumpkinDance":
+			pass
 	adjust_gui_collection(upgrade)
 	var option_children = upOp.get_children()
 	for i in option_children:
 		i.queue_free()
-#	upgrade_options.clear()
-#	collected_upgrades.append(upgrade)
-#	levelUpContainer.visible = false
-#	levelUpContainer.position = Vector2(800,50)
+	upgrade_options.clear()
+	collected_upgrades.append(upgrade)
 	LevelUp.visible = false
 	get_tree().paused = false
 	calculate_experience(0)
@@ -193,7 +260,7 @@ func adjust_gui_collection(upgrade):
 		for i in collected_upgrades:
 			get_collected_displaynames.append(UpgradeDb.UPGRADES[i]["displayname"])
 		if not get_upgraded_displaynames in get_collected_displaynames:
-			var new_item = collectedItems.instantiate()
+			var new_item = collectedItemsScene.instance()
 			new_item.upgrade = upgrade
 			match get_type:
 				"weapon":

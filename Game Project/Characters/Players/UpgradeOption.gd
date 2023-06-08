@@ -39,5 +39,5 @@ func _input(event):
 #		print_debug("item select:", item)
 		if mouse_over:
 			print_debug("item select:", item)
-#			emit_signal("selected_upgrade", item)
+			emit_signal("selected_upgrade", item)
 

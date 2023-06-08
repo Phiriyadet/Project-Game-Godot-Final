@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "HandGun",
 "language": "GDScript",
-"path": "res://Weapons/GunHand/HandGun.gd"
+"path": "res://Weapons/GunHand/GunHand.gd"
 }, {
 "base": "Area2D",
 "class": "Hitbox",
