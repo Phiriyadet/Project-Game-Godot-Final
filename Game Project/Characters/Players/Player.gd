@@ -15,6 +15,7 @@ export(bool) var spacial_skill = false setget set_sskill, get_sskill
 onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")
 onready var items: Node2D = get_node("Weapons")
+
 onready var picradius:CollisionShape2D = get_node("PickupRadius/CollisionShape2D")
 onready var healthBar:TextureProgress = get_node("UI/GUI/HealthBar")
 onready var experienceBar:TextureProgress = get_node("UI/GUI/ExpBar")
@@ -147,77 +148,138 @@ func levelup():
 	get_tree().paused = true
 	
 func upgrade_character(upgrade):
-	var w
+	var instance
 	match upgrade:
 		#weapon
 		"BonkBat":
 			if not weapons.has_node("BonkBat"):
-				w = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
-				weapons.add_child(w)
+				instance = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
+				weapons.add_child(instance)
 			else:
-				w = weapons.get_node("BonkBat")
-				w.set_newlevel_weapon(w.level_weapon)
+				instance = weapons.get_node("BonkBat")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"BonkMissile":
-			if not weapons.has_node("BonkMissile"):
-				w = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
-				weapons.add_child(w)
+			if not weapons.has_node("SpawnMissile"):
+				instance = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
+				weapons.add_child(instance)
 			else:
-				w = weapons.get_node("BonkMissile")
-				w.set_newlevel_weapon(w.level_weapon)
+				instance = weapons.get_node("SpawnMissile")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"GunHand":
 			if not weapons.has_node("GunHand"):
-				w = UpgradeDb.UPGRADE_SCENES.GunHand.instance()
-				weapons.add_child(w)
+				instance = UpgradeDb.UPGRADE_SCENES.GunHand.instance()
+				weapons.add_child(instance)
 			else:
-				w = weapons.get_node("GunHand")
-				w.set_newlevel_weapon(w.level_weapon)
+				instance = weapons.get_node("GunHand")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"Nokia3310":
 			if not weapons.has_node("Nokia3310"):
-				w = UpgradeDb.UPGRADE_SCENES.Nokia3310.instance()
-				weapons.add_child(w)
+				instance = UpgradeDb.UPGRADE_SCENES.Nokia3310.instance()
+				weapons.add_child(instance)
 			else:
-				w = weapons.get_node("Nokia3310")
-				w.set_newlevel_weapon(w.level_weapon)
+				instance = weapons.get_node("Nokia3310")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"Punch":
 			if not weapons.has_node("Punch"):
-				w = UpgradeDb.UPGRADE_SCENES.Punch.instance()
-				weapons.add_child(w)
+				instance = UpgradeDb.UPGRADE_SCENES.Punch.instance()
+				weapons.add_child(instance)
 			else:
-				w = weapons.get_node("Punch")
-				w.set_newlevel_weapon(w.level_weapon)
+				instance = weapons.get_node("Punch")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"TwoGuitars":
 			if not weapons.has_node("TwoGuitars"):
-				w = UpgradeDb.UPGRADE_SCENES.TwoGuitars.instance()
-				weapons.add_child(w)
+				instance = UpgradeDb.UPGRADE_SCENES.TwoGuitars.instance()
+				weapons.add_child(instance)
 			else:
-				w = weapons.get_node("TwoGuitars")
-				w.set_newlevel_weapon(w.level_weapon)
+				instance = weapons.get_node("TwoGuitars")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		#skill
 		"Ameno":
-			pass
+			if not skills.has_node("Ameno"):
+				instance = UpgradeDb.UPGRADE_SCENES.Ameno.instance()
+				weapons.add_child(instance)
+			else:
+				instance = skills.get_node("Ameno")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"Family":
-			pass
+			if not skills.has_node("Family"):
+				instance = UpgradeDb.UPGRADE_SCENES.Family.instance()
+				weapons.add_child(instance)
+			else:
+				instance = skills.get_node("Family")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"Gigachad":
-			pass
+			if not skills.has_node("Gigachad"):
+				instance = UpgradeDb.UPGRADE_SCENES.Gigachad.instance()
+				weapons.add_child(instance)
+			else:
+				instance = skills.get_node("Gigachad")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"GottaGoFast":
-			pass
+			if not skills.has_node("GottaGoFast"):
+				instance = UpgradeDb.UPGRADE_SCENES.GottaGoFast.instance()
+				weapons.add_child(instance)
+			else:
+				instance = skills.get_node("GottaGoFast")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"Rickroll":
-			pass
+			if not skills.has_node("Rickroll"):
+				instance = UpgradeDb.UPGRADE_SCENES.Rickroll.instance()
+				weapons.add_child(instance)
+			else:
+				instance = skills.get_node("Rickroll")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"ThisIsFine":
-			pass
+			if not skills.has_node("ThisIsFine"):
+				instance = UpgradeDb.UPGRADE_SCENES.ThisIsFine.instance()
+				weapons.add_child(instance)
+			else:
+				instance = skills.get_node("ThisIsFine")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		#item
 		"Amogus":
-			pass
+			if not items.has_node("Amogus"):
+				instance = UpgradeDb.UPGRADE_SCENES.Amogus.instance()
+				weapons.add_child(instance)
+			else:
+				instance = items.get_node("Amogus")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"NanomachinesSon":
-			pass
+			if not items.has_node("NanomachinesSon"):
+				instance = UpgradeDb.UPGRADE_SCENES.NanomachinesSon.instance()
+				weapons.add_child(instance)
+			else:
+				instance = items.get_node("NanomachinesSon")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"SuezCanalJam":
-			pass
+			if not items.has_node("SuezCanalJam"):
+				instance = UpgradeDb.UPGRADE_SCENES.SuezCanalJam.instance()
+				weapons.add_child(instance)
+			else:
+				instance = items.get_node("SuezCanalJam")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"TakeMyMoney":
-			pass
+			if not items.has_node("TakeMyMoney"):
+				instance = UpgradeDb.UPGRADE_SCENES.TakeMyMoney.instance()
+				weapons.add_child(instance)
+			else:
+				instance = items.get_node("TakeMyMoney")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"TheMotivation":
-			pass
+			if not items.has_node("TheMotivation"):
+				instance = UpgradeDb.UPGRADE_SCENES.TheMotivation.instance()
+				weapons.add_child(instance)
+			else:
+				instance = items.get_node("TheMotivation")
+				instance.set_newlevel_weapon(instance.level_weapon)
 		"ThePumpkinDance":
-			pass
+			if not items.has_node("ThePumpkinDance"):
+				instance = UpgradeDb.UPGRADE_SCENES.ThePumpkinDance.instance()
+				items.add_child(instance)
+			else:
+				instance = items.get_node("ThePumpkinDance")
+				instance.set_newlevel_weapon(instance.level_weapon)
+				
 	adjust_gui_collection(upgrade)
 	var option_children = upOp.get_children()
 	for i in option_children:
