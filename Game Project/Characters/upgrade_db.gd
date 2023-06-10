@@ -4,7 +4,7 @@ const SKILL_PATH = "res://Assets/ResizeTexture/Skills/"
 const WEAPON_PATH = "res://Assets/ResizeTexture/Weapons/"
 const UPGRADE_SCENES : Dictionary = {
 	"BonkBat":preload("res://Weapons/BonkBat/BonkBat.tscn"),
-	"BonkMissile":preload("res://Weapons/BonkMissile/SpawnMissile.tscn"),
+	"BonkMissile":preload("res://Weapons/BonkMissile/BonkMissile.tscn"),
 	"GunHand":preload("res://Weapons/GunHand/GunHand.tscn"),
 	"Nokia3310":preload("res://Weapons/Nokia3310/Nokia3310.tscn"),
 	"Punch":preload("res://Weapons/Punch/Punch.tscn"),

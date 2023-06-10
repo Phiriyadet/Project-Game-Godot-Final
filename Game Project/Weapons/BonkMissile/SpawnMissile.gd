@@ -61,3 +61,5 @@ func _on_SpawMissile_area_entered(area):
 func _on_SpawMissile_area_exited(area):
 	if enemy_close.has(area):
 		enemy_close.erase(area)
+
+

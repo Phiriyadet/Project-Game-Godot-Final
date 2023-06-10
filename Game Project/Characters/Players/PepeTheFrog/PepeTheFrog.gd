@@ -11,3 +11,4 @@ func _ready():
 	self.spd = 60
 	self.pickup_radius = 20
 	self.spacial_skill = false
+	upgrade_character("Punch")

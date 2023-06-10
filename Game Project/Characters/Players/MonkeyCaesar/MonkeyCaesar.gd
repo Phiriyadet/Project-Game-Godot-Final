@@ -12,4 +12,5 @@ func _ready():
 	self.spd = 50
 	self.pickup_radius = 20
 	self.spacial_skill = false
+	upgrade_character("BonkMissile")
 

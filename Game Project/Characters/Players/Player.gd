@@ -159,11 +159,11 @@ func upgrade_character(upgrade):
 				instance = weapons.get_node("BonkBat")
 				instance.set_newlevel_weapon(instance.level_weapon)
 		"BonkMissile":
-			if not weapons.has_node("SpawnMissile"):
+			if not weapons.has_node("BonkMissile"):
 				instance = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
 				weapons.add_child(instance)
 			else:
-				instance = weapons.get_node("SpawnMissile")
+				instance = weapons.get_node("BonkMissile")
 				instance.set_newlevel_weapon(instance.level_weapon)
 		"GunHand":
 			if not weapons.has_node("GunHand"):

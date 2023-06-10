@@ -4,6 +4,7 @@ extends ColorRect
 onready var lbl_name = $lbl_name
 onready var lbl_desription = $lbl_description
 onready var lbl_level = $lbl_level
+onready var lbl_type = $lbl_type
 onready var itemIcon = $ColorRect/ItemIcon
 
 onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
@@ -21,6 +22,7 @@ func _ready():
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
 	lbl_level.text = UpgradeDb.UPGRADES[item]["level"]
+	lbl_type.text = UpgradeDb.UPGRADES[item]["type"]
 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 #	print_debug("item icon: ",UpgradeDb.UPGRADES[item]["icon"])
 
