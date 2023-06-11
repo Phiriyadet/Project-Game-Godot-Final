@@ -11,6 +11,7 @@ func _ready():
 	self.spd = 500
 	self.pickup_radius = 20
 	self.spacial_skill = false
+	upgrade_character("Nokia3310")
 
 func _process(delta):
 		

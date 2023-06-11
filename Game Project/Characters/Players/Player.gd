@@ -24,6 +24,7 @@ onready var enemyDesCount : Label= get_node("UI/GUI/EnemyDestroyedCount")
 onready var sSkillP: TextureProgress = get_node("UI/GUI/SpacialSkillProgress")
 onready var cooldawnTimer:Timer = get_node("CoolDawnTimer")
 onready var tween:Tween = get_node("UI/GUI/Tween")
+onready var popup:Popup = get_node("UI/GUI/Popup")
 onready var animationPlayer: AnimationPlayer = get_node("AnimationPlayer") 
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
@@ -149,138 +150,205 @@ func levelup():
 	
 func upgrade_character(upgrade):
 	var instance
-	match upgrade:
-		#weapon
+	var icon_pass 
+	match upgrade:# Weapon upgrades
 		"BonkBat":
 			if not weapons.has_node("BonkBat"):
-				instance = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
-				weapons.add_child(instance)
+				if weapons.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
+					weapons.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = weapons.get_node("BonkBat")
 				instance.set_newlevel_weapon(instance.level_weapon)
+
 		"BonkMissile":
 			if not weapons.has_node("BonkMissile"):
-				instance = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
-				weapons.add_child(instance)
+				if weapons.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
+					weapons.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = weapons.get_node("BonkMissile")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"GunHand":
 			if not weapons.has_node("GunHand"):
-				instance = UpgradeDb.UPGRADE_SCENES.GunHand.instance()
-				weapons.add_child(instance)
+				if weapons.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.GunHand.instance()
+					weapons.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = weapons.get_node("GunHand")
 				instance.set_newlevel_weapon(instance.level_weapon)
+		
 		"Nokia3310":
 			if not weapons.has_node("Nokia3310"):
-				instance = UpgradeDb.UPGRADE_SCENES.Nokia3310.instance()
-				weapons.add_child(instance)
+				if weapons.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.Nokia3310.instance()
+					weapons.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = weapons.get_node("Nokia3310")
 				instance.set_newlevel_weapon(instance.level_weapon)
+		
 		"Punch":
 			if not weapons.has_node("Punch"):
-				instance = UpgradeDb.UPGRADE_SCENES.Punch.instance()
-				weapons.add_child(instance)
+				if weapons.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.Punch.instance()
+					weapons.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = weapons.get_node("Punch")
 				instance.set_newlevel_weapon(instance.level_weapon)
+		
 		"TwoGuitars":
 			if not weapons.has_node("TwoGuitars"):
-				instance = UpgradeDb.UPGRADE_SCENES.TwoGuitars.instance()
-				weapons.add_child(instance)
+				if weapons.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.TwoGuitars.instance()
+					weapons.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = weapons.get_node("TwoGuitars")
 				instance.set_newlevel_weapon(instance.level_weapon)
-		#skill
+			
+		# Skill upgrades
 		"Ameno":
 			if not skills.has_node("Ameno"):
 				instance = UpgradeDb.UPGRADE_SCENES.Ameno.instance()
-				weapons.add_child(instance)
+				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Ameno")
 				instance.set_newlevel_weapon(instance.level_weapon)
+		
 		"Family":
 			if not skills.has_node("Family"):
 				instance = UpgradeDb.UPGRADE_SCENES.Family.instance()
-				weapons.add_child(instance)
+				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Family")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"Gigachad":
 			if not skills.has_node("Gigachad"):
 				instance = UpgradeDb.UPGRADE_SCENES.Gigachad.instance()
-				weapons.add_child(instance)
+				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Gigachad")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"GottaGoFast":
 			if not skills.has_node("GottaGoFast"):
 				instance = UpgradeDb.UPGRADE_SCENES.GottaGoFast.instance()
-				weapons.add_child(instance)
+				skills.add_child(instance)
 			else:
 				instance = skills.get_node("GottaGoFast")
 				instance.set_newlevel_weapon(instance.level_weapon)
+		
 		"Rickroll":
 			if not skills.has_node("Rickroll"):
 				instance = UpgradeDb.UPGRADE_SCENES.Rickroll.instance()
-				weapons.add_child(instance)
+				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Rickroll")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"ThisIsFine":
 			if not skills.has_node("ThisIsFine"):
 				instance = UpgradeDb.UPGRADE_SCENES.ThisIsFine.instance()
-				weapons.add_child(instance)
+				skills.add_child(instance)
 			else:
 				instance = skills.get_node("ThisIsFine")
 				instance.set_newlevel_weapon(instance.level_weapon)
-		#item
+			
+		# Item upgrades
 		"Amogus":
 			if not items.has_node("Amogus"):
-				instance = UpgradeDb.UPGRADE_SCENES.Amogus.instance()
-				weapons.add_child(instance)
+				if items.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.Amogus.instance()
+					items.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = items.get_node("Amogus")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"NanomachinesSon":
 			if not items.has_node("NanomachinesSon"):
-				instance = UpgradeDb.UPGRADE_SCENES.NanomachinesSon.instance()
-				weapons.add_child(instance)
+				if items.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.NanomachinesSon.instance()
+					items.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = items.get_node("NanomachinesSon")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"SuezCanalJam":
 			if not items.has_node("SuezCanalJam"):
-				instance = UpgradeDb.UPGRADE_SCENES.SuezCanalJam.instance()
-				weapons.add_child(instance)
+				if items.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.SuezCanalJam.instance()
+					items.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = items.get_node("SuezCanalJam")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"TakeMyMoney":
 			if not items.has_node("TakeMyMoney"):
-				instance = UpgradeDb.UPGRADE_SCENES.TakeMyMoney.instance()
-				weapons.add_child(instance)
+				if items.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.TakeMyMoney.instance()
+					items.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = items.get_node("TakeMyMoney")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"TheMotivation":
 			if not items.has_node("TheMotivation"):
-				instance = UpgradeDb.UPGRADE_SCENES.TheMotivation.instance()
-				weapons.add_child(instance)
+				if items.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.TheMotivation.instance()
+					items.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = items.get_node("TheMotivation")
 				instance.set_newlevel_weapon(instance.level_weapon)
+			
 		"ThePumpkinDance":
 			if not items.has_node("ThePumpkinDance"):
-				instance = UpgradeDb.UPGRADE_SCENES.ThePumpkinDance.instance()
-				items.add_child(instance)
+				if items.get_child_count() != 4:
+					instance = UpgradeDb.UPGRADE_SCENES.ThePumpkinDance.instance()
+					items.add_child(instance)
+					icon_pass = true
+				else:
+					popup.show()
 			else:
 				instance = items.get_node("ThePumpkinDance")
 				instance.set_newlevel_weapon(instance.level_weapon)
-				
-	adjust_gui_collection(upgrade)
+			
+
+	if icon_pass:			
+		adjust_gui_collection(upgrade)
 	var option_children = upOp.get_children()
 	for i in option_children:
 		i.queue_free()
