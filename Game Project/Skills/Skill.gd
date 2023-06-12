@@ -4,28 +4,29 @@ class_name Skill
 
 onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 
-export(int) var level_skill = 1 setget set_newlevel_skill
+export(int) var level = 1 setget set_newlevel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	check_level_skill()
+	check_level()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func set_newlevel_skill(level_skill:int):
-	level_skill = clamp(level_skill+1,1,7)
+func set_newlevel(level:int):
+	level = clamp(level+1,1,7)
+	check_level()
 	
-func check_level_skill():
-		match level_skill:
-			1,2:
-				pass
-			3,4:
-				pass
-			5,6:
-				pass
-			7:
-				pass
+func check_level():
+	match level:
+		1,2:
+			print_debug("skill level :", level)
+		3,4:
+			print_debug("skill level :", level)
+		5,6:
+			print_debug("skill level :", level)
+		7:
+			print_debug("skill level :", level)
 

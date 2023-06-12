@@ -12,7 +12,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_item:
+	pass
+
+func check_level():
+	match level:
 		1,2:
 			slow += 0.1
 		3,4:
@@ -21,7 +24,6 @@ func _process(delta):
 			slow += 0.3
 		7:
 			slow += 0.4
-
 
 func _on_Area2D_body_entered(body):
 	#check group of body

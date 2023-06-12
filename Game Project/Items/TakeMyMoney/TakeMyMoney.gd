@@ -10,7 +10,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_item:
+	pass
+
+func check_level():
+	match level:
 		1,2:
 			bonus_coin += 0.2
 		3,4:

@@ -22,8 +22,8 @@ func _process(delta):
 		scale.x = 0.2
 
 
-func check_level_weapon():
-	match level_weapon:
+func check_level():
+	match level:
 		1,2:
 			self.atk_w += 50
 		3,4:

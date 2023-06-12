@@ -9,7 +9,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	match level_item:
+	pass
+		
+
+func check_level():
+	match level:
 		1,2:
 			bonus_exp += 20
 		3,4:
@@ -18,4 +22,3 @@ func _process(delta):
 			bonus_exp += 60
 		7:
 			bonus_exp += 80
-

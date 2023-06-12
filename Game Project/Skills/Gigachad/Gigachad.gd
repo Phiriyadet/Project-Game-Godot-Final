@@ -19,12 +19,16 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	match level_skill:
-			1,2:
-				player.hp += 2
-			3,4:
-				player.hp += 4
-			5,6:
-				player.hp += 6
-			7:
-				player.hp += 8
+	player.set_hp(player.get_hp() + hp)
+
+
+func check_level():
+	match level:
+		1,2:
+			hp += 2
+		3,4:
+			hp += 4
+		5,6:
+			hp += 6
+		7:
+			hp += 8

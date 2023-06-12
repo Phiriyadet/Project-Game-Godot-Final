@@ -50,8 +50,16 @@ func _process(delta):
 #	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
 #		pass
 		
-
-
+func check_level():
+	match level:
+		1,2:
+			timer.wait_time += 5
+		3,4:
+			timer.wait_time += 8
+		5,6:
+			timer.wait_time += 11
+		7:
+			timer.wait_time += 14
 
 func _on_Timer_timeout():
 	animation_player.play("work")

@@ -8,12 +8,13 @@ onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 onready var hitbox: Area2D = get_node("Node2D/Sprite/Hitbox")
 onready var cool_down_timer: Timer = get_node("CoolDownTimer")
 var atk_all = 0 setget set_atk_all, get_atk_all #พลังโจมตีทั้งหมดจากตัวอาวุธกับผู้เล่น
-export(int) var level_weapon = 1 setget set_newlevel_weapon
+export(int) var level = 1 setget set_newlevel
 
 func _init():
 	pass
 	
 func _ready():
+	check_level()
 	cool_down_timer.start()
 	self.atk_all = player.atk + self.atk_w
 	
@@ -41,25 +42,17 @@ func set_atk_all(new):
 func get_atk_all():
 	return atk_all
 	
-func set_newlevel_weapon(level_weapon:int):
-	level_weapon = clamp(level_weapon+1, 1, 7)
-	match level_weapon:
-			1,2:
-				pass
-			3,4:
-				pass
-			5,6:
-				pass
-			7:
-				pass
+func set_newlevel(level:int):
+	level = clamp(level+1, 1, 7)
+	check_level()
 	
-func check_level_weapon():
-	match level_weapon:
-			1,2:
-				pass
-			3,4:
-				pass
-			5,6:
-				pass
-			7:
-				pass
+func check_level():
+	match level:
+		1,2:
+			print_debug("weapon level :", level)
+		3,4:
+			print_debug("weapon level :", level)
+		5,6:
+			print_debug("weapon level :", level)
+		7:
+			print_debug("weapon level :", level)

@@ -333,16 +333,23 @@ custom_constants/hseparation = 50
 columns = 4
 
 [node name="Popup" type="Popup" parent="UI/GUI" index="9"]
-margin_right = 40.0
-margin_bottom = 40.0
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -20.0
+margin_right = 48.0
+margin_bottom = 20.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/GUI/Popup" index="0"]
-margin_right = 40.0
+margin_right = 96.0
 margin_bottom = 40.0
 custom_fonts/normal_font = ExtResource( 8 )
 bbcode_enabled = true
-bbcode_text = "[color=red]Analog Alert: BonkBat already exists and child count is 4[/color]"
-text = "Analog Alert: BonkBat already exists and child count is 4"
+bbcode_text = "[color=red]Analog Alert: weapon already exists or child count is 4[/color]"
+text = "Analog Alert: weapon already exists or child count is 4"
 
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]

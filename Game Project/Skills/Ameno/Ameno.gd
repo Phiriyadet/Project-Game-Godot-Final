@@ -5,19 +5,20 @@ var pickup_radius
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	pickup_radius = 0
-	check_level_skill()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func check_level_skill():
-	match level_skill:
-			1,2:
-				player.pickup_radius += 10
-			3,4:
-				player.pickup_radius += 25
-			5,6:
-				player.pickup_radius += 40
-			7:
-				player.pickup_radius += 55
+
+func check_level():
+	match level:
+		1,2:
+			player.set_pickup(player.get_pickup() + 10)
+		3,4:
+			player.set_pickup(player.get_pickup() + 25)
+		5,6:
+			player.set_pickup(player.get_pickup() + 40)
+		7:
+			player.set_pickup(player.get_pickup() + 55)

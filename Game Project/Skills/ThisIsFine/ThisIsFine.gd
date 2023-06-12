@@ -11,12 +11,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_skill:
-			1,2:
-				player.atk += 20
-			3,4:
-				player.atk += 40
-			5,6:
-				player.atk += 60
-			7:
-				player.atk += 80
+	pass
+
+func check_level():
+	match level:
+		1,2:
+			player.set_atk(player.get_atk() + 20)
+		3,4:
+			player.set_atk(player.get_atk() + 40)
+		5,6:
+			player.set_atk(player.get_atk() + 60)
+		7:
+			player.set_atk(player.get_atk() + 80)
+			

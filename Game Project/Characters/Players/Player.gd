@@ -44,7 +44,6 @@ func _ready():
 	set_healthbar()
 	LevelUp.visible = false
 	set_expbar(experience, calculate_experiencecap())
-	get_skill()
 	
 	
 func _process(delta):
@@ -52,23 +51,6 @@ func _process(delta):
 	enemyDesCount.text = str(Global.enemy_dead_count)
 	picradius.shape.radius = self.pickup_radius 
 	
-
-	
-func get_skill():
-	for skill in skills.get_children():
-		match  skill.name:
-			"Ameno":
-				print_debug("have skil Ameno\npickupradius: ",self.pickup_radius)
-			"Family":
-				print_debug("have skil Fanily\nmax_hp: ",self.max_hp)
-			"Gigachad":
-				print_debug("have skil Fanily")
-			"GottaGoFast":
-				print_debug("have skil Fanily")
-			"rickroll":
-				print_debug("have skil Fanily")
-			"ThisIsFine":
-				print_debug("have skil Fanily")
 
 func get_input():
 	
@@ -162,7 +144,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = weapons.get_node("BonkBat")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 
 		"BonkMissile":
 			if not weapons.has_node("BonkMissile"):
@@ -174,7 +156,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = weapons.get_node("BonkMissile")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"GunHand":
 			if not weapons.has_node("GunHand"):
@@ -186,7 +168,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = weapons.get_node("GunHand")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 		
 		"Nokia3310":
 			if not weapons.has_node("Nokia3310"):
@@ -198,7 +180,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = weapons.get_node("Nokia3310")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 		
 		"Punch":
 			if not weapons.has_node("Punch"):
@@ -210,7 +192,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = weapons.get_node("Punch")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 		
 		"TwoGuitars":
 			if not weapons.has_node("TwoGuitars"):
@@ -222,7 +204,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = weapons.get_node("TwoGuitars")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		# Skill upgrades
 		"Ameno":
@@ -231,7 +213,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Ameno")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel_skill(instance.level)
 		
 		"Family":
 			if not skills.has_node("Family"):
@@ -239,7 +221,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Family")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"Gigachad":
 			if not skills.has_node("Gigachad"):
@@ -247,7 +229,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Gigachad")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"GottaGoFast":
 			if not skills.has_node("GottaGoFast"):
@@ -255,7 +237,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("GottaGoFast")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 		
 		"Rickroll":
 			if not skills.has_node("Rickroll"):
@@ -263,7 +245,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Rickroll")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"ThisIsFine":
 			if not skills.has_node("ThisIsFine"):
@@ -271,7 +253,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("ThisIsFine")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		# Item upgrades
 		"Amogus":
@@ -284,7 +266,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = items.get_node("Amogus")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"NanomachinesSon":
 			if not items.has_node("NanomachinesSon"):
@@ -296,7 +278,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = items.get_node("NanomachinesSon")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"SuezCanalJam":
 			if not items.has_node("SuezCanalJam"):
@@ -308,7 +290,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = items.get_node("SuezCanalJam")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"TakeMyMoney":
 			if not items.has_node("TakeMyMoney"):
@@ -320,7 +302,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = items.get_node("TakeMyMoney")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"TheMotivation":
 			if not items.has_node("TheMotivation"):
@@ -332,7 +314,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = items.get_node("TheMotivation")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 		"ThePumpkinDance":
 			if not items.has_node("ThePumpkinDance"):
@@ -344,7 +326,7 @@ func upgrade_character(upgrade):
 					popup.show()
 			else:
 				instance = items.get_node("ThePumpkinDance")
-				instance.set_newlevel_weapon(instance.level_weapon)
+				instance.set_newlevel(instance.level)
 			
 
 	if icon_pass:			
@@ -362,9 +344,9 @@ func get_random_item():
 	var dblist = []
 	for i in UpgradeDb.UPGRADES:
 		if i in collected_upgrades: #Find already collected upgrades
-			pass
+			dblist.append(i)
 		elif i in upgrade_options: #If the upgrade is already an option
-			pass
+			dblist.append(i)
 		elif UpgradeDb.UPGRADES[i]["type"] == "item": #Don't pick food
 			pass
 		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: #Check for PreRequisites

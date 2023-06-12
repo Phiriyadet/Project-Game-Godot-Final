@@ -11,12 +11,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_skill:
-			1,2:
-				player.max_hp += 20
-			3,4:
-				player.max_hp += 40
-			5,6:
-				player.max_hp += 60
-			7:
-				player.max_hp += 80
+	pass
+
+func check_level():
+	match level:
+		1,2:
+			player.set_maxhp(player.get_maxhp() + 20)
+		3,4:
+			player.set_maxhp(player.get_maxhp() + 40)
+		5,6:
+			player.set_maxhp(player.get_maxhp() + 60)
+		7:
+			player.set_maxhp(player.get_maxhp() + 80)

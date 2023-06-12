@@ -12,7 +12,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_item:
+	pass
+		
+
+func check_level():
+	match level:
 		1,2:
 			active_timer.wait_time = 360
 		3,4:

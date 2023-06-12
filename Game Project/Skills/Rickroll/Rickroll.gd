@@ -14,20 +14,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	match level_skill:
-			1,2:
-				player.atk += 40
-				player.spd += 40
-				player.pickup_radius += 40
-			3,4:
-				player.atk += 60
-				player.spd += 60
-				player.pickup_radius += 60
-			5,6:
-				player.atk += 80
-				player.spd += 80
-				player.pickup_radius += 80
-			7:
-				player.atk += 100
-				player.spd += 100
-				player.pickup_radius += 100
+	pass
+
+func check_level():
+	match level:
+		1,2:
+			player.set_atk(player.get_atk() + 40)
+			player.set_spd(player.get_spd() + 40)
+			player.set_pickup(player.get_pickup() + 40)
+		3,4:
+			player.set_atk(player.get_atk() + 60)
+			player.set_spd(player.get_spd() + 60)
+			player.set_pickup(player.get_pickup() + 60)
+		5,6:
+			player.set_atk(player.get_atk() + 80)
+			player.set_spd(player.get_spd() + 80)
+			player.set_pickup(player.get_pickup() + 80)
+		7:
+			player.set_atk(player.get_atk() + 100)
+			player.set_spd(player.get_spd() + 100)
+			player.set_pickup(player.get_pickup() + 100)
+			

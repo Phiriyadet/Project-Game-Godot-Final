@@ -26,7 +26,10 @@ func _process(delta):
 	var x = center.x + radius * cos(angle)
 	var y = center.y + radius * sin(angle)
 	position = Vector2(x, y)
-	match level_item:
+	
+
+func check_level():
+	match level:
 		1,2:
 			appearance_timer.wait_time += 5
 		3,4:
@@ -35,8 +38,6 @@ func _process(delta):
 			appearance_timer.wait_time += 11
 		7:
 			appearance_timer.wait_time += 14
-
-
 
 
 

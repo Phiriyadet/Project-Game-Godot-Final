@@ -44,38 +44,16 @@ func write_savegame():
 		return
 
 	var data := {
-	"Coin": {
-	"Num_Coin": num_coin
-  },
-  "Players": 
-	{
-	  "The_Doge": {
-		"Max_HP": Dog.max_hp,
-		"HP": Dog.hp,
-		"ATK": Dog.atk,
-		"SPD": Dog.spd,
-		"Pickup_Radius": Dog.pickup_radius,
-		"Spacial_Skill": Dog.spacial_skill
+		"Mute": {
+		"Music": 0,
+		"Sound":0
 	  },
-	  "Monkey_Caesar": {
-		"Max_HP": Monkey.max_hp,
-		"HP": Monkey.hp,
-		"ATK": Monkey.atk,
-		"SPD": Monkey.spd,
-		"Pickup_Radius": Monkey.pickup_radius,
-		"Spacial_Skill": Monkey.spacial_skill
-	  },
-	  "Pepe_The_Frog": {
-		"Max_HP": Frog.max_hp,
-		"HP": Frog.hp,
-		"ATK": Frog.atk,
-		"SPD": Frog.spd,
-		"Pickup_Radius": Frog.pickup_radius,
-		"Spacial_Skill": Frog.spacial_skill
+	  "Screen": 
+		{
+		  "FullScreen":false
+		}
+	  
 	  }
-	}
-  
-  }
 	
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
@@ -92,7 +70,7 @@ func load_savegame():
 	_file.close()
 
 	var data: Dictionary = JSON.parse(content).result
-	num_coin = data.Coin.Num_Coin
+	
 
 #	Dog = TheDoge.new()
 #	Monkey = MonkeyCaesar.new()

@@ -18,8 +18,8 @@ func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		scale.x = 1
 
-func check_level_weapon():
-	match level_weapon:
+func check_level():
+	match level:
 		1,2:
 			self.atk_w += 60
 		3,4:

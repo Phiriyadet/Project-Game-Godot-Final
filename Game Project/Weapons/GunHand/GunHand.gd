@@ -30,8 +30,8 @@ func _process(_delta):
 		spos.rotation_degrees = 0
 		side = 400.0
 
-func check_level_weapon():
-	match level_weapon:
+func check_level():
+	match level:
 		1,2:
 			self.atk_w += 25
 		3,4:

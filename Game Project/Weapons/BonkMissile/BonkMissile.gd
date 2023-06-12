@@ -63,8 +63,8 @@ func get_random_target():
 		return Vector2.UP
 
 				
-func check_level_weapon():
-	match level_weapon:
+func check_level():
+	match level:
 		1,2:
 			self.atk_w += 40
 		3,4:
