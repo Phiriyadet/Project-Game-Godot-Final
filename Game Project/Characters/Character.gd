@@ -84,7 +84,6 @@ func set_hp(new_hp):
 	hp = clamp(new_hp, 0, self.max_hp)
 #	print_debug(hp)
 	
-
 func get_hp():
 	return hp
 	

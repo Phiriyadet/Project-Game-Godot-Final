@@ -71,7 +71,7 @@ tile_data = PoolIntArray( -9109718, 1, 0, -9109717, 0, 0, -9109716, 0, 0, -91097
 
 [node name="Player" type="Node2D" parent="."]
 
-[node name="EnemyGroup" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 
 [node name="Loot" type="Node2D" parent="."]
 

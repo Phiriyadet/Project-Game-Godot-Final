@@ -7,10 +7,9 @@ class_name Gigachad,"res://Assets/Skills/gigachad.png"
 ### Automatic References Start ###
 onready var _timer: Timer = $Timer
 
-var hp
+var hp = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	hp = 0
 	_timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

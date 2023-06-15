@@ -3,9 +3,9 @@ extends Node2D
 
 class_name Item
 
-onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
+onready var player: Player = get_tree().current_scene.get_node("Player").get_child(0) as Player
 
-export(int) var level = 1 setget set_newlevel
+export(int) var level = 1 setget set_newlevel, get_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +19,10 @@ func _process(delta):
 func set_newlevel(level:int):
 	level = clamp(level+1, 1, 7)
 	check_level()
-
+	
+func get_level() -> int:
+	return level
+	
 func check_level():
 	match level:
 		1,2:
@@ -29,4 +32,4 @@ func check_level():
 		5,6:
 			print_debug("item level :", level)
 		7:
-			print_debug("item level :", level)			
+			print_debug("item level :", level)

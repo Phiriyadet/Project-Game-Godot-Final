@@ -31,7 +31,7 @@ onready var game_over = $HUD/GameOver
 
 onready var nav := $Area
 onready var p := $Player 
-onready var enemy_group := $EnemyGroup
+onready var enemies := $Enemies
 # Declare member variables here. Examples:
 var time = 0
 var enemy :KinematicBody2D
@@ -107,7 +107,7 @@ func _on_CountTime_timeout():
 ##
 	enemy = ENEMY_SCENES.CursedCat.instance()
 	enemy.position = player_in_map.position + Vector2(500,100).rotated(rand_range(0,2*PI))
-	nav.call_deferred("add_child", enemy)
+	enemies.call_deferred("add_child", enemy)
 	
 	
 
