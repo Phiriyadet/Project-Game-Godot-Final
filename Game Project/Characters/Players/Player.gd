@@ -28,7 +28,7 @@ onready var popup:Popup = get_node("UI/GUI/Popup")
 onready var animationPlayer: AnimationPlayer = get_node("AnimationPlayer") 
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
-onready var upOp = get_node("UI/GUI/LevelUp/UpgradeOption")
+onready var upOpGUI = get_node("UI/GUI/LevelUp/UpgradeOption")
 onready var upgradeOpScene = preload("res://Characters/Players/UpgradeOption.tscn")
 onready var collectedItemsScene = preload("res://Characters/Players/GUI/ItemContainer.tscn")
 
@@ -121,11 +121,21 @@ func levelup():
 	
 	var options = 0
 	var optionsmax = 3
+	# while options < optionsmax:
+	# 	var option_choice = upgradeOpScene.instance()
+	# 	option_choice.item = get_random_item()
+	# 	upOpGUI.add_child(option_choice)
+	# 	options += 1
+
 	while options < optionsmax:
 		var option_choice = upgradeOpScene.instance()
-		option_choice.item = get_random_item()
-		upOp.add_child(option_choice)
+		var random_item = get_random_item()
+		while random_item in upgrade_options:
+			random_item = get_random_item()
+		option_choice.item = random_item
+		upOpGUI.add_child(option_choice)
 		options += 1
+		
 	LevelUp.visible = true
 #	LevelUp.show()
 	get_tree().paused = true
@@ -351,7 +361,7 @@ func upgrade_character(upgrade):
 
 	if icon_pass:			
 		adjust_gui_collection(upgrade)
-	var option_children = upOp.get_children()
+	var option_children = upOpGUI.get_children()
 	for i in option_children:
 		i.queue_free()
 	upgrade_options.clear()

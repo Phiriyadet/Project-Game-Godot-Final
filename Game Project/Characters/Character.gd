@@ -80,16 +80,15 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 			velocity += dir * force * 2
 		
 		
-func set_hp(new_hp):
+func set_hp(new_hp:int):
 	hp = clamp(new_hp, 0, self.max_hp)
 #	print_debug(hp)
 	
 func get_hp():
 	return hp
 	
-func set_maxhp(new_maxhp):
+func set_maxhp(new_maxhp:int):
 	max_hp = new_maxhp
-
 
 func get_maxhp():
 	return max_hp

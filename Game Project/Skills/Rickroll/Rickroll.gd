@@ -17,21 +17,22 @@ func _process(delta):
 	pass
 
 func check_level():
-	match level:
-		1,2:
-			player.set_atk(player.get_atk() + 40)
-			player.set_spd(player.get_spd() + 40)
-			player.set_pickup(player.get_pickup() + 40)
-		3,4:
-			player.set_atk(player.get_atk() + 60)
-			player.set_spd(player.get_spd() + 60)
-			player.set_pickup(player.get_pickup() + 60)
-		5,6:
-			player.set_atk(player.get_atk() + 80)
-			player.set_spd(player.get_spd() + 80)
-			player.set_pickup(player.get_pickup() + 80)
-		7:
-			player.set_atk(player.get_atk() + 100)
-			player.set_spd(player.get_spd() + 100)
-			player.set_pickup(player.get_pickup() + 100)
+	if player != null:
+		match level:
+			1,2:
+				player.set_atk(player.get_atk() + 40)
+				player.set_spd(player.get_spd() + 40)
+				player.set_pickup(player.get_pickup() + 40)
+			3,4:
+				player.set_atk(player.get_atk() + 60)
+				player.set_spd(player.get_spd() + 60)
+				player.set_pickup(player.get_pickup() + 60)
+			5,6:
+				player.set_atk(player.get_atk() + 80)
+				player.set_spd(player.get_spd() + 80)
+				player.set_pickup(player.get_pickup() + 80)
+			7:
+				player.set_atk(player.get_atk() + 100)
+				player.set_spd(player.get_spd() + 100)
+				player.set_pickup(player.get_pickup() + 100)
 			

@@ -196,8 +196,13 @@ font_data = ExtResource( 13 )
 collision_layer = 2
 collision_mask = 13
 script = ExtResource( 2 )
-pickup_radius = 20.0
-spacial_skill = false
+acceleration = null
+max_hp = null
+hp = null
+atk = null
+spd = null
+pickup_radius = null
+spacial_skill = null
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 3 )

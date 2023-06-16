@@ -24,12 +24,13 @@ func get_level() -> int:
 	return level
 	
 func check_level():
-	match level:
-		1,2:
-			print_debug("item level :", level)
-		3,4:
-			print_debug("item level :", level)
-		5,6:
-			print_debug("item level :", level)
-		7:
-			print_debug("item level :", level)
+	if player != null:
+		match level:
+			1,2:
+				print_debug("item level :", level)
+			3,4:
+				print_debug("item level :", level)
+			5,6:
+				print_debug("item level :", level)
+			7:
+				print_debug("item level :", level)

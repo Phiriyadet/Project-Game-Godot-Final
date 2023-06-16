@@ -12,13 +12,14 @@ func _process(delta):
 	pass
 
 func check_level():
-	match level:
-		1,2:
-			player.set_spd(player.get_spd() + 20)
-		3,4:
-			player.set_spd(player.get_spd() + 40)
-		5,6:
-			player.set_spd(player.get_spd() + 60)
-		7:
-			player.set_spd(player.get_spd() + 80)
+	if player != null:
+		match level:
+			1,2:
+				player.set_spd(player.get_spd() + 20)
+			3,4:
+				player.set_spd(player.get_spd() + 40)
+			5,6:
+				player.set_spd(player.get_spd() + 60)
+			7:
+				player.set_spd(player.get_spd() + 80)
 		

@@ -10,6 +10,9 @@ radius = 56.0
 [node name="It\'sTimeToStop" instance=ExtResource( 1 )]
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "ทำการหยุดการเคลื่อนไหวของศัตรู 9 วินาที"
+}
 
 [node name="Sprite" parent="Area2D" index="0"]
 texture = ExtResource( 3 )

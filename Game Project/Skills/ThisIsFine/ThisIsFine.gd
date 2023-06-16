@@ -14,13 +14,14 @@ func _process(delta):
 	pass
 
 func check_level():
-	match level:
-		1,2:
-			player.set_atk(player.get_atk() + 20)
-		3,4:
-			player.set_atk(player.get_atk() + 40)
-		5,6:
-			player.set_atk(player.get_atk() + 60)
-		7:
-			player.set_atk(player.get_atk() + 80)
+	if player != null:
+		match level:
+			1,2:
+				player.set_atk(player.get_atk() + 20)
+			3,4:
+				player.set_atk(player.get_atk() + 40)
+			5,6:
+				player.set_atk(player.get_atk() + 60)
+			7:
+				player.set_atk(player.get_atk() + 80)
 			

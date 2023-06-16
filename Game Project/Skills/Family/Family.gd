@@ -14,12 +14,13 @@ func _process(delta):
 	pass
 
 func check_level():
-	match level:
-		1,2:
-			player.set_maxhp(player.get_maxhp() + 20)
-		3,4:
-			player.set_maxhp(player.get_maxhp() + 40)
-		5,6:
-			player.set_maxhp(player.get_maxhp() + 60)
-		7:
-			player.set_maxhp(player.get_maxhp() + 80)
+	if player != null:
+		match level:
+			1,2:
+				player.set_maxhp(player.get_maxhp() + 20)
+			3,4:
+				player.set_maxhp(player.get_maxhp() + 40)
+			5,6:
+				player.set_maxhp(player.get_maxhp() + 60)
+			7:
+				player.set_maxhp(player.get_maxhp() + 80)

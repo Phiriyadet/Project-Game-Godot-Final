@@ -18,7 +18,8 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	player.set_hp(player.get_hp() + hp)
+	if player != null:
+		player.set_hp(player.get_hp() + hp)
 
 
 func check_level():
