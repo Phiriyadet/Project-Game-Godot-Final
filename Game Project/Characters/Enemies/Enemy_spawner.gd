@@ -1,46 +1,165 @@
 tool
 extends Node2D
 
+signal changetime(time)
+onready var HUD := get_node("../HUD")
+onready var enemies := get_node("../Enemies")
+onready var count_time = $Timer
+# Declare member variables here. Examples:
+var time = 0
+var enemy :KinematicBody2D
+var player_in_map : KinematicBody2D
 
-const ENEMY_SCENES: Dictionary = { 
-	"CursedCat":preload("res://Characters/Enemies/CursedCat/CursedCat.tscn"),
-	"HalfCat":preload("res://Characters/Enemies/HalfCat/HalfCat.tscn")
+const ENEMY_SCENES: Dictionary = {
+	"Cockroach": preload("res://Characters/Enemies/Cockroach/Cockroach.tscn"),
+	"CoffinDance": preload("res://Characters/Enemies/CoffinDance/CoffinDance.tscn"),
+	"CursedCat": preload("res://Characters/Enemies/CursedCat/CursedCat.tscn"),
+	"EggDog": preload("res://Characters/Enemies/EggDog/EggDog.tscn"),
+	"HalfCat": preload("res://Characters/Enemies/HalfCat/HalfCat.tscn"),
+	"LaughingWolvesBanner": preload("res://Characters/Enemies/LaughingWolvesBanner/LaughingWolvesBanner.tscn"),
+	"OofStones": preload("res://Characters/Enemies/OofStones/OofStones.tscn"),
+	"PopCat": preload("res://Characters/Enemies/PopCat/PopCat.tscn"),
+	"ShrekTPost": preload("res://Characters/Enemies/ShrekTPost/ShrekTPost.tscn"),
+	"TRexCostume": preload("res://Characters/Enemies/TRexCostume/TRexCostume.tscn"),
+	"UgandaKnuckles": preload("res://Characters/Enemies/UgandaKnuckles/UgandaKnuckles.tscn"),
+	"UnfinishedHorse": preload("res://Characters/Enemies/UnfinishedHorse/UnfinishedHorse.tscn"),
 }
-#
+
 const ENEMY_SPAWNS: Dictionary={
-	0:{"time_start":0,"time_end":5,"enemy":ENEMY_SCENES.CursedCat,
-	"enemy_number":5,"enemy_spawn_delay":0},
-	1:{"time_start":5,"time_end":10,"enemy":ENEMY_SCENES.HalfCat,
-	"enemy_number":5,"enemy_spawn_delay":0},
+	0: {
+		"time_start": 0,
+		"time_end": 5,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 2,
+		"enemy_spawn_delay": 0,
+		
+	},
+	1: {
+		"time_start": 10,
+		"time_end": 15,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	3: {
+		"time_start": 15,
+		"time_end": 30,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	4: {
+		"time_start": 30,
+		"time_end": 50,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	5: {
+		"time_start": 50,
+		"time_end": 70,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	6: {
+		"time_start": 70,
+		"time_end": 100,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	7: {
+		"time_start": 100,
+		"time_end": 150,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	8: {
+		"time_start": 150,
+		"time_end": 250,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	9: {
+		"time_start": 250,
+		"time_end": 350,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	10: {
+		"time_start": 350,
+		"time_end": 400,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	11: {
+		"time_start": 400,
+		"time_end": 15,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	12: {
+		"time_start": 10,
+		"time_end": 15,
+		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	
 }
-#
 
-var time = 0	
-#export(Spawn_info) var spawns 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+func player_start(player):
+	player_in_map = player
+	count_time.start()	
 
 func _on_Timer_timeout():
 	time += 1
-	
+	HUD.update_time(time)
+#	if randi() % 2 == 0:
+#		enemy = ENEMY_SCENES.HalfCat.instance()
+#	else:
+#		enemy = ENEMY_SCENES.CursedCat.instance()
+#	print(ENEMY_SPAWNS)
 	for i in ENEMY_SPAWNS:
-		if time >= i.time_start and time <= i.time_end:
-			if i.spawn_delay_counter < i.enemy_spawn_delay:
-				i.spawn_delay_counter += 1
-			else:
-				i.spawn_delay_counter = 0
-				var new_enemy = load(str(i.enemy.resource_path))
+#		print(i)
+		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
+#			if ENEMY_SPAWNS[i]["spawn_delay_counter"] < ENEMY_SPAWNS[i]["enemy_spawn_delay"]:
+#				ENEMY_SPAWNS[i]["spawn_delay_counter"] += 1
+#			else:
+#				ENEMY_SPAWNS[i]["spawn_delay_counter"] = 0
+
 				var counter = 0
-				while counter < i.enemy_number:
-					var enemy_spawn = new_enemy.instantiate()
-					enemy_spawn.global_position = player_in_map.position + Vector2(300,0).rotated(rand_range(0,2*PI))
-					add_child(enemy_spawn)
+				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
+					var enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
+					enemy_spawn.position = player_in_map.position + Vector2(500,100).rotated(rand_range(0,2*PI))
+					enemies.call_deferred("add_child", enemy_spawn)
 					counter += 1
-					
+#
+#	enemy = ENEMY_SCENES.CursedCat.instance()
+#	enemy.position = player_in_map.position + Vector2(500,100).rotated(rand_range(0,2*PI))
+#	enemies.call_deferred("add_child", enemy)
