@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Menus/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Maps/World.gd" type="Script" id=2]
@@ -22,25 +22,9 @@
 [ext_resource path="res://Items/SpacialItems/JiiHoy/JiiHoy.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Items/SpacialItems/Giorno'sPiano/Giorno'sPiano.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Items/SpacialItems/It'sTimeToStop/It'sTimeToStop.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Characters/Enemies/Enemy_spawner.tscn" type="PackedScene" id=23]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_editor_description_": "เมื่อเริ่มลูปใหม่สำหรับการสร้างศัตรู:
-
-spawn_delay_counter จะถูกกำหนดค่าเป็น 0 เพื่อรีเซ็ตการนับระยะเวลาหน่วงการสร้างศัตรูใหม่ในลูปใหม่
-สำหรับแต่ละข้อมูลของศัตรูใน ENEMY_SPAWNS:
-
-ตรวจสอบว่า time อยู่ในช่วง time_start ถึง time_end เพื่อกำหนดเวลาที่สร้างศัตรู
-ถ้า spawn_delay_counter น้อยกว่า enemy_spawn_delay:
-เพิ่มค่า spawn_delay_counter ขึ้นทีละ 1 เพื่อนับระยะเวลาหน่วงการสร้างศัตรู
-หาก spawn_delay_counter เท่ากับหรือมากกว่า enemy_spawn_delay:
-รีเซ็ต spawn_delay_counter เป็น 0 เพื่อเริ่มนับระยะเวลาหน่วงใหม่
-สร้างศัตรูจำนวน enemy_number ตามที่กำหนดใน ENEMY_SPAWNS
-กำหนดตำแหน่งของศัตรูให้อยู่ใกล้กับตำแหน่งของผู้เล่นโดยใช้เวกเตอร์ที่หมุนและเลื่อนตามแนวสุ่ม
-เพิ่มศัตรูลงในกลุ่มของศัตรู"
-}
 
 [node name="CountTime" type="Timer" parent="."]
 
@@ -78,8 +62,6 @@ margin_left = -64.0
 margin_top = -64.0
 margin_right = 64.0
 margin_bottom = 64.0
-
-[node name="Enemy_spawner" parent="." instance=ExtResource( 23 )]
 
 [node name="Area" parent="." instance=ExtResource( 3 )]
 
