@@ -43,10 +43,19 @@ tracks/1/keys = {
 }
 
 [node name="HandGun" instance=ExtResource( 3 )]
-scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 1 )
 
-[node name="Sprite" parent="Node2D" index="0"]
+[node name="Node2D" parent="." index="0"]
+rotation = 0.0
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Anchor" type="Node2D" parent="Node2D" index="0"]
+position = Vector2( 235, -80.0001 )
+scale = Vector2( 5, 5 )
+
+[node name="SpawnBulletPosition2D" type="Position2D" parent="Node2D/Anchor" index="0"]
+
+[node name="Sprite" parent="Node2D" index="1"]
 position = Vector2( 120, -60 )
 texture = ExtResource( 2 )
 
@@ -55,13 +64,8 @@ position = Vector2( 0, -16 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Anchor" type="Node2D" parent="." index="1"]
-position = Vector2( 180, -85 )
-
-[node name="SpawnBulletPosition2D" type="Position2D" parent="Anchor" index="0"]
-
-[node name="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" parent="." index="3"]
 anims/attack = SubResource( 2 )
 
-[node name="AudioStreamPlayer2D" parent="." index="5"]
+[node name="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 4 )
