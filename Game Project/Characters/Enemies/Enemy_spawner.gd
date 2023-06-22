@@ -30,6 +30,14 @@ const ENEMY_SPAWNS: Dictionary={
 	1: {
 		"time_start": 10,
 		"time_end": 15,
+		"enemy": ENEMY_SCENES.HalfCat,
+		"enemy_number": 3,
+		"enemy_spawn_delay": 0,
+		
+	},
+	2: {
+		"time_start": 15,
+		"time_end": 30,
 		"enemy": ENEMY_SCENES.CursedCat,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
@@ -62,54 +70,6 @@ const ENEMY_SPAWNS: Dictionary={
 	6: {
 		"time_start": 70,
 		"time_end": 100,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	7: {
-		"time_start": 100,
-		"time_end": 150,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	8: {
-		"time_start": 150,
-		"time_end": 250,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	9: {
-		"time_start": 250,
-		"time_end": 350,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	10: {
-		"time_start": 350,
-		"time_end": 400,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	11: {
-		"time_start": 400,
-		"time_end": 15,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	12: {
-		"time_start": 10,
-		"time_end": 15,
 		"enemy": ENEMY_SCENES.CursedCat,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,

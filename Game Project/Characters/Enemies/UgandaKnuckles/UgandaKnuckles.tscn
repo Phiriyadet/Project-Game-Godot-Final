@@ -42,6 +42,11 @@ radius = 16.0
 
 [node name="UgandaKnuckles" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
+max_hp = 80
+hp = 80
+atk = 10
+spd = 10
+exp_enemy = 15
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )

@@ -42,7 +42,9 @@ extents = Vector2( 9, 23 )
 
 [node name="ShrekTPost" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-atk = 0
+atk = 15
+spd = 15
+exp_enemy = 20
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )

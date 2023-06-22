@@ -110,9 +110,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-hp = 20
-atk = 0
-spd = 20
+hp = 50
+atk = 8
+spd = 10
+exp_enemy = 5
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 11 )

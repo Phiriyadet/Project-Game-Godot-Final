@@ -42,7 +42,11 @@ extents = Vector2( 47, 17 )
 
 [node name="OofStones" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-atk = 0
+max_hp = 150
+hp = 150
+atk = 10
+spd = 8
+exp_enemy = 30
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 7 )

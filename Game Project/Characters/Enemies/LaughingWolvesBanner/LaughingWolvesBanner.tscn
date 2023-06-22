@@ -44,7 +44,11 @@ height = 64.0
 
 [node name="LaughingWolvesBanner" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-atk = 0
+max_hp = 1600
+hp = 1600
+atk = 30
+spd = 30
+exp_enemy = 300
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )

@@ -43,7 +43,11 @@ height = 32.0
 
 [node name="TRexCostume" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-atk = 0
+max_hp = 3000
+hp = 3000
+atk = 50
+spd = 10
+exp_enemy = 400
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )

@@ -42,7 +42,10 @@ radius = 18.0
 
 [node name="PopCat" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-atk = 0
+max_hp = 200
+hp = 200
+spd = 10
+exp_enemy = 50
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )

@@ -42,7 +42,11 @@ extents = Vector2( 31, 26 )
 
 [node name="UnfinishedHorse" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-atk = 0
+max_hp = 9001
+hp = 9001
+atk = 100
+spd = 8
+exp_enemy = 800
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 1 )

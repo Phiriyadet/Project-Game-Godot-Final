@@ -42,6 +42,11 @@ radius = 7.07107
 
 [node name="Cockroach" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+max_hp = 20
+hp = 20
+atk = 12
+spd = 20
+exp_enemy = 10
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 1 )
