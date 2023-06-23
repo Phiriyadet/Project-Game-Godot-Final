@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menus/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Maps/World.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://font16.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Menus/Pause.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Characters/Enemies/Enemy_spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Exp/Exp_gem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menus/GameOver.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Items/SpacialItems/JiiHoy/JiiHoy.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Items/SpacialItems/Giorno'sPiano/Giorno'sPiano.tscn" type="PackedScene" id=21]
@@ -70,5 +71,14 @@ position = Vector2( 0, -80 )
 
 [node name="It\'sTimeToStop" parent="Loot" instance=ExtResource( 22 )]
 position = Vector2( -144, -16 )
+
+[node name="Exp_gem" parent="." instance=ExtResource( 7 )]
+position = Vector2( -62, 41 )
+
+[node name="Exp_gem2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -89, 49 )
+
+[node name="Exp_gem3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -83, 22 )
 
 [editable path="Area"]

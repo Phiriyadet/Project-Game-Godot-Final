@@ -121,21 +121,31 @@ func levelup():
 	
 	var options = 0
 	var optionsmax = 3
-	# while options < optionsmax:
-	# 	var option_choice = upgradeOpScene.instance()
-	# 	option_choice.item = get_random_item()
-	# 	upOpGUI.add_child(option_choice)
-	# 	options += 1
-
+#	while options < optionsmax:
+#		var option_choice = upgradeOpScene.instance()
+#		option_choice.item = get_random_item()
+#		upOpGUI.add_child(option_choice)
+#		options += 1
+	var itemCheck = []
+	var fff = []
+	var hhh = ""
+	var itemLike = 0
 	while options < optionsmax:
 		var option_choice = upgradeOpScene.instance()
 		var random_item = get_random_item()
-		while random_item in upgrade_options:
-			random_item = get_random_item()
-		option_choice.item = random_item
-		upOpGUI.add_child(option_choice)
-		options += 1
+		if fff.has(random_item):
+			itemLike = 1
+		else:
+			itemLike = 0
+		fff.append(random_item)
+#		while random_item in upgrade_options:
+#			random_item = get_random_item()
 		
+		if itemLike == 0:
+			itemCheck = random_item
+			option_choice.item = random_item
+			upOpGUI.add_child(option_choice)
+			options += 1
 	LevelUp.visible = true
 #	LevelUp.show()
 	get_tree().paused = true
@@ -230,7 +240,7 @@ func upgrade_character(upgrade):
 				skills.add_child(instance)
 			else:
 				instance = skills.get_node("Ameno")
-				instance.set_newlevel_skill(instance.get_level())
+				instance.set_newlevel(instance.get_level())
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		"Family":
