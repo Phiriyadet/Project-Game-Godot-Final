@@ -27,10 +27,14 @@ func check_level():
 	match level:
 		1,2:
 			self.atk_w += 50
+			print_debug("Nokia3310 : ", level)
 		3,4:
 			self.atk_w += 80
+			print_debug("Nokia3310 : ", level)
 		5,6:
 			self.atk_w += 120
+			print_debug("Nokia3310 : ", level)
 		7:
 			self.atk_w += 180
+			print_debug("Nokia3310 : ", level)
 

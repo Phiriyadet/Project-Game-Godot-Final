@@ -36,8 +36,8 @@ func set_atk_w(new_atk):
 func get_atk_w():
 	return atk_w
 
-func set_atk_all(new):
-	atk_all = new
+func set_atk_all(new_atk_all):
+	atk_all = new_atk_all
 	
 func get_atk_all():
 	return atk_all
@@ -50,7 +50,7 @@ func get_level() -> int:
 	return level
 		
 func check_level():
-	match level:
+	match self.level:
 		1,2:
 			print_debug("weapon level :", level)
 		3,4:

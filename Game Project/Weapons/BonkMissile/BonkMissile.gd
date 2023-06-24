@@ -64,12 +64,16 @@ func check_level():
 	match level:
 		1, 2:
 			self.atk_w += 40
+			print_debug("BonkMissile : ", level)
 		3, 4:
 			self.atk_w += 60
+			print_debug("BonkMissile : ", level)
 		5, 6:
 			self.atk_w += 80
+			print_debug("BonkMissile : ", level)
 		7:
 			self.atk_w += 100
+			print_debug("BonkMissile : ", level)
 
 func _on_DetectEnemy_area_entered(area):
 	if !enemy_close.has(area):

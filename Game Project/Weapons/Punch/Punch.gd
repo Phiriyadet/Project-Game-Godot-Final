@@ -22,9 +22,13 @@ func check_level():
 	match level:
 		1,2:
 			self.atk_w += 60
+			print_debug("Punch : ", level)
 		3,4:
 			self.atk_w += 80
+			print_debug("Punch : ", level)
 		5,6:
 			self.atk_w += 100
+			print_debug("Punch : ", level)
 		7:
 			self.atk_w += 180
+			print_debug("Punch : ", level)

@@ -367,8 +367,6 @@ func upgrade_character(upgrade):
 				instance.set_newlevel(instance.get_level())
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
-			
-
 	if icon_pass:			
 		adjust_gui_collection(upgrade)
 	var option_children = upOpGUI.get_children()

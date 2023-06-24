@@ -24,7 +24,7 @@ func get_level() -> int:
 	
 func check_level():
 	if player != null:
-		match level:
+		match self.level:
 			1,2:
 				print_debug("skill level :", level)
 			3,4:

@@ -33,11 +33,15 @@ func check_level():
 	match level:
 		1,2:
 			self.atk_w += 25
+			print_debug("HandGun : ", level)
 		3,4:
 			self.atk_w += 35
+			print_debug("HandGun : ", level)
 		5,6:
 			self.atk_w += 45
+			print_debug("HandGun : ", level)
 		7:
-			self.atk_w += 55		
+			self.atk_w += 55
+			print_debug("HandGun : ", level)	
 		
 		
