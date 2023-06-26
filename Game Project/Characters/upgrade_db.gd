@@ -21,15 +21,23 @@ const UPGRADE_SCENES : Dictionary = {
 	"TakeMyMoney":preload("res://Items/ThePumpkinDance/ThePumpkinDance.tscn"),
 	"TheMotivation":preload("res://Items/TheMotivation/TheMotivation.tscn"),
 	"ThePumpkinDance":preload("res://Items/ThePumpkinDance/ThePumpkinDance.tscn"),
-
 }
-const UPGRADES = {
+
+var level_bonkbat = Global.level_bonkbat
+var level_bonkmissile = Global.level_bonkmissile
+var level_gunhand = Global.level_gunhand
+var level_nokia3310 = Global.level_nokia3310
+var level_punch = Global.level_punch
+var level_twoguitars = Global.level_twoguitars
+
+
+var UPGRADES = {
 	
 	"BonkBat":{
 		"icon": WEAPON_PATH + "bat.png",
 		"displayname": "Bonk Bat",
 		"details": "Bonk Bat have ",
-		"level": "Level: 1",
+		"level": "Level: "+ str(Global.level_bonkbat),
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -37,7 +45,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "bonk_missile.png",
 		"displayname": "Bonk Missile",
 		"details": "Bonk Missile have ",
-		"level": "Level: 1",
+		"level": "Level: "+ str(Global.level_bonkmissile),
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -45,7 +53,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "gunhand.png",
 		"displayname": "Gun Hand",
 		"details": "Gun Hand have ",
-		"level": "Level: 1",
+		"level": "Level: "+ str(Global.level_gunhand),
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -53,7 +61,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "indestructible_nokia3310.png",
 		"displayname": "Nokia3310",
 		"details": "Nokia3310 have ",
-		"level": "Level: 1",
+		"level": "Level: "+ str(Global.level_nokia3310),
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -61,7 +69,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "punch.png",
 		"displayname": "Punch",
 		"details": "Punch have ",
-		"level": "Level: 1",
+		"level": "Level: "+ str(Global.level_punch),
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -69,15 +77,15 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "two_guitars.png",
 		"displayname": "Two Guitars",
 		"details": "Two Guitars have ",
-		"level": "Level: 1",
+		"level": "Level: "+ str(Global.level_twoguitars),
 		"prerequisite": [],
 		"type": "weapon"
 	},
-
+	#skills
 	"Ameno":{
 		"icon": SKILL_PATH + "ameno.png",
 		"displayname": "Ameno",
-		"details": "Ameno have ",
+		"details": "เพิ่ม Pickup Radius ตามเลเวลสกิล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "skill"
@@ -85,7 +93,7 @@ const UPGRADES = {
 	"Family":{
 		"icon": SKILL_PATH + "family.png",
 		"displayname": "Family",
-		"details": "Family have ",
+		"details": "เพิ่ม Max HP ตามเลเวลสกิล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "skill"
@@ -93,7 +101,7 @@ const UPGRADES = {
 	"Gigachad":{
 		"icon": SKILL_PATH + "gigachad.png",
 		"displayname": "Gigachad",
-		"details": "Gigachad have ",
+		"details": "ทุก 7 วินาทีฟื้นฟู HP ตามเลเวลสกิล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "skill"
@@ -101,7 +109,7 @@ const UPGRADES = {
 	"GottaGoFast": {
 		"icon": SKILL_PATH + "gotta_go_fast.png",
 		"displayname": "Gotta Go Fast",
-		"details": "Gotta Go Fast have ",
+		"details": "เพิ่ม SPD ตามเลเวลสกิล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "skill"
@@ -109,7 +117,7 @@ const UPGRADES = {
 	"Rickroll": {
 		"icon": SKILL_PATH + "rickroll.png",
 		"displayname": "Rickroll",
-		"details": "Family have ",
+		"details": "เมื่อพลังชีวิตน้อยกว่าครึ่งเพิ่ม SPD ATK และ Pickup Radius ตามเลเวลสกิล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "skill"
@@ -117,7 +125,7 @@ const UPGRADES = {
 	"ThisIsFine": {
 		"icon": SKILL_PATH + "this_is_fine.png",
 		"displayname": "This Is Fine",
-		"details": "This Is Fine have ",
+		"details": "เพิ่ม ATK ตามเลเวลสกิล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "skill"
@@ -126,7 +134,7 @@ const UPGRADES = {
 	"Amogus": {
 		"icon": ITEM_PATH + "amogus.png",
 		"displayname": "Amogus",
-		"details": "Amogus have ",
+		"details": "เพิ่มค่า EXP ที่เก็บได้ขึ้นตามเลเวล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "item"
@@ -134,7 +142,7 @@ const UPGRADES = {
 	"NanomachinesSon": {
 		"icon": ITEM_PATH + "hearth_nms.png",
 		"displayname": "Nanomachines Son",
-		"details": "Nanomachines Son have ",
+		"details": "ตัวละครจะไม่ได้รับความเสียหายเป็นเวลา 10 วินาที เวลาคูลดาวน์ ตามเลเวล (วินาที)",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "item"
@@ -142,7 +150,7 @@ const UPGRADES = {
 	"SuezCanalJam": {
 		"icon": ITEM_PATH + "evergreen.png",
 		"displayname": "Suez Canal Jam",
-		"details": "SuezCanalJam have ",
+		"details": "สร้างการป้องกันขึ้นด้านหลังของตัวละคร เวลาคูลดาวน์ 5 วินาทีและจะคงอยู่นานตามเลเวล (วินาที)",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "item"
@@ -150,7 +158,7 @@ const UPGRADES = {
 	"TakeMyMoney": {
 		"icon": ITEM_PATH + "takemymoney.png",
 		"displayname": "Take My Money",
-		"details": "Take My Money have ",
+		"details": "เพิ่มโบนัสเงินเมื่อเล่นจบเพิ่มโบนัสตามเลเวล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "item"
@@ -158,7 +166,7 @@ const UPGRADES = {
 	"TheMotivation": {
 		"icon": ITEM_PATH + "chair.png",
 		"displayname": "The Motivation",
-		"details": "The Motivation have ",
+		"details": "สร้างอาณาเขตรอบ ๆ ตัวละคร ทำให้ SPD ของศัตรูลดลงตามเลเวล",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "item"
@@ -166,7 +174,7 @@ const UPGRADES = {
 	"ThePumpkinDance": {
 		"icon": ITEM_PATH + "pumpkin_dance.png.png",
 		"displayname": "The Pumpkin Dance",
-		"details": "The Pumpkin Dance have ",
+		"details": "ปรากฏตัวออกมาช่วยเก็บ EXP เวลาคูลดาวน์ 15 วินาที เวลาคงอยู่ตามเลเวล(วินาที)",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "item"

@@ -166,6 +166,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = weapons.get_node("BonkBat")
 				instance.set_newlevel(instance.get_level())
+				Global.level_bonkbat = clamp(instance.get_level() +1, 1, 7)
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		"BonkMissile":
@@ -179,6 +180,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = weapons.get_node("BonkMissile")
 				instance.set_newlevel(instance.get_level())
+				Global.level_bonkmissile = clamp(instance.get_level() +1, 1, 7)
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		"GunHand":
@@ -192,6 +194,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = weapons.get_node("GunHand")
 				instance.set_newlevel(instance.get_level())
+				Global.level_gunhand = clamp(instance.get_level() +1, 1, 7)
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		"Nokia3310":
@@ -205,6 +208,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = weapons.get_node("Nokia3310")
 				instance.set_newlevel(instance.get_level())
+				Global.level_nokia3310 = clamp(instance.get_level() +1, 1, 7)
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		"Punch":
@@ -218,6 +222,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = weapons.get_node("Punch")
 				instance.set_newlevel(instance.get_level())
+				Global.level_punch = clamp(instance.get_level() +1, 1, 7)
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		"TwoGuitars":
@@ -231,6 +236,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = weapons.get_node("TwoGuitars")
 				instance.set_newlevel(instance.get_level())
+				Global.level_twoguitars = clamp(instance.get_level() +1, 1, 7)
 				print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 		# Skill upgrades

@@ -5,19 +5,20 @@ class_name Item
 
 onready var player: Player = get_tree().current_scene.get_node("Player").get_child(0) as Player
 
-export(int) var level = 1 setget set_newlevel, get_level
+export(int) var level = 0 setget set_newlevel, get_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	check_level()
+#	check_level()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func set_newlevel(level:int):
-	level = clamp(level+1, 1, 7)
+func set_newlevel(old_level:int):
+	level = clamp(old_level+1, 1, 7)
 	check_level()
 	
 func get_level() -> int:
