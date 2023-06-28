@@ -196,13 +196,8 @@ font_data = ExtResource( 13 )
 collision_layer = 2
 collision_mask = 13
 script = ExtResource( 2 )
-acceleration = null
-max_hp = null
-hp = null
-atk = null
-spd = null
-pickup_radius = null
-spacial_skill = null
+pickup_radius = 20.0
+spacial_skill = false
 
 [node name="FiniteStateMachine" parent="." index="0"]
 script = ExtResource( 3 )
@@ -356,9 +351,13 @@ bbcode_enabled = true
 bbcode_text = "[color=red]Analog Alert: weapon already exists or child count is 4[/color]"
 text = "Analog Alert: weapon already exists or child count is 4"
 
+[node name="CountDownTimer" type="Timer" parent="UI/GUI/Popup" index="1"]
+wait_time = 5.0
+
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_CollectArea_area_entered"]
 [connection signal="timeout" from="CoolDawnTimer" to="." method="_on_CoolDawnTimer_timeout"]
+[connection signal="timeout" from="UI/GUI/Popup/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
 
 [editable path="UI/GUI/LevelUp"]

@@ -42,7 +42,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[node name="HandGun" instance=ExtResource( 3 )]
+[node name="GunHand" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 
 [node name="Node2D" parent="." index="0"]

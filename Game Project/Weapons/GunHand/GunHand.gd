@@ -1,6 +1,6 @@
 extends "res://Weapons/Weapon.gd"
 
-class_name HandGun, "res://Assets/Weapons/gunhand/gunhand-1.png"
+class_name GunHand, "res://Assets/Weapons/gunhand/gunhand-1.png"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -33,15 +33,15 @@ func check_level():
 	match level:
 		1,2:
 			self.atk_w += 25
-			print_debug("HandGun : ", level)
+			print_debug("GunHand : ", level)
 		3,4:
 			self.atk_w += 35
-			print_debug("HandGun : ", level)
+			print_debug("GunHand : ", level)
 		5,6:
 			self.atk_w += 45
-			print_debug("HandGun : ", level)
+			print_debug("GunHand : ", level)
 		7:
 			self.atk_w += 55
-			print_debug("HandGun : ", level)	
+			print_debug("GunHand : ", level)	
 		
 		

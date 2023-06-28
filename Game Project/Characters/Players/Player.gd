@@ -26,6 +26,7 @@ onready var cooldawnTimer:Timer = get_node("CoolDawnTimer")
 onready var tween:Tween = get_node("UI/GUI/Tween")
 onready var popup:Popup = get_node("UI/GUI/Popup")
 onready var animationPlayer: AnimationPlayer = get_node("AnimationPlayer") 
+onready var popup_countdown_timer :Timer = get_node("UI/GUI/Popup/CountDownTimer")
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
 onready var upOpGUI = get_node("UI/GUI/LevelUp/UpgradeOption")
@@ -149,6 +150,14 @@ func levelup():
 	LevelUp.visible = true
 #	LevelUp.show()
 	get_tree().paused = true
+
+func popup_collected_full():
+	popup.show()
+	popup_countdown_timer.start()
+	
+func print_debug_upgrade(upgrade, instance):
+	print_debug("upgrade: ", upgrade, ":", instance.get_level())
+	
 	
 func upgrade_character(upgrade):
 	var instance
@@ -159,16 +168,16 @@ func upgrade_character(upgrade):
 			if not weapons.has_node("BonkBat"):
 				if weapons.get_child_count() != 4:
 					instance = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
+					Global.set_levelbonkbat(Global.get_levelbonkbat()+1)
 					weapons.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = weapons.get_node("BonkBat")
 				instance.set_newlevel(instance.get_level())
-				Global.level_bonkbat = clamp(instance.get_level() +1, 1, 7)
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
-	
+				Global.set_levelbonkbat(Global.get_levelbonkbat()+1)
+				print_debug_upgrade(upgrade, instance)
 		"BonkMissile":
 			if not weapons.has_node("BonkMissile"):
 				if weapons.get_child_count() != 4:
@@ -176,12 +185,12 @@ func upgrade_character(upgrade):
 					weapons.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = weapons.get_node("BonkMissile")
 				instance.set_newlevel(instance.get_level())
 				Global.level_bonkmissile = clamp(instance.get_level() +1, 1, 7)
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"GunHand":
 			if not weapons.has_node("GunHand"):
@@ -190,12 +199,12 @@ func upgrade_character(upgrade):
 					weapons.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = weapons.get_node("GunHand")
 				instance.set_newlevel(instance.get_level())
 				Global.level_gunhand = clamp(instance.get_level() +1, 1, 7)
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"Nokia3310":
 			if not weapons.has_node("Nokia3310"):
@@ -204,12 +213,12 @@ func upgrade_character(upgrade):
 					weapons.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = weapons.get_node("Nokia3310")
 				instance.set_newlevel(instance.get_level())
 				Global.level_nokia3310 = clamp(instance.get_level() +1, 1, 7)
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"Punch":
 			if not weapons.has_node("Punch"):
@@ -218,12 +227,12 @@ func upgrade_character(upgrade):
 					weapons.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = weapons.get_node("Punch")
 				instance.set_newlevel(instance.get_level())
 				Global.level_punch = clamp(instance.get_level() +1, 1, 7)
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"TwoGuitars":
 			if not weapons.has_node("TwoGuitars"):
@@ -232,12 +241,12 @@ func upgrade_character(upgrade):
 					weapons.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = weapons.get_node("TwoGuitars")
 				instance.set_newlevel(instance.get_level())
 				Global.level_twoguitars = clamp(instance.get_level() +1, 1, 7)
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		# Skill upgrades
 		"Ameno":
@@ -247,7 +256,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = skills.get_node("Ameno")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"Family":
 			if not skills.has_node("Family"):
@@ -256,7 +265,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = skills.get_node("Family")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"Gigachad":
 			if not skills.has_node("Gigachad"):
@@ -265,7 +274,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = skills.get_node("Gigachad")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"GottaGoFast":
 			if not skills.has_node("GottaGoFast"):
@@ -274,7 +283,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = skills.get_node("GottaGoFast")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"Rickroll":
 			if not skills.has_node("Rickroll"):
@@ -283,7 +292,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = skills.get_node("Rickroll")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"ThisIsFine":
 			if not skills.has_node("ThisIsFine"):
@@ -292,7 +301,7 @@ func upgrade_character(upgrade):
 			else:
 				instance = skills.get_node("ThisIsFine")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		# Item upgrades
 		"Amogus":
@@ -302,11 +311,11 @@ func upgrade_character(upgrade):
 					items.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = items.get_node("Amogus")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"NanomachinesSon":
 			if not items.has_node("NanomachinesSon"):
@@ -315,11 +324,11 @@ func upgrade_character(upgrade):
 					items.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = items.get_node("NanomachinesSon")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"SuezCanalJam":
 			if not items.has_node("SuezCanalJam"):
@@ -328,11 +337,11 @@ func upgrade_character(upgrade):
 					items.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = items.get_node("SuezCanalJam")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"TakeMyMoney":
 			if not items.has_node("TakeMyMoney"):
@@ -341,11 +350,11 @@ func upgrade_character(upgrade):
 					items.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = items.get_node("TakeMyMoney")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"TheMotivation":
 			if not items.has_node("TheMotivation"):
@@ -354,11 +363,11 @@ func upgrade_character(upgrade):
 					items.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = items.get_node("TheMotivation")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 		"ThePumpkinDance":
 			if not items.has_node("ThePumpkinDance"):
@@ -367,11 +376,11 @@ func upgrade_character(upgrade):
 					items.add_child(instance)
 					icon_pass = true
 				else:
-					popup.show()
+					popup_collected_full()
 			else:
 				instance = items.get_node("ThePumpkinDance")
 				instance.set_newlevel(instance.get_level())
-				print_debug("upgrade: ", upgrade, ":", instance.get_level())
+				print_debug_upgrade(upgrade, instance)
 	
 	if icon_pass:			
 		adjust_gui_collection(upgrade)
@@ -466,3 +475,7 @@ func _on_Player_hp_changed():
 func _on_CoolDawnTimer_timeout():
 	can_active_sSkill = true
 
+
+
+func _on_CountDownTimer_timeout():
+	popup.hide()

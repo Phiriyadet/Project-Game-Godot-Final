@@ -42,6 +42,7 @@ func _ready():
 	playBtn.disabled = true
 	# set global variable enemy_dead_count to 0
 	Global.enemy_dead_count = 0
+	Global.level_bonkbat = 1
 	_create_or_load_save()
 	
 func _create_or_load_save():
