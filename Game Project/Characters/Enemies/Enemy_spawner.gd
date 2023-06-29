@@ -85,9 +85,21 @@ onready var count_time = $Timer
 var time = 0
 var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
+var plus_status = 0
 
 func _ready():
-	pass # Replace with function body.
+	match Global.difficulty_level:
+		1:
+			Global.coin_bonus = 0
+			plus_status = 0
+		2:
+			Global.coin_bonus = 0
+			plus_status = 0.5
+		3:
+			Global.coin_bonus = 0
+			plus_status = 1
+			
+	
 
 func player_start(player):
 	player_in_map = player
@@ -112,6 +124,11 @@ func _on_Timer_timeout():
 				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
 					enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
 					enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+					enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
+					enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
+					enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
+					enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status))
+					
 					enemies.call_deferred("add_child", enemy_spawn)
 					counter += 1
 					

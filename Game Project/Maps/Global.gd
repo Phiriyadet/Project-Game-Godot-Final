@@ -6,6 +6,8 @@ var player_status setget set_playerstatus, get_playerstatus
 var enemy_dead_count = 0
 var player_dead = false
 var level_player = 1
+var difficulty_level = 1
+var coin_bonus = 0
 
 var level_bonkbat = 0 setget set_levelbonkbat, get_levelbonkbat
 var level_bonkmissile = 0 

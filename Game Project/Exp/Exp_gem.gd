@@ -28,7 +28,7 @@ func grab():
 	return experience
 
 func _on_Timer_timeout():
-	print_debug("Effect Finished")
+#	print_debug("Effect Finished")
 	sound.playing = false
 	queue_free()
 
