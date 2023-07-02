@@ -31,11 +31,13 @@ func _ready():
 
 func _on_NormalModeBtn_pressed():
 	_endless_mode_btn.pressed = false
+	mode_check = true
 	mode_label.text = "โหมดการเล่นจำกัดเวลา 20 นาที บอสจะปรากฎตัวในนาทีที่ 20 กำจัดมันจึงจะชนะ" 
 
 
 func _on_EndlessModeBtn_pressed():
 	_normal_mode_btn.pressed = false
+	mode_check = true
 	mode_label.text = "โหมดการเล่นไม่จำกัดเวลา เล่นได้นานเท่าที่ไหว" 
 
 
@@ -43,6 +45,7 @@ func _on_EasyLevelBtn_pressed():
 	Global.difficulty_level = 1
 	_hard_level_btn.pressed = false
 	_very_hard_level_btn.pressed = false
+	diff_check = true
 	diff_label.text = "ระดับง่าย\n Status monster:HP, ATK, SPD เท่าเดิม" 
 
 
@@ -50,12 +53,14 @@ func _on_HardLevelBtn_pressed():
 	Global.difficulty_level = 2
 	_easy_level_btn.pressed = false
 	_very_hard_level_btn.pressed = false
+	diff_check = true
 	diff_label.text = "ระดับยาก\n Status monster:HP, ATK, SPD เพิ่มขึ้น 50%" 
 
 func _on_VeryHardLevelBtn_pressed():
 	Global.difficulty_level = 3
 	_easy_level_btn.pressed = false
 	_hard_level_btn.pressed = false
+	diff_check = true
 	diff_label.text = "ระดับยากมาก\n Status monster:HP, ATK, SPD เพิ่มขึ้น 100%" 
 
 
