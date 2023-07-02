@@ -129,7 +129,8 @@ func _on_BackBtn_pressed():
 # called when the Play button is pressed
 func _on_PlayBtn_pressed():
 	# change to world map scene
-	get_tree().change_scene("res://Maps/World.tscn")
+#	get_tree().change_scene("res://Maps/World.tscn")
+	get_tree().change_scene("res://Menus/Mode&DifficultyLevel.tscn")
 
 # called when the TextureRect is pressed
 func _on_TextureRect_pressed():
