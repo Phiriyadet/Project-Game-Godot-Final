@@ -86,6 +86,7 @@ var time = 0
 var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0
+var enemy_number = 0
 
 func _ready():
 	match Global.difficulty_level:
@@ -131,4 +132,5 @@ func _on_Timer_timeout():
 					
 					enemies.call_deferred("add_child", enemy_spawn)
 					counter += 1
-					
+					enemy_number+=1
+

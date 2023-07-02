@@ -33,6 +33,7 @@ func AttackTimer_timeout():
 	set_process(false)
 	detect_enemy_area.disabled = true
 	print_debug("AttackTimer_timeout")
+	
 #	cool_down_timer.start() #ติดปัญหาเรียกแล้วไม่ทำงาน
 
 #func _on_CoolDownTimer_timeout():
@@ -85,3 +86,4 @@ func _on_DetectEnemy_area_exited(area):
 	if enemy_close.has(area):
 		enemy_close.erase(area)
 		eneNum += 1
+

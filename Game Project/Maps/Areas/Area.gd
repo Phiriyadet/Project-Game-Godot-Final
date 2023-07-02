@@ -19,6 +19,7 @@ func _spawn_props():
 	for i in range(numIterations):
 			var propInstance = SPAWN_PROPS[randi() % SPAWN_PROPS.size()].instance()
 			propInstance.position = _get_random_position()
+			print(propInstance)
 			props.add_child(propInstance)
 
 func _get_random_position() -> Vector2:

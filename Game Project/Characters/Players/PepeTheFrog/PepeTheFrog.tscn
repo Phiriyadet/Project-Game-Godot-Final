@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/PepeTheFrog/PepeTheFrog.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-idle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-move.png" type="Texture" id=4]
+[ext_resource path="res://Weapons/BonkMissile/BonkMissile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Skills/spacial_skills/angry_pepe.png" type="Texture" id=7]
 [ext_resource path="res://Characters/Hitbox.gd" type="Script" id=11]
@@ -56,8 +57,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 16.0
-height = 24.0
+radius = 11.0
+height = 32.0
 
 [sub_resource type="CircleShape2D" id=20]
 
@@ -313,6 +314,7 @@ resource_local_to_scene = true
 font_data = ExtResource( 6 )
 
 [node name="PepeTheFrog" instance=ExtResource( 1 )]
+collision_mask = 12
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -326,6 +328,7 @@ spd = 60
 frames = SubResource( 11 )
 
 [node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( -1, -1 )
 shape = SubResource( 1 )
 
 [node name="SpacialSkill" parent="." index="3"]
@@ -359,6 +362,8 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 12 )
+
+[node name="BonkMissile" parent="Weapons" index="0" instance=ExtResource( 5 )]
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 14 )
