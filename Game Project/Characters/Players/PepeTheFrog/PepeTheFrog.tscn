@@ -1,10 +1,9 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/PepeTheFrog/PepeTheFrog.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-idle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-move.png" type="Texture" id=4]
-[ext_resource path="res://Weapons/BonkMissile/BonkMissile.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Skills/spacial_skills/angry_pepe.png" type="Texture" id=7]
 [ext_resource path="res://Characters/Hitbox.gd" type="Script" id=11]
@@ -61,45 +60,6 @@ radius = 11.0
 height = 32.0
 
 [sub_resource type="CircleShape2D" id=20]
-
-[sub_resource type="Animation" id=21]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("SpacialSkill/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("SpacialSkill/Sprite:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("SpacialSkill/Sprite/Hitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
 
 [sub_resource type="Animation" id=15]
 resource_local_to_scene = true
@@ -326,6 +286,7 @@ spd = 60
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 11 )
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( -1, -1 )
@@ -350,7 +311,6 @@ shape = SubResource( 20 )
 disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
-anims/RESET = SubResource( 21 )
 anims/dead = SubResource( 15 )
 anims/hurt = SubResource( 16 )
 anims/idle = SubResource( 17 )
@@ -362,8 +322,6 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 12 )
-
-[node name="BonkMissile" parent="Weapons" index="0" instance=ExtResource( 5 )]
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 14 )

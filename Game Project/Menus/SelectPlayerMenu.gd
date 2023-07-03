@@ -1,5 +1,10 @@
 extends Control
 
+
+### Automatic References Start ###
+onready var _switch_skill: CheckButton = $ColorRect/Panel/HBoxContainer/ButtonpContainer/switch_skill
+### Automatic References Stop ###
+
 var _save := SaveGameAsJson.new()
 #onready var label: Label = get_node("ColorRect/Panel/HBoxContainer/VBoxContainer/Label")
 onready var coinL:Label = $ColorRect/CoinContainer/coinL
@@ -180,7 +185,10 @@ func setStatusLabel(hp, atk, spd, pr, ss):
 	spdL.text = str(spd)
 	prL.text = str(pr)
 	ssL.text = str(ss)
-
+	if ss:
+		_switch_skill.pressed = true
+	else:
+		_switch_skill.pressed = false
 
 	
 func _on_plus_hp_pressed():

@@ -72,3 +72,4 @@ anims/attack = SubResource( 2 )
 
 [node name="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 4 )
+volume_db = -26.0

@@ -159,232 +159,67 @@ func popup_collected_full():
 func print_debug_upgrade(upgrade, instance):
 	print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
-	
+func increase_dataLevel_upgrade(upgrade):
+	var currentLevel = UpgradeDb.UPGRADES[upgrade]["level"]
+	var newLevel = clamp(currentLevel + 1, 1, 7)
+	UpgradeDb.UPGRADES[upgrade]["level"] = newLevel
+		
 func upgrade_character(upgrade):
 	var instance
-	var icon_pass 
+	var icon_pass
+	var upgrade_scenes = UpgradeDb.UPGRADE_SCENES
+	
 	match upgrade:
 		# Weapon upgrades
-		"BonkBat":
-			if not weapons.has_node("BonkBat"):
+		"BonkBat", "BonkMissile", "GunHand", "Nokia3310", "Punch", "TwoGuitars":
+			var weapon_name = upgrade
+			if not weapons.has_node(weapon_name):
 				if weapons.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.BonkBat.instance()
-					Global.set_levelbonkbat(Global.get_levelbonkbat()+1)
+					# Create a new instance of the weapon upgrade
+					instance = upgrade_scenes[weapon_name].instance()
 					weapons.add_child(instance)
-					icon_pass = true
+					increase_dataLevel_upgrade(upgrade)
+#					icon_pass = true
 				else:
-					popup_collected_full()
+					popup_collected_full()  # Display a message for full upgrades
 			else:
-				instance = weapons.get_node("BonkBat")
+				instance = weapons.get_node(weapon_name)
 				instance.set_newlevel(instance.get_level())
-				Global.set_levelbonkbat(Global.get_levelbonkbat()+1)
-				print_debug_upgrade(upgrade, instance)
-		"BonkMissile":
-			if not weapons.has_node("BonkMissile"):
-				if weapons.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.BonkMissile.instance()
-					weapons.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = weapons.get_node("BonkMissile")
-				instance.set_newlevel(instance.get_level())
-				Global.level_bonkmissile = clamp(instance.get_level() +1, 1, 7)
-				print_debug_upgrade(upgrade, instance)
-	
-		"GunHand":
-			if not weapons.has_node("GunHand"):
-				if weapons.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.GunHand.instance()
-					weapons.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = weapons.get_node("GunHand")
-				instance.set_newlevel(instance.get_level())
-				Global.level_gunhand = clamp(instance.get_level() +1, 1, 7)
-				print_debug_upgrade(upgrade, instance)
-	
-		"Nokia3310":
-			if not weapons.has_node("Nokia3310"):
-				if weapons.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.Nokia3310.instance()
-					weapons.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = weapons.get_node("Nokia3310")
-				instance.set_newlevel(instance.get_level())
-				Global.level_nokia3310 = clamp(instance.get_level() +1, 1, 7)
-				print_debug_upgrade(upgrade, instance)
-	
-		"Punch":
-			if not weapons.has_node("Punch"):
-				if weapons.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.Punch.instance()
-					weapons.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = weapons.get_node("Punch")
-				instance.set_newlevel(instance.get_level())
-				Global.level_punch = clamp(instance.get_level() +1, 1, 7)
-				print_debug_upgrade(upgrade, instance)
-	
-		"TwoGuitars":
-			if not weapons.has_node("TwoGuitars"):
-				if weapons.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.TwoGuitars.instance()
-					weapons.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = weapons.get_node("TwoGuitars")
-				instance.set_newlevel(instance.get_level())
-				Global.level_twoguitars = clamp(instance.get_level() +1, 1, 7)
-				print_debug_upgrade(upgrade, instance)
-	
+				increase_dataLevel_upgrade(upgrade)
+			
 		# Skill upgrades
-		"Ameno":
-			if not skills.has_node("Ameno"):
-				instance = UpgradeDb.UPGRADE_SCENES.Ameno.instance()
+		"Ameno", "Family", "Gigachad", "GottaGoFast", "Rickroll", "ThisIsFine":
+			var skill_name = upgrade
+			if not skills.has_node(skill_name):
+				# Create a new instance of the skill upgrade
+				instance = upgrade_scenes[skill_name].instance()
 				skills.add_child(instance)
+				increase_dataLevel_upgrade(upgrade)
 			else:
-				instance = skills.get_node("Ameno")
+				instance = skills.get_node(skill_name)
 				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"Family":
-			if not skills.has_node("Family"):
-				instance = UpgradeDb.UPGRADE_SCENES.Family.instance()
-				skills.add_child(instance)
-			else:
-				instance = skills.get_node("Family")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"Gigachad":
-			if not skills.has_node("Gigachad"):
-				instance = UpgradeDb.UPGRADE_SCENES.Gigachad.instance()
-				skills.add_child(instance)
-			else:
-				instance = skills.get_node("Gigachad")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"GottaGoFast":
-			if not skills.has_node("GottaGoFast"):
-				instance = UpgradeDb.UPGRADE_SCENES.GottaGoFast.instance()
-				skills.add_child(instance)
-			else:
-				instance = skills.get_node("GottaGoFast")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"Rickroll":
-			if not skills.has_node("Rickroll"):
-				instance = UpgradeDb.UPGRADE_SCENES.Rickroll.instance()
-				skills.add_child(instance)
-			else:
-				instance = skills.get_node("Rickroll")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"ThisIsFine":
-			if not skills.has_node("ThisIsFine"):
-				instance = UpgradeDb.UPGRADE_SCENES.ThisIsFine.instance()
-				skills.add_child(instance)
-			else:
-				instance = skills.get_node("ThisIsFine")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
+				increase_dataLevel_upgrade(upgrade)
+			
 		# Item upgrades
-		"Amogus":
-			if not items.has_node("Amogus"):
+		"Amogus", "NanomachinesSon", "SuezCanalJam", "TakeMyMoney", "TheMotivation", "ThePumpkinDance":
+			var item_name = upgrade
+			if not items.has_node(item_name):
 				if items.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.Amogus.instance()
+					# Create a new instance of the item upgrade
+					instance = upgrade_scenes[item_name].instance()
 					items.add_child(instance)
-					icon_pass = true
+					increase_dataLevel_upgrade(upgrade)
+#					icon_pass = true
 				else:
-					popup_collected_full()
+					popup_collected_full()  # Display a message for full upgrades
 			else:
-				instance = items.get_node("Amogus")
+				instance = items.get_node(item_name)
 				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"NanomachinesSon":
-			if not items.has_node("NanomachinesSon"):
-				if items.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.NanomachinesSon.instance()
-					items.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = items.get_node("NanomachinesSon")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"SuezCanalJam":
-			if not items.has_node("SuezCanalJam"):
-				if items.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.SuezCanalJam.instance()
-					items.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = items.get_node("SuezCanalJam")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"TakeMyMoney":
-			if not items.has_node("TakeMyMoney"):
-				if items.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.TakeMyMoney.instance()
-					items.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = items.get_node("TakeMyMoney")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"TheMotivation":
-			if not items.has_node("TheMotivation"):
-				if items.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.TheMotivation.instance()
-					items.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = items.get_node("TheMotivation")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-		"ThePumpkinDance":
-			if not items.has_node("ThePumpkinDance"):
-				if items.get_child_count() != 4:
-					instance = UpgradeDb.UPGRADE_SCENES.ThePumpkinDance.instance()
-					items.add_child(instance)
-					icon_pass = true
-				else:
-					popup_collected_full()
-			else:
-				instance = items.get_node("ThePumpkinDance")
-				instance.set_newlevel(instance.get_level())
-				print_debug_upgrade(upgrade, instance)
-	
-	if icon_pass:			
-		adjust_gui_collection(upgrade)
+				increase_dataLevel_upgrade(upgrade)
+
+#	if icon_pass:
+	adjust_gui_collection(upgrade)
+
 	var option_children = upOpGUI.get_children()
 	for i in option_children:
 		i.queue_free()
@@ -393,6 +228,8 @@ func upgrade_character(upgrade):
 	LevelUp.visible = false
 	get_tree().paused = false
 	calculate_experience(0)
+
+
 	
 func get_random_item():
 	var dblist = []
@@ -406,13 +243,7 @@ func get_random_item():
 				dblist.append(i)
 		elif UpgradeDb.UPGRADES[i]["type"] == "item": # Don't pick food
 			pass
-		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: # Check for prerequisites
-			for n in UpgradeDb.UPGRADES[i]["prerequisite"]:
-				if not n in collected_upgrades:
-					pass
-				else:
-					if not i in dblist: # Check if the item is already in dblist
-						dblist.append(i)
+		
 		else: # If there are no prerequisites
 			if not i in dblist: # Check if the item is already in dblist
 				dblist.append(i)
