@@ -51,6 +51,7 @@ frames = SubResource( 5 )
 frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
+visible = false
 position = Vector2( 4.5, 4.5 )
 scale = Vector2( 0.807887, 0.786119 )
 shape = SubResource( 6 )
@@ -61,8 +62,10 @@ position = Vector2( 4.5, -4 )
 shape = SubResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" index="1"]
+visible = false
 polygon = PoolVector2Array( -4, -7, -30, -6, -31, -15, -2, -20, -3, -27, 11, -27, 13, -18, 30, -16, 29, -10, 14, -8, 14, 23, -5, 28, -7, -1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
+visible = false
 scale = Vector2( 0.989616, 1.01255 )
 polygon = PoolVector2Array( -7, -7, -30, -6, -31, -15, -2, -20, -3, -27, 11, -27, 13, -18, 30, -16, 29, -10, 14, -8, 14, 23, -5, 28, -7, -1 )

@@ -17,14 +17,15 @@ var posi_player
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 func _physics_process(delta):
 	posi_player = player.global_position
-	if (position.x-posi_player.x) > 800 or (position.x-posi_player.x) < -800:
-			print(position - posi_player)
-			queue_free()
-			Global.num0-=1
-	elif (position.y-posi_player.y) > 800 or (position.y-posi_player.y) < -800:
-			print(position - posi_player)
-			queue_free()
-			Global.num0-=1
+	if spd>0:
+		if (position.x-posi_player.x) > 800 or (position.x-posi_player.x) < -800:
+	#			print(position - posi_player)
+				queue_free()
+				Global.num0-=1
+		elif (position.y-posi_player.y) > 800 or (position.y-posi_player.y) < -800:
+	#			print(position - posi_player)
+				queue_free()
+				Global.num0-=1
 			
 
 #ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น

@@ -89,7 +89,8 @@ var player_in_map : KinematicBody2D
 var plus_status = 0
 var enemy_number = 0
 
-var enemy_Event = preload("res://Characters/Enemy_Event/Cycle2.tscn")
+var enemy_Event1 = preload("res://Characters/Enemy_Event/Cycle2.tscn")
+var enemy_Event2 = preload("res://Characters/Enemy_Event/Enemy_run_to_player.tscn")
 
 func _ready():
 	match Global.difficulty_level:
@@ -137,10 +138,14 @@ func _on_Timer_timeout():
 					enemies.call_deferred("add_child", enemy_spawn)
 					counter += 1
 					Global.num0 +=1
-					print(Global.num0)
 					
-	if time == 60:
-		enemy_spawn = enemy_Event.instance()
+	if time == 10:
+		enemy_spawn = enemy_Event1.instance()
 		enemy_spawn.position = player_in_map.position
+		event.call_deferred("add_child", enemy_spawn)
+		
+	if time>=2 and time<=10 and time%2==0:
+		enemy_spawn = enemy_Event2.instance()
+		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 

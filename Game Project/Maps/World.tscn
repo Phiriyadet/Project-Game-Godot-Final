@@ -52,6 +52,8 @@ margin_bottom = 64.0
 
 [node name="Enemy_spawner" parent="." instance=ExtResource( 6 )]
 
+[node name="Enemy_Event" type="Node2D" parent="."]
+
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Area1" parent="." instance=ExtResource( 8 )]
@@ -70,5 +72,3 @@ position = Vector2( 0, -80 )
 position = Vector2( -144, -16 )
 
 [node name="Exp_gem" parent="Loot" instance=ExtResource( 7 )]
-
-[node name="Enemy_Event" type="Node2D" parent="."]
