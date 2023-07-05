@@ -43,11 +43,12 @@ func move():
 	mov_direction = mov_direction.normalized()
 	
 	# Flip the animation if the character is moving left
-	if mov_direction.x < 0:
-		animated_sprite.flip_h  = true
-	# Unflip the animation if the character is moving right
-	if mov_direction.x > 0:
-		animated_sprite.flip_h  = false
+	if spd != 0:
+		if mov_direction.x < 0:
+			animated_sprite.flip_h  = true
+		# Unflip the animation if the character is moving right
+		if mov_direction.x > 0:
+			animated_sprite.flip_h  = false
 			
 	# Increase the velocity based on the movement direction and acceleration
 	velocity += mov_direction * acceleration
@@ -75,6 +76,7 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 				Global.player_dead = true
 			if is_in_group("enemy"):
 				Global.enemy_dead_count+=1
+				Global.num0 -=1
 				print("enemy dead")
 			state_machine.set_state(state_machine.states.dead)
 			velocity += dir * force * 2

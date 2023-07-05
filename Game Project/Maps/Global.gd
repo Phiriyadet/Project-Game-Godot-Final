@@ -15,6 +15,9 @@ var level_gunhand = 0
 var level_nokia3310 = 0
 var level_punch = 0
 var level_twoguitars = 0
+
+var num0 = 0
+var num1 = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

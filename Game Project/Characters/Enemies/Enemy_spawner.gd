@@ -80,6 +80,7 @@ const ENEMY_SPAWNS: Dictionary={
 
 onready var HUD := get_node("../HUD")
 onready var enemies := get_node("../Enemies")
+onready var event:= get_node("../Enemy_Event")
 onready var count_time = $Timer
 # Declare member variables here. Examples:
 var time = 0
@@ -87,6 +88,8 @@ var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0
 var enemy_number = 0
+
+var enemy_Event = preload("res://Characters/Enemy_Event/Cycle2.tscn")
 
 func _ready():
 	match Global.difficulty_level:
@@ -108,6 +111,7 @@ func player_start(player):
 
 
 func _on_Timer_timeout():
+	
 	time += 1
 	HUD.update_time(time)
 	for i in ENEMY_SPAWNS:
@@ -116,13 +120,13 @@ func _on_Timer_timeout():
 		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
 			var enemy_spawn_delay = ENEMY_SPAWNS[i]["enemy_spawn_delay"]
 
-			if spawn_delay_counter < enemy_spawn_delay:
+			if spawn_delay_counter < enemy_spawn_delay :
 				spawn_delay_counter += 1
 			else:
 				spawn_delay_counter = 0
 
 				var counter = 0
-				while counter < ENEMY_SPAWNS[i]["enemy_number"]:
+				while counter < ENEMY_SPAWNS[i]["enemy_number"] and Global.num0 < 100:
 					enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
 					enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 					enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
@@ -132,5 +136,11 @@ func _on_Timer_timeout():
 					
 					enemies.call_deferred("add_child", enemy_spawn)
 					counter += 1
-					enemy_number+=1
+					Global.num0 +=1
+					print(Global.num0)
+					
+	if time == 60:
+		enemy_spawn = enemy_Event.instance()
+		enemy_spawn.position = player_in_map.position
+		event.call_deferred("add_child", enemy_spawn)
 

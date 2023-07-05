@@ -11,6 +11,22 @@ onready var exp_gem = preload("res://Exp/Exp_gem.tscn")
 
 export(int) var  exp_enemy = 1 setget set_expmon, get_expmon
 
+var posi_enemy = Vector2.ZERO
+var posi_player
+
+#onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
+func _physics_process(delta):
+	posi_player = player.global_position
+	if (position.x-posi_player.x) > 800 or (position.x-posi_player.x) < -800:
+			print(position - posi_player)
+			queue_free()
+			Global.num0-=1
+	elif (position.y-posi_player.y) > 800 or (position.y-posi_player.y) < -800:
+			print(position - posi_player)
+			queue_free()
+			Global.num0-=1
+			
+
 #ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น
 func chase():
 	hitbox.damage = self.atk
@@ -80,3 +96,4 @@ func get_expmon():
 #	if navigation != null and player != null:
 #		path = navigation.get_simple_path(global_position, player.global_position, false)
 		
+
