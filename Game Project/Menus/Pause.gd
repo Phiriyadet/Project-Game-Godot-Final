@@ -1,13 +1,16 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var _all_collected = $AllCollected
+onready var collectedBox = $AllCollected/ScrollContainer/CollectedBox
+onready var collectedAllItems = preload("res://Characters/Players/GUI/CollectedWIS.tscn")
 
 
 func _ready():
 	hide()
+	if _all_collected != null:
+		_all_collected.hide()
+	
 
 
 func close():
@@ -16,10 +19,12 @@ func close():
 
 func open():
 	show()
+	ShowCollected()
 
 
 func _on_ResumeBtn_pressed():
 	close()
+	HideCollected()
 
 
 func _on_ExitBtn_pressed():
@@ -30,3 +35,17 @@ func _on_BackToMainMenu_pressed():
 	close()
 #	get_tree().change_scene("res://Menus/MainMenu.tscn")
 	Global.player_dead = true
+
+func ShowCollected():
+	_all_collected.show()
+	var collected_list = Global.collected_allitem
+	for i in collected_list:
+		var collected_item = collectedAllItems.instance()
+		collected_item.item = i
+		collectedBox.add_child(collected_item)
+
+func HideCollected():
+	_all_collected.hide()
+	var collected_children = collectedBox.get_children()
+	for i in collected_children:
+		i.queue_free()

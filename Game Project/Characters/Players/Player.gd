@@ -30,8 +30,9 @@ onready var popup_countdown_timer :Timer = get_node("UI/GUI/Popup/CountDownTimer
 
 onready var LevelUp = get_node("UI/GUI/LevelUp")
 onready var upOpGUI = get_node("UI/GUI/LevelUp/UpgradeOption")
-onready var upgradeOpScene = preload("res://Characters/Players/UpgradeOption.tscn")
+onready var upgradeOpScene = preload("res://Characters/Players/GUI/UpgradeOption.tscn")
 onready var collectedItemsScene = preload("res://Characters/Players/GUI/ItemContainer.tscn")
+
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
@@ -71,11 +72,12 @@ func get_input():
 	if Input.is_action_pressed("ui_up"):
 		mov_direction += Vector2.UP
 	
-	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill and spacial_skill:
+	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill:
 		can_active_sSkill = false
 		cooldawnTimer.start()
 		animationPlayer.play("spacial_attack")
 		recharge_sskill(cooldawnTimer.wait_time)
+		
 
 func recharge_sskill(time:float):
 #	sSkillP.value
@@ -224,7 +226,9 @@ func upgrade_character(upgrade):
 	for i in option_children:
 		i.queue_free()
 	upgrade_options.clear()
-	collected_upgrades.append(upgrade)
+	if not collected_upgrades.has(upgrade):
+		collected_upgrades.append(upgrade)
+	Global.collected_allitem = collected_upgrades
 	LevelUp.visible = false
 	get_tree().paused = false
 	calculate_experience(0)

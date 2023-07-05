@@ -8,7 +8,9 @@ var player_dead = false
 var level_player = 1
 var difficulty_level = 1
 var coin_bonus = 0
+var collected_allitem 
 
+<<<<<<< Updated upstream
 var level_bonkbat = 0 setget set_levelbonkbat, get_levelbonkbat
 var level_bonkmissile = 0 
 var level_gunhand = 0 
@@ -18,6 +20,8 @@ var level_twoguitars = 0
 
 var num0 = 0
 var num1 = 0
+=======
+>>>>>>> Stashed changes
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -34,8 +38,3 @@ func set_playerstatus(ps):
 func get_playerstatus():
 	return player_status
 
-func set_levelbonkbat(new_level):
-	level_bonkbat = clamp(new_level, 1, 7)
-	
-func get_levelbonkbat():
-	return level_bonkbat
