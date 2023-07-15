@@ -56,7 +56,6 @@ func _create_or_load_save():
 		_save.write_savegame_init()
 
 	# หลังจากสร้างหรือโหลดทรัพยากรที่บันทึกแล้ว เราจำเป็นต้องส่งข้อมูลไปยังโหนดต่างๆ ที่ต้องการ
-	
 	coinL.text = str(_save.num_coin)
 	hp_d = _save.Dog.hp 
 	atk_d = _save.Dog.atk
@@ -207,7 +206,6 @@ func _on_plus_hp_pressed():
 			
 			setGlobalStausFrog()
 	_save_game()
-
 
 func _on_minus_hp_pressed():
 	match Global.player_select:

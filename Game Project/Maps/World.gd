@@ -43,6 +43,8 @@ func _ready():
 		player.spd = Global.player_status.SPD
 		player.pickup_radius = Global.player_status.Pickup_Radius
 		player.spacial_skill = Global.player_status.Spacial_Skill
+		print_debug("Global SSkill: ",Global.player_status.Spacial_Skill)
+		print_debug("Player SSkill: ",player.spacial_skill)
 		p.add_child(player)
 		
 	if p.get_child_count()>0:

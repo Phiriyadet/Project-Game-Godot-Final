@@ -72,7 +72,7 @@ func get_input():
 	if Input.is_action_pressed("ui_up"):
 		mov_direction += Vector2.UP
 	
-	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill:
+	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill :
 		can_active_sSkill = false
 		cooldawnTimer.start()
 		animationPlayer.play("spacial_attack")

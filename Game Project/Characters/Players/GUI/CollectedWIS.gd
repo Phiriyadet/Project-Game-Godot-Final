@@ -1,4 +1,4 @@
-extends ColorRect
+extends Label
 
 onready var lbl_name = $lbl_name
 onready var lbl_desription = $lbl_description

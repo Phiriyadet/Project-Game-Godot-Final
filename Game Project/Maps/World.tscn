@@ -64,3 +64,4 @@ position = Vector2( 0, -80 )
 position = Vector2( -144, -16 )
 
 [node name="Exp_gem" parent="Loot" instance=ExtResource( 7 )]
+experience = 300
