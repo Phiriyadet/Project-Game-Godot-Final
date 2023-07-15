@@ -41,6 +41,7 @@ extents = Vector2( 5, 10 )
 radius = 7.07107
 
 [node name="Cockroach" instance=ExtResource( 1 )]
+collision_layer = 2048
 script = ExtResource( 3 )
 max_hp = 20
 hp = 20

@@ -7,8 +7,6 @@ class_name ShrekTPost,"res://Assets/Characters/Enemies/Shrek-t-post/shrek-t-pose
 func _ready():
 	pass
 
-func _process(delta):
-	print(hp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -21,6 +21,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=5]
 resource_name = "dead"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1

@@ -62,7 +62,6 @@ tracks/2/keys = {
 radius = 480.0
 
 [node name="BonkMissile" instance=ExtResource( 3 )]
-visible = true
 script = ExtResource( 1 )
 
 [node name="Node2D" parent="." index="0"]

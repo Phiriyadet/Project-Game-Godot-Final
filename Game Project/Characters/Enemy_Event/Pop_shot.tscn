@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Characters/Enemies/PopCat/PopCat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Enemy_Event/Pop_shot.gd" type="Script" id=2]
+
+[node name="Pop_shot" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="PopCat" parent="." instance=ExtResource( 1 )]
+position = Vector2( -4, -11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Spawn_Fire" type="Position2D" parent="."]
+position = Vector2( 13, -19 )
+
+[node name="Attack" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Attack" to="." method="_on_Attack_timeout"]
