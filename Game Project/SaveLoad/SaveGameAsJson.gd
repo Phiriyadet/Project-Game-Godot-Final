@@ -4,6 +4,7 @@ extends Reference
 class_name SaveGameAsJson
 
 const SAVE_GAME_PATH := "user://save.json"
+const COIN_DATA_PATH := "user://coin.json"
 
 var version := 1
 
@@ -18,7 +19,18 @@ var _file := File.new()
 func save_exists() -> bool:
 	return _file.file_exists(SAVE_GAME_PATH)
 
-
+func money_exists() -> bool:
+	return _file.file_exists(COIN_DATA_PATH)
+	
+func write_savecoin_init():
+	var error := _file.open(COIN_DATA_PATH, File.WRITE)
+	if error != OK:
+		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [COIN_DATA_PATH, error])
+		return
+	var data := {"Coin":{
+		"Num_Coin": 0
+	  }}
+	
 func write_savegame_init():
 	var error := _file.open(SAVE_GAME_PATH, File.WRITE)
 	if error != OK:
@@ -26,9 +38,6 @@ func write_savegame_init():
 		return
 	
 	var data := {
-		"Coin": {
-		"Num_Coin": 0
-	  },
 	  "Players": 
 		{
 		  "The_Doge": {
@@ -63,7 +72,18 @@ func write_savegame_init():
 	_file.store_string(json_string)
 	_file.close()
 
-
+func write_savecoin():
+	var error := _file.open(COIN_DATA_PATH, File.WRITE)
+	if error != OK:
+		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [COIN_DATA_PATH, error])
+		return
+	var data := {"Coin":{
+		"Num_Coin": num_coin
+	  }}
+	var json_string := JSON.print(data)
+	_file.store_string(json_string)
+	_file.close()
+	
 func write_savegame():
 	var error := _file.open(SAVE_GAME_PATH, File.WRITE)
 	if error != OK:
@@ -71,9 +91,6 @@ func write_savegame():
 		return
 
 	var data := {
-	"Coin": {
-	"Num_Coin": num_coin
-  },
   "Players": 
 	{
 	  "The_Doge": {
@@ -108,7 +125,19 @@ func write_savegame():
 	_file.store_string(json_string)
 	_file.close()
 
+func load_savecoin():
+	var error := _file.open(COIN_DATA_PATH, File.READ)
+	if error != OK:
+		printerr("Could not open the file %s. Aborting load operation. Error code: %s" % [COIN_DATA_PATH, error])
+		return
+	
+	var content := _file.get_as_text()
+	_file.close()
 
+	var data: Dictionary = JSON.parse(content).result
+	
+	num_coin = data.Coin.Num_Coin
+	
 func load_savegame():
 	var error := _file.open(SAVE_GAME_PATH, File.READ)
 	if error != OK:
@@ -119,11 +148,6 @@ func load_savegame():
 	_file.close()
 
 	var data: Dictionary = JSON.parse(content).result
-	num_coin = data.Coin.Num_Coin
-
-#	Dog = TheDoge.new()
-#	Monkey = MonkeyCaesar.new()
-#	Frog = PepeTheFrog.new()
 
 	Dog.max_hp = data.Players.The_Doge.Max_HP
 	Dog.hp = data.Players.The_Doge.HP

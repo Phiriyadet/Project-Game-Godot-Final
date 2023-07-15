@@ -2,10 +2,18 @@ extends Control
 
 
 ### Automatic References Start ###
+onready var _count_down_timer: Timer = $Popup/CountDownTimer
+onready var _popup: Popup = $Popup
+onready var _price_atk: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_atk
+onready var _price_hp: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_hp
+onready var _price_pr: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_pr
+onready var _price_spd: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_spd
+onready var _price_ss: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_ss
 onready var _switch_skill: CheckButton = $ColorRect/Panel/HBoxContainer/ButtonpContainer/switch_skill
 ### Automatic References Stop ###
 
 var _save := SaveGameAsJson.new()
+
 #onready var label: Label = get_node("ColorRect/Panel/HBoxContainer/VBoxContainer/Label")
 onready var coinL:Label = $ColorRect/CoinContainer/coinL
 onready var hpL = $ColorRect/Panel/HBoxContainer/StatusContainer/hpL
@@ -50,9 +58,11 @@ func _ready():
 	_create_or_load_save()
 	
 func _create_or_load_save():
-	if _save.save_exists():
+	if _save.save_exists() and _save.money_exists():
+		_save.load_savecoin()
 		_save.load_savegame()
 	else:
+		_save.write_savecoin_init()
 		_save.write_savegame_init()
 
 	# หลังจากสร้างหรือโหลดทรัพยากรที่บันทึกแล้ว เราจำเป็นต้องส่งข้อมูลไปยังโหนดต่างๆ ที่ต้องการ
@@ -97,7 +107,8 @@ func _save_game():
 	_save.Frog.spd = spd_f
 	_save.Frog.pickup_radius = pr_f
 	_save.Frog.spacial_skill = ss_f
-
+		
+	_save.write_savecoin()
 	_save.write_savegame()
 
 func setGlobalStausDoge():
@@ -187,25 +198,28 @@ func setStatusLabel(hp, atk, spd, pr, ss):
 		_switch_skill.pressed = true
 	else:
 		_switch_skill.pressed = false
-
 	
 func _on_plus_hp_pressed():
-	match Global.player_select:
-		"Doge":
-			hp_d = clamp(hp_d + 10,10,100)
-			hpL.text = str(hp_d)
-			setGlobalStausDoge()
-		"Monkey":
-			hp_m = clamp(hp_m + 10,10,100)
-			hpL.text = str(hp_m)
-			
-			setGlobalStausMonkey()
-		"Frog":
-			hp_f = clamp(hp_f + 10,10,100)
-			hpL.text = str(hp_f)
-			
-			setGlobalStausFrog()
-	_save_game()
+	if int(coinL.text)>=int(_price_hp.text):
+		match Global.player_select:
+			"Doge":
+				coinL.text = str(int(coinL.text)-int(_price_hp.text))
+				hp_d = clamp(hp_d + 10,10,100)
+				hpL.text = str(hp_d)
+				setGlobalStausDoge()
+			"Monkey":
+				hp_m = clamp(hp_m + 10,10,100)
+				hpL.text = str(hp_m)
+				setGlobalStausMonkey()
+			"Frog":
+				hp_f = clamp(hp_f + 10,10,100)
+				hpL.text = str(hp_f)
+				setGlobalStausFrog()
+		_save_game()
+	else:
+		_popup.show()
+		_count_down_timer.start()
+		
 
 func _on_minus_hp_pressed():
 	match Global.player_select:
@@ -350,3 +364,7 @@ func _on_switch_skill_toggled(button_pressed):
 				ssL.text = str(ss_f)
 				setGlobalStausFrog()	
 	_save_game()
+
+
+func _on_CountDownTimer_timeout():
+	_popup.hide()
