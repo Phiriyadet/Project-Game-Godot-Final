@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Characters/Enemies/Half_cat/halfie_cat.png" type="Texture" id=1]
 [ext_resource path="res://Characters/Enemies/Enemy.tscn" type="PackedScene" id=2]
@@ -35,11 +35,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 11, 14.5 )
-
-[sub_resource type="CircleShape2D" id=7]
+extents = Vector2( 3.5, 4.5 )
 
 [node name="HalfCat" instance=ExtResource( 2 )]
+position = Vector2( -3, 0 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -52,12 +51,13 @@ exp_enemy = 5
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )
-frame = 3
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, -4.5 )
+position = Vector2( 3, -3 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 7 )
-disabled = true
+polygon = PoolVector2Array( -2, -24, 18, -24, 27, -15, 25, -2, 15, 0, 15, 5, 25, 16, 24, 24, 13, 23, 0, 9, -2, 15, -17, 16, -17, 9, -11, 5, -13, 0, -23, 7, -29, 0, -16, -9 )
+
+[node name="Collision_enemy" parent="." index="5"]
+polygon = PoolVector2Array( -27, 0, -23, 6, -13, -1, -10, 5, -16, 9, -16, 15, -3, 14, 0, 8, 14, 22, 23, 23, 24, 16, 14, 5, 14, -1, 24, -3, 26, -15, 18, -23, -2, -23, -16, -8 )

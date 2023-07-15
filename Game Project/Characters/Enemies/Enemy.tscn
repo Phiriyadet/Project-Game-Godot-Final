@@ -167,8 +167,8 @@ tracks/1/keys = {
 }
 
 [node name="Enemy" groups=["enemy"] instance=ExtResource( 4 )]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 4100
+collision_mask = 4096
 script = ExtResource( 1 )
 atk = 20
 exp_enemy = 1
@@ -185,9 +185,11 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitbox" index="0"]
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/dead = SubResource( 5 )
 anims/hurt = SubResource( 7 )
 anims/move = SubResource( 8 )
+
+[node name="Collision_enemy" type="CollisionPolygon2D" parent="." index="5"]

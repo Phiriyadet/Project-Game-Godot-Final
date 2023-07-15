@@ -8,7 +8,7 @@ export(int) var knockback_force: int = 100
 
 var body_inside: bool = false
 
-onready var collision_shape: CollisionShape2D = $CollisionShape2D
+onready var collision_shape = $CollisionShape2D
 onready var timer: Timer = Timer.new()
 
 

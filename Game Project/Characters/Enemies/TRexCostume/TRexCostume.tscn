@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Characters/Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Enemies/TRexCostume/TRexCostume.gd" type="Script" id=2]
@@ -35,13 +35,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 7.51409
+radius = 14.0
 height = 31.6592
 
-[sub_resource type="CapsuleShape2D" id=7]
-height = 32.0
-
 [node name="TRexCostume" instance=ExtResource( 1 )]
+z_index = 1
 script = ExtResource( 2 )
 max_hp = 3000
 hp = 3000
@@ -50,11 +48,17 @@ spd = 10
 exp_enemy = 400
 
 [node name="AnimatedSprite" parent="." index="1"]
+position = Vector2( -7, -15 )
+scale = Vector2( 1.6875, 1.6875 )
 frames = SubResource( 5 )
-frame = 3
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 7 )
+polygon = PoolVector2Array( -44, 15, -20, 20, -24, 7, -21, -8, -16, -12, -16, -21, 2, -65, 16, -70, 25, -70, 32, -60, 30, -53, 25, -51, 26, -45, 28, -42, 27, -33, 15, -33, 15, -26, 25, -17, 25, -5, 14, -7, 13, 5, 18, 9, 18, 22, 17, 25, 21, 30, 21, 35, -4, 40, -15, 35, -15, 32, -32, 30, -47, 22 )
+disabled = true
+
+[node name="Collision_enemy" parent="." index="5"]
+polygon = PoolVector2Array( 3, -64, 16, -69, 25, -69, 31, -60, 29, -54, 24, -52, 25, -44, 27, -41, 26, -34, 14, -34, 14, -25, 24, -17, 24, -6, 13, -8, 12, 6, 17, 9, 17, 22, 16, 25, 20, 30, 20, 34, -4, 39, -14, 35, -14, 31, -32, 29, -46, 21, -43, 16, -19, 21, -23, 7, -20, -8, -15, -12, -15, -21 )

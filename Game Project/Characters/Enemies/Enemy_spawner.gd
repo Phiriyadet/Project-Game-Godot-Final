@@ -38,7 +38,7 @@ const ENEMY_SPAWNS: Dictionary={
 	2: {
 		"time_start": 15,
 		"time_end": 30,
-		"enemy": ENEMY_SCENES.CursedCat,
+		"enemy": ENEMY_SCENES.Cockroach,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
 		
@@ -78,6 +78,29 @@ const ENEMY_SPAWNS: Dictionary={
 	
 }
 
+const BOSS_SPAWN:Dictionary = {
+	0: {
+		"time_start" : [20,120,240,360,540,720],
+		"enemy": ENEMY_SCENES.CoffinDance,
+		
+	},
+	1: {
+		"time_start" : [300,420,540,840],
+		"enemy": ENEMY_SCENES.LaughingWolvesBanner,
+		
+	},
+	2: {
+		"time_start" : [600,720,840],
+		"enemy": ENEMY_SCENES.TRexCostume,
+		
+	},
+	3: {
+		"time_start" : [900],
+		"enemy": ENEMY_SCENES.UnfinishedHorse,
+		
+	},
+}
+
 onready var HUD := get_node("../HUD")
 onready var enemies := get_node("../Enemies")
 onready var event:= get_node("../Enemy_Event")
@@ -114,11 +137,10 @@ func player_start(player):
 
 func _on_Timer_timeout():
 	
-	time += 1
+	time += 2
 	HUD.update_time(time)
 	for i in ENEMY_SPAWNS:
 		var spawn_delay_counter = 0  # เพิ่มบรรทัดนี้
-
 		if time >= ENEMY_SPAWNS[i]["time_start"] and time <= ENEMY_SPAWNS[i]["time_end"]:
 			var enemy_spawn_delay = ENEMY_SPAWNS[i]["enemy_spawn_delay"]
 
@@ -140,17 +162,27 @@ func _on_Timer_timeout():
 					counter += 1
 					Global.num0 +=1
 					
-	if time == 100:
+	for i in BOSS_SPAWN:
+		if time in BOSS_SPAWN[i]["time_start"]:
+			enemy_spawn = BOSS_SPAWN[i]["enemy"].instance()
+			enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
+			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
+			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
+			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status))
+			enemies.call_deferred("add_child", enemy_spawn)
+	# Max 900
+	if time == 180 or time == 420 or time == 720:
 		enemy_spawn = enemy_Event_cycle.instance()
 		enemy_spawn.position = player_in_map.position
 		event.call_deferred("add_child", enemy_spawn)
 		
-	if time>=200 and time<=10 and time%2==0:
+	if (time>=120 and time<=140) or (time>=240 and time<=280) and time%2==0:
 		enemy_spawn = enemy_Event_RunOn.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 
-	if time>=2 and time<=20and time%2==0:
+	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0:
 		enemy_spawn = enemy_Event_shot.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)

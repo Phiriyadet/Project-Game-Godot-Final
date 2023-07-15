@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Characters/Enemies/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Enemies/OofStones/OofStones.gd" type="Script" id=2]
@@ -35,10 +35,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45, 15 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 47, 17 )
+extents = Vector2( 17.5, 6.5 )
 
 [node name="OofStones" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -50,10 +47,15 @@ exp_enemy = 30
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 7 )
-frame = 1
 
 [node name="CollisionShape2D" parent="." index="2"]
+visible = false
+position = Vector2( -16.5, -3.5 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 2 )
+polygon = PoolVector2Array( -45, -12, -34, -17, -17, -17, -10, -12, -6, -6, -6, -15, 2, -21, 8, -21, 17, -13, 17, -6, 20, -6, 23, -15, 29, -22, 37, -23, 45, -16, 48, -4, 48, 14, 43, 19, 23, 19, 17, 13, 15, 13, 9, 20, 3, 21, -7, 13, -17, 20, -36, 20, -44, 15, -49, 8, -49, -1 )
+disabled = true
+
+[node name="Collision_enemy" parent="." index="5"]
+polygon = PoolVector2Array( -44, -11, -34, -16, -17, -16, -10, -11, -6, -5, -5, -6, -5, -15, 2, -20, 8, -20, 16, -13, 16, -3, 20, -3, 24, -15, 29, -21, 37, -22, 44, -16, 47, -4, 47, 14, 43, 18, 23, 18, 17, 12, 15, 12, 8, 20, 3, 20, -7, 12, -17, 19, -36, 19, -44, 14, -48, 8, -48, -1 )
