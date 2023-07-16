@@ -32,4 +32,4 @@ func _on_Attack_timeout():
 
 
 func _on_Queue_timeout():
-	pass # Replace with function body.
+	queue_free()

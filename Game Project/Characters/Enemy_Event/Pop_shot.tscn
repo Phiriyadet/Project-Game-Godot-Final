@@ -26,3 +26,4 @@ one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Attack" to="." method="_on_Attack_timeout"]
+[connection signal="timeout" from="Queue" to="." method="_on_Queue_timeout"]
