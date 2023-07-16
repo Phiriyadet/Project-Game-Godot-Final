@@ -1,9 +1,6 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+class_name Settings
 
 onready var fullscreen_checkbutton = $VBoxContainer/FullScreen_CheckButton
 

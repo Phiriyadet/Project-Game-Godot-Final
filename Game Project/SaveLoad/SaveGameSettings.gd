@@ -7,6 +7,7 @@ const SAVE_GAME_PATH := "user://save_settings.json"
 
 var version := 1
 
+var settings = Settings.new()
 
 var _file := File.new()
 

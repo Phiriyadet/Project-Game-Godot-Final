@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menus/SelectPlayerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle-1.png" type="Texture" id=2]
@@ -6,6 +6,20 @@
 [ext_resource path="res://Assets/Characters/Players/Pepe/pepe-idle-1.png" type="Texture" id=4]
 [ext_resource path="res://font16.tres" type="DynamicFont" id=5]
 [ext_resource path="res://font9.tres" type="DynamicFont" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.996078, 0.0431373, 0.0431373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.988235, 0.827451, 0.0901961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0352941, 0.831373, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0392157, 0.384314, 0.827451, 1 )
 
 [node name="Control" type="Control"]
 anchor_left = 0.5
@@ -365,6 +379,22 @@ margin_right = 87.0
 margin_bottom = 27.0
 text = "$"
 
+[node name="RefundBtn" type="Button" parent="ColorRect"]
+anchor_left = 0.917
+anchor_top = 0.041
+anchor_right = 0.917
+anchor_bottom = 0.041
+margin_left = -48.16
+margin_top = 7.93
+margin_right = 7.83997
+margin_bottom = 27.93
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 1 )
+text = "Refund"
+
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_left = 24.0
 margin_top = 90.0
@@ -432,6 +462,7 @@ wait_time = 4.0
 [connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4/plus_pickupR" to="." method="_on_plus_pickupR_pressed"]
 [connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4/minus_pickupR" to="." method="_on_minus_pickupR_pressed"]
 [connection signal="toggled" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/switch_skill" to="." method="_on_switch_skill_toggled"]
+[connection signal="pressed" from="ColorRect/RefundBtn" to="." method="_on_RefundBtn_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
 [connection signal="timeout" from="Popup/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
