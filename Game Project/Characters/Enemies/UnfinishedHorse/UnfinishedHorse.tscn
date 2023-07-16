@@ -42,13 +42,12 @@ script = ExtResource( 2 )
 max_hp = 9001
 hp = 9001
 atk = 100
-spd = 8
+spd = 50
 exp_enemy = 800
 
 [node name="AnimatedSprite" parent="." index="1"]
-scale = Vector2( 2.05128, 1.90625 )
+scale = Vector2( 3.23077, 2.6875 )
 frames = SubResource( 1 )
-frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]
 visible = false
@@ -56,8 +55,37 @@ position = Vector2( 0, -14.5 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+visible = false
+position = Vector2( 0, 0.672256 )
+scale = Vector2( 1.59515, 1.44817 )
 polygon = PoolVector2Array( -67, -20, -54, -34, -27, -40, -6, -36, 37, -34, 37, -45, 48, -51, 45, -60, 51, -63, 56, -56, 67, -55, 65, 1, 53, 5, 62, 19, 65, 56, 57, 56, 57, 20, 46, 5, 36, 4, 35, 48, 32, 58, 22, 58, 21, 7, -22, -2, -31, 27, -27, 51, -19, 55, -22, 60, -37, 57, -44, 23, -47, 23, -50, 45, -44, 60, -61, 59, -63, 43, -57, 22, -67, 24 )
 disabled = true
 
 [node name="Collision_enemy" parent="." index="5"]
-polygon = PoolVector2Array( -53, -32, -65, -19, -65, 22, -55, 20, -62, 43, -59, 56, -47, 57, -52, 45, -48, 21, -43, 22, -36, 54, -24, 58, -22, 55, -30, 50, -33, 27, -23, -4, 22, 6, 25, 56, 31, 56, 34, 47, 34, 2, 48, 4, 58, 19, 58, 54, 63, 54, 61, 20, 52, 4, 64, 0, 66, -54, 56, -55, 51, -62, 46, -60, 49, -50, 39, -44, 38, -32, -7, -35, -27, -39 )
+visible = false
+position = Vector2( -0.294373, 0.854172 )
+scale = Vector2( 1.58874, 1.42708 )
+polygon = PoolVector2Array( -53, -32, -65, -19, -65, 22, -55, 20, -62, 43, -59, 56, -47, 57, -40.7276, 46.3505, -48, 21, -43, 22, -36, 54, -24, 58, -22, 55, -30, 50, -15.5505, 54.7593, -6.10901, 54.0585, 16.5505, 54.7593, 25, 56, 31, 56, 34, 47, 44.2454, 54.7593, 51.1691, 54.7593, 58, 19, 58, 54, 63, 54, 61, 20, 52, 4, 64, 0, 66, -54, 56, -55, 51, -62, 46, -60, 49, -50, 39, -44, 38, -32, -7, -35, -27, -39 )
+
+[node name="spawn_Fires" type="Position2D" parent="." index="6"]
+position = Vector2( 97, 76 )
+
+[node name="SpF" type="Timer" parent="." index="7"]
+wait_time = 0.25
+
+[node name="Cooldawn_SpF" type="Timer" parent="." index="8"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Start_Event_Attack" type="Timer" parent="." index="9"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Stop_Event_Attack" type="Timer" parent="." index="10"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="SpF" to="." method="_on_SpF_timeout"]
+[connection signal="timeout" from="Cooldawn_SpF" to="." method="_on_Cooldawn_SpF_timeout"]
+[connection signal="timeout" from="Start_Event_Attack" to="." method="_on_Start_Event_Attack_timeout"]
+[connection signal="timeout" from="Stop_Event_Attack" to="." method="_on_Stop_Event_Attack_timeout"]

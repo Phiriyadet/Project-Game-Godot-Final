@@ -29,3 +29,7 @@ func _on_Attack_timeout():
 	var fire_Attack = fire_ball.instance()
 	fire_Attack.position = spawn_fire.position
 	add_child(fire_Attack)
+
+
+func _on_Queue_timeout():
+	pass # Replace with function body.

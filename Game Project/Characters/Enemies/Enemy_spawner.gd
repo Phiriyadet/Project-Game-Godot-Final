@@ -20,57 +20,49 @@ const ENEMY_SCENES: Dictionary = {
 
 const ENEMY_SPAWNS: Dictionary={
 	0: {
-		"time_start": 0,
-		"time_end": 5,
+		"time_start": 1,
+		"time_end": 180,
 		"enemy": ENEMY_SCENES.CursedCat,
 		"enemy_number": 2,
 		"enemy_spawn_delay": 0,
 		
 	},
 	1: {
-		"time_start": 10,
-		"time_end": 15,
+		"time_start": 120,
+		"time_end": 320,
 		"enemy": ENEMY_SCENES.HalfCat,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
 		
 	},
 	2: {
-		"time_start": 15,
-		"time_end": 30,
+		"time_start": 240,
+		"time_end": 540,
 		"enemy": ENEMY_SCENES.Cockroach,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
 		
 	},
 	3: {
-		"time_start": 15,
-		"time_end": 30,
-		"enemy": ENEMY_SCENES.CursedCat,
+		"time_start": 360,
+		"time_end": 620,
+		"enemy": ENEMY_SCENES.EggDog,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
 		
 	},
 	4: {
-		"time_start": 30,
-		"time_end": 50,
-		"enemy": ENEMY_SCENES.CursedCat,
+		"time_start": 520,
+		"time_end": 840,
+		"enemy": ENEMY_SCENES.OofStones,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
 		
 	},
 	5: {
-		"time_start": 50,
-		"time_end": 70,
-		"enemy": ENEMY_SCENES.CursedCat,
-		"enemy_number": 3,
-		"enemy_spawn_delay": 0,
-		
-	},
-	6: {
-		"time_start": 70,
-		"time_end": 100,
-		"enemy": ENEMY_SCENES.CursedCat,
+		"time_start": 720,
+		"time_end": 900,
+		"enemy": ENEMY_SCENES.UgandaKnuckles,
 		"enemy_number": 3,
 		"enemy_spawn_delay": 0,
 		
@@ -95,7 +87,7 @@ const BOSS_SPAWN:Dictionary = {
 		
 	},
 	3: {
-		"time_start" : [900],
+		"time_start" : [900,0],
 		"enemy": ENEMY_SCENES.UnfinishedHorse,
 		
 	},
@@ -116,6 +108,8 @@ var enemy_Event_cycle = preload("res://Characters/Enemy_Event/Cycle2.tscn")
 var enemy_Event_RunOn = preload("res://Characters/Enemy_Event/Enemy_run_to_player.tscn")
 var enemy_Event_shot = preload("res://Characters/Enemy_Event/Pop_shot.tscn")
 
+var fires = preload("res://Characters/Enemies/UnfinishedHorse/Fires.tscn")
+
 func _ready():
 	match Global.difficulty_level:
 		1:
@@ -134,9 +128,7 @@ func player_start(player):
 	player_in_map = player
 	count_time.start()
 
-
 func _on_Timer_timeout():
-	
 	time += 2
 	HUD.update_time(time)
 	for i in ENEMY_SPAWNS:
@@ -157,7 +149,7 @@ func _on_Timer_timeout():
 					enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 					enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
 					enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status))
-					
+
 					enemies.call_deferred("add_child", enemy_spawn)
 					counter += 1
 					Global.num0 +=1
@@ -172,7 +164,7 @@ func _on_Timer_timeout():
 			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status))
 			enemies.call_deferred("add_child", enemy_spawn)
 	# Max 900
-	if time == 180 or time == 420 or time == 720:
+	if time == 180 or time == 420 or time == 720 and false:
 		enemy_spawn = enemy_Event_cycle.instance()
 		enemy_spawn.position = player_in_map.position
 		event.call_deferred("add_child", enemy_spawn)

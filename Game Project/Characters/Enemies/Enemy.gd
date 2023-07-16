@@ -14,7 +14,7 @@ export(int) var  exp_enemy = 1 setget set_expmon, get_expmon
 
 var posi_enemy = Vector2.ZERO
 var posi_player
-
+var nummm = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 func _physics_process(delta):
 	if is_instance_valid(Poly) and self.spd != 0:
@@ -40,9 +40,9 @@ func _physics_process(delta):
 #ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น
 func chase():
 	hitbox.damage = self.atk
-	if player:
+	if player and nummm == 0:
 		mov_direction = global_position.direction_to(player.global_position)
-
+		
 func dropgem():
 	var new_gem = exp_gem.instance()
 	new_gem.global_position = global_position

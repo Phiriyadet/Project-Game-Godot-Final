@@ -14,6 +14,8 @@ var collected_allitem
 var num0 = 0
 var num1 = 0
 
+var boss_position = Vector2.ZERO
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
