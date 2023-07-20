@@ -151,29 +151,29 @@ func load_savegame():
 	var content := _file.get_as_text()
 	_file.close()
 
-	var data: Dictionary = JSON.parse(content).result
-
-	Dog.max_hp = data.Players.The_Doge.Max_HP
-	Dog.hp = data.Players.The_Doge.HP
-	Dog.atk = data.Players.The_Doge.ATK
-	Dog.spd = data.Players.The_Doge.SPD
-	Dog.pickup_radius = data.Players.The_Doge.Pickup_Radius
-	Dog.spacial_skill = data.Players.The_Doge.Spacial_Skill
-	Dog.collected_coin = data.Players.The_Doge.Collected_Coin
-
-	Monkey.max_hp = data.Players.Monkey_Caesar.Max_HP
-	Monkey.hp = data.Players.Monkey_Caesar.HP
-	Monkey.atk = data.Players.Monkey_Caesar.ATK
-	Monkey.spd = data.Players.Monkey_Caesar.SPD
-	Monkey.pickup_radius = data.Players.Monkey_Caesar.Pickup_Radius
-	Monkey.spacial_skill = data.Players.Monkey_Caesar.Spacial_Skill
-	Monkey.collected_coin = data.Players.Monkey_Caesar.Collected_Coin
-
-	Frog.max_hp = data.Players.Pepe_The_Frog.Max_HP
-	Frog.hp = data.Players.Pepe_The_Frog.HP
-	Frog.atk = data.Players.Pepe_The_Frog.ATK
-	Frog.spd = data.Players.Pepe_The_Frog.SPD
-	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
-	Frog.collected_coin = data.Players.Pepe_The_Frog.Spacial_Skill
-	Frog.collected_coin = data.Players.Pepe_The_Frog.Collected_Coin
+#	var data: Dictionary = JSON.parse(content).result
+#
+#	Dog.max_hp = data.Players.The_Doge.Max_HP
+#	Dog.hp = data.Players.The_Doge.HP
+#	Dog.atk = data.Players.The_Doge.ATK
+#	Dog.spd = data.Players.The_Doge.SPD
+#	Dog.pickup_radius = data.Players.The_Doge.Pickup_Radius
+#	Dog.spacial_skill = data.Players.The_Doge.Spacial_Skill
+#	Dog.collected_coin = data.Players.The_Doge.Collected_Coin
+#
+#	Monkey.max_hp = data.Players.Monkey_Caesar.Max_HP
+#	Monkey.hp = data.Players.Monkey_Caesar.HP
+#	Monkey.atk = data.Players.Monkey_Caesar.ATK
+#	Monkey.spd = data.Players.Monkey_Caesar.SPD
+#	Monkey.pickup_radius = data.Players.Monkey_Caesar.Pickup_Radius
+#	Monkey.spacial_skill = data.Players.Monkey_Caesar.Spacial_Skill
+#	Monkey.collected_coin = data.Players.Monkey_Caesar.Collected_Coin
+#
+#	Frog.max_hp = data.Players.Pepe_The_Frog.Max_HP
+#	Frog.hp = data.Players.Pepe_The_Frog.HP
+#	Frog.atk = data.Players.Pepe_The_Frog.ATK
+#	Frog.spd = data.Players.Pepe_The_Frog.SPD
+#	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
+#	Frog.collected_coin = data.Players.Pepe_The_Frog.Spacial_Skill
+#	Frog.collected_coin = data.Players.Pepe_The_Frog.Collected_Coin
 #

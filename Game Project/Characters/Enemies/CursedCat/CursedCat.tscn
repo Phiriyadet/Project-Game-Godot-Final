@@ -35,6 +35,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6.5, 1 )
 
 [sub_resource type="Animation" id=6]
 length = 0.001
@@ -114,15 +115,15 @@ exp_enemy = 5
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 11 )
-frame = 1
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
+position = Vector2( -1, -2 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -1 )
-polygon = PoolVector2Array( -14, -6, -12, -9, -2, -13, 7, -12, 14, -3, 7, 1, 7, 14, 1, 14, 0, 4, -6, 5, -6, 14, -12, 14, -12, -3 )
+polygon = PoolVector2Array( -14, -6, -12, -9, -2, -13, 7, -12, 14, -3, 7, 1, 7, 14, 1, 14, 0, 5, -6, 6, -6, 14, -12, 14, -12, -3 )
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 6 )

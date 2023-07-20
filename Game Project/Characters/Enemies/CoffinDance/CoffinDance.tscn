@@ -56,6 +56,8 @@ position = Vector2( -0.5, -3 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -0.00730576, -0.000747725 )
+scale = Vector2( 1.01461, 1.00151 )
 polygon = PoolVector2Array( -30, -20, -31, -30, -26, -34, 8, -41, 26, -34, 31, -14, 37, -8, 39, 2, 32, 6, 33, 13, 29, 24, 30, 28, 26, 34, 7, 31, 9, 36, 6, 41, 0, 42, -8, 33, -11, 33, -23, 33, -30, 25, -30, 9, -38, -8, -38, -18 )
 
 [node name="Collision_enemy" parent="." index="5"]

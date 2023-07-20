@@ -3,9 +3,11 @@ extends Node2D
 
 #const SPAWN_PROPS: Array = [preload("res://Props/jar1.tscn"), preload("res://Props/jar2.tscn"), preload("res://Props/jar3.tscn"),preload("res://Props/Box1.tscn"),preload("res://Props/Box2.tscn")]
 const SPAWN_PROPS: Array = [preload("res://Props/Tree1.tscn"),preload("res://Props/Tree1.tscn"), preload("res://Props/TMT.tscn"), preload("res://Props/TurnL.tscn"),preload("res://Props/TurnR.tscn"),preload("res://Props/Rock1.tscn"),preload("res://Props/Rock2.tscn"),preload("res://Props/RIP1.tscn"),preload("res://Props/RIP2.tscn"),preload("res://Props/chair.tscn")]
+var BOX = preload("res://Props/Box1.tscn")
 onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 onready var props = $Floor/Props as Node2D
 onready var map_props = $Floor
+onready var boxs = $Box
 var mapSize = Vector2(4000, -2000)
 var usedPositions = []
 var minDistance = 100
@@ -18,6 +20,7 @@ var numCheck = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_spawn_props(200,2000,-200,-1500,10)
+	_spawn_boxs(-1000,2000,1500,-1500,100)
 
 func _physics_process(delta):
 	player = get_tree().current_scene.get_node("Player").get_child(0)
@@ -62,9 +65,6 @@ func _spawn_props(var x_1, y_1, x_2, y_2, num):
 	
 	for i in range(numIterations):
 			var propInstance = SPAWN_PROPS[randi() % SPAWN_PROPS.size()].instance()
-#			propInstance.position = _get_random_position()
-#			propInstance.position.x = posi_player.x + 100
-#			propInstance.position.y = posi_player.y + 100
 			propInstance.position = posi_player + Vector2(rand_range(x_1, y_1),rand_range(x_2, y_2))
 			props.add_child(propInstance)
 
@@ -73,13 +73,17 @@ func _get_random_position() -> Vector2:
 	var isUnique = false
 
 	while not isUnique:
-#		randomPosition.x = rand_range(0, mapSize.x)
-#		randomPosition.y = rand_range(0, mapSize.y)
-#		randomPosition.x = posi_player.x
-#		randomPosition.y = posi_player.y 
 
 		if not usedPositions.has(randomPosition):
 			isUnique = true
 			usedPositions.append(randomPosition)
 
 	return randomPosition
+
+func _spawn_boxs(var x_1, y_1, x_2, y_2, num):
+	var numIterations = num  # Set the desired number of iterations
+	
+	for i in range(numIterations):
+			var propInstance = BOX.instance()
+			propInstance.position = posi_player + Vector2(rand_range(x_1, y_1),rand_range(x_2, y_2))
+			$".".add_child(propInstance)

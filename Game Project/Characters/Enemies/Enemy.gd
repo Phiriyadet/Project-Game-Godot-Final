@@ -8,7 +8,6 @@ onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 onready var loot := get_tree().current_scene.get_node("Loot")
 onready var hitbox := get_node("Hitbox")
 onready var exp_gem = preload("res://Exp/Exp_gem.tscn")
-onready var Poly = $CollisionPolygon2D
 
 export(int) var  exp_enemy = 1 setget set_expmon, get_expmon
 
@@ -17,11 +16,10 @@ var posi_player
 var nummm = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 func _physics_process(delta):
-	if is_instance_valid(Poly) and self.spd != 0:
-		if mov_direction.x < 0:
+	if $AnimatedSprite.flip_h:
 			$Collision_enemy.scale.x = -1
 			$Hitbox/CollisionShape2D.scale.x = -1
-		if mov_direction.x > 0:
+	else:
 			$Collision_enemy.scale.x = 1
 			$Hitbox/CollisionShape2D.scale.x = 1
 			

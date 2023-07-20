@@ -56,8 +56,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=11]
-radius = 11.0
-height = 22.0
+radius = 22.0
+height = 28.0
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 10, 20 )
@@ -299,7 +299,7 @@ tracks/5/keys = {
 radius = 20.0
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 1.0
+radius = 2.23607
 
 [sub_resource type="DynamicFont" id=15]
 resource_local_to_scene = true
@@ -321,7 +321,7 @@ collected_coin = 50
 frames = SubResource( 9 )
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 1, -1 )
+position = Vector2( 1, 0 )
 shape = SubResource( 11 )
 
 [node name="SpacialSkill" parent="." index="3"]

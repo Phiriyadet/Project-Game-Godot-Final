@@ -15,6 +15,7 @@ onready var timer: Timer = Timer.new()
 func _init():
 	var __ = connect("body_entered", self, "_on_body_entered")
 	__ = connect("body_exited", self, "_on_body_exited")
+	__ = connect("body_shape_entered", self, "_on_Hitbox_body_shape_entered")
 	
 	
 func _ready():
@@ -55,3 +56,4 @@ func set_damage(new_damage):
 	
 func get_damage():
 	return damage
+

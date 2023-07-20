@@ -81,14 +81,16 @@ __meta__ = {
 "_edit_group_": true,
 "_editor_description_": "ขอบเขตการโจมตี ตามทิศที่เดินไป ระยะโจมตี กลาง เวลาคูลดาวน์ 3 วินาที "
 }
+atk_w = 0
 
 [node name="Node2D" parent="." index="0"]
 rotation = -1.5708
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite" parent="Node2D" index="0"]
-position = Vector2( 30, 50 )
+position = Vector2( 61.9394, 101.85 )
 rotation = 0.174533
+scale = Vector2( 1.81708, 1.94029 )
 texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]

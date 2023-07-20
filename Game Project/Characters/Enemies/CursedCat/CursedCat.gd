@@ -5,3 +5,5 @@ class_name CursedCat ,"res://Assets/Characters/Enemies/Cursed_cat/cursed_cat-idl
 
 func _process(_delta: float):
 	hitbox.knockback_direction = velocity.normalized()
+
+

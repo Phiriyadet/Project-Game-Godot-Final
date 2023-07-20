@@ -8,6 +8,5 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _on_Hitbox_area_entered(area):
-	area.queue_free()
 	
+
