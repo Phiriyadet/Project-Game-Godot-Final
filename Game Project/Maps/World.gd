@@ -49,7 +49,7 @@ func _ready():
 		
 	if p.get_child_count()>0:
 		enemy_spawner.player_start(p.get_child(0))
-
+	
 #func _unhandled_input(event):
 #	if event.is_action_pressed("pause"):
 #		var tree = get_tree()

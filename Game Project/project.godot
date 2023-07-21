@@ -192,7 +192,12 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "Settings",
 "language": "GDScript",
-"path": "res://Menus/Settings.gd"
+"path": "res://Menus/Settings/Settings.gd"
+}, {
+"base": "Reference",
+"class": "SettingsData",
+"language": "GDScript",
+"path": "res://Menus/Settings/SettingsData.gd"
 }, {
 "base": "Character",
 "class": "ShrekTPost",
@@ -302,6 +307,7 @@ _global_script_class_icons={
 "SaveGameAsJson": "",
 "SaveGameSettings": "",
 "Settings": "",
+"SettingsData": "",
 "ShrekTPost": "res://Assets/Characters/Enemies/Shrek-t-post/shrek-t-pose-1.png",
 "Skill": "",
 "Spawn_info": "",

@@ -1,4 +1,4 @@
-
+# SaveGameSettings.gd
 extends Reference
 
 class_name SaveGameSettings
@@ -6,8 +6,7 @@ class_name SaveGameSettings
 const SAVE_GAME_PATH := "user://save_settings.json"
 
 var version := 1
-
-var settings = Settings.new()
+var settings_data = SettingsData.new() # เปลี่ยน settings เป็น settings_data
 
 var _file := File.new()
 
@@ -21,17 +20,16 @@ func write_savegame_init():
 		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [SAVE_GAME_PATH, error])
 		return
 	
-	var data := {
+	var data = {
 		"Mute": {
-		"Music": 0,
-		"Sound":0
-	  },
-	  "Screen": 
-		{
-		  "FullScreen":false
+			"Volume": 0,
+			"Music": 0,
+			"Sound": 0,
+		},
+		"Screen": {
+			"FullScreen": false,
 		}
-	  
-	  }
+	}
 		
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
@@ -44,17 +42,16 @@ func write_savegame():
 		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [SAVE_GAME_PATH, error])
 		return
 
-	var data := {
+	var data = {
 		"Mute": {
-		"Music": 0,
-		"Sound":0
-	  },
-	  "Screen": 
-		{
-		  "FullScreen":false
+			"Volume": settings_data.volume_value,
+			"Music": settings_data.music_value, 
+			"Sound": settings_data.sound_value, # เปลี่ยน settings.Sound_value เป็น settings_data.sound_value
+		},
+		"Screen": {
+			"FullScreen": settings_data.fullscreen_value, # เปลี่ยน settings.fullscreen_value เป็น settings_data.fullscreen_value
 		}
-	  
-	  }
+	}
 	
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
@@ -72,29 +69,7 @@ func load_savegame():
 
 	var data: Dictionary = JSON.parse(content).result
 	
-
-#	Dog = TheDoge.new()
-#	Monkey = MonkeyCaesar.new()
-#	Frog = PepeTheFrog.new()
-
-	Dog.max_hp = data.Players.The_Doge.Max_HP
-	Dog.hp = data.Players.The_Doge.HP
-	Dog.atk = data.Players.The_Doge.ATK
-	Dog.spd = data.Players.The_Doge.SPD
-	Dog.pickup_radius = data.Players.The_Doge.Pickup_Radius
-	Dog.spacial_skill = data.Players.The_Doge.Spacial_Skill
-
-	Monkey.max_hp = data.Players.Monkey_Caesar.Max_HP
-	Monkey.hp = data.Players.Monkey_Caesar.HP
-	Monkey.atk = data.Players.Monkey_Caesar.ATK
-	Monkey.spd = data.Players.Monkey_Caesar.SPD
-	Monkey.pickup_radius = data.Players.Monkey_Caesar.Pickup_Radius
-	Monkey.spacial_skill = data.Players.Monkey_Caesar.Spacial_Skill
-
-	Frog.max_hp = data.Players.Pepe_The_Frog.Max_HP
-	Frog.hp = data.Players.Pepe_The_Frog.HP
-	Frog.atk = data.Players.Pepe_The_Frog.ATK
-	Frog.spd = data.Players.Pepe_The_Frog.SPD
-	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
-	Frog.spacial_skill = data.Players.Pepe_The_Frog.Spacial_Skill
-#
+	settings_data.volume_value = data["Mute"]["Volume"] # เปลี่ยน settings.volume_value เป็น settings_data.volume_value
+	settings_data.music_value = data["Mute"]["Music"] # เปลี่ยน settings.music_value เป็น settings_data.music_value
+	settings_data.sound_value = data["Mute"]["Sound"] # เปลี่ยน settings.Sound_value เป็น settings_data.sound_value
+	settings_data.fullscreen_value = data["Screen"]["FullScreen"] # เปลี่ยน settings.fullscreen_value เป็น settings_data.fullscreen_value

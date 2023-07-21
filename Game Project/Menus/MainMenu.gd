@@ -15,6 +15,7 @@ func _ready():
 	Global.player_dead = false
 	Global.level_player = 1
 	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -34,4 +35,4 @@ func _on_CreditsBtn_pressed():
 
 
 func _on_SettingBtn_pressed():
-	get_tree().change_scene("res://Menus/Settings.tscn")
+	get_tree().change_scene("res://Menus/Settings/Settings.tscn")

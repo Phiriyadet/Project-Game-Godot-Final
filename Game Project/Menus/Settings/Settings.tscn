@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Menus/Settings.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Icons_Essential_v1.0/Ver1.1/PNG/sound_speaker_on.png" type="Texture" id=2]
 [ext_resource path="res://font16.tres" type="DynamicFont" id=3]
 
 [node name="Control" type="Control"]
@@ -26,53 +27,73 @@ margin_bottom = 87.5
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 163.0
 margin_bottom = 14.0
-text = "Music"
+text = "volume"
 
-[node name="Music" type="HSlider" parent="VBoxContainer"]
+[node name="volume" type="HSlider" parent="VBoxContainer"]
 margin_top = 18.0
 margin_right = 163.0
 margin_bottom = 34.0
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 2 )
+min_value = -80.0
+max_value = 0.0
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 163.0
+margin_bottom = 52.0
+text = "Music"
+
+[node name="Music2" type="HSlider" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 163.0
+margin_bottom = 72.0
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 2 )
 min_value = -80.0
 max_value = 0.0
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 38.0
+margin_top = 76.0
 margin_right = 163.0
-margin_bottom = 52.0
+margin_bottom = 90.0
 text = "Sounds"
 
 [node name="Sounds" type="HSlider" parent="VBoxContainer"]
-margin_top = 56.0
+margin_top = 94.0
 margin_right = 163.0
-margin_bottom = 72.0
+margin_bottom = 110.0
+custom_icons/grabber_highlight = ExtResource( 2 )
+custom_icons/grabber = ExtResource( 2 )
 min_value = -80.0
 max_value = 0.0
 
 [node name="FullScreen_CheckButton" type="CheckButton" parent="VBoxContainer"]
-margin_top = 76.0
+margin_top = 114.0
 margin_right = 163.0
-margin_bottom = 116.0
+margin_bottom = 154.0
 custom_fonts/font = ExtResource( 3 )
 text = "Full Screen"
 
 [node name="BackBtn" type="Button" parent="VBoxContainer"]
-margin_top = 120.0
+margin_top = 158.0
 margin_right = 163.0
-margin_bottom = 145.0
+margin_bottom = 183.0
 custom_fonts/font = ExtResource( 3 )
 text = "กลับ"
 
 [node name="ToolButton" type="ToolButton" parent="VBoxContainer"]
-margin_top = 149.0
+margin_top = 187.0
 margin_right = 163.0
-margin_bottom = 171.0
+margin_bottom = 209.0
 
 [node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer"]
-margin_top = 175.0
+margin_top = 213.0
 margin_right = 163.0
-margin_bottom = 175.0
+margin_bottom = 213.0
 
-[connection signal="value_changed" from="VBoxContainer/Music" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Music2" to="." method="_on_Music_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Sounds" to="." method="_on_Sounds_value_changed"]
 [connection signal="pressed" from="VBoxContainer/FullScreen_CheckButton" to="." method="_on_FullScreen_CheckButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
