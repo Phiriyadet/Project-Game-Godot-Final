@@ -12,7 +12,6 @@ onready var _volume: HSlider = $VBoxContainer/volume
 
 var _settings_data = SettingsData.new() # เปลี่ยน settings เป็น _settings_data
 var save_game_settings = SaveGameSettings.new()
-onready var fullscreen_checkbutton = $VBoxContainer/FullScreen_CheckButton
 
 func _ready():
 	# Load the saved settings when the settings scene is loaded
@@ -23,7 +22,7 @@ func _process(delta):
 	pass
 
 func _on_FullScreen_CheckButton_pressed():
-	_settings_data.fullscreen_value = fullscreen_checkbutton.pressed # เปลี่ยน settings.fullscreen_value เป็น _settings_data.fullscreen_value
+	_settings_data.fullscreen_value = _fullscreenBtn.pressed # เปลี่ยน settings.fullscreen_value เป็น _settings_data.fullscreen_value
 	OS.set_window_fullscreen(_settings_data.fullscreen_value)
 	# Save the settings when the fullscreen is toggled
 	save_settings()

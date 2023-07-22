@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://font16.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Menus/Settings/Settings.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 resource_local_to_scene = true
@@ -65,8 +69,8 @@ text = "ออก"
 
 [node name="Settings" parent="." instance=ExtResource( 4 )]
 
-[node name="FullScreen_CheckButton" parent="Settings/VBoxContainer" index="6"]
-custom_fonts/font = SubResource( 1 )
+[node name="FullScreenBtn" parent="Settings/VBoxContainer" index="6"]
+custom_fonts/font = SubResource( 2 )
 
 [node name="BackBtn" parent="Settings/VBoxContainer" index="7"]
 custom_fonts/font = SubResource( 1 )
