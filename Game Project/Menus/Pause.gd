@@ -1,6 +1,11 @@
 extends Control
 
 
+### Automatic References Start ###
+onready var _settings: Settings = $Settings
+### Automatic References Stop ###
+
+
 onready var _all_collected = $AllCollected
 onready var collectedBox = $AllCollected/ScrollContainer/CollectedBox
 onready var collectedAllItems = preload("res://Characters/Players/GUI/CollectedWIS.tscn")
@@ -10,6 +15,7 @@ func _ready():
 	hide()
 	if _all_collected != null:
 		_all_collected.hide()
+	_settings.hide()
 	
 
 
@@ -49,3 +55,7 @@ func HideCollected():
 	var collected_children = collectedBox.get_children()
 	for i in collected_children:
 		i.queue_free()
+
+
+func _on_SettingsBtn_pressed():
+	_settings.show()
