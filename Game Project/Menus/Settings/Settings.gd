@@ -2,6 +2,14 @@ extends Control
 
 class_name Settings
 
+
+### Automatic References Start ###
+onready var _fullscreenBtn: CheckButton = $VBoxContainer/FullScreenBtn
+onready var _music: HSlider = $VBoxContainer/Music
+onready var _sounds: HSlider = $VBoxContainer/Sounds
+onready var _volume: HSlider = $VBoxContainer/volume
+### Automatic References Stop ###
+
 var _settings_data = SettingsData.new() # เปลี่ยน settings เป็น _settings_data
 var save_game_settings = SaveGameSettings.new()
 onready var fullscreen_checkbutton = $VBoxContainer/FullScreen_CheckButton
@@ -9,6 +17,7 @@ onready var fullscreen_checkbutton = $VBoxContainer/FullScreen_CheckButton
 func _ready():
 	# Load the saved settings when the settings scene is loaded
 	load_saved_settings()
+	
 
 func _process(delta):
 	pass
@@ -20,7 +29,7 @@ func _on_FullScreen_CheckButton_pressed():
 	save_settings()
 
 func _on_BackBtn_pressed():
-	get_tree().change_scene("res://Menus/MainMenu.tscn")
+	hide()
 
 func _on_Music_value_changed(value):
 	_settings_data.music_value = value # เปลี่ยน settings.music_value เป็น _settings_data.music_value
@@ -62,6 +71,11 @@ func load_saved_settings():
 	_settings_data.sound_value = save_game_settings.settings_data.sound_value # เปลี่ยน settings.sound_value เป็น _settings_data.sound_value
 	_settings_data.fullscreen_value = save_game_settings.settings_data.fullscreen_value # เปลี่ยน settings.fullscreen_value เป็น _settings_data.fullscreen_value
 	# Apply the loaded settings to the game
+	_music.value = _settings_data.music_value
+	_sounds.value = _settings_data.sound_value
+	_volume.value = _settings_data.volume_value
+	_fullscreenBtn.pressed = _settings_data.fullscreen_value
+	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), _settings_data.music_value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sounds"), _settings_data.sound_value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), _settings_data.volume_value)

@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Icons_Essential_v1.0/Ver1.1/PNG/sound_speaker_on.png" type="Texture" id=2]
 [ext_resource path="res://font16.tres" type="DynamicFont" id=3]
 
-[node name="Control" type="Control"]
+[node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -44,7 +44,7 @@ margin_right = 163.0
 margin_bottom = 52.0
 text = "Music"
 
-[node name="Music2" type="HSlider" parent="VBoxContainer"]
+[node name="Music" type="HSlider" parent="VBoxContainer"]
 margin_top = 56.0
 margin_right = 163.0
 margin_bottom = 72.0
@@ -68,7 +68,7 @@ custom_icons/grabber = ExtResource( 2 )
 min_value = -80.0
 max_value = 0.0
 
-[node name="FullScreen_CheckButton" type="CheckButton" parent="VBoxContainer"]
+[node name="FullScreenBtn" type="CheckButton" parent="VBoxContainer"]
 margin_top = 114.0
 margin_right = 163.0
 margin_bottom = 154.0
@@ -93,7 +93,7 @@ margin_right = 163.0
 margin_bottom = 213.0
 
 [connection signal="value_changed" from="VBoxContainer/volume" to="." method="_on_volume_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/Music2" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Music" to="." method="_on_Music_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Sounds" to="." method="_on_Sounds_value_changed"]
-[connection signal="pressed" from="VBoxContainer/FullScreen_CheckButton" to="." method="_on_FullScreen_CheckButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/FullScreenBtn" to="." method="_on_FullScreen_CheckButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackBtn" to="." method="_on_BackBtn_pressed"]

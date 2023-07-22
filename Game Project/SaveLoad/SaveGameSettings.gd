@@ -69,7 +69,7 @@ func load_savegame():
 
 	var data: Dictionary = JSON.parse(content).result
 	
-	settings_data.volume_value = data["Mute"]["Volume"] # เปลี่ยน settings.volume_value เป็น settings_data.volume_value
-	settings_data.music_value = data["Mute"]["Music"] # เปลี่ยน settings.music_value เป็น settings_data.music_value
-	settings_data.sound_value = data["Mute"]["Sound"] # เปลี่ยน settings.Sound_value เป็น settings_data.sound_value
+	settings_data.volume_value = data.Mute.Volume # เปลี่ยน settings.volume_value เป็น settings_data.volume_value
+	settings_data.music_value = data.Mute.Music # เปลี่ยน settings.music_value เป็น settings_data.music_value
+	settings_data.sound_value = data.Mute.Sound # เปลี่ยน settings.Sound_value เป็น settings_data.sound_value
 	settings_data.fullscreen_value = data["Screen"]["FullScreen"] # เปลี่ยน settings.fullscreen_value เป็น settings_data.fullscreen_value

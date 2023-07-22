@@ -1,6 +1,11 @@
 extends Control
 
 
+### Automatic References Start ###
+onready var _settings: Settings = $Settings
+### Automatic References Stop ###
+
+
 onready var start_btn := $VBoxContainer/StartBtn
 
 func _init():
@@ -14,6 +19,7 @@ func _ready():
 	start_btn.grab_focus()
 	Global.player_dead = false
 	Global.level_player = 1
+	_settings.hide()
 	
 	
 
@@ -35,4 +41,4 @@ func _on_CreditsBtn_pressed():
 
 
 func _on_SettingBtn_pressed():
-	get_tree().change_scene("res://Menus/Settings/Settings.tscn")
+	_settings.show()
