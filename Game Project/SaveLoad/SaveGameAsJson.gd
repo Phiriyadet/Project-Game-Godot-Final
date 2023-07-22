@@ -111,7 +111,7 @@ func write_savegame():
 		"SPD": Monkey.spd,
 		"Pickup_Radius": Monkey.pickup_radius,
 		"Spacial_Skill": Monkey.spacial_skill,
-		"Collected_Coin": Dog.collected_coin
+		"Collected_Coin": Monkey.collected_coin
 	  },
 	  "Pepe_The_Frog": {
 		"Max_HP": Frog.max_hp,
@@ -120,7 +120,7 @@ func write_savegame():
 		"SPD": Frog.spd,
 		"Pickup_Radius": Frog.pickup_radius,
 		"Spacial_Skill": Frog.spacial_skill,
-		"Collected_Coin": Dog.collected_coin
+		"Collected_Coin": Frog.collected_coin
 	  },
 	},
   }
