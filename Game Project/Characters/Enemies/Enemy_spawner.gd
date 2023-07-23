@@ -87,7 +87,7 @@ const BOSS_SPAWN:Dictionary = {
 		
 	},
 	3: {
-		"time_start" : [900,0],
+		"time_start" : [901,0],
 		"enemy": ENEMY_SCENES.UnfinishedHorse,
 		
 	},
@@ -112,6 +112,7 @@ var fires = preload("res://Characters/Enemies/UnfinishedHorse/Fires.tscn")
 
 func _ready():
 	Global.victory = 0
+	Global.gio_take_dm = 0
 	match Global.difficulty_level:
 		1:
 			Global.coin_bonus = 0
@@ -130,7 +131,7 @@ func player_start(player):
 	count_time.start()
 
 func _on_Timer_timeout():
-	time += 1
+	time += 2
 	if time >= 1200:
 		Global.player_dead = true
 	HUD.update_time(time)
@@ -177,7 +178,7 @@ func _on_Timer_timeout():
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 
-	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0:
+	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0 :
 		enemy_spawn = enemy_Event_shot.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)

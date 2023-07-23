@@ -4,15 +4,15 @@ class_name BonkBat, "res://Assets/Weapons/bonk-bat/bat.png"
 
 #onready var player := get_tree().current_scene.get_node("Player").get_child(0) as KinematicBody2D
 var scaleX = 1
-
+var bonk_size = 1
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_right"):
-		scaleX = 1
+		scaleX = bonk_size
 		scale.x = scaleX
 		rotation_degrees = 0
 	if Input.is_action_pressed("ui_left"):
-		scaleX = -1
+		scaleX = bonk_size * -1
 		scale.x = scaleX
 		rotation_degrees = 0
 #	if Input.is_action_pressed("ui_up"):
@@ -23,32 +23,39 @@ func _process(_delta):
 		
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_up"):
 #		self.look_at(Vector2.RIGHT)
-		scale.x = 1
+		scale.x = bonk_size
 		rotation_degrees = -90
 #		rotation += rotation_speed * _delta
 
 
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_up"):
-		scale.x = -1
+		scale.x = bonk_size * -1
 		rotation_degrees = 90
 #		self.look_at(Vector2.LEFT)
 #		rotation -= rotation_speed * _delta
 
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
 #		self.look_at(Vector2.RIGHT)
-		scale.x = 1
+		scale.x = bonk_size
 		rotation_degrees = 90
 #		rotation += rotation_speed * _delta
 
 
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
-		scale.x = -1
+		scale.x = bonk_size * -1
 		rotation_degrees = -90
 #		self.look_at(Vector2.LEFT)
 #		rotation -= rotation_speed * _delta
 		
 
 func check_level():
+	match level:
+		1:
+			bonk_size = 1.5
+		2:
+			bonk_size = 2
+		3:
+			bonk_size = 2.5
 	match level:
 		1,2:
 			self.atk_w += 40

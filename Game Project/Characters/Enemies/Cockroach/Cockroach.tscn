@@ -41,7 +41,7 @@ extents = Vector2( 3.5, 8 )
 script = ExtResource( 3 )
 max_hp = 20
 hp = 20
-atk = 12
+atk = 1
 spd = 20
 exp_enemy = 10
 

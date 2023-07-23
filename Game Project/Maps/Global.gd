@@ -16,6 +16,8 @@ var num1 = 0
 var countBoxs = 0
 var victory = 0
 
+var gio_take_dm = 0
+
 var boss_position = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.

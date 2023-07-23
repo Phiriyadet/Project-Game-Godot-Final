@@ -7,6 +7,9 @@ class_name PopCat, "res://Assets/Characters/Enemies/Pop_cat/pop_cat-1.png"
 func _ready():
 	pass
 
+func _physics_process(delta):
+	if Global.gio_take_dm == 1:
+		self.take_damage(2000, Vector2.ZERO, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

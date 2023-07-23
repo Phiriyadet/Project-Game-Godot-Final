@@ -11,8 +11,8 @@ func _ready():
 	for i in range(17):
 		if i>0:
 			Tpost = get_node("TPost/ShrekTPost"+str(i))
-			Tpost.max_hp = 1000
-			Tpost.hp = 1000
+			Tpost.max_hp = 2000
+			Tpost.hp = 2000
 			Tpost.spd = 0
 	
 

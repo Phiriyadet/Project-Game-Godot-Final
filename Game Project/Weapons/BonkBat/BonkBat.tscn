@@ -76,7 +76,6 @@ tracks/4/keys = {
 }
 
 [node name="BonkBat" instance=ExtResource( 1 )]
-scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true,
@@ -100,6 +99,7 @@ damage = 40
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 rotation = 0.785398
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Sprite" parent="." index="1"]
 position = Vector2( -0.00011584, 32 )
