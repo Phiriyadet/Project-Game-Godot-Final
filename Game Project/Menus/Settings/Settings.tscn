@@ -39,7 +39,7 @@ margin_right = 163.0
 margin_bottom = 36.0
 custom_icons/grabber_highlight = ExtResource( 2 )
 custom_icons/grabber = ExtResource( 2 )
-min_value = -80.0
+min_value = -60.0
 max_value = 0.0
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
@@ -54,7 +54,7 @@ margin_right = 163.0
 margin_bottom = 78.0
 custom_icons/grabber_highlight = ExtResource( 2 )
 custom_icons/grabber = ExtResource( 2 )
-min_value = -80.0
+min_value = -60.0
 max_value = 0.0
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
@@ -69,7 +69,7 @@ margin_right = 163.0
 margin_bottom = 120.0
 custom_icons/grabber_highlight = ExtResource( 2 )
 custom_icons/grabber = ExtResource( 2 )
-min_value = -80.0
+min_value = -60.0
 max_value = 0.0
 
 [node name="FullScreenBtn" type="CheckButton" parent="VBoxContainer"]

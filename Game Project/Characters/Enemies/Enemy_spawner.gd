@@ -164,7 +164,7 @@ func _on_Timer_timeout():
 			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status))
 			enemies.call_deferred("add_child", enemy_spawn)
 	# Max 900
-	if time == 180 or time == 420 or time == 720 and false:
+	if time == 180 or time == 420 or time == 720 :
 		enemy_spawn = enemy_Event_cycle.instance()
 		enemy_spawn.position = player_in_map.position
 		event.call_deferred("add_child", enemy_spawn)
