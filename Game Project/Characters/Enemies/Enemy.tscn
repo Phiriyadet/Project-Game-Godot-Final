@@ -205,5 +205,6 @@ anims/hurt = SubResource( 7 )
 anims/move = SubResource( 8 )
 
 [node name="Collision_enemy" type="CollisionPolygon2D" parent="." index="5"]
+disabled = true
 
 [connection signal="area_shape_entered" from="Hitbox" to="Hitbox" method="_on_Hitbox_area_shape_entered"]

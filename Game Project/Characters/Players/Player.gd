@@ -49,7 +49,6 @@ func _ready():
 	set_expbar(experience, calculate_experiencecap())
 	
 	
-	
 func _process(delta):
 	set_healthbar()
 	enemyDesCount.text = str(Global.enemy_dead_count)
@@ -322,3 +321,4 @@ func _on_CoolDawnTimer_timeout():
 
 func _on_CountDownTimer_timeout():
 	popup.hide()
+
