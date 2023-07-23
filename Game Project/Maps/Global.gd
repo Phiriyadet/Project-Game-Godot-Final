@@ -13,6 +13,7 @@ var collected_allitem
 
 var num0 = 0
 var num1 = 0
+var countBoxs = 0
 
 var boss_position = Vector2.ZERO
 

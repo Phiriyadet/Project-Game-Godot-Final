@@ -20,12 +20,27 @@ var numCheck = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_spawn_props(200,2000,-200,-1500,10)
-	_spawn_boxs(-1000,2000,1500,-1500,100)
-
+	Global.countBoxs = 0
 func _physics_process(delta):
 	player = get_tree().current_scene.get_node("Player").get_child(0)
 	posi_player = player.get_global_position()
 #	print(player.get_global_position())
+	if Global.countBoxs < 10:
+		var random_number = randi() % 4 + 1
+		#ซ้าย
+		if random_number == 1:
+			_spawn_boxs(-1200,-700,800,-800,1)
+		#ขวา
+		if random_number == 2:
+			_spawn_boxs(1200,700,800,-800,1)
+		#บน
+		if random_number == 3:
+			_spawn_boxs(1200,-1200,-700,-900,1)
+		#ล่าง
+		if random_number == 4:
+			_spawn_boxs(1200,-1200,700,900,1)
+		Global.countBoxs+=1
+	
 	if player.get_global_position().x > posi_Max_x:
 		posi_Max_x = player.get_global_position().x
 		if numCheck == 50:
