@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://font16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Pause.gd" type="Script" id=2]
 [ext_resource path="res://Menus/Settings/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://font9.tres" type="DynamicFont" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=1]
-resource_local_to_scene = true
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.498039, 0.92549, 0.486275, 1 )
 
 [sub_resource type="Theme" id=2]
 VSlider/icons/grabber = null
@@ -14,7 +15,7 @@ VSlider/icons/grabber_highlight = null
 VSlider/icons/tick = null
 VSlider/styles/grabber_area = null
 VSlider/styles/grabber_area_highlight = null
-VSlider/styles/slider = SubResource( 1 )
+VSlider/styles/slider = SubResource( 3 )
 
 [node name="Pause" type="Control"]
 pause_mode = 2
@@ -27,6 +28,9 @@ margin_top = -180.0
 margin_right = 320.0
 margin_bottom = 180.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -91,18 +95,26 @@ text = "EXIT"
 [node name="AllCollected" type="Panel" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -128.0
-margin_right = 160.0
+margin_top = -148.0
+margin_right = 192.0
 margin_bottom = 140.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="AllCollected"]
-margin_right = 160.0
-margin_bottom = 268.0
+margin_top = 16.0
+margin_right = 192.0
+margin_bottom = 288.0
 theme = SubResource( 2 )
 follow_focus = true
 
 [node name="CollectedBox" type="VBoxContainer" parent="AllCollected/ScrollContainer"]
-custom_constants/separation = 40
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="AllCollected"]
+margin_left = 50.0
+margin_right = 142.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 4 )
+text = "อาวุธสกิลและไอเทมทั้งหมด"
 
 [node name="Settings" parent="." instance=ExtResource( 3 )]
 visible = false
