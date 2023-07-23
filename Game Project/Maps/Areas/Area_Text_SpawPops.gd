@@ -3,7 +3,7 @@ extends Node2D
 
 #const SPAWN_PROPS: Array = [preload("res://Props/jar1.tscn"), preload("res://Props/jar2.tscn"), preload("res://Props/jar3.tscn"),preload("res://Props/Box1.tscn"),preload("res://Props/Box2.tscn")]
 const SPAWN_PROPS: Array = [preload("res://Props/Tree1.tscn"),preload("res://Props/Tree1.tscn"), preload("res://Props/TMT.tscn"), preload("res://Props/TurnL.tscn"),preload("res://Props/TurnR.tscn"),preload("res://Props/Rock1.tscn"),preload("res://Props/Rock2.tscn"),preload("res://Props/RIP1.tscn"),preload("res://Props/RIP2.tscn"),preload("res://Props/chair.tscn")]
-var BOX = preload("res://Props/Box1.tscn")
+var BOX = preload("res://Props/Boxx.tscn")
 onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 onready var props = $Floor/Props as Node2D
 onready var map_props = $Floor
