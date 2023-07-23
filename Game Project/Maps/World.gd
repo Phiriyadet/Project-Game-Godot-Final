@@ -12,7 +12,7 @@ onready var _pause_menu = $HUD/Pause
 onready var game_over = $HUD/GameOver
 onready var enemy_spawner = $Enemy_spawner
 onready var p := $Player 
-
+onready var victory = $HUD/Victory
 	
 func select_player(select_player):
 	match select_player:

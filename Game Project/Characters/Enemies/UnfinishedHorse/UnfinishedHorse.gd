@@ -15,6 +15,9 @@ func _ready():
 	$Start_Event_Attack.start()
 
 func _physics_process(delta):
+	if self.hp<=0:
+		Global.victory = 1
+	print(Global.victory)
 	if $AnimatedSprite.flip_h:
 		posi.position.x = -97
 	else:

@@ -76,12 +76,13 @@ tracks/4/keys = {
 }
 
 [node name="BonkBat" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true,
 "_editor_description_": "ขอบเขตการโจมตี ตามทิศที่เดินไป ระยะโจมตี กลาง เวลาคูลดาวน์ 3 วินาที "
 }
-atk_w = 0
+atk_w = 50000
 
 [node name="Node2D" parent="." index="0"]
 rotation = -1.5708

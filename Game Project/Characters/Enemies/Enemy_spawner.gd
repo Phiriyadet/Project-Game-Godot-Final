@@ -111,6 +111,7 @@ var enemy_Event_shot = preload("res://Characters/Enemy_Event/Pop_shot.tscn")
 var fires = preload("res://Characters/Enemies/UnfinishedHorse/Fires.tscn")
 
 func _ready():
+	Global.victory = 0
 	match Global.difficulty_level:
 		1:
 			Global.coin_bonus = 0
@@ -129,7 +130,9 @@ func player_start(player):
 	count_time.start()
 
 func _on_Timer_timeout():
-	time += 2
+	time += 1
+	if time >= 1200:
+		Global.player_dead = true
 	HUD.update_time(time)
 	for i in ENEMY_SPAWNS:
 		var spawn_delay_counter = 0  # เพิ่มบรรทัดนี้
