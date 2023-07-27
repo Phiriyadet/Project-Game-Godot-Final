@@ -98,7 +98,7 @@ onready var enemies := get_node("../Enemies")
 onready var event:= get_node("../Enemy_Event")
 onready var count_time = $Timer
 # Declare member variables here. Examples:
-var time = 0
+var time = 1198
 var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0
@@ -130,9 +130,67 @@ func player_start(player):
 	player_in_map = player
 	count_time.start()
 
+var upspeed = 20
+var timeupspeed = 0
 func _on_Timer_timeout():
+	if time > 1200 and Global.selectMod == 1:
+		timeupspeed +=10
+		for i in range(0,3):
+			if Global.num0 < 100:
+				var ran = int(randi()% 6)
+				print(ran)
+				enemy_spawn = ENEMY_SPAWNS[ran]["enemy"].instance()
+				enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+				enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
+				enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
+				enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
+				enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status)+(upspeed))
+				enemies.call_deferred("add_child", enemy_spawn)
+				Global.num0 +=1
+		if timeupspeed	>= 30 and timeupspeed%30 == 0:
+			upspeed += 2	
+			
+		if timeupspeed >= 180 and timeupspeed%180 == 0:
+			var random_boss = randi()% 3 + 1
+			enemy_spawn = BOSS_SPAWN[int(random_boss)]["enemy"].instance()
+			enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
+			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
+			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
+			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status)+upspeed)
+			enemies.call_deferred("add_child", enemy_spawn)
+			
+		if timeupspeed >= 300 and timeupspeed%300 == 0:
+			var random_Event = randi()% 3
+			
+			if random_Event == 0:
+				enemy_spawn = enemy_Event_cycle.instance()
+				enemy_spawn.position = player_in_map.position
+				event.call_deferred("add_child", enemy_spawn)	
+				
+			if random_Event == 1:
+				for i in range(0,10):
+					enemy_spawn = enemy_Event_RunOn.instance()
+					enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+					event.call_deferred("add_child", enemy_spawn)
+				
+			if random_Event == 2:
+				for i in range(0,10):
+					enemy_spawn = enemy_Event_shot.instance()
+					enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+					event.call_deferred("add_child", enemy_spawn)
+				
+		if timeupspeed >= 600 and timeupspeed%600 == 0:
+			enemy_spawn = BOSS_SPAWN[3]["enemy"].instance()
+			enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
+			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
+			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
+			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status)+upspeed)
+			enemies.call_deferred("add_child", enemy_spawn)
+			
 	time += 2
-	if time >= 1200:
+	if time >= 1200 and Global.selectMod == 0:
 		Global.player_dead = true
 	HUD.update_time(time)
 	for i in ENEMY_SPAWNS:

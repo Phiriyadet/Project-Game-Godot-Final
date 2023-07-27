@@ -17,6 +17,7 @@ var countBoxs = 0
 var victory = 0
 
 var gio_take_dm = 0
+var selectMod = 0
 
 var boss_position = Vector2.ZERO
 
