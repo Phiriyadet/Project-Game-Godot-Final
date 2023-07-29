@@ -76,13 +76,6 @@ func _process(_delta):
 
 func check_level():
 	match level:
-		1:
-			bonk_size = 1.5
-		2:
-			bonk_size = 2
-		3:
-			bonk_size = 2.5
-	match level:
 		1,2:
 			self.atk_w += 40
 		3,4:
@@ -104,3 +97,18 @@ func _on_att_timeout():
 		$AnimationPlayer_new.play("Attack_left")
 	elif state_attack == "right":
 		$AnimationPlayer_new.play("Attack_right")
+
+
+
+
+func _on_Hitbox_body_entered(body):	
+	$play_audio.start()
+
+
+func _on_play_audio_timeout():
+	$AudioStreamPlayer2D.play()
+	$Stop_audio.start()
+
+
+func _on_Stop_audio_timeout():
+	$AudioStreamPlayer2D.stop()

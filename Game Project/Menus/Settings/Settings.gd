@@ -16,7 +16,7 @@ var save_game_settings = SaveGameSettings.new()
 func _ready():
 	# Load the saved settings when the settings scene is loaded
 	load_saved_settings()
-	
+#	_on_volume_value_changed(-40)
 
 func _process(delta):
 	pass
@@ -45,6 +45,7 @@ func _on_Sounds_value_changed(value):
 func _on_volume_value_changed(value):
 	_settings_data.volume_value = value # เปลี่ยน settings.volume_value เป็น _settings_data.volume_value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), _settings_data.volume_value)
+	print(value)
 	# Save the settings when the volume is changed
 	save_settings()
 

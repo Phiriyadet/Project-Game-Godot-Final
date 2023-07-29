@@ -666,4 +666,14 @@ anims/RESET = SubResource( 9 )
 wait_time = 3.0
 autostart = true
 
+[node name="play_audio" type="Timer" parent="." index="9"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Stop_audio" type="Timer" parent="." index="10"]
+wait_time = 0.5
+
+[connection signal="body_entered" from="bonk_new/Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="timeout" from="att" to="." method="_on_att_timeout"]
+[connection signal="timeout" from="play_audio" to="." method="_on_play_audio_timeout"]
+[connection signal="timeout" from="Stop_audio" to="." method="_on_Stop_audio_timeout"]

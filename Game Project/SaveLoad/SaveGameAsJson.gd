@@ -138,9 +138,9 @@ func load_savecoin():
 	var content := _file.get_as_text()
 	_file.close()
 
-	var data: Dictionary = JSON.parse(content).result
-	
-	num_coin = data.Coin.Num_Coin
+#	var data: Dictionary = JSON.parse(content).result
+#
+#	num_coin = data.Coin.Num_Coin
 	
 func load_savegame():
 	var error := _file.open(SAVE_GAME_PATH, File.READ)
