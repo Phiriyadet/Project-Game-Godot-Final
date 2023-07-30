@@ -16,7 +16,6 @@ func _ready():
 	
 
 func _physics_process(delta):
-	print(hp)
 	if self.hp<=0:
 		Global.victory = 1
 	if $AnimatedSprite.flip_h:

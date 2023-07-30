@@ -87,7 +87,7 @@ const BOSS_SPAWN:Dictionary = {
 		
 	},
 	3: {
-		"time_start" : [901,0],
+		"time_start" : [902,0],
 		"enemy": ENEMY_SCENES.UnfinishedHorse,
 		
 	},
@@ -138,7 +138,6 @@ func _on_Timer_timeout():
 		for i in range(0,3):
 			if Global.num0 < 100:
 				var ran = int(randi()% 6)
-				print(ran)
 				enemy_spawn = ENEMY_SPAWNS[ran]["enemy"].instance()
 				enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 				enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))

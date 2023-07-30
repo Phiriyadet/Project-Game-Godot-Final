@@ -22,7 +22,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -34,7 +34,7 @@ tracks/1/path = NodePath("AudioStreamPlayer2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
@@ -48,7 +48,7 @@ tracks/2/path = NodePath("Sprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -60,7 +60,7 @@ tracks/3/path = NodePath("Sprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -84,12 +84,16 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 disabled = true
 
+[node name="Position2D" type="Position2D" parent="Node2D/Sprite" index="1"]
+position = Vector2( 38, -2 )
+
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 242.79, 0 )
+visible = false
+position = Vector2( 320, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 hframes = 3
-frame = 1
+frame = 2
 
 [node name="Hitbox" type="Area2D" parent="Sprite" index="0"]
 collision_layer = 65536
@@ -105,4 +109,9 @@ anims/attack = SubResource( 2 )
 [node name="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 5 )
 
+[node name="wave_att" type="Timer" parent="." index="5"]
+wait_time = 3.0
+autostart = true
+
 [connection signal="area_entered" from="Sprite/Hitbox" to="Sprite/Hitbox" method="_on_Hitbox_area_entered"]
+[connection signal="timeout" from="wave_att" to="." method="_on_wave_att_timeout"]
