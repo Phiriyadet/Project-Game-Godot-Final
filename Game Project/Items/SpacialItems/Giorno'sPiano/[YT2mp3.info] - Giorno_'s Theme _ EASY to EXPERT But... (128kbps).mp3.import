@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/[YT2mp3.info] - Giorno_'s Theme _ EASY to EXPERT But... (128kbps).mp3-7765506d0df957063a2ff99630f7aee0.mp3str"
+
+[deps]
+
+source_file="res://Items/SpacialItems/Giorno'sPiano/[YT2mp3.info] - Giorno_'s Theme _ EASY to EXPERT But... (128kbps).mp3"
+dest_files=[ "res://.import/[YT2mp3.info] - Giorno_'s Theme _ EASY to EXPERT But... (128kbps).mp3-7765506d0df957063a2ff99630f7aee0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

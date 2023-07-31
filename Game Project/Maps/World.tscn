@@ -72,3 +72,9 @@ position = Vector2( -144, -16 )
 
 [node name="Exp_gem" parent="Loot" instance=ExtResource( 7 )]
 experience = 300
+
+[node name="Giorno\'sPiano2" parent="Loot" instance=ExtResource( 21 )]
+position = Vector2( -301, -449 )
+
+[node name="Giorno\'sPiano3" parent="Loot" instance=ExtResource( 21 )]
+position = Vector2( 497, -380 )

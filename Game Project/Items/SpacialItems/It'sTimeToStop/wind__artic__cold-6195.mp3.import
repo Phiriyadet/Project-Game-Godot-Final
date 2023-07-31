@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wind__artic__cold-6195.mp3-4f9c3303b3b5120257c221792269d880.mp3str"
+
+[deps]
+
+source_file="res://Items/SpacialItems/It'sTimeToStop/wind__artic__cold-6195.mp3"
+dest_files=[ "res://.import/wind__artic__cold-6195.mp3-4f9c3303b3b5120257c221792269d880.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
