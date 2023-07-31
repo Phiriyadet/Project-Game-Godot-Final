@@ -1,10 +1,8 @@
 extends Area2D
 
 class_name Exp_gem,"res://Assets/Exp/exp_gem.png"
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export var experience = 100
+
+export(int) var experience = 100
 var target = null
 var speed = -60.0
 onready var sound: AudioStreamPlayer2D = get_node("Effect_Collected")

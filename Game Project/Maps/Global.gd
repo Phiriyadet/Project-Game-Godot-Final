@@ -10,6 +10,7 @@ var difficulty_level = 1
 var coin_bonus = 0
 var collected_allitem 
 
+var bonus_exp = 0
 
 var num0 = 0
 var num1 = 0
