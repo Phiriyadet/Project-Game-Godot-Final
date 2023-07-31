@@ -44,11 +44,12 @@ func chase():
 func dropgem():
 	var new_gem = exp_gem.instance()
 	new_gem.global_position = global_position
-	new_gem.experience = exp_enemy
+	new_gem.experience = exp_enemy + Global.bonus_exp
+	print_debug("drop exp:", exp_enemy ," bonus:", Global.bonus_exp)
 	loot.call_deferred("add_child", new_gem)	
 		
 func set_expmon(new_exp):
-	exp_enemy = new_exp
+	exp_enemy = new_exp 
 	
 func get_expmon():
 	return exp_enemy

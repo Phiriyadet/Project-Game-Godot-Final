@@ -12,6 +12,8 @@ func _ready():
 	self.pickup_radius = 20
 	self.spacial_skill = false
 	upgrade_character("BonkBat")
+	upgrade_character("NanomachinesSon")
+	
 
 func _process(delta):
 		

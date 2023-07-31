@@ -15,7 +15,10 @@ func _process(delta):
 		var tree = get_tree()
 		tree.paused = true
 		score.text = str((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))
-		coin.text = str(((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))/1000)
+		var num_coin = ((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))/1000
+		var bonus1 = (((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))/1000) * Global.bonus_coin
+		var bonus2 = (((Global.enemy_dead_count*100)+((Global.level_player-1)*2000))/1000) * Global.coin_bonus_diffl
+		coin.text = str(num_coin + bonus1 + bonus2)
 		_save.num_coin =+ int(coin.text)
 		_save.write_savecoin()
 		show()

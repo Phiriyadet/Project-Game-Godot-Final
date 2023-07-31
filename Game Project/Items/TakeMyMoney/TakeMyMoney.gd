@@ -3,7 +3,7 @@ extends "res://Items/Item.gd"
 
 class_name TakeMyMoney, "res://Assets/Items/takemymoney.png"
 
-var bonus_coin
+var bonus_coin = 0
 func _ready():
 	pass # Replace with function body.
 
@@ -22,3 +22,5 @@ func check_level():
 			bonus_coin += 0.6
 		7:
 			bonus_coin += 0.8
+	
+	Global.bonus_coin = bonus_coin

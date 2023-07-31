@@ -7,9 +7,11 @@ var enemy_dead_count = 0
 var player_dead = false
 var level_player = 1
 var difficulty_level = 1
-var coin_bonus = 0
 var collected_allitem 
 
+var coin_bonus_diffl = 0
+var bonus_coin = 0
+var bonus_exp = 0
 
 var num0 = 0
 var num1 = 0

@@ -17,6 +17,7 @@ onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")
 onready var items: Node2D = get_node("Weapons")
 
+onready var collision2d = get_node("CollisionShape2D")
 onready var picradius:CollisionShape2D = get_node("PickupRadius/CollisionShape2D")
 onready var healthBar:TextureProgress = get_node("UI/GUI/HealthBar")
 onready var experienceBar:TextureProgress = get_node("UI/GUI/ExpBar")
@@ -39,6 +40,7 @@ var experience = 0 #exp ที่เก็บไว้/มีอยู่
 var experience_level = 1
 var collected_experience = 0 #exp ที่เก็บได้ใหม่
 var can_active_sSkill: bool = true
+var check_can_take_damage: bool = true
 
 var collected_upgrades = []
 var upgrade_options = []
@@ -51,6 +53,10 @@ func _ready():
 	
 func _process(delta):
 	set_healthbar()
+	if check_can_take_damage:
+		collision2d.disabled = false
+	else:
+		collision2d.disabled = true
 	enemyDesCount.text = str(Global.enemy_dead_count)
 	picradius.shape.radius = self.pickup_radius 
 	

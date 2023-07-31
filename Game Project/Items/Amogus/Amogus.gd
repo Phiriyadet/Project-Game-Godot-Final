@@ -3,7 +3,7 @@ extends "res://Items/Item.gd"
 
 class_name Amogus,"res://Assets/Items/amogus.png"
 
-var bonus_exp
+var bonus_exp = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -22,3 +22,5 @@ func check_level():
 			bonus_exp += 60
 		7:
 			bonus_exp += 80
+	
+	Global.bonus_exp = bonus_exp

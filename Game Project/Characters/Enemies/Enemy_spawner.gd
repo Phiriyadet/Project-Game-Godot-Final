@@ -115,13 +115,13 @@ func _ready():
 	Global.gio_take_dm = 0
 	match Global.difficulty_level:
 		1:
-			Global.coin_bonus = 0
+			Global.coin_bonus_diffl = 0
 			plus_status = 0
 		2:
-			Global.coin_bonus = 0
+			Global.coin_bonus_diffl = 0.3
 			plus_status = 0.5
 		3:
-			Global.coin_bonus = 0
+			Global.coin_bonus_diffl = 0.5
 			plus_status = 1
 			
 	
