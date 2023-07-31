@@ -311,18 +311,23 @@ font_data = ExtResource( 1 )
 
 [node name="TheDoge" instance=ExtResource( 4 )]
 script = ExtResource( 5 )
+acceleration = 20
 max_hp = 50
 hp = 50
 atk = 100
 spd = 50
+pickup_radius = 20.0
+spacial_skill = false
 collected_coin = 50
 
 [node name="AnimatedSprite" parent="." index="1"]
+modulate = Color( 1, 0.996078, 0.996078, 1 )
 frames = SubResource( 9 )
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 1, 0 )
 shape = SubResource( 11 )
+disabled = true
 
 [node name="SpacialSkill" parent="." index="3"]
 visible = false

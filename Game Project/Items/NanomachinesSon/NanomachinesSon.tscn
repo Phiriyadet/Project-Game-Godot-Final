@@ -9,6 +9,7 @@ script = ExtResource( 2 )
 [node name="CoolDownTimer" type="Timer" parent="." index="0"]
 
 [node name="ActiveTimer" type="Timer" parent="." index="1"]
+wait_time = 10.0
 
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
 [connection signal="timeout" from="ActiveTimer" to="." method="_on_ActiveTimer_timeout"]
