@@ -5,7 +5,6 @@ class_name NanomachinesSon, "res://Assets/Items/hearth_nms.png"
 onready var cooldown_timer = $CoolDownTimer as Timer
 onready var active_timer = $ActiveTimer as Timer 
 
-var is_cooldown_active = false
 var wait_time 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,12 +33,10 @@ func start_cooldown():
 	cooldown_timer.wait_time = wait_time
 	cooldown_timer.start()
 	print_debug("Cooldown started. Wait time:", wait_time)
-	is_cooldown_active = true
 
 func _on_CoolDownTimer_timeout():
 	print_debug("Cooldown timer finished.")
 	active_timer.start()
-	is_cooldown_active = false
 	player.check_can_take_damage = false
 	player.animated_sprite.modulate = Color(0, 0, 0, 1)
 
