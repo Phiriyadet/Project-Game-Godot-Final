@@ -14,4 +14,5 @@ func _ready():
 	self.spacial_skill = false
 	upgrade_character("TwoGuitars")
 	upgrade_character("Amogus")
+	upgrade_character("TheMotivation")
 
