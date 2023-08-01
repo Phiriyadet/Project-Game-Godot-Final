@@ -18,7 +18,6 @@ var enemy_close = []
 var eneNum = 3
 
 var check = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

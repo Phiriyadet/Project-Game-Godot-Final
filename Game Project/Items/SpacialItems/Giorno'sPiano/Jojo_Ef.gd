@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	
 	if $AudioStreamPlayer2D.volume_db > 40 or someth2 ==1:
-		$AudioStreamPlayer2D.volume_db -=0.2
+		$AudioStreamPlayer2D.volume_db -=0.1
 		someth2 = 1
 	else:
 		$AudioStreamPlayer2D.volume_db +=0.1

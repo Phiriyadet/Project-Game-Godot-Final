@@ -6,13 +6,13 @@ func _ready():
 	$AnimationPlayer.play("wave_attack")
 
 func _physics_process(delta):
-	if scale.x == -1 and rotation_degrees == 0:
+	if scale.x < 0 and rotation_degrees == 0:
 		position.x -= upposi
-	if scale.x == 1 and rotation_degrees == 0:
+	if scale.x > 0 and rotation_degrees == 0:
 		position.x += upposi
-	if scale.x == 1 and rotation_degrees == 90:
+	if scale.x > 0 and rotation_degrees == 90:
 		position.y += upposi
-	if scale.x == 1 and rotation_degrees == -90:
+	if scale.x > 0 and rotation_degrees == -90:
 		position.y -= upposi
 #	var two_g_node = get_parent().get_node("../Player/Doge")
 #	var two_g_node = weapons_node.get_node("TwoGuitars")

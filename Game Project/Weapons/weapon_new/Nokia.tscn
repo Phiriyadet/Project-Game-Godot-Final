@@ -378,7 +378,6 @@ texture = ExtResource( 3 )
 flip_v = true
 
 [node name="Hitbox" type="Area2D" parent="Nokia_new"]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nokia_new/Hitbox"]
 position = Vector2( -49.3063, 6.08285 )
