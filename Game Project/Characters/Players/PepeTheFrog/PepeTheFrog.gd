@@ -12,5 +12,4 @@ func _ready():
 	self.pickup_radius = 20
 	self.spacial_skill = false
 	upgrade_character("Punch")
-	upgrade_character("Ameno")
-	upgrade_character("Amogus")
+	upgrade_character("ThePumpkinDance")
