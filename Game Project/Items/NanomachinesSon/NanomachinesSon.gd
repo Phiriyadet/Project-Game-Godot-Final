@@ -32,17 +32,17 @@ func check_level():
 func start_cooldown():
 	cooldown_timer.wait_time = wait_time
 	cooldown_timer.start()
-	print_debug("Cooldown started. Wait time:", wait_time)
+#	print_debug("Cooldown started. Wait time:", wait_time)
 
 func _on_CoolDownTimer_timeout():
-	print_debug("Cooldown timer finished.")
+#	print_debug("Cooldown timer finished.")
 	active_timer.start()
 	player.check_can_take_damage = false
 	player.animated_sprite.modulate = Color(0, 0, 0, 1)
 
 func _on_ActiveTimer_timeout():
 	start_cooldown()
-	print_debug("Active timer finished. Cooldown started. Wait time:", wait_time)
+#	print_debug("Active timer finished. Cooldown started. Wait time:", wait_time)
 	player.check_can_take_damage = true
 	player.animated_sprite.modulate = Color(1, 1, 1, 1)
 

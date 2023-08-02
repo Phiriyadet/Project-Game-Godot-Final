@@ -19,7 +19,7 @@ var angle: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.visible = false
+#	self.visible = false
 	start_cooldown() # Start the cooldown timer initially
 
 
@@ -57,7 +57,7 @@ func check_level():
 func start_cooldown():
 	appearance_timer.wait_time = wait_time
 	cooldown_timer.start()
-	print_debug("Appearance. Wait time:", wait_time)
+#	print_debug("Appearance. Wait time:", wait_time)
 
 func _on_CoolDownTimer_timeout():
 	appearance_timer.start()

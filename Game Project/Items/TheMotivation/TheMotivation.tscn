@@ -108,6 +108,7 @@ anims/spin = SubResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="." index="1"]
 visible = false
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Sprite2" type="Sprite" parent="Node2D" index="0"]
 position = Vector2( 0, 7.62939e-06 )
@@ -131,7 +132,7 @@ position = Vector2( 66, 102 )
 shape = SubResource( 1 )
 
 [node name="cooldown" type="Timer" parent="." index="2"]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="Node2D/Sprite/Area2D" to="." method="_on_Area2D_body_entered"]

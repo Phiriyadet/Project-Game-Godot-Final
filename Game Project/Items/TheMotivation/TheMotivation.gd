@@ -5,7 +5,7 @@ class_name TheMotivation, "res://Assets/Items/chair.png"
 
 var slow = 0.0
 var old_spd
-var old_Lv = 0
+var old_Lv = 1
 var now_Lv = self.level
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +19,7 @@ func _process(delta):
 		print(self.level)
 		$Node2D.scale.x +=0.1
 		$Node2D.scale.y +=0.1
+		$cooldown.wait_time -= 0.7
 		old_Lv+=1
 
 func check_level():
@@ -43,7 +44,4 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_cooldown_timeout():
-	if self.level < 7:
-		$cooldown.wait_time -= 0.7
-		self.level +=0.5
 	$AnimationPlayer.play("spin")
