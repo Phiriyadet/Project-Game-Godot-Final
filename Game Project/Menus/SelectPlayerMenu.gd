@@ -186,7 +186,10 @@ func setStatusLabel(hp, atk, spd, pr, ss):
 	atkL.text = str(atk)
 	spdL.text = str(spd)
 	prL.text = str(pr)
-	ssL.text = str(ss)
+	if ss:
+		ssL.text = "Active"
+	else:
+		ssL.text = "Inactive"
 	_update_switch_skill()
 	
 func _on_plus_hp_pressed():
@@ -328,15 +331,24 @@ func _on_switch_skill_toggled(button_pressed):
 	match Global.player_select:
 		"Doge":
 			ss_d = button_pressed
-			ssL.text = str(ss_d)
+			if ss_d:
+				ssL.text = "Active"
+			else:
+				ssL.text = "Inactive"
 			setGlobalStausDoge()
 		"Monkey":
 			ss_m = button_pressed
-			ssL.text = str(ss_m)
+			if ss_m:
+				ssL.text = "Active"
+			else:
+				ssL.text = "Inactive"
 			setGlobalStausMonkey()
 		"Frog":
 			ss_f = button_pressed
-			ssL.text = str(ss_f)
+			if ss_f:
+				ssL.text = "Active"
+			else:
+				ssL.text = "Inactive"
 			setGlobalStausFrog()
 	_update_switch_skill()
 	_save_game()
