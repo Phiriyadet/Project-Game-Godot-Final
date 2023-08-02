@@ -30,4 +30,4 @@ func _input(event):
 		big_doge.position = position
 #		add_child(big_doge)
 		get_parent().get_node("../Loot").call_deferred("add_child",big_doge)
-		print(get_parent().get_node("../Loot").name)
+#		print(get_parent().get_node("../Loot").name)

@@ -13,7 +13,7 @@ var Ef_posi_y = -10
 var up_posi_nokia_right = 0 
 var up_posi_nokia_left = 0 
 
-var old_Lv = 0
+var old_Lv = 1
 var now_Lv = self.level
 # Called when the node enters the scene tree for the first time.
 func _ready():

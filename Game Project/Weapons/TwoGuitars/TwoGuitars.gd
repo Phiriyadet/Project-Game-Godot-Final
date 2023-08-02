@@ -8,7 +8,7 @@ onready var wave_hitbox = $Sprite/Hitbox
 onready var Loot
 
 var rota = "r"
-var old_Lv = 0
+var old_Lv = 1
 var now_Lv = self.level
 var up_size_wave = 0
 # Called when the node enters the scene tree for the first time.

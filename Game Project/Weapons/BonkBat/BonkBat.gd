@@ -6,7 +6,7 @@ class_name BonkBat, "res://Assets/Weapons/bonk-bat/bat.png"
 var scaleX = 1
 var bonk_size = 1
 var state_attack = "right"
-var old_Lv = 0
+var old_Lv = 1
 var now_Lv = self.level
 func _init():
 	$Node2D.visible = false

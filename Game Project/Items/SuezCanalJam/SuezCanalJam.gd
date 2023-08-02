@@ -7,14 +7,25 @@ extends "res://Items/Item.gd"
 class_name SuezCanalJam, "res://Assets/Items/evergreen.png"
 onready var timer = $Timer
 onready var animation_player = $AnimationPlayer
+
+var spwn = preload("res://Items/new_Item/canal.tscn")
+var check_move = "L"
+var canal_size = 0
+var old_Lv = 1
+var now_Lv = self.level
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.start()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	match level_item:
+	now_Lv = self.level
+	if old_Lv < now_Lv:
+		canal_size += 0.2
+		old_Lv+=1
+#	print(self.level)
+#	match level:
 #		1,2:
 #			timer.wait_time += 5
 #		3,4:
@@ -25,16 +36,16 @@ func _process(delta):
 #			timer.wait_time += 14
 #	print_debug("SCJ pos: ",self.global_position)
 	if Input.is_action_pressed("ui_right"):
-		rotation_degrees = -90
+		check_move = "L"
 		
-	if Input.is_action_pressed("ui_left"):
-		rotation_degrees = 90
+	elif Input.is_action_pressed("ui_left"):
+		check_move = "R"
 		
-	if Input.is_action_pressed("ui_up"):
-		rotation_degrees = 180
+	elif Input.is_action_pressed("ui_up"):
+		check_move = "D"
 
-	if Input.is_action_pressed("ui_down"):
-		rotation_degrees = 0
+	elif Input.is_action_pressed("ui_down"):
+		check_move = "U"
 		
 #	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_up"):
 #		pass
@@ -51,15 +62,46 @@ func _process(delta):
 #		pass
 		
 func check_level():
+#	pass
 	match level:
-		1,2:
-			timer.wait_time += 5
+		2:
+			$Timer2.wait_time-= 0.5
 		3,4:
-			timer.wait_time += 8
+			$Timer2.wait_time-= 0.5
 		5,6:
-			timer.wait_time += 11
+			$Timer2.wait_time-= 0.5
 		7:
-			timer.wait_time += 14
+			$Timer2.wait_time-= 0.5
 
 func _on_Timer_timeout():
-	animation_player.play("work")
+#	animation_player.play("work")
+#	self.level +=0.5
+	pass
+
+
+func _on_Timer2_timeout():
+#	animation_player.play("work")
+#	self.level +=0.5
+	var canal = spwn.instance()
+	canal.position = get_parent().get_parent().get_position()
+	canal.scale.x += canal_size
+	canal.scale.y += canal_size
+	if check_move == "R":
+		canal.get_node("Sprite").scale.y = -1
+		canal.get_node("Sprite").rotation_degrees = 90
+		
+	elif check_move == "L":
+		canal.get_node("Sprite").scale.y = 1
+		canal.get_node("Sprite").rotation_degrees = 90
+		print(check_move)
+	elif check_move == "U":
+		canal.get_node("Sprite").scale.y = -1
+		canal.get_node("Sprite").rotation_degrees = 0
+
+	elif check_move == "D":
+		canal.get_node("Sprite").scale.y = 1
+		canal.get_node("Sprite").rotation_degrees = 0
+		
+#	print(check_move)
+#	add_child(canal)
+	get_node("../../../../Loot").call_deferred("add_child",canal)
