@@ -17,31 +17,56 @@ var radius: float = 0.0
 var speed: float = 1.0
 var angle: float = 0.0
 
+var eXp = []
+var eXpnum = 1
+var onec = 0
+var move_to = Vector2.ZERO
+var posi_exp = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	self.visible = false
-	start_cooldown() # Start the cooldown timer initially
+#	start_cooldown() # Start the cooldown timer initially
+	eXp = []
+	$move_to_exp.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	angle += speed * delta
-
-	# คำนวณระยะทางใหม่ของลูกบอลที่ควรอยู่
-	var new_x = center.x + radius * cos(angle)
-	var new_y = center.y + radius * sin(angle)
-
-	# ตั้งค่าตำแหน่งใหม่ให้กับลูกบอล
-	position = Vector2(new_x, new_y)
-
-	# หากกลับมาอยู่ที่จุดศูนย์กลางให้กลับความเร็วให้เป็นบวกเพื่อให้ลูกบอลหมุนไปทางซ้ายอีกครั้ง
-	if radius >= 100:
-		speed *= -1
-
-	# หากกลับมาอยู่ที่จุดศูนย์กลางให้นับเวลารอคูลดาวน์
-	if radius <= 0:
-		start_cooldown()
+#func _process(delta):
+##	if eXp != null:
+##		position
+##	angle += speed * delta
+#
+#	# คำนวณระยะทางใหม่ของลูกบอลที่ควรอยู่
+#	var new_x = center.x + radius * cos(angle)
+#	var new_y = center.y + radius * sin(angle)
+#
+#	# ตั้งค่าตำแหน่งใหม่ให้กับลูกบอล
+#	position = Vector2(new_x, new_y)
+##	position.x += 1
+#	# หากกลับมาอยู่ที่จุดศูนย์กลางให้กลับความเร็วให้เป็นบวกเพื่อให้ลูกบอลหมุนไปทางซ้ายอีกครั้ง
+#	if radius >= 100:
+#		speed *= -1
+#
+#	# หากกลับมาอยู่ที่จุดศูนย์กลางให้นับเวลารอคูลดาวน์
+#	if radius <= 0:
+#		start_cooldown()
 	
+func _physics_process(delta):
+	if posi_exp == true:
+		position += move_to*5
+	if eXp.size() == 1:
+		var expp = get_random_exp()
+		move_to = global_position.direction_to(expp)
+		onec+=1
+		
+	
+	
+func get_random_exp():
+	if eXp.size() > 0:
+		var ran = eXp[randi() % eXp.size()].get_global_position()
+		return ran
+	else:
+		return Vector2.UP
 
 func check_level():
 	match level:
@@ -74,3 +99,35 @@ func _on_AppearanceTimer_timeout():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("loot"):
 		area.target = self
+		
+
+func _on_Area2D2_area_entered(area):
+	print("get area")
+	
+	if !eXp.has(area):
+		if eXpnum > 0:
+			eXp.append(area)
+			eXpnum-=1
+
+func _on_Area2D2_area_exited(area):
+	print(eXp.size())
+	if eXp.has(area):
+		eXp.erase(area)
+		eXpnum += 1
+#		$move_to_exp.start()
+
+
+func _on_move_to_exp_timeout():
+	$Area2D2/CollisionShape2D.disabled = true
+	$Timer.start()
+
+
+func _on_Area2D3_area_entered(area):
+	area.position = get_parent().get_parent().get_global_position()
+	posi_exp = false
+
+
+func _on_Timer_timeout():
+	$Area2D2/CollisionShape2D.disabled = false
+	posi_exp = true
+	$move_to_exp.start()
