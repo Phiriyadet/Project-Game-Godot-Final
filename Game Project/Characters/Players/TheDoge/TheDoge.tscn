@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Items/ThePumpkinDance/ThePumpkinDance.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Items/SuezCanalJam/SuezCanalJam.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDog-idle.png" type="Texture" id=9]
+[ext_resource path="res://Weapons/BonkMissile/BonkMissile.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Skills/spacial_skills/BigDogDetail.png" type="Texture" id=13]
 [ext_resource path="res://Characters/Hitbox.gd" type="Script" id=14]
 
@@ -323,6 +324,7 @@ collected_coin = 50
 [node name="AnimatedSprite" parent="." index="1"]
 modulate = Color( 1, 0.996078, 0.996078, 1 )
 frames = SubResource( 9 )
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 1, 0 )
@@ -357,6 +359,8 @@ shape = SubResource( 12 )
 
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 13 )
+
+[node name="BonkMissile" parent="Weapons" index="0" instance=ExtResource( 10 )]
 
 [node name="TheMotivation" parent="Items" index="0" instance=ExtResource( 6 )]
 

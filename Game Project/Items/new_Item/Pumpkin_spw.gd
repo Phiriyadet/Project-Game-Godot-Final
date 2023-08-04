@@ -14,7 +14,6 @@ func _ready():
 	$Sprite.hide()
 
 func _physics_process(delta):
-	print(Global.speed_pumpkin)
 	player = get_tree().current_scene.get_node("Player").get_child(0)
 	if (position.x-player.get_global_position().x) > 800 or (position.x-player.get_global_position().x) < -800 or (position.y-player.get_global_position().y) > 800 or (position.y-player.get_global_position().y) < -800:
 #		eXp.clear()

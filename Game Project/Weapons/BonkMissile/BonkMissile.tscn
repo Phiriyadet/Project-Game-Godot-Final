@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Weapons/BonkMissile/BonkMissile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/bonk-missile/bonk_missile-1.png" type="Texture" id=2]
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Weapons/bonk-missile/bonk_missile.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Audio/SoundEffect/WeaponSoundEffect/tomp3.cc - Missile launch Sound effect.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/SoundEffect/WeaponSoundEffect/Explosion!!!.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape2D" id=11]
 radius = 5.82383
@@ -74,7 +75,7 @@ __meta__ = {
 [node name="Sprite" parent="Node2D" index="0"]
 texture = ExtResource( 4 )
 hframes = 5
-frame = 4
+frame = 1
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 rotation = -1.4399
@@ -104,6 +105,15 @@ collision_mask = 4
 visible = false
 shape = SubResource( 12 )
 
+[node name="spw_missile" type="Timer" parent="." index="7"]
+wait_time = 3.0
+autostart = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource( 6 )
+bus = "Sounds"
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 [connection signal="area_entered" from="DetectEnemy" to="." method="_on_DetectEnemy_area_entered"]
 [connection signal="area_exited" from="DetectEnemy" to="." method="_on_DetectEnemy_area_exited"]
+[connection signal="timeout" from="spw_missile" to="." method="_on_spw_missile_timeout"]

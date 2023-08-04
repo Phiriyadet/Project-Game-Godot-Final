@@ -18,20 +18,29 @@ var enemy_close = []
 var eneNum = 3
 
 var check = 0
+
+var missileS = preload("res://Weapons/weapon_new/Missile_New_And_New.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Node2D/Sprite.hide()
+	Global.sound_Explosion = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	_node2d.rotation = angle.angle()
-	position += angle.normalized() * speed * delta
+	$Node2D/Sprite.hide()
+	$AnimationPlayer.stop()
+	if Global.sound_Explosion == 1:
+		Global.sound_Explosion = 0
+		$AudioStreamPlayer2D2.play()
+#	_node2d.rotation = angle.angle()
+#	position += angle.normalized() * speed * delta
 	
 #เรียกใช้ใน AnimationPlayer
 func AttackTimer_timeout():
 	set_process(false)
+	$Node2D/Sprite.show()
 	detect_enemy_area.disabled = true
-	print_debug("AttackTimer_timeout")
+#	print_debug("AttackTimer_timeout")
 	
 #	cool_down_timer.start() #ติดปัญหาเรียกแล้วไม่ทำงาน
 
@@ -42,8 +51,9 @@ func AttackTimer_timeout():
 #เรียกใช้ใน AnimationPlayer
 func launch():
 	set_process(true)
+	
 	position = Vector2.ZERO
-	print_debug("position start:",position,"player po:",player.position)
+#	print_debug("position start:",position,"player po:",player.position)
 	
 	detect_enemy_area.disabled = false
 	target = get_random_target()
@@ -64,16 +74,16 @@ func check_level():
 	match level:
 		1, 2:
 			self.atk_w += 40
-			print_debug("BonkMissile : ", level)
+#			print_debug("BonkMissile : ", level)
 		3, 4:
 			self.atk_w += 60
-			print_debug("BonkMissile : ", level)
+#			print_debug("BonkMissile : ", level)
 		5, 6:
 			self.atk_w += 80
-			print_debug("BonkMissile : ", level)
+#			print_debug("BonkMissile : ", level)
 		7:
 			self.atk_w += 100
-			print_debug("BonkMissile : ", level)
+#			print_debug("BonkMissile : ", level)
 
 func _on_DetectEnemy_area_entered(area):
 	if !enemy_close.has(area):
@@ -86,3 +96,11 @@ func _on_DetectEnemy_area_exited(area):
 		enemy_close.erase(area)
 		eneNum += 1
 
+
+
+func _on_spw_missile_timeout():
+	var spw_mis = missileS.instance()
+	spw_mis.position = get_parent().get_parent().get_global_position()
+	get_parent().get_parent().get_parent().get_node("../Loot").call_deferred("add_child",spw_mis)
+	$AudioStreamPlayer2D.play()
+	
