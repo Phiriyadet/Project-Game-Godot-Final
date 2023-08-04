@@ -127,8 +127,6 @@ icon = ExtResource( 6 )
 
 [node name="BackBtn" parent="Settings/VBoxContainer" index="8"]
 margin_right = 183.0
-margin_bottom = 220.0
-theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 1 )
 
 [connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]

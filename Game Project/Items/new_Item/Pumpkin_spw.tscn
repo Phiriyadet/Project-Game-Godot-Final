@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Items/pumpkin_dance.png" type="Texture" id=1]
+[ext_resource path="res://Items/new_Item/Pumpkin_spw.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 581.086
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 20.0
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "dance"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="Pumpkin_spw" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="Area_Detect_Exp" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 536870912
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area_Detect_Exp"]
+shape = SubResource( 3 )
+
+[node name="Area_Move_Exp_To_Player" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 536870912
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area_Move_Exp_To_Player"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dance = SubResource( 2 )
+
+[node name="Dis_ADEXP" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Un_Dis_ADEXP" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="Sprite/Area_Detect_Exp" to="." method="_on_Area_Detect_Exp_area_entered"]
+[connection signal="area_exited" from="Sprite/Area_Detect_Exp" to="." method="_on_Area_Detect_Exp_area_exited"]
+[connection signal="area_entered" from="Sprite/Area_Move_Exp_To_Player" to="." method="_on_Area_Move_Exp_To_Player_area_entered"]
+[connection signal="timeout" from="Dis_ADEXP" to="." method="_on_Dis_ADEXP_timeout"]
+[connection signal="timeout" from="Un_Dis_ADEXP" to="." method="_on_Un_Dis_ADEXP_timeout"]

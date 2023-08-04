@@ -17,6 +17,7 @@ var num0 = 0
 var num1 = 0
 var countBoxs = 0
 var victory = 0
+var speed_pumpkin = 3
 
 var gio_take_dm = 0
 var selectMod = 0

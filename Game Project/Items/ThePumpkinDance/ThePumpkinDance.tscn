@@ -41,6 +41,7 @@ radius = 18.0
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." index="0"]
+visible = false
 collision_layer = 0
 collision_mask = 0
 
@@ -56,6 +57,7 @@ shape = SubResource( 6 )
 [node name="AppearanceTimer" type="Timer" parent="." index="2"]
 
 [node name="Area2D2" type="Area2D" parent="." index="3"]
+visible = false
 collision_layer = 0
 collision_mask = 536870912
 
@@ -63,10 +65,11 @@ collision_mask = 536870912
 shape = SubResource( 7 )
 
 [node name="move_to_exp" type="Timer" parent="." index="4"]
-wait_time = 0.5
-one_shot = true
+wait_time = 2.0
+autostart = true
 
 [node name="Area2D3" type="Area2D" parent="." index="5"]
+visible = false
 collision_layer = 0
 collision_mask = 536870912
 
@@ -75,7 +78,9 @@ shape = SubResource( 8 )
 
 [node name="Timer" type="Timer" parent="." index="6"]
 wait_time = 0.5
-one_shot = true
+autostart = true
+
+[node name="Queue" type="Timer" parent="." index="7"]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
