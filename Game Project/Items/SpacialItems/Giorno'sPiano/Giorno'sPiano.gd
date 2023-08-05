@@ -13,6 +13,7 @@ func _on_Area2D_body_entered(body):
 	player = get_tree().current_scene.get_node("Player").get_child(0)
 	var jojo = jojo_ef.instance()
 	jojo.position = player.global_position - Vector2(500,200)
+	jojo.get_node("AudioStreamPlayer2D").volume_db = $AudioStreamPlayer2D.volume_db
 	get_parent().call_deferred("add_child", jojo)
 	Global.gio_take_dm = 1
 	collision_shape2D.set_deferred("disabled", true)

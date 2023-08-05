@@ -9,7 +9,6 @@ var valum = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("Ice")
-	$AudioStreamPlayer2D.playing
 	$AudioStreamPlayer2D.volume_db = 30
 
 func _physics_process(delta):

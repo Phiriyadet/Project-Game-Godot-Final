@@ -7,17 +7,15 @@ var enemy_count = 0
 var move_to = Vector2.ZERO
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
+
+export(int) var atk_w 
+export(int) var explosion_size = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite.hide()
 	Global.sound_Explosion = 0
 
 func _physics_process(delta):
-	print(position)
-#	if enemy_count == 1:
-#		enemy_count+=1
-#		move_to = get_random_enemy()
-#		print(move_to)
 	position += move_to*3
 	rotation = angle.angle()
 #	print(enemy_list.size())
@@ -43,6 +41,8 @@ func _on_Detect_Enemy_body_shape_exited(body_rid, body, body_shape_index, local_
 func _on_Colision_missile_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	var spw_Explosion = Explosion.instance()
 	spw_Explosion.position = position
+	spw_Explosion.atk_w = self.atk_w
+	spw_Explosion.explosion_size = explosion_size
 	get_parent().call_deferred("add_child",spw_Explosion)
 #	print(get_parent().name)
 	queue_free()

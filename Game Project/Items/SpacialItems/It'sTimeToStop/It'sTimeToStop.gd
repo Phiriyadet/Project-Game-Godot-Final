@@ -14,6 +14,7 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	var ice_ef = ice.instance()
 	ice_ef.position = player.global_position + Vector2(-100,0)
+	$AudioStreamPlayer2D.play()
 	get_parent().call_deferred("add_child", ice_ef)
 	collision_shape2D.set_deferred("disabled", true)
 	for enemy in get_tree().current_scene.get_node("Enemies").get_children():

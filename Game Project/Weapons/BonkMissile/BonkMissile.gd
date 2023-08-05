@@ -18,6 +18,7 @@ var enemy_close = []
 var eneNum = 3
 
 var check = 0
+var up_size_explosion = 0
 
 var missileS = preload("res://Weapons/weapon_new/Missile_New_And_New.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -72,17 +73,25 @@ func get_random_target():
 
 func check_level():
 	match level:
-		1, 2:
+		2:
 			self.atk_w += 40
+			up_size_explosion +=0.1
+			$spw_missile.wait_time-=0.1
 #			print_debug("BonkMissile : ", level)
 		3, 4:
 			self.atk_w += 60
+			up_size_explosion +=0.1
+			$spw_missile.wait_time-=0.1
 #			print_debug("BonkMissile : ", level)
 		5, 6:
 			self.atk_w += 80
+			up_size_explosion +=0.1
+			$spw_missile.wait_time-=0.1
 #			print_debug("BonkMissile : ", level)
 		7:
 			self.atk_w += 100
+			up_size_explosion +=0.1
+			$spw_missile.wait_time-=0.1
 #			print_debug("BonkMissile : ", level)
 
 func _on_DetectEnemy_area_entered(area):
@@ -101,6 +110,8 @@ func _on_DetectEnemy_area_exited(area):
 func _on_spw_missile_timeout():
 	var spw_mis = missileS.instance()
 	spw_mis.position = get_parent().get_parent().get_global_position()
+	spw_mis.atk_w = self.atk_w
+	spw_mis.explosion_size += up_size_explosion 
 	get_parent().get_parent().get_parent().get_node("../Loot").call_deferred("add_child",spw_mis)
 	$AudioStreamPlayer2D.play()
 	

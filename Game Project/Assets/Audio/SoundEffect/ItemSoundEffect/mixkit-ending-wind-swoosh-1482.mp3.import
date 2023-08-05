@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-ending-wind-swoosh-1482.mp3-1af175ba262abd1b8d5f43a3b7b2e6a8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/ItemSoundEffect/mixkit-ending-wind-swoosh-1482.mp3"
+dest_files=[ "res://.import/mixkit-ending-wind-swoosh-1482.mp3-1af175ba262abd1b8d5f43a3b7b2e6a8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

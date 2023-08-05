@@ -75,7 +75,7 @@ __meta__ = {
 [node name="Sprite" parent="Node2D" index="0"]
 texture = ExtResource( 4 )
 hframes = 5
-frame = 1
+frame = 4
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
 rotation = -1.4399
