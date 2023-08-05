@@ -3,12 +3,12 @@ extends Control
 
 ### Automatic References Start ###
 onready var _alert: Label = $ColorRect/Alert
-onready var _back_btn: Button = $PlayBackContainer/BackBtn
+onready var _back_btn: Button = $BackBtn
 onready var _easy_level_btn: Button = $ColorRect/DifficultyContainer/HBoxContainer/EasyLevelBtn
 onready var _endless_mode_btn: Button = $ColorRect/ModeContainer/HBoxContainer/EndlessModeBtn
 onready var _hard_level_btn: Button = $ColorRect/DifficultyContainer/HBoxContainer/HardLevelBtn
 onready var _normal_mode_btn: Button = $ColorRect/ModeContainer/HBoxContainer/NormalModeBtn
-onready var _play_btn: Button = $PlayBackContainer/PlayBtn
+onready var _play_btn: Button = $PlayBtn
 onready var _very_hard_level_btn: Button = $ColorRect/DifficultyContainer/HBoxContainer/VeryHardLevelBtn
 onready var diff_label: Label = $ColorRect/DifficultyContainer/Label
 onready var mode_label: Label = $ColorRect/ModeContainer/Label

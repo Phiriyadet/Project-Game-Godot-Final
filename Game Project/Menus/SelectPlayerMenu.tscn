@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Menus/SelectPlayerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle-1.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://StyleBoxs/orangeColor.tres" type="StyleBox" id=10]
 [ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb1.png" type="Texture" id=11]
 [ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb5.png" type="Texture" id=12]
+[ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=13]
+[ext_resource path="res://StyleBoxs/playBtnTheme.tres" type="Theme" id=14]
 
 [sub_resource type="Theme" id=9]
 CheckButton/icons/off = ExtResource( 11 )
@@ -20,6 +22,7 @@ CheckButton/icons/on = ExtResource( 12 )
 CheckButton/icons/on_disabled = ExtResource( 12 )
 
 [sub_resource type="Theme" id=8]
+default_font = ExtResource( 5 )
 Button/styles/hover = ExtResource( 8 )
 Button/styles/normal = ExtResource( 7 )
 Button/styles/pressed = ExtResource( 10 )
@@ -422,14 +425,16 @@ margin_left = 203.0
 margin_top = 239.0
 margin_right = 244.0
 margin_bottom = 259.0
-text = "back"
+theme = ExtResource( 13 )
+text = "กลับ"
 
 [node name="PlayBtn" type="Button" parent="."]
 margin_left = 270.0
 margin_top = 240.0
 margin_right = 311.0
 margin_bottom = 260.0
-text = "play"
+theme = ExtResource( 14 )
+text = "เล่น"
 
 [node name="Popup" type="Popup" parent="."]
 visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menus/Mode&DifficultyLevel.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/font16.tres" type="DynamicFont" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://StyleBoxs/veryhardBtnTheme.tres" type="Theme" id=5]
 [ext_resource path="res://StyleBoxs/normalModeBtnTheme.tres" type="Theme" id=6]
 [ext_resource path="res://StyleBoxs/endlessBtnTheme.tres" type="Theme" id=7]
+[ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=8]
+[ext_resource path="res://StyleBoxs/playBtnTheme.tres" type="Theme" id=9]
 
 [node name="Mode&DifficultyLevel" type="Control"]
 anchor_left = 0.5
@@ -146,32 +148,26 @@ margin_top = 64.0
 margin_right = 324.0
 margin_bottom = 280.0
 
-[node name="PlayBackContainer" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -56.0
-margin_top = -56.0
-margin_right = 57.0
-margin_bottom = -16.0
-custom_constants/separation = 30
+[node name="BackBtn" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 296.0
+margin_right = 306.0
+margin_bottom = 336.0
+theme = ExtResource( 8 )
+text = "กลับ"
 
-[node name="BackBtn" type="Button" parent="PlayBackContainer"]
-margin_right = 42.0
-margin_bottom = 40.0
-text = "Back"
-
-[node name="PlayBtn" type="Button" parent="PlayBackContainer"]
-margin_left = 72.0
-margin_right = 113.0
-margin_bottom = 40.0
-text = "Start"
+[node name="PlayBtn" type="Button" parent="."]
+margin_left = 336.0
+margin_top = 296.0
+margin_right = 386.0
+margin_bottom = 336.0
+theme = ExtResource( 9 )
+text = "เล่น"
 
 [connection signal="pressed" from="ColorRect/ModeContainer/HBoxContainer/NormalModeBtn" to="." method="_on_NormalModeBtn_pressed"]
 [connection signal="pressed" from="ColorRect/ModeContainer/HBoxContainer/EndlessModeBtn" to="." method="_on_EndlessModeBtn_pressed"]
 [connection signal="pressed" from="ColorRect/DifficultyContainer/HBoxContainer/EasyLevelBtn" to="." method="_on_EasyLevelBtn_pressed"]
 [connection signal="pressed" from="ColorRect/DifficultyContainer/HBoxContainer/HardLevelBtn" to="." method="_on_HardLevelBtn_pressed"]
 [connection signal="pressed" from="ColorRect/DifficultyContainer/HBoxContainer/VeryHardLevelBtn" to="." method="_on_VeryHardLevelBtn_pressed"]
-[connection signal="pressed" from="PlayBackContainer/BackBtn" to="." method="_on_BackBtn_pressed"]
-[connection signal="pressed" from="PlayBackContainer/PlayBtn" to="." method="_on_PlayBtn_pressed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
+[connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
