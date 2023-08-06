@@ -87,7 +87,7 @@ const BOSS_SPAWN:Dictionary = {
 		
 	},
 	3: {
-		"time_start" : [902,0],
+		"time_start" : [900,0],
 		"enemy": ENEMY_SCENES.UnfinishedHorse,
 		
 	},
@@ -98,7 +98,7 @@ onready var enemies := get_node("../Enemies")
 onready var event:= get_node("../Enemy_Event")
 onready var count_time = $Timer
 # Declare member variables here. Examples:
-var time = 1198
+var time = 0
 var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0

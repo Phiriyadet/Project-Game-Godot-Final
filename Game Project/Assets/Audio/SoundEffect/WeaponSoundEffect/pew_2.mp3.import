@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pew_2.mp3-a15fbfb57ae5e57b2dbc853837cb99d2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/WeaponSoundEffect/pew_2.mp3"
+dest_files=[ "res://.import/pew_2.mp3-a15fbfb57ae5e57b2dbc853837cb99d2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

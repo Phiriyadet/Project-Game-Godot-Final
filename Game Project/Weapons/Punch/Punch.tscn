@@ -5,8 +5,9 @@
 [ext_resource path="res://Weapons/Punch/Punch.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Audio/SoundEffect/WeaponSoundEffect/tomp3.cc - Punch Sound Effect  Gaming SFX.mp3" type="AudioStream" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25, 16 )
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 32.0
+height = 0.0
 
 [sub_resource type="Animation" id=2]
 resource_local_to_scene = true
@@ -66,7 +67,7 @@ position = Vector2( 50, -10 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/attack = SubResource( 2 )
@@ -74,3 +75,8 @@ anims/attack = SubResource( 2 )
 [node name="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 4 )
 volume_db = -26.0
+
+[node name="Timer" type="Timer" parent="." index="5"]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
