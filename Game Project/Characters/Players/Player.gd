@@ -11,7 +11,7 @@ onready var _collected_weapons: GridContainer = $UI/GUI/CollectedWeapons
 
 export(float) var pickup_radius = 20 setget set_pickup, get_pickup
 export(bool) var spacial_skill = false setget set_sskill, get_sskill
-export(int) var collected_coin = false setget set_collectedCoin, get_collectedCoin
+export(int) var collected_coin = 0 setget set_collectedCoin, get_collectedCoin
 
 onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")

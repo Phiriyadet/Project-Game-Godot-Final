@@ -57,11 +57,11 @@ func _ready():
 
 func _create_or_load_save():
 	if _save.save_exists() and _save.money_exists():
-		_save.load_savecoin()
 		_save.load_savegame()
+		_save.load_savecoin()
 	else:
-		_save.write_savecoin_init()
 		_save.write_savegame_init()
+		_save.write_savecoin_init()
 
 	coinL.text = str(_save.num_coin)
 	hp_d = _save.Dog.hp

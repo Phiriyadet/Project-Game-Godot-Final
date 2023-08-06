@@ -2,6 +2,7 @@ extends Control
 
 
 ### Automatic References Start ###
+onready var _confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 onready var _settings: Settings = $Settings
 ### Automatic References Stop ###
 
@@ -42,3 +43,15 @@ func _on_CreditsBtn_pressed():
 
 func _on_SettingBtn_pressed():
 	_settings.show()
+
+
+func _on_ConfirmationDialog_confirmed():
+	var dir = Directory.new()
+	dir.remove("user://save.json")
+	dir.remove("user://coin.json")
+	dir.remove("user://save_settings.json")
+	print_debug("delete save successfully!")
+	_confirmation_dialog.hide()
+
+func _on_DeleteSaveBtn_pressed():
+	_confirmation_dialog.show()
