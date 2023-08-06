@@ -25,5 +25,6 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource( 4 )
 volume_db = 20.0
+bus = "Sounds"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
