@@ -2,29 +2,60 @@ extends Control
 
 ### Automatic References Start ###
 onready var _count_down_timer: Timer = $Popup/CountDownTimer
+onready var _label_dog: Label = $ColorRect/PlayersContainer/VBoxContainer/Label
+onready var _label_monkey: Label = $ColorRect/PlayersContainer/VBoxContainer2/Label
+onready var _label_frog: Label = $ColorRect/PlayersContainer/VBoxContainer3/Label
 onready var _popup: Popup = $Popup
-onready var _price_atk: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_atk
-onready var _price_hp: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_hp
-onready var _price_pr: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_pr
-onready var _price_spd: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_spd
-onready var _price_ss: Label = $ColorRect/Panel/HBoxContainer/PriceContainer/price_ss
-onready var _switch_skill: CheckButton = $ColorRect/Panel/HBoxContainer/ButtonpContainer/switch_skill
+onready var _price_atk: Label = $ColorRect/Panel/PriceContainer/price_atk
+onready var _price_hp: Label = $ColorRect/Panel/PriceContainer/price_hp
+onready var _price_pr: Label = $ColorRect/Panel/PriceContainer/price_pr
+onready var _price_spd: Label = $ColorRect/Panel/PriceContainer/price_spd
+onready var _price_ss: Label = $ColorRect/Panel/PriceContainer/price_ss
+onready var _switch_skill: CheckButton = $ColorRect/Panel/ButtonpContainer/HBoxContainer5/switch_skill
 ### Automatic References Stop ###
 
 var _save := SaveGameAsJson.new()
 
 #onready var label: Label = get_node("ColorRect/Panel/HBoxContainer/VBoxContainer/Label")
 onready var coinL:Label = $ColorRect/CoinContainer/coinL
-onready var hpL = $ColorRect/Panel/HBoxContainer/StatusContainer/hpL
-onready var atkL = $ColorRect/Panel/HBoxContainer/StatusContainer/atkL
-onready var spdL = $ColorRect/Panel/HBoxContainer/StatusContainer/spdL
-onready var prL = $ColorRect/Panel/HBoxContainer/StatusContainer/prL
-onready var ssL = $ColorRect/Panel/HBoxContainer/StatusContainer/ssL
+onready var hpL = $ColorRect/Panel/StatusContainer/hpL
+onready var atkL = $ColorRect/Panel/StatusContainer/atkL
+onready var spdL = $ColorRect/Panel/StatusContainer/spdL
+onready var prL = $ColorRect/Panel/StatusContainer/prL
+onready var ssL = $ColorRect/Panel/StatusContainer/ssL
 onready var playBtn:Button = get_node("PlayBtn") 
 onready var players_cont = $ColorRect/PlayersContainer
 onready var doge_btn = $ColorRect/PlayersContainer/VBoxContainer/DogTextureRect
 onready var monkey_btn = $ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect
 onready var frog_btn = $ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect
+
+
+var min_hp_d = 50
+var min_atk_d = 15
+var min_spd_d = 50
+var min_pr_d = 20
+var max_hp_d = 500
+var max_atk_d = 200
+var max_spd_d = 200
+var max_pr_d = 100
+
+var min_hp_m = 40
+var min_atk_m = 20
+var min_spd_m = 50
+var min_pr_m = 20
+var max_hp_m = 400
+var max_atk_m = 300
+var max_spd_m = 200
+var max_pr_m = 100
+
+var min_hp_f = 50
+var min_atk_f = 10
+var min_spd_f = 60
+var min_pr_f = 20
+var max_hp_f = 300
+var max_atk_f = 200
+var max_spd_f = 300
+var max_pr_f = 100
 
 var hp_d = 0
 var atk_d = 0
@@ -59,9 +90,14 @@ func _create_or_load_save():
 	if _save.save_exists() and _save.money_exists():
 		_save.load_savegame()
 		_save.load_savecoin()
+		print_debug("load save")
 	else:
+		
 		_save.write_savegame_init()
 		_save.write_savecoin_init()
+		print_debug("write_savegame_init")
+		_save.load_savegame()
+		_save.load_savecoin()
 
 	coinL.text = str(_save.num_coin)
 	hp_d = _save.Dog.hp
@@ -197,17 +233,17 @@ func _on_plus_hp_pressed():
 		match Global.player_select:
 			"Doge":
 				coinL.text = str(int(coinL.text) - int(_price_hp.text))
-				hp_d = clamp(hp_d + 10, 10, 100)
+				hp_d = clamp(hp_d + 10, min_hp_d, max_hp_d)
 				hpL.text = str(hp_d)
 				setGlobalStausDoge()
 			"Monkey":
 				coinL.text = str(int(coinL.text) - int(_price_hp.text))
-				hp_m = clamp(hp_m + 10, 10, 100)
+				hp_m = clamp(hp_m + 10, min_hp_m, max_hp_m)
 				hpL.text = str(hp_m)
 				setGlobalStausMonkey()
 			"Frog":
 				coinL.text = str(int(coinL.text) - int(_price_hp.text))
-				hp_f = clamp(hp_f + 10, 10, 100)
+				hp_f = clamp(hp_f + 10, min_hp_f, max_hp_f)
 				hpL.text = str(hp_f)
 				setGlobalStausFrog()
 		_save_game()
@@ -218,15 +254,15 @@ func _on_plus_hp_pressed():
 func _on_minus_hp_pressed():
 	match Global.player_select:
 		"Doge":
-			hp_d = clamp(hp_d - 10, 10, 100)
+			hp_d = clamp(hp_d - 10, min_hp_d, max_hp_d)
 			hpL.text = str(hp_d)
 			setGlobalStausDoge()
 		"Monkey":
-			hp_m = clamp(hp_m - 10, 10, 100)
+			hp_m = clamp(hp_m - 10, min_hp_m, max_hp_m)
 			hpL.text = str(hp_m)
 			setGlobalStausMonkey()
 		"Frog":
-			hp_f = clamp(hp_f - 10, 10, 100)
+			hp_f = clamp(hp_f - 10, min_hp_f, max_hp_f)
 			hpL.text = str(hp_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -234,15 +270,15 @@ func _on_minus_hp_pressed():
 func _on_plus_atk_pressed():
 	match Global.player_select:
 		"Doge":
-			atk_d = clamp(atk_d + 10, 10, 100)
+			atk_d = clamp(atk_d + 10, min_atk_d, max_atk_d)
 			atkL.text = str(atk_d)
 			setGlobalStausDoge()
 		"Monkey":
-			atk_m = clamp(atk_m + 10, 10, 100)
+			atk_m = clamp(atk_m + 10, min_atk_m, max_atk_m)
 			atkL.text = str(atk_m)
 			setGlobalStausMonkey()
 		"Frog":
-			atk_f = clamp(atk_f + 10, 10, 100)
+			atk_f = clamp(atk_f + 10, min_atk_f, max_atk_f)
 			atkL.text = str(atk_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -250,15 +286,15 @@ func _on_plus_atk_pressed():
 func _on_minus_atk_pressed():
 	match Global.player_select:
 		"Doge":
-			atk_d = clamp(atk_d - 10, 10, 100)
+			atk_d = clamp(atk_d - 10, min_atk_d, max_atk_d)
 			atkL.text = str(atk_d)
 			setGlobalStausDoge()
 		"Monkey":
-			atk_m = clamp(atk_m - 10, 10, 100)
+			atk_m = clamp(atk_m - 10, min_atk_m, max_atk_m)
 			atkL.text = str(atk_m)
 			setGlobalStausMonkey()
 		"Frog":
-			atk_f = clamp(atk_f - 10, 10, 100)
+			atk_f = clamp(atk_f - 10, min_atk_f, max_atk_f)
 			atkL.text = str(atk_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -266,15 +302,15 @@ func _on_minus_atk_pressed():
 func _on_plus_spd_pressed():
 	match Global.player_select:
 		"Doge":
-			spd_d = clamp(spd_d + 10, 10, 100)
+			spd_d = clamp(spd_d + 10, min_spd_d, max_spd_d)
 			spdL.text = str(spd_d)
 			setGlobalStausDoge()
 		"Monkey":
-			spd_m = clamp(spd_m + 10, 10, 100)
+			spd_m = clamp(spd_m + 10, min_spd_m, max_spd_m)
 			spdL.text = str(spd_m)
 			setGlobalStausMonkey()
 		"Frog":
-			spd_f = clamp(spd_f + 10, 10, 100)
+			spd_f = clamp(spd_f + 10, min_spd_f, max_spd_f)
 			spdL.text = str(spd_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -282,15 +318,15 @@ func _on_plus_spd_pressed():
 func _on_minus_spd_pressed():
 	match Global.player_select:
 		"Doge":
-			spd_d = clamp(spd_d - 10, 10, 100)
+			spd_d = clamp(spd_d - 10, min_spd_d, max_spd_d)
 			spdL.text = str(spd_d)
 			setGlobalStausDoge()
 		"Monkey":
-			spd_m = clamp(spd_m - 10, 10, 100)
+			spd_m = clamp(spd_m - 10, min_spd_m, max_spd_m)
 			spdL.text = str(spd_m)
 			setGlobalStausMonkey()
 		"Frog":
-			spd_f = clamp(spd_f - 10, 10, 100)
+			spd_f = clamp(spd_f - 10, min_spd_f, max_spd_f)
 			spdL.text = str(spd_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -298,15 +334,15 @@ func _on_minus_spd_pressed():
 func _on_plus_pickupR_pressed():
 	match Global.player_select:
 		"Doge":
-			pr_d = clamp(pr_d + 10, 10, 100)
+			pr_d = clamp(pr_d + 10, min_pr_d, max_pr_d)
 			prL.text = str(pr_d)
 			setGlobalStausDoge()
 		"Monkey":
-			pr_m = clamp(pr_m + 10, 10, 100)
+			pr_m = clamp(pr_m + 10, min_hp_m, max_pr_m)
 			prL.text = str(pr_m)
 			setGlobalStausMonkey()
 		"Frog":
-			pr_f = clamp(pr_f + 10, 10, 100)
+			pr_f = clamp(pr_f + 10, min_pr_f, max_pr_f)
 			prL.text = str(pr_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -314,15 +350,15 @@ func _on_plus_pickupR_pressed():
 func _on_minus_pickupR_pressed():
 	match Global.player_select:
 		"Doge":
-			pr_d = clamp(pr_d - 10, 10, 100)
+			pr_d = clamp(pr_d - 10, min_pr_d, max_pr_d)
 			prL.text = str(pr_d)
 			setGlobalStausDoge()
 		"Monkey":
-			pr_m = clamp(pr_m - 10, 10, 100)
+			pr_m = clamp(pr_m - 10, min_hp_m, max_pr_m)
 			prL.text = str(pr_m)
 			setGlobalStausMonkey()
 		"Frog":
-			pr_f = clamp(pr_f - 10, 10, 100)
+			pr_f = clamp(pr_f - 10, min_pr_f, max_pr_f)
 			prL.text = str(pr_f)
 			setGlobalStausFrog()
 	_save_game()
@@ -399,3 +435,53 @@ func _update_switch_skill():
 			_switch_skill.pressed = ss_m
 		"Frog":
 			_switch_skill.pressed = ss_f
+
+
+func _on_DogTextureRect_focus_entered():
+	_label_dog.self_modulate = Color(0.4,0.75,0.03)
+	_label_dog.uppercase = true
+
+
+func _on_DogTextureRect_focus_exited():
+	_label_dog.self_modulate = Color(1,1,1)
+	_label_dog.uppercase = false
+
+func _on_DogTextureRect_mouse_entered():
+	_label_dog.self_modulate = Color(0.4,0.75,0.03)
+	_label_dog.uppercase = true
+
+func _on_DogTextureRect_mouse_exited():
+	_label_dog.self_modulate = Color(1,1,1)
+	_label_dog.uppercase = false
+
+func _on_MonkeyTextureRect_focus_entered():
+	_label_monkey.self_modulate = Color(0.4,0.75,0.03)
+	_label_monkey.uppercase = true
+
+func _on_MonkeyTextureRect_focus_exited():
+	_label_monkey.self_modulate = Color(1,1,1)
+	_label_monkey.uppercase = false
+
+func _on_MonkeyTextureRect_mouse_entered():
+	_label_monkey.self_modulate = Color(0.4,0.75,0.03)
+	_label_monkey.uppercase = true
+
+func _on_MonkeyTextureRect_mouse_exited():
+	_label_monkey.self_modulate = Color(1,1,1)
+	_label_monkey.uppercase = false
+
+func _on_FrogTextureRect_focus_entered():
+	_label_frog.self_modulate = Color(0.4,0.75,0.03)
+	_label_frog.uppercase = true
+
+func _on_FrogTextureRect_focus_exited():
+	_label_frog.self_modulate = Color(1,1,1)
+	_label_frog.uppercase = false
+
+func _on_FrogTextureRect_mouse_entered():
+	_label_frog.self_modulate = Color(0.4,0.75,0.03)
+	_label_frog.uppercase = true
+
+func _on_FrogTextureRect_mouse_exited():
+	_label_frog.self_modulate = Color(1,1,1)
+	_label_frog.uppercase = false

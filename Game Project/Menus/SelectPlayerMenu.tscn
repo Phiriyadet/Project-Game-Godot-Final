@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menus/SelectPlayerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle-1.png" type="Texture" id=2]
@@ -15,7 +15,13 @@
 [ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=13]
 [ext_resource path="res://StyleBoxs/playBtnTheme.tres" type="Theme" id=14]
 
+[sub_resource type="StyleBoxTexture" id=12]
+
+[sub_resource type="Theme" id=11]
+Button/styles/focus = SubResource( 12 )
+
 [sub_resource type="Theme" id=9]
+default_font = ExtResource( 5 )
 CheckButton/icons/off = ExtResource( 11 )
 CheckButton/icons/off_disabled = ExtResource( 11 )
 CheckButton/icons/on = ExtResource( 12 )
@@ -32,15 +38,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -240.0
-margin_top = -135.0
-margin_right = 240.0
-margin_bottom = 135.0
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 480.0
-margin_bottom = 270.0
+margin_right = 640.0
+margin_bottom = 360.0
 color = Color( 0.145098, 0.133333, 0.133333, 1 )
 
 [node name="PlayersContainer" type="HBoxContainer" parent="ColorRect"]
@@ -57,12 +63,16 @@ margin_right = 64.0
 margin_bottom = 87.0
 
 [node name="DogTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer"]
-self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer3/FrogTextureRect")
 focus_neighbour_right = NodePath("../../VBoxContainer2/MonkeyTextureRect")
+theme = SubResource( 11 )
+keep_pressed_outside = true
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="ColorRect/PlayersContainer/VBoxContainer"]
 margin_top = 68.0
@@ -78,12 +88,14 @@ margin_right = 132.0
 margin_bottom = 87.0
 
 [node name="MonkeyTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer2"]
-self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer/DogTextureRect")
 focus_neighbour_right = NodePath("../../VBoxContainer3/FrogTextureRect")
 texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="ColorRect/PlayersContainer/VBoxContainer2"]
 margin_top = 68.0
@@ -99,12 +111,14 @@ margin_right = 200.0
 margin_bottom = 87.0
 
 [node name="FrogTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer3"]
-self_modulate = Color( 0, 0, 0, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer2/MonkeyTextureRect")
 focus_neighbour_right = NodePath("../../VBoxContainer/DogTextureRect")
 texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="ColorRect/PlayersContainer/VBoxContainer3"]
 margin_top = 68.0
@@ -117,262 +131,294 @@ align = 1
 [node name="Panel" type="Panel" parent="ColorRect"]
 margin_left = 22.0
 margin_top = 93.0
-margin_right = 464.0
-margin_bottom = 223.0
+margin_right = 616.0
+margin_bottom = 280.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel"]
-margin_left = 90.0
-margin_right = 358.0
-margin_bottom = 112.0
-custom_constants/separation = 15
+[node name="NameStatusContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+margin_left = 50.0
+margin_top = 11.0
+margin_right = 153.0
+margin_bottom = 186.0
+custom_constants/separation = 20
 
-[node name="NameStatusContainer" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_right = 100.0
-margin_bottom = 128.0
-custom_constants/separation = 12
-
-[node name="Label3" type="Label" parent="ColorRect/Panel/HBoxContainer/NameStatusContainer"]
-margin_right = 100.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="ColorRect/Panel/NameStatusContainer"]
+margin_right = 103.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 5 )
 text = "HEALTH"
 align = 1
 
-[node name="Label4" type="Label" parent="ColorRect/Panel/HBoxContainer/NameStatusContainer"]
-margin_top = 26.0
-margin_right = 100.0
-margin_bottom = 40.0
+[node name="Label4" type="Label" parent="ColorRect/Panel/NameStatusContainer"]
+margin_top = 39.0
+margin_right = 103.0
+margin_bottom = 58.0
 grow_horizontal = 2
+custom_fonts/font = ExtResource( 5 )
 text = "ATTACK"
 align = 1
 
-[node name="Label5" type="Label" parent="ColorRect/Panel/HBoxContainer/NameStatusContainer"]
-margin_top = 52.0
-margin_right = 100.0
-margin_bottom = 66.0
+[node name="Label5" type="Label" parent="ColorRect/Panel/NameStatusContainer"]
+margin_top = 78.0
+margin_right = 103.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 5 )
 text = "SPEED"
 align = 1
 
-[node name="Label6" type="Label" parent="ColorRect/Panel/HBoxContainer/NameStatusContainer"]
-margin_top = 78.0
-margin_right = 100.0
-margin_bottom = 92.0
+[node name="Label6" type="Label" parent="ColorRect/Panel/NameStatusContainer"]
+margin_top = 117.0
+margin_right = 103.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 5 )
 text = "PICKUP RADIUS"
 align = 1
 
-[node name="Label7" type="Label" parent="ColorRect/Panel/HBoxContainer/NameStatusContainer"]
-margin_top = 104.0
-margin_right = 100.0
-margin_bottom = 118.0
+[node name="Label7" type="Label" parent="ColorRect/Panel/NameStatusContainer"]
+margin_top = 156.0
+margin_right = 103.0
+margin_bottom = 175.0
+custom_fonts/font = ExtResource( 5 )
 text = "SPACIAL SKILL"
 align = 1
 
-[node name="StatusContainer" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_left = 115.0
-margin_right = 155.0
-margin_bottom = 128.0
-custom_constants/separation = 12
+[node name="StatusContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+margin_left = 178.0
+margin_top = 11.0
+margin_right = 224.0
+margin_bottom = 186.0
+custom_constants/separation = 20
 
-[node name="hpL" type="Label" parent="ColorRect/Panel/HBoxContainer/StatusContainer"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="hpL" type="Label" parent="ColorRect/Panel/StatusContainer"]
+margin_right = 46.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 5 )
 text = "0"
+align = 1
 autowrap = true
 
-[node name="atkL" type="Label" parent="ColorRect/Panel/HBoxContainer/StatusContainer"]
-margin_top = 26.0
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="atkL" type="Label" parent="ColorRect/Panel/StatusContainer"]
+margin_top = 39.0
+margin_right = 46.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 5 )
 text = "0 "
+align = 1
 autowrap = true
 
-[node name="spdL" type="Label" parent="ColorRect/Panel/HBoxContainer/StatusContainer"]
-margin_top = 52.0
-margin_right = 40.0
-margin_bottom = 66.0
-text = "0"
-autowrap = true
-
-[node name="prL" type="Label" parent="ColorRect/Panel/HBoxContainer/StatusContainer"]
+[node name="spdL" type="Label" parent="ColorRect/Panel/StatusContainer"]
 margin_top = 78.0
-margin_right = 40.0
-margin_bottom = 92.0
+margin_right = 46.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 5 )
 text = "0"
+align = 1
 autowrap = true
 
-[node name="ssL" type="Label" parent="ColorRect/Panel/HBoxContainer/StatusContainer"]
-margin_top = 104.0
-margin_right = 40.0
-margin_bottom = 118.0
+[node name="prL" type="Label" parent="ColorRect/Panel/StatusContainer"]
+margin_top = 117.0
+margin_right = 46.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+autowrap = true
+
+[node name="ssL" type="Label" parent="ColorRect/Panel/StatusContainer"]
+margin_top = 156.0
+margin_right = 46.0
+margin_bottom = 175.0
+custom_fonts/font = ExtResource( 5 )
 text = "Active"
 align = 1
 
-[node name="ButtonpContainer" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_left = 170.0
-margin_right = 198.0
-margin_bottom = 128.0
-custom_constants/separation = 11
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
-margin_right = 28.0
-margin_bottom = 15.0
+[node name="ButtonpContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+margin_left = 282.0
+margin_top = 3.0
+margin_right = 386.0
+margin_bottom = 198.0
+custom_constants/separation = 20
 alignment = 1
 
-[node name="plus_hp" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer"]
-margin_right = 12.0
-margin_bottom = 15.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
+margin_right = 104.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="plus_hp" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
 
-[node name="minus_hp" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer"]
-margin_left = 16.0
-margin_right = 28.0
-margin_bottom = 15.0
+[node name="minus_hp" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
-margin_top = 26.0
-margin_right = 28.0
-margin_bottom = 41.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
+margin_top = 44.0
+margin_right = 104.0
+margin_bottom = 68.0
 alignment = 1
 
-[node name="plus_atk" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2"]
-margin_right = 12.0
-margin_bottom = 15.0
+[node name="plus_atk" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer2"]
+margin_right = 50.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
 
-[node name="minus_atk" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2"]
-margin_left = 16.0
-margin_right = 28.0
-margin_bottom = 15.0
+[node name="minus_atk" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer2"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
-margin_top = 52.0
-margin_right = 28.0
-margin_bottom = 67.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
+margin_top = 88.0
+margin_right = 104.0
+margin_bottom = 112.0
 alignment = 1
 
-[node name="plus_spd" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3"]
-margin_right = 12.0
-margin_bottom = 15.0
+[node name="plus_spd" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer3"]
+margin_right = 50.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
 
-[node name="minus_spd" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3"]
-margin_left = 16.0
-margin_right = 28.0
-margin_bottom = 15.0
+[node name="minus_spd" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer3"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
-margin_top = 78.0
-margin_right = 28.0
-margin_bottom = 93.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
+margin_top = 132.0
+margin_right = 104.0
+margin_bottom = 156.0
 alignment = 1
 
-[node name="plus_pickupR" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4"]
-margin_right = 12.0
-margin_bottom = 15.0
+[node name="plus_pickupR" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer4"]
+margin_right = 50.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
 
-[node name="minus_pickupR" type="Button" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4"]
-margin_left = 16.0
-margin_right = 28.0
-margin_bottom = 15.0
+[node name="minus_pickupR" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer4"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
-[node name="switch_skill" type="CheckButton" parent="ColorRect/Panel/HBoxContainer/ButtonpContainer"]
-margin_top = 104.0
-margin_right = 28.0
-margin_bottom = 128.0
+[node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
+margin_top = 176.0
+margin_right = 104.0
+margin_bottom = 203.0
+alignment = 1
+
+[node name="switch_skill" type="CheckButton" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer5"]
+margin_left = 38.0
+margin_right = 66.0
+margin_bottom = 27.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = SubResource( 9 )
 pressed = true
 align = 1
+icon_align = 1
 
-[node name="PriceContainer" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_left = 213.0
-margin_right = 233.0
-margin_bottom = 128.0
-custom_constants/separation = 12
+[node name="PriceContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+margin_left = 434.0
+margin_top = 11.0
+margin_right = 454.0
+margin_bottom = 186.0
+custom_constants/separation = 19
 
-[node name="price_hp" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer"]
+[node name="price_hp" type="Label" parent="ColorRect/Panel/PriceContainer"]
 margin_right = 20.0
-margin_bottom = 14.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 5 )
 text = "10 "
 
-[node name="price_atk" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer"]
-margin_top = 26.0
+[node name="price_atk" type="Label" parent="ColorRect/Panel/PriceContainer"]
+margin_top = 38.0
 margin_right = 20.0
-margin_bottom = 40.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 5 )
 text = "10"
 
-[node name="price_spd" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer"]
-margin_top = 52.0
+[node name="price_spd" type="Label" parent="ColorRect/Panel/PriceContainer"]
+margin_top = 76.0
 margin_right = 20.0
-margin_bottom = 66.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 5 )
 text = "10"
 
-[node name="price_pr" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer"]
-margin_top = 78.0
+[node name="price_pr" type="Label" parent="ColorRect/Panel/PriceContainer"]
+margin_top = 114.0
 margin_right = 20.0
-margin_bottom = 92.0
+margin_bottom = 133.0
+custom_fonts/font = ExtResource( 5 )
 text = "10 "
 
-[node name="price_ss" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer"]
-margin_top = 104.0
+[node name="price_ss" type="Label" parent="ColorRect/Panel/PriceContainer"]
+margin_top = 152.0
 margin_right = 20.0
-margin_bottom = 118.0
+margin_bottom = 171.0
+custom_fonts/font = ExtResource( 5 )
 text = "10 "
 
-[node name="PriceContainer2" type="VBoxContainer" parent="ColorRect/Panel/HBoxContainer"]
-margin_left = 248.0
-margin_right = 256.0
-margin_bottom = 128.0
-custom_constants/separation = 12
+[node name="PriceContainer2" type="VBoxContainer" parent="ColorRect/Panel"]
+margin_left = 490.0
+margin_top = 11.0
+margin_right = 499.0
+margin_bottom = 186.0
+custom_constants/separation = 19
 
-[node name="price_hp" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer2"]
-margin_right = 8.0
-margin_bottom = 14.0
+[node name="price" type="Label" parent="ColorRect/Panel/PriceContainer2"]
+margin_right = 9.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 5 )
 text = "$"
 
-[node name="price_atk" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer2"]
-margin_top = 26.0
-margin_right = 8.0
-margin_bottom = 40.0
+[node name="price2" type="Label" parent="ColorRect/Panel/PriceContainer2"]
+margin_top = 38.0
+margin_right = 9.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 5 )
 text = "$"
 
-[node name="price_spd" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer2"]
-margin_top = 52.0
-margin_right = 8.0
-margin_bottom = 66.0
+[node name="price3" type="Label" parent="ColorRect/Panel/PriceContainer2"]
+margin_top = 76.0
+margin_right = 9.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 5 )
 text = "$"
 
-[node name="price_pr" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer2"]
-margin_top = 78.0
-margin_right = 8.0
-margin_bottom = 92.0
+[node name="price4" type="Label" parent="ColorRect/Panel/PriceContainer2"]
+margin_top = 114.0
+margin_right = 9.0
+margin_bottom = 133.0
+custom_fonts/font = ExtResource( 5 )
 text = "$"
 
-[node name="price_ss" type="Label" parent="ColorRect/Panel/HBoxContainer/PriceContainer2"]
-margin_top = 104.0
-margin_right = 8.0
-margin_bottom = 118.0
+[node name="price5" type="Label" parent="ColorRect/Panel/PriceContainer2"]
+margin_top = 152.0
+margin_right = 9.0
+margin_bottom = 171.0
+custom_fonts/font = ExtResource( 5 )
 text = "$"
 
 [node name="CoinContainer" type="HBoxContainer" parent="ColorRect"]
@@ -417,27 +463,56 @@ text = "Refund"
 [node name="HSeparator" type="HSeparator" parent="."]
 margin_left = 24.0
 margin_top = 90.0
-margin_right = 464.0
+margin_right = 616.0
 margin_bottom = 95.0
 
+[node name="HSeparator2" type="HSeparator" parent="."]
+margin_left = 24.0
+margin_top = 128.0
+margin_right = 616.0
+margin_bottom = 133.0
+
+[node name="HSeparator3" type="HSeparator" parent="."]
+margin_left = 24.0
+margin_top = 168.0
+margin_right = 616.0
+margin_bottom = 173.0
+
+[node name="HSeparator4" type="HSeparator" parent="."]
+margin_left = 24.0
+margin_top = 200.0
+margin_right = 616.0
+margin_bottom = 205.0
+
+[node name="HSeparator5" type="HSeparator" parent="."]
+margin_left = 24.0
+margin_top = 240.0
+margin_right = 616.0
+margin_bottom = 245.0
+
+[node name="HSeparator6" type="HSeparator" parent="."]
+margin_left = 24.0
+margin_top = 280.0
+margin_right = 616.0
+margin_bottom = 285.0
+
 [node name="BackBtn" type="Button" parent="."]
-margin_left = 203.0
-margin_top = 239.0
-margin_right = 244.0
-margin_bottom = 259.0
+margin_left = 256.0
+margin_top = 296.0
+margin_right = 297.0
+margin_bottom = 319.0
 theme = ExtResource( 13 )
 text = "กลับ"
 
 [node name="PlayBtn" type="Button" parent="."]
-margin_left = 270.0
-margin_top = 240.0
-margin_right = 311.0
-margin_bottom = 260.0
+margin_left = 344.0
+margin_top = 296.0
+margin_right = 385.0
+margin_bottom = 319.0
 theme = ExtResource( 14 )
 text = "เล่น"
 
 [node name="Popup" type="Popup" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -471,18 +546,30 @@ text = "$ เงินไม่พอ
 [node name="CountDownTimer" type="Timer" parent="Popup"]
 wait_time = 4.0
 
+[connection signal="focus_entered" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_DogTextureRect_focus_entered"]
+[connection signal="focus_exited" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_DogTextureRect_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_DogTextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_DogTextureRect_mouse_exited"]
 [connection signal="pressed" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_TextureRect_pressed"]
+[connection signal="focus_entered" from="ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect" to="." method="_on_MonkeyTextureRect_focus_entered"]
+[connection signal="focus_exited" from="ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect" to="." method="_on_MonkeyTextureRect_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect" to="." method="_on_MonkeyTextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect" to="." method="_on_MonkeyTextureRect_mouse_exited"]
 [connection signal="pressed" from="ColorRect/PlayersContainer/VBoxContainer2/MonkeyTextureRect" to="." method="_on_TextureRect2_pressed"]
+[connection signal="focus_entered" from="ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect" to="." method="_on_FrogTextureRect_focus_entered"]
+[connection signal="focus_exited" from="ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect" to="." method="_on_FrogTextureRect_focus_exited"]
+[connection signal="mouse_entered" from="ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect" to="." method="_on_FrogTextureRect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect" to="." method="_on_FrogTextureRect_mouse_exited"]
 [connection signal="pressed" from="ColorRect/PlayersContainer/VBoxContainer3/FrogTextureRect" to="." method="_on_TextureRect3_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer/plus_hp" to="." method="_on_plus_hp_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer/minus_hp" to="." method="_on_minus_hp_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2/plus_atk" to="." method="_on_plus_atk_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer2/minus_atk" to="." method="_on_minus_atk_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3/plus_spd" to="." method="_on_plus_spd_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer3/minus_spd" to="." method="_on_minus_spd_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4/plus_pickupR" to="." method="_on_plus_pickupR_pressed"]
-[connection signal="pressed" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/HBoxContainer4/minus_pickupR" to="." method="_on_minus_pickupR_pressed"]
-[connection signal="toggled" from="ColorRect/Panel/HBoxContainer/ButtonpContainer/switch_skill" to="." method="_on_switch_skill_toggled"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer/plus_hp" to="." method="_on_plus_hp_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer/minus_hp" to="." method="_on_minus_hp_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer2/plus_atk" to="." method="_on_plus_atk_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer2/minus_atk" to="." method="_on_minus_atk_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer3/plus_spd" to="." method="_on_plus_spd_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer3/minus_spd" to="." method="_on_minus_spd_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer4/plus_pickupR" to="." method="_on_plus_pickupR_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer4/minus_pickupR" to="." method="_on_minus_pickupR_pressed"]
+[connection signal="toggled" from="ColorRect/Panel/ButtonpContainer/HBoxContainer5/switch_skill" to="." method="_on_switch_skill_toggled"]
 [connection signal="pressed" from="ColorRect/RefundBtn" to="." method="_on_RefundBtn_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
