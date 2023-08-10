@@ -134,12 +134,12 @@ var upspeed = 20
 var timeupspeed = 0
 func _on_Timer_timeout():
 	if time > 1200 and Global.selectMod == 1:
-		timeupspeed +=10
+		timeupspeed +=2
 		for i in range(0,3):
 			if Global.num0 < 100:
 				var ran = int(randi()% 6)
 				enemy_spawn = ENEMY_SPAWNS[ran]["enemy"].instance()
-				enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+				enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 				enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
 				enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 				enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
@@ -152,7 +152,7 @@ func _on_Timer_timeout():
 		if timeupspeed >= 180 and timeupspeed%180 == 0:
 			var random_boss = randi()% 3 + 1
 			enemy_spawn = BOSS_SPAWN[int(random_boss)]["enemy"].instance()
-			enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+			enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
 			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
@@ -170,7 +170,7 @@ func _on_Timer_timeout():
 			if random_Event == 1:
 				for i in range(0,10):
 					enemy_spawn = enemy_Event_RunOn.instance()
-					enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+					enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 					event.call_deferred("add_child", enemy_spawn)
 				
 			if random_Event == 2:
@@ -181,7 +181,7 @@ func _on_Timer_timeout():
 				
 		if timeupspeed >= 600 and timeupspeed%600 == 0:
 			enemy_spawn = BOSS_SPAWN[3]["enemy"].instance()
-			enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+			enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
 			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
@@ -205,7 +205,7 @@ func _on_Timer_timeout():
 				var counter = 0
 				while counter < ENEMY_SPAWNS[i]["enemy_number"] and Global.num0 < 100:
 					enemy_spawn = ENEMY_SPAWNS[i]["enemy"].instance()
-					enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+					enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 					enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
 					enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 					enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
@@ -218,7 +218,7 @@ func _on_Timer_timeout():
 	for i in BOSS_SPAWN:
 		if time in BOSS_SPAWN[i]["time_start"]:
 			enemy_spawn = BOSS_SPAWN[i]["enemy"].instance()
-			enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+			enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))
 			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
@@ -232,10 +232,10 @@ func _on_Timer_timeout():
 		
 	if (time>=120 and time<=140) or (time>=240 and time<=280) and time%2==0:
 		enemy_spawn = enemy_Event_RunOn.instance()
-		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
+		enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 
-	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0 :
+	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0:
 		enemy_spawn = enemy_Event_shot.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)

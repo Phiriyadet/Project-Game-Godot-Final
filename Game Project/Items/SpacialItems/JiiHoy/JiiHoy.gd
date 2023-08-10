@@ -2,12 +2,19 @@ extends "res://Items/SpacialItems/SpacialItem.gd"
 
 
 class_name JiiHoy, "res://Assets/Items/Spacial_Items/jiihoy.png"
-
+onready var player := get_tree().current_scene.get_node("Player").get_child(0)
+var heal = preload("res://Items/SpacialItems/JiiHoy/heal.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _physics_process(delta):
+	player = get_tree().current_scene.get_node("Player").get_child(0)
+	
 func _on_Area2D_body_entered(body):
+	var ani_heal = heal.instance()
+	ani_heal.position = player.global_position + Vector2(0,-50)
+	get_parent().get_node("../Player").call_deferred("add_child",ani_heal)
 	collision_shape2D.set_deferred("disabled", true)
 	body.set_hp(body.get_hp()+50)
 	print_debug("JiiHoy add hp", body.get_hp())

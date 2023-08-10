@@ -251,8 +251,8 @@ func get_random_item():
 		elif i in upgrade_options: # If the upgrade is already an option
 			if not i in dblist: # Check if the item is already in dblist
 				dblist.append(i)
-		elif UpgradeDb.UPGRADES[i]["type"] == "item": # Don't pick food
-			pass
+#		elif UpgradeDb.UPGRADES[i]["type"] == "item": # Don't pick food
+#			pass
 		
 		else: # If there are no prerequisites
 			if not i in dblist: # Check if the item is already in dblist
@@ -260,6 +260,7 @@ func get_random_item():
 	
 	if dblist.size() > 0:
 		var randomitem = dblist[rand_range(0, dblist.size() - 1)]
+		print(dblist)
 		upgrade_options.append(randomitem)
 		return randomitem
 	else:

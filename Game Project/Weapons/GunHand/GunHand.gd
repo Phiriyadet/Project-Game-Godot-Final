@@ -64,11 +64,6 @@ func _on_Timer_timeout():
 	shoot()
 	$AudioStreamPlayer2D.play()
 	$Timer2.start()
-	print(level)
-	print($Timer.wait_time)
-	print(speed_bullet)
-	if level<7:
-		self.level+=0.5
 
 
 func _on_Timer2_timeout():

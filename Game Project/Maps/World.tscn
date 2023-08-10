@@ -62,13 +62,13 @@ margin_bottom = -26.0
 [node name="Loot" type="Node2D" parent="."]
 
 [node name="JiiHoy" parent="Loot" instance=ExtResource( 20 )]
-position = Vector2( 0, 192 )
+position = Vector2( -808, 529 )
 
 [node name="Giorno\'sPiano" parent="Loot" instance=ExtResource( 21 )]
 position = Vector2( 0, -80 )
 
 [node name="It\'sTimeToStop" parent="Loot" instance=ExtResource( 22 )]
-position = Vector2( -144, -16 )
+position = Vector2( -914, -77 )
 
 [node name="Exp_gem" parent="Loot" instance=ExtResource( 7 )]
 position = Vector2( 946, -343 )
