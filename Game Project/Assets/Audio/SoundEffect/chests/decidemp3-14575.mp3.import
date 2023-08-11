@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/decidemp3-14575.mp3-bf3e6243cac230ef7f30402b835e994c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/chests/decidemp3-14575.mp3"
+dest_files=[ "res://.import/decidemp3-14575.mp3-bf3e6243cac230ef7f30402b835e994c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

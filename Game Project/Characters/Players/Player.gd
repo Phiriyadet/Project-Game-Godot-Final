@@ -46,12 +46,15 @@ var collected_upgrades = []
 var upgrade_options = []
 
 func _ready():
+	Global.open_chest = 0
 	set_healthbar()
 	LevelUp.visible = false
 	set_expbar(experience, calculate_experiencecap())
 	
 	
 func _process(delta):
+	if Global.open_chest==1:
+		levelup()
 	set_healthbar()
 	if check_can_take_damage:
 		collision2d.disabled = false
@@ -127,6 +130,7 @@ func set_healthbar():
 	healthBar.value = self.hp
 	
 func levelup():
+	Global.open_chest=0
 	levelLabel.text = str("LV. ",experience_level)
 	
 	var options = 0

@@ -8,7 +8,8 @@ onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 onready var loot := get_tree().current_scene.get_node("Loot")
 onready var hitbox := get_node("Hitbox")
 onready var exp_gem = preload("res://Exp/Exp_gem.tscn")
-
+var chest = preload("res://Props/Treasure.tscn")
+export var Type = "Normal"
 export(int) var  exp_enemy = 1 setget set_expmon, get_expmon
 
 var posi_enemy = Vector2.ZERO
@@ -16,6 +17,8 @@ var posi_player
 var nummm = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 func _physics_process(delta):
+	if self.hp < 0:
+		print(Type)
 	if $AnimatedSprite.flip_h:
 			$Collision_enemy.scale.x = -1
 			$Hitbox/CollisionShape2D.scale.x = -1
@@ -45,8 +48,12 @@ func dropgem():
 	var new_gem = exp_gem.instance()
 	new_gem.global_position = global_position
 	new_gem.experience = exp_enemy + Global.bonus_exp
-	print_debug("drop exp:", exp_enemy ," bonus:", Global.bonus_exp)
-	loot.call_deferred("add_child", new_gem)	
+#	print_debug("drop exp:", exp_enemy ," bonus:", Global.bonus_exp)
+	loot.call_deferred("add_child", new_gem)
+	if Type == "Boss":
+		var open_chest = chest.instance()
+		open_chest.position = global_position
+		loot.call_deferred("add_child", open_chest)
 		
 func set_expmon(new_exp):
 	exp_enemy = new_exp 

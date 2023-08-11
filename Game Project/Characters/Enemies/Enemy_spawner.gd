@@ -188,7 +188,9 @@ func _on_Timer_timeout():
 			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status)+upspeed)
 			enemies.call_deferred("add_child", enemy_spawn)
 			
-	time += 2
+			
+			
+	time += 4
 	if time >= 1200 and Global.selectMod == 0:
 		Global.player_dead = true
 	HUD.update_time(time)
@@ -223,7 +225,9 @@ func _on_Timer_timeout():
 			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
 			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status))
+			enemy_spawn.Type = "Boss"
 			enemies.call_deferred("add_child", enemy_spawn)
+			
 	# Max 900
 	if time == 180 or time == 420 or time == 720 :
 		enemy_spawn = enemy_Event_cycle.instance()
