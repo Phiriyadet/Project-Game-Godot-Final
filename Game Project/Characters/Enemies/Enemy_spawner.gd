@@ -157,6 +157,7 @@ func _on_Timer_timeout():
 			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
 			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status)+upspeed)
+			enemy_spawn.Type = "Boss"
 			enemies.call_deferred("add_child", enemy_spawn)
 			
 		if timeupspeed >= 300 and timeupspeed%300 == 0:
@@ -186,11 +187,12 @@ func _on_Timer_timeout():
 			enemy_spawn.set_hp(enemy_spawn.get_hp()+(enemy_spawn.get_hp()*plus_status))
 			enemy_spawn.set_atk(enemy_spawn.get_atk()+(enemy_spawn.get_atk()*plus_status))
 			enemy_spawn.set_spd(enemy_spawn.get_spd()+(enemy_spawn.get_spd()*plus_status)+upspeed)
+			enemy_spawn.Type = "Boss"
 			enemies.call_deferred("add_child", enemy_spawn)
 			
 			
 			
-	time += 4
+	time += 10
 	if time >= 1200 and Global.selectMod == 0:
 		Global.player_dead = true
 	HUD.update_time(time)
@@ -239,7 +241,7 @@ func _on_Timer_timeout():
 		enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 
-	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0:
+	if (time>=140 and time<=180) or (time>=300 and time<=340)or time > 4 and time%2==0:
 		enemy_spawn = enemy_Event_shot.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)

@@ -25,3 +25,7 @@ shape = SubResource( 1 )
 stream = ExtResource( 4 )
 volume_db = 20.0
 bus = "Sounds"
+
+[node name="Timer" type="Timer" parent="." index="2"]
+wait_time = 0.25
+one_shot = true

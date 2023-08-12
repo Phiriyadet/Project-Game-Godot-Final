@@ -108,7 +108,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
@@ -120,10 +120,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false, true ]
+"values": [ true, false, true, false, true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
@@ -144,7 +144,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ "move" ]
@@ -208,4 +208,9 @@ anims/move = SubResource( 8 )
 [node name="Collision_enemy" type="CollisionPolygon2D" parent="." index="5"]
 disabled = true
 
+[node name="Timer" type="Timer" parent="." index="6"]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_shape_entered" from="Hitbox" to="Hitbox" method="_on_Hitbox_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

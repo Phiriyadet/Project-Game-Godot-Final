@@ -32,6 +32,7 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.time_stop = 0
 	randomize()
 	select_player(Global.player_select)
 	if p != null and player != null:

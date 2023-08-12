@@ -12,7 +12,6 @@ func _ready():
 	$AudioStreamPlayer2D.volume_db = 30
 
 func _physics_process(delta):
-	print($AudioStreamPlayer2D.volume_db)
 	if $AudioStreamPlayer2D.volume_db >50 or valum == 1:
 		$AudioStreamPlayer2D.volume_db -=1
 		valum = 1

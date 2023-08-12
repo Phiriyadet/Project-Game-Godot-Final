@@ -21,6 +21,7 @@ var speed_pumpkin = 3
 
 var sound_Explosion = 0
 var open_chest = 0
+var time_stop = 0
 
 var gio_take_dm = 0
 var selectMod = 0

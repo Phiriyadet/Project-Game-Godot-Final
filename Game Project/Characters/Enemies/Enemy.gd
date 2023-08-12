@@ -15,10 +15,22 @@ export(int) var  exp_enemy = 1 setget set_expmon, get_expmon
 var posi_enemy = Vector2.ZERO
 var posi_player
 var nummm = 0
+var get_speed_old
+var once = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 func _physics_process(delta):
-	if self.hp < 0:
-		print(Type)
+	
+	if self.spd>0:
+		get_speed_old = self.spd
+	if Global.time_stop == 1:
+		self.spd = 0
+		if once == 0:
+			$Timer.start()
+			once+=1
+	if Global.time_stop == 0:
+		once = 0
+		if once > 0:
+			self.spd = get_speed_old
 	if $AnimatedSprite.flip_h:
 			$Collision_enemy.scale.x = -1
 			$Hitbox/CollisionShape2D.scale.x = -1
@@ -27,7 +39,7 @@ func _physics_process(delta):
 			$Hitbox/CollisionShape2D.scale.x = 1
 			
 	posi_player = player.global_position
-	if spd>0:
+	if self.spd>0:
 		if (position.x-posi_player.x) > 800 or (position.x-posi_player.x) < -800:
 	#			print(position - posi_player)
 				queue_free()
@@ -113,3 +125,7 @@ func get_expmon():
 #		path = navigation.get_simple_path(global_position, player.global_position, false)
 		
 
+
+
+func _on_Timer_timeout():
+	Global.time_stop = 0
