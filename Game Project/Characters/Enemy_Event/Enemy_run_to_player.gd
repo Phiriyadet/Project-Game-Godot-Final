@@ -1,13 +1,9 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var Cock
 onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 var move_to
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	move_to = global_position.direction_to(player.global_position)
 	for i in range(21):

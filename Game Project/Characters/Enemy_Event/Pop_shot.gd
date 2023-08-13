@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 onready var pop_shot = $PopCat
 onready var player := get_tree().current_scene.get_node("Player").get_child(0)
 onready var spawn_fire = $Spawn_Fire
@@ -25,10 +24,6 @@ func _physics_process(delta):
 	else:
 		queue_free()
 		
-	if (position.x-player.global_position.x) > 800 or (position.x-player.global_position.x) < -800:
-		queue_free()
-	elif (position.y-player.global_position.y) > 800 or (position.y-player.global_position.y) < -800:
-		queue_free()
 
 func _on_Attack_timeout():
 	var fire_Attack = fire_ball.instance()
