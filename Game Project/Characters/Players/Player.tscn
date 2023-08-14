@@ -334,7 +334,6 @@ custom_constants/hseparation = 50
 columns = 4
 
 [node name="Popup" type="Popup" parent="UI/GUI" index="9"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

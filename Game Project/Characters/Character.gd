@@ -77,7 +77,7 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 			if is_in_group("enemy"):
 				Global.enemy_dead_count+=1
 				Global.num0 -=1
-				print("enemy dead")
+#				print("enemy dead")
 			state_machine.set_state(state_machine.states.dead)
 			velocity += dir * force * 2
 		

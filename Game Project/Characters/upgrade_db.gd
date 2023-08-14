@@ -149,7 +149,7 @@ var UPGRADES = {
 		"type": "item"
 	},
 	"ThePumpkinDance": {
-		"icon": ITEM_PATH + "pumpkin_dance.png.png",
+		"icon": ITEM_PATH + "pumpkin_dance.png",
 		"displayname": "The Pumpkin Dance",
 		"details": "ปรากฏตัวออกมาช่วยเก็บ EXP เวลาคูลดาวน์ 15 วินาที เวลาคงอยู่ตามเลเวล(วินาที)",
 		"level": 1,

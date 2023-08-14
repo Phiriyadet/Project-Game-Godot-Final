@@ -4,8 +4,11 @@ class_name Player
 
 
 ### Automatic References Start ###
+onready var _change_new_upgrade: Panel = $UI/GUI/ChangeNewUpgrade
 onready var _collected_items: GridContainer = $UI/GUI/CollectedItems
+onready var _collected_upgrades_box: VBoxContainer = $UI/GUI/ChangeNewUpgrade/ChangeContainer/SelectContainer/CollectedUpgrades
 onready var _collected_weapons: GridContainer = $UI/GUI/CollectedWeapons
+onready var _new_upgrade_box: VBoxContainer = $UI/GUI/ChangeNewUpgrade/ChangeContainer/SelectContainer/NewUpgrade
 ### Automatic References Stop ###
 
 
@@ -15,7 +18,7 @@ export(int) var collected_coin = 0 setget set_collectedCoin, get_collectedCoin
 
 onready var weapons: Node2D = get_node("Weapons")
 onready var skills: Node2D = get_node("Skills")
-onready var items: Node2D = get_node("Weapons")
+onready var items: Node2D = get_node("Items")
 
 onready var collision2d = get_node("CollisionShape2D")
 onready var picradius:CollisionShape2D = get_node("PickupRadius/CollisionShape2D")
@@ -34,6 +37,8 @@ onready var LevelUp = get_node("UI/GUI/LevelUp")
 onready var upOpGUI = get_node("UI/GUI/LevelUp/UpgradeOption")
 onready var upgradeOpScene = preload("res://Characters/Players/GUI/UpgradeOption.tscn")
 onready var collectedItemsScene = preload("res://Characters/Players/GUI/ItemContainer.tscn")
+onready var collet_wis = preload("res://Characters/Players/GUI/CollectedWIS.tscn")
+
 
 
 var experience = 0 #exp ที่เก็บไว้/มีอยู่
@@ -42,8 +47,14 @@ var collected_experience = 0 #exp ที่เก็บได้ใหม่
 var can_active_sSkill: bool = true
 var check_can_take_damage: bool = true
 
+var max_weapon_upgrades = 4
+var max_item_upgrades = 4
 var collected_upgrades = []
 var upgrade_options = []
+
+var type_upgrade
+var old_upgrade
+var new_upgrade
 
 func _ready():
 	Global.open_chest = 0
@@ -164,9 +175,37 @@ func levelup():
 #	LevelUp.show()
 	get_tree().paused = true
 
-func popup_collected_full():
+func popup_collected_full(upgrade, type):
 	popup.show()
 	popup_countdown_timer.start()
+#	var children = _collected_upgrades_box.get_children()
+#	for i in children:
+#		i.queue_free()
+#
+#	children = _new_upgrade_box.get_children()
+#	for i in children:
+#		i.queue_free()
+##	_collected_upgrades_box.remove_children()  # Clear the box before adding new children
+#
+#	var collected_item = collet_wis.instance()
+#	collected_item.item = upgrade
+#	new_upgrade = upgrade
+#	type_upgrade = type
+#	_new_upgrade_box.add_child(collected_item)
+#
+#	for collected_upgrade in collected_upgrades:
+#		var collected_upgrade_type = UpgradeDb.UPGRADES[collected_upgrade]["type"]
+#		if collected_upgrade_type == type:
+#			collected_item = selectNewUpgrade.instance()
+#			collected_item.item = collected_upgrade
+#			_collected_upgrades_box.add_child(collected_item)
+#
+#	_change_new_upgrade.show()
+
+	
+func select_old_upgrade(o_up):
+#	_change_new_upgrade.old_upgrade = old_upgrade
+	old_upgrade = o_up
 	
 func print_debug_upgrade(upgrade, instance):
 	print_debug("upgrade: ", upgrade, ":", instance.get_level())
@@ -185,15 +224,19 @@ func upgrade_character(upgrade):
 		# Weapon upgrades
 		"BonkBat", "BonkMissile", "GunHand", "Nokia3310", "Punch", "TwoGuitars":
 			var weapon_name = upgrade
+			var type = "weapon"
 			if not weapons.has_node(weapon_name):
+				print_debug("weapons:", weapons.get_child_count())
+			
 				if weapons.get_child_count() != 4:
 					# Create a new instance of the weapon upgrade
 					instance = upgrade_scenes[weapon_name].instance()
 					weapons.add_child(instance)
+					adjust_gui_collection(upgrade)
 					increase_dataLevel_upgrade(upgrade)
 #					icon_pass = true
 				else:
-					popup_collected_full()  # Display a message for full upgrades
+					popup_collected_full(upgrade, type)  # Display a message for full upgrades
 			else:
 				instance = weapons.get_node(weapon_name)
 				instance.set_newlevel(instance.get_level())
@@ -215,22 +258,26 @@ func upgrade_character(upgrade):
 		# Item upgrades
 		"Amogus", "NanomachinesSon", "SuezCanalJam", "TakeMyMoney", "TheMotivation", "ThePumpkinDance":
 			var item_name = upgrade
+			var type = "item"
 			if not items.has_node(item_name):
+				print_debug("items:", items.get_child_count())
+				
 				if items.get_child_count() != 4:
 					# Create a new instance of the item upgrade
 					instance = upgrade_scenes[item_name].instance()
 					items.add_child(instance)
+					adjust_gui_collection(upgrade)
 					increase_dataLevel_upgrade(upgrade)
 #					icon_pass = true
 				else:
-					popup_collected_full()  # Display a message for full upgrades
+					popup_collected_full(upgrade, type)  # Display a message for full upgrades
 			else:
 				instance = items.get_node(item_name)
 				instance.set_newlevel(instance.get_level())
 				increase_dataLevel_upgrade(upgrade)
 
 #	if icon_pass:
-	adjust_gui_collection(upgrade)
+#	adjust_gui_collection(upgrade)
 
 	var option_children = upOpGUI.get_children()
 	for i in option_children:
@@ -238,33 +285,48 @@ func upgrade_character(upgrade):
 	upgrade_options.clear()
 	if not collected_upgrades.has(upgrade):
 		collected_upgrades.append(upgrade)
+			
 	Global.collected_allitem = collected_upgrades
 	LevelUp.visible = false
-	get_tree().paused = false
+	if not _change_new_upgrade.is_visible():
+		get_tree().paused = false
 	calculate_experience(0)
 
 
 	
 func get_random_item():
 	var dblist = []
-
+	var collected_weapon_count = 0
+	var collected_item_count = 0
+	for collected_upgrade in collected_upgrades:
+		var collected_upgrade_type = UpgradeDb.UPGRADES[collected_upgrade]["type"]
+		if collected_upgrade_type == "weapon":
+			collected_weapon_count += 1
+		elif collected_upgrade_type == "item":
+			collected_item_count += 1
+	
 	for i in UpgradeDb.UPGRADES:
-		if i in collected_upgrades: # Find already collected upgrades
-			if not i in dblist: # Check if the item is already in dblist
+		if i in collected_upgrades:
+			if not i in dblist:
 				dblist.append(i)
-		elif i in upgrade_options: # If the upgrade is already an option
-			if not i in dblist: # Check if the item is already in dblist
+				print("i in collected_upgrades")
+		elif i in upgrade_options:
+			if not i in dblist:
 				dblist.append(i)
-#		elif UpgradeDb.UPGRADES[i]["type"] == "item": # Don't pick food
-#			pass
+				print("i in upgrade_options")
+		elif UpgradeDb.UPGRADES[i]["type"] == "skill":
+			dblist.append(i)	
+		elif UpgradeDb.UPGRADES[i]["type"] == "weapon" and collected_weapon_count < 4 and not i in collected_upgrades:
+			dblist.append(i)
+			print("i is weapon")
+		elif UpgradeDb.UPGRADES[i]["type"] == "item" and collected_item_count < 4 and not i in collected_upgrades:
+			dblist.append(i)
+			print("i is weapon")
 		
-		else: # If there are no prerequisites
-			if not i in dblist: # Check if the item is already in dblist
-				dblist.append(i)
+		
 	
 	if dblist.size() > 0:
 		var randomitem = dblist[rand_range(0, dblist.size() - 1)]
-		print(dblist)
 		upgrade_options.append(randomitem)
 		return randomitem
 	else:
@@ -288,9 +350,10 @@ func adjust_gui_collection(upgrade):
 				"item":
 					_collected_items.add_child(new_item)
 
+
 func gameover():
 	print("Game Over")
-		
+
 func set_pickup(new_pick):
 	pickup_radius = new_pick
 
@@ -313,23 +376,19 @@ func _on_PickupRadius_area_entered(area):
 	if area.is_in_group("loot"):
 		area.target = self
 
-
 func _on_CollectArea_area_entered(area):
 	if area.is_in_group("loot"):
 		var gem_exp = area.grab() 
 		calculate_experience(gem_exp)
 
-
 func _on_Player_hp_changed():
 	set_healthbar()
 #	healthBar.value = new_hp
 
-
 func _on_CoolDawnTimer_timeout():
 	can_active_sSkill = true
 
-
-
 func _on_CountDownTimer_timeout():
 	popup.hide()
+
 

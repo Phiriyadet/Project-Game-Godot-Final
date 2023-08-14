@@ -16,7 +16,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
+	
+	
 func set_newlevel(old_level:int):
 	level = clamp(old_level+1, 1, 7)
 	check_level()

@@ -47,8 +47,8 @@ margin_bottom = 64.0
 [node name="Victory" parent="HUD" instance=ExtResource( 3 )]
 margin_left = 256.0
 margin_top = 116.0
-margin_right = -96.0
-margin_bottom = -26.0
+margin_right = -256.0
+margin_bottom = -112.0
 
 [node name="Enemy_spawner" parent="." instance=ExtResource( 6 )]
 

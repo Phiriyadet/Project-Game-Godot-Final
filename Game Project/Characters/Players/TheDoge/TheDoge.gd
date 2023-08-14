@@ -13,7 +13,13 @@ func _ready():
 	self.pickup_radius = 20
 	self.spacial_skill = false
 	upgrade_character("BonkBat")
+	upgrade_character("TwoGuitars")
+	upgrade_character("Punch")
+	upgrade_character("BonkMissile")
 	upgrade_character("NanomachinesSon")
+	upgrade_character("TakeMyMoney")
+	upgrade_character("TheMotivation")
+	upgrade_character("Amogus")
 	
 
 func _process(delta):
