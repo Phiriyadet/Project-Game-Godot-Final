@@ -119,6 +119,82 @@ text = "อาวุธสกิลและไอเทมทั้งหมด
 [node name="Settings" parent="." instance=ExtResource( 3 )]
 visible = false
 
+[node name="AllStatus" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -52.0
+margin_bottom = 76.0
+
+[node name="Label" type="Label" parent="AllStatus"]
+margin_top = 8.0
+margin_right = 39.0
+margin_bottom = 22.0
+text = "Status"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AllStatus"]
+margin_top = 24.0
+margin_right = 212.0
+margin_bottom = 92.0
+
+[node name="StatusContainer" type="VBoxContainer" parent="AllStatus/HBoxContainer"]
+margin_right = 104.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
+margin_right = 104.0
+margin_bottom = 14.0
+text = "HP"
+
+[node name="Label2" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
+margin_top = 18.0
+margin_right = 104.0
+margin_bottom = 32.0
+text = "ATK"
+
+[node name="Label3" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
+margin_top = 36.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "SPD"
+
+[node name="Label4" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
+margin_top = 54.0
+margin_right = 104.0
+margin_bottom = 68.0
+text = "PICKUP RADIUS "
+
+[node name="StatusContainer2" type="VBoxContainer" parent="AllStatus/HBoxContainer"]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 68.0
+
+[node name="HpLabel" type="Label" parent="AllStatus/HBoxContainer/StatusContainer2"]
+margin_right = 104.0
+margin_bottom = 14.0
+text = "HP"
+
+[node name="AtkLabel" type="Label" parent="AllStatus/HBoxContainer/StatusContainer2"]
+margin_top = 18.0
+margin_right = 104.0
+margin_bottom = 32.0
+text = "ATK"
+
+[node name="SpdLabel" type="Label" parent="AllStatus/HBoxContainer/StatusContainer2"]
+margin_top = 36.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "SPD"
+
+[node name="PrLabel" type="Label" parent="AllStatus/HBoxContainer/StatusContainer2"]
+margin_top = 54.0
+margin_right = 104.0
+margin_bottom = 68.0
+text = "PICKUP RADIUS "
+
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/BackToMainMenu" to="." method="_on_BackToMainMenu_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]

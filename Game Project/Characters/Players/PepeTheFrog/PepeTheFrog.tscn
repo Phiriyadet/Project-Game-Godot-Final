@@ -96,7 +96,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false, true ]
@@ -285,6 +285,7 @@ atk = 10
 spd = 60
 
 [node name="AnimatedSprite" parent="." index="1"]
+visible = true
 frames = SubResource( 11 )
 frame = 3
 
@@ -293,13 +294,12 @@ position = Vector2( -1, -1 )
 shape = SubResource( 1 )
 
 [node name="SpacialSkill" parent="." index="3"]
+visible = false
 scale = Vector2( 20, 20 )
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
-visible = false
 texture = ExtResource( 12 )
 hframes = 7
-frame = 1
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Sprite" index="0"]
 collision_layer = 0
@@ -308,7 +308,6 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Sprite/Hitbox" index="0"]
 shape = SubResource( 20 )
-disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/dead = SubResource( 15 )

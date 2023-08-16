@@ -290,6 +290,7 @@ func upgrade_character(upgrade):
 		collected_upgrades.append(upgrade)
 			
 	Global.collected_allitem = collected_upgrades
+	present_status()
 	LevelUp.visible = false
 	get_tree().paused = false
 	calculate_experience(0)
@@ -355,6 +356,7 @@ func adjust_gui_collection(upgrade):
 
 func gameover():
 	print("Game Over")
+	Global.game_over()
 
 func set_pickup(new_pick):
 	pickup_radius = new_pick
@@ -399,4 +401,11 @@ func _on_CoolDawnTimer_timeout():
 func _on_CountDownTimer_timeout():
 	popup.hide()
 
+func present_status():
+	Global.player_present_status = {
+		"HP": self.max_hp,
+		"ATK": self.atk,
+		"SPD": self.spd,
+		"PR": self.pickup_radius,
+	}
 
