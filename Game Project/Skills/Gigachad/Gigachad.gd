@@ -7,15 +7,10 @@ class_name Gigachad,"res://Assets/Skills/gigachad.png"
 ### Automatic References Start ###
 onready var _timer: Timer = $Timer
 
-var hp = 0
-# Called when the node enters the scene tree for the first time.
+var hp = 2
+
 func _ready():
 	_timer.start()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_Timer_timeout():
 	if player != null:

@@ -233,6 +233,8 @@ anims/spacial_attack = SubResource( 8 )
 [node name="Skills" type="Node2D" parent="." index="9"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="10"]
+rotating = true
+current = true
 zoom = Vector2( 2, 2 )
 
 [node name="CoolDawnTimer" type="Timer" parent="." index="11"]

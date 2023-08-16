@@ -593,7 +593,6 @@ __meta__ = {
 "_edit_group_": true,
 "_editor_description_": "ขอบเขตการโจมตี ตามทิศที่เดินไป ระยะโจมตี กลาง เวลาคูลดาวน์ 3 วินาที "
 }
-atk_w = 50000
 
 [node name="Node2D" parent="." index="0"]
 visible = false
