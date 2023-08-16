@@ -97,7 +97,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false, true ]
@@ -328,6 +328,9 @@ frame = 3
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 1, 0 )
 shape = SubResource( 11 )
+
+[node name="SpacialSkill" parent="." index="3"]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
 z_index = -1

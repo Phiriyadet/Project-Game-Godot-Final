@@ -19,7 +19,7 @@ const UPGRADE_SCENES : Dictionary = {
 	"Amogus":preload("res://Items/Amogus/Amogus.tscn"),
 	"NanomachinesSon":preload("res://Items/NanomachinesSon/NanomachinesSon.tscn"),
 	"SuezCanalJam":preload("res://Items/SuezCanalJam/SuezCanalJam.tscn"),
-	"TakeMyMoney":preload("res://Items/ThePumpkinDance/ThePumpkinDance.tscn"),
+	"TakeMyMoney":preload("res://Items/TakeMyMoney/TakeMyMoney.tscn"),
 	"TheMotivation":preload("res://Items/TheMotivation/TheMotivation.tscn"),
 	"ThePumpkinDance":preload("res://Items/ThePumpkinDance/ThePumpkinDance.tscn"),
 }

@@ -322,9 +322,6 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 12 )
 
-[node name="Camera2D" parent="." index="10"]
-zoom = Vector2( 5, 5 )
-
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 14 )
 

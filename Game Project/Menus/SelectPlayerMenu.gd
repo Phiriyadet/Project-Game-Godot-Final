@@ -84,9 +84,9 @@ var cc_f = 0
 
 
 func _ready():
-	doge_btn.self_modulate = Color(0, 0, 0, 1)
-	monkey_btn.self_modulate = Color(0, 0, 0, 1)
-	frog_btn.self_modulate = Color(0, 0, 0, 1)
+	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
+	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
+	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	playBtn.disabled = true
 	Global.enemy_dead_count = 0
 	_create_or_load_save()
@@ -203,8 +203,8 @@ func _on_PlayBtn_pressed():
 
 func _on_TextureRect_pressed():
 	doge_btn.self_modulate = Color(1, 1, 1, 1)
-	monkey_btn.self_modulate = Color(0, 0, 0, 1)
-	frog_btn.self_modulate = Color(0, 0, 0, 1)
+	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
+	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	if b_ss_d:
 		_buy_ss_btn.disabled = true
 		_switch_skill.disabled = false
@@ -218,9 +218,9 @@ func _on_TextureRect_pressed():
 	_update_switch_skill()
 
 func _on_TextureRect2_pressed():
-	doge_btn.self_modulate = Color(0, 0, 0, 1)
+	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	monkey_btn.self_modulate = Color(1, 1, 1, 1)
-	frog_btn.self_modulate = Color(0, 0, 0, 1)
+	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	if b_ss_m:
 		_buy_ss_btn.disabled = true
 		_switch_skill.disabled = false
@@ -235,8 +235,8 @@ func _on_TextureRect2_pressed():
 	_update_switch_skill()
 
 func _on_TextureRect3_pressed():
-	doge_btn.self_modulate = Color(0, 0, 0, 1)
-	monkey_btn.self_modulate = Color(0, 0, 0, 1)
+	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
+	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	frog_btn.self_modulate = Color(1, 1, 1, 1)
 	if b_ss_m:
 		_buy_ss_btn.disabled = true
