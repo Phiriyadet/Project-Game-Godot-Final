@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Menus/SelectPlayerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle-1.png" type="Texture" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://StyleBoxs/box_Theme1.tres" type="Theme" id=9]
 [ext_resource path="res://StyleBoxs/orangeColor.tres" type="StyleBox" id=10]
 [ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb1.png" type="Texture" id=11]
-[ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb5.png" type="Texture" id=12]
+[ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb7.png" type="Texture" id=12]
 [ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=13]
 [ext_resource path="res://StyleBoxs/playBtnTheme.tres" type="Theme" id=14]
 
@@ -25,7 +25,15 @@ default_font = ExtResource( 5 )
 CheckButton/icons/off = ExtResource( 11 )
 CheckButton/icons/off_disabled = ExtResource( 11 )
 CheckButton/icons/on = ExtResource( 12 )
-CheckButton/icons/on_disabled = ExtResource( 12 )
+CheckButton/icons/on_disabled = null
+
+[sub_resource type="Theme" id=13]
+default_font = ExtResource( 5 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
 
 [sub_resource type="Theme" id=8]
 default_font = ExtResource( 5 )
@@ -240,13 +248,14 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
+margin_top = 14.0
 margin_right = 104.0
-margin_bottom = 24.0
+margin_bottom = 29.0
 alignment = 1
 
 [node name="plus_hp" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer"]
 margin_right = 50.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
@@ -254,20 +263,20 @@ text = "+"
 [node name="minus_hp" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer"]
 margin_left = 54.0
 margin_right = 104.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
-margin_top = 44.0
+margin_top = 49.0
 margin_right = 104.0
-margin_bottom = 68.0
+margin_bottom = 64.0
 alignment = 1
 
 [node name="plus_atk" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer2"]
 margin_right = 50.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
@@ -275,20 +284,20 @@ text = "+"
 [node name="minus_atk" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer2"]
 margin_left = 54.0
 margin_right = 104.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
-margin_top = 88.0
+margin_top = 84.0
 margin_right = 104.0
-margin_bottom = 112.0
+margin_bottom = 99.0
 alignment = 1
 
 [node name="plus_spd" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer3"]
 margin_right = 50.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
@@ -296,20 +305,20 @@ text = "+"
 [node name="minus_spd" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer3"]
 margin_left = 54.0
 margin_right = 104.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
-margin_top = 132.0
+margin_top = 119.0
 margin_right = 104.0
-margin_bottom = 156.0
+margin_bottom = 134.0
 alignment = 1
 
 [node name="plus_pickupR" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer4"]
 margin_right = 50.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
@@ -317,15 +326,15 @@ text = "+"
 [node name="minus_pickupR" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer4"]
 margin_left = 54.0
 margin_right = 104.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
-margin_top = 176.0
+margin_top = 154.0
 margin_right = 104.0
-margin_bottom = 203.0
+margin_bottom = 181.0
 alignment = 1
 
 [node name="switch_skill" type="CheckButton" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer5"]
@@ -447,6 +456,14 @@ margin_top = 13.0
 margin_right = 87.0
 margin_bottom = 27.0
 text = "$"
+
+[node name="BuySSBtn" type="Button" parent="ColorRect"]
+margin_left = 536.0
+margin_top = 248.0
+margin_right = 546.0
+margin_bottom = 275.0
+theme = SubResource( 13 )
+text = "ซื้อสกิลพิเศษ"
 
 [node name="RefundBtn" type="Button" parent="ColorRect"]
 anchor_left = 0.917
@@ -570,6 +587,7 @@ wait_time = 4.0
 [connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer4/plus_pickupR" to="." method="_on_plus_pickupR_pressed"]
 [connection signal="pressed" from="ColorRect/Panel/ButtonpContainer/HBoxContainer4/minus_pickupR" to="." method="_on_minus_pickupR_pressed"]
 [connection signal="toggled" from="ColorRect/Panel/ButtonpContainer/HBoxContainer5/switch_skill" to="." method="_on_switch_skill_toggled"]
+[connection signal="pressed" from="ColorRect/BuySSBtn" to="." method="_on_BuySSBtn_pressed"]
 [connection signal="pressed" from="ColorRect/RefundBtn" to="." method="_on_RefundBtn_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]

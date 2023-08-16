@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/font16.tres" type="DynamicFont" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Panel
+
+var items
+var weapons
+var type_upgrade
+var old_upgrade
+var new_upgrade
+onready var player:  = get_tree().current_scene.get_node(\"Player\").get_child(0)
+signal selected_new_upgrade(new_upgrade)
+func _ready():
+	connect(\"selected_new_upgrade\",player,\"upgrade_character\")
+#	pass
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_AcceptBtn_pressed():
+	if type_upgrade == \"item\":
+		var item = items.get_node(old_upgrade)
+		item.queue_free()
+		emit_signal(\"selected_new_upgrade\", new_upgrade)
+	elif type_upgrade == \"weapon\":
+		var weapon = weapons.get_node(old_upgrade)
+		weapon.queue_free()
+		emit_signal(\"selected_new_upgrade\", new_upgrade)
+	self.hide()
+	get_tree().paused = false
+
+
+func _on_CancelBtn_pressed():
+	self.hide()
+	get_tree().paused = false
+
+
+
+"
+
+[node name="ChangeNewUpgrade" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.5
+margin_top = -132.5
+margin_right = 210.5
+margin_bottom = 125.5
+script = SubResource( 1 )
+
+[node name="ChangeContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -127.5
+margin_right = 420.0
+margin_bottom = 130.5
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ChangeContainer"]
+margin_right = 420.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "คลิกเลือกอัปเกรดที่ต้องการเปลี่ยน"
+align = 1
+
+[node name="SelectContainer" type="HBoxContainer" parent="ChangeContainer"]
+margin_top = 23.0
+margin_right = 420.0
+margin_bottom = 23.0
+custom_constants/separation = 160
+
+[node name="CollectedUpgrades" type="VBoxContainer" parent="ChangeContainer/SelectContainer"]
+
+[node name="NewUpgrade" type="VBoxContainer" parent="ChangeContainer/SelectContainer"]
+margin_left = 160.0
+margin_right = 160.0
+alignment = 1
+
+[node name="BtnBox" type="HBoxContainer" parent="ChangeContainer"]
+margin_top = 27.0
+margin_right = 420.0
+margin_bottom = 52.0
+alignment = 1
+
+[node name="CancelBtn" type="Button" parent="ChangeContainer/BtnBox"]
+margin_left = 159.0
+margin_right = 211.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "ยกเลิก"
+
+[node name="AcceptBtn" type="Button" parent="ChangeContainer/BtnBox"]
+margin_left = 215.0
+margin_right = 261.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "ตกลง"

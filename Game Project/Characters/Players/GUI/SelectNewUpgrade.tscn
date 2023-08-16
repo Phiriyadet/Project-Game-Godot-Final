@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends ColorRect
+
+onready var lbl_name = $Details/lbl_name
+onready var lbl_desription = $Details/lbl_description
+onready var lbl_level = $Details/lbl_level
+onready var lbl_type = $Details/lbl_type
+onready var itemIcon = $ItemIcon
+onready var details = $Details
+
+var mouse_over = false
+var focus = false
+var item = null
+onready var player:  = get_tree().current_scene.get_node(\"Player\").get_child(0)
+signal selected_old_upgrade(upgrade)
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	
+	connect(\"selected_old_upgrade\",player,\"select_old_upgrade\")
+	lbl_name.text = UpgradeDb.UPGRADES[item][\"displayname\"]
+	lbl_desription.text = UpgradeDb.UPGRADES[item][\"details\"]
+	lbl_level.text = \"level \"+ str(clamp(UpgradeDb.UPGRADES[item][\"level\"]-1, 1, 7))
+	lbl_type.text = UpgradeDb.UPGRADES[item][\"type\"]
+	itemIcon.texture = load(UpgradeDb.UPGRADES[item][\"icon\"])
+	
+func _on_mouse_entered():
+	mouse_over = true
+	self.modulate = Color(0.03, 1, 0)
+#	print(\"enter\")
+
+func _on_mouse_exited():
+	mouse_over = false
+	self.modulate = Color(1, 1, 1)
+#	print(\"exit\")
+	
+func _input(event):
+	
+	if event.is_action_pressed(\"click\"):
+#		print(\"i'm here\")
+#		print_debug(\"item select:\", item)
+		if mouse_over:
+#			print_debug(\"item select:\", item)
+			emit_signal(\"selected_old_upgrade\", item)
+
+
+func _on_focus_entered():
+	self.modulate = Color(0, 0.5, 0.8)
+
+
+func _on_focus_exited():
+	self.modulate = Color(1, 1, 1)
+"
+
+[sub_resource type="DynamicFont" id=1]
+resource_local_to_scene = true
+size = 7
+font_data = ExtResource( 1 )
+
+[node name="SelectNewUpgrade" type="ColorRect"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+focus_mode = 2
+color = Color( 0.933333, 0.933333, 0.933333, 1 )
+script = SubResource( 2 )
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+margin_right = 48.0
+margin_bottom = 48.0
+expand = true
+
+[node name="Details" type="ColorRect" parent="."]
+margin_left = 48.0
+margin_right = 192.0
+margin_bottom = 48.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="lbl_name" type="Label" parent="Details"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 24.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 1 )
+text = "Name"
+autowrap = true
+
+[node name="lbl_description" type="Label" parent="Details"]
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 144.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "descrition"
+autowrap = true
+
+[node name="lbl_level" type="Label" parent="Details"]
+margin_left = 112.0
+margin_top = 8.0
+margin_right = 136.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "Lv"
+
+[node name="lbl_type" type="Label" parent="Details"]
+margin_left = 112.0
+margin_top = 24.0
+margin_right = 136.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+text = "type"
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

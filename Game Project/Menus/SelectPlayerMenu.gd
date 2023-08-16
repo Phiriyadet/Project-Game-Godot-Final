@@ -1,10 +1,11 @@
 extends Control
 
 ### Automatic References Start ###
+onready var _buy_ss_btn: Button = $ColorRect/BuySSBtn
 onready var _count_down_timer: Timer = $Popup/CountDownTimer
 onready var _label_dog: Label = $ColorRect/PlayersContainer/VBoxContainer/Label
-onready var _label_monkey: Label = $ColorRect/PlayersContainer/VBoxContainer2/Label
 onready var _label_frog: Label = $ColorRect/PlayersContainer/VBoxContainer3/Label
+onready var _label_monkey: Label = $ColorRect/PlayersContainer/VBoxContainer2/Label
 onready var _popup: Popup = $Popup
 onready var _price_atk: Label = $ColorRect/Panel/PriceContainer/price_atk
 onready var _price_hp: Label = $ColorRect/Panel/PriceContainer/price_hp
@@ -62,6 +63,7 @@ var atk_d = 0
 var spd_d = 0
 var pr_d = 0
 var ss_d = false
+var b_ss_d = false
 var cc_d = 0
 
 var hp_m = 0
@@ -69,6 +71,7 @@ var atk_m = 0
 var spd_m = 0
 var pr_m = 0
 var ss_m = false
+var b_ss_m = false
 var cc_m = 0
 
 var hp_f = 0
@@ -76,7 +79,9 @@ var atk_f = 0
 var spd_f = 0
 var pr_f = 0
 var ss_f = false
+var b_ss_f = false
 var cc_f = 0
+
 
 func _ready():
 	doge_btn.self_modulate = Color(0, 0, 0, 1)
@@ -105,6 +110,7 @@ func _create_or_load_save():
 	spd_d = _save.Dog.spd
 	pr_d = _save.Dog.pickup_radius
 	ss_d = _save.Dog.spacial_skill
+	b_ss_d = _save.Dog.buy_spacial_skill
 	cc_d = _save.Dog.collected_coin
 
 	hp_m = _save.Monkey.hp
@@ -112,6 +118,7 @@ func _create_or_load_save():
 	spd_m = _save.Monkey.spd
 	pr_m = _save.Monkey.pickup_radius
 	ss_m = _save.Monkey.spacial_skill
+	b_ss_m = _save.Monkey.buy_spacial_skill
 	cc_m = _save.Monkey.collected_coin
 
 	hp_f = _save.Frog.hp
@@ -119,6 +126,7 @@ func _create_or_load_save():
 	spd_f = _save.Frog.spd
 	pr_f = _save.Frog.pickup_radius
 	ss_f = _save.Frog.spacial_skill
+	b_ss_f = _save.Frog.buy_spacial_skill
 	cc_f = _save.Frog.collected_coin
 
 func _save_game():
@@ -129,6 +137,7 @@ func _save_game():
 	_save.Dog.spd = spd_d
 	_save.Dog.pickup_radius = pr_d
 	_save.Dog.spacial_skill = ss_d
+	_save.Dog.buy_spacial_skill = b_ss_d
 	_save.Dog.collected_coin = cc_d
 
 	_save.Monkey.hp = hp_m
@@ -136,6 +145,7 @@ func _save_game():
 	_save.Monkey.spd = spd_m
 	_save.Monkey.pickup_radius = pr_m
 	_save.Monkey.spacial_skill = ss_m
+	_save.Monkey.buy_spacial_skill = b_ss_m
 	_save.Monkey.collected_coin = cc_m
 
 	_save.Frog.hp = hp_f
@@ -143,6 +153,7 @@ func _save_game():
 	_save.Frog.spd = spd_f
 	_save.Frog.pickup_radius = pr_f
 	_save.Frog.spacial_skill = ss_f
+	_save.Frog.buy_spacial_skill = b_ss_f
 	_save.Frog.collected_coin = cc_f
 
 	_save.write_savecoin()
@@ -156,6 +167,7 @@ func setGlobalStausDoge():
 		"SPD": spd_d,
 		"Pickup_Radius": pr_d,
 		"Spacial_Skill": ss_d,
+		"Buy_Spacial_Skill": b_ss_d,
 		"Collected_Coin": cc_d,
 	}
 
@@ -167,6 +179,7 @@ func setGlobalStausMonkey():
 		"SPD": spd_m,
 		"Pickup_Radius": pr_m,
 		"Spacial_Skill": ss_m,
+		"Buy_Spacial_Skill": b_ss_m,
 		"Collected_Coin": cc_m,
 	}
 
@@ -178,6 +191,7 @@ func setGlobalStausFrog():
 		"SPD": spd_f,
 		"Pickup_Radius": pr_f,
 		"Spacial_Skill": ss_f,
+		"Buy_Spacial_Skill": b_ss_f,
 		"Collected_Coin": cc_f,
 	}
 
@@ -191,6 +205,12 @@ func _on_TextureRect_pressed():
 	doge_btn.self_modulate = Color(1, 1, 1, 1)
 	monkey_btn.self_modulate = Color(0, 0, 0, 1)
 	frog_btn.self_modulate = Color(0, 0, 0, 1)
+	if b_ss_d:
+		_buy_ss_btn.disabled = true
+		_switch_skill.disabled = false
+	else:
+		_buy_ss_btn.disabled = false
+		_switch_skill.disabled = true
 	setStatusLabel(hp_d, atk_d, spd_d, pr_d, ss_d)
 	playBtn.disabled = false
 	Global.player_select = "Doge"
@@ -201,9 +221,16 @@ func _on_TextureRect2_pressed():
 	doge_btn.self_modulate = Color(0, 0, 0, 1)
 	monkey_btn.self_modulate = Color(1, 1, 1, 1)
 	frog_btn.self_modulate = Color(0, 0, 0, 1)
+	if b_ss_m:
+		_buy_ss_btn.disabled = true
+		_switch_skill.disabled = false
+	else:
+		_buy_ss_btn.disabled = false
+		_switch_skill.disabled = true
 	setStatusLabel(hp_m, atk_m, spd_m, pr_m, ss_m)
 	playBtn.disabled = false
 	Global.player_select = "Monkey"
+
 	setGlobalStausMonkey()
 	_update_switch_skill()
 
@@ -211,9 +238,16 @@ func _on_TextureRect3_pressed():
 	doge_btn.self_modulate = Color(0, 0, 0, 1)
 	monkey_btn.self_modulate = Color(0, 0, 0, 1)
 	frog_btn.self_modulate = Color(1, 1, 1, 1)
+	if b_ss_m:
+		_buy_ss_btn.disabled = true
+		_switch_skill.disabled = false
+	else:
+		_buy_ss_btn.disabled = false
+		_switch_skill.disabled = true
 	setStatusLabel(hp_f, atk_f, spd_f, pr_f, ss_f)
 	playBtn.disabled = false
 	Global.player_select = "Frog"
+	
 	setGlobalStausFrog()
 	_update_switch_skill()
 
@@ -233,16 +267,19 @@ func _on_plus_hp_pressed():
 		match Global.player_select:
 			"Doge":
 				coinL.text = str(int(coinL.text) - int(_price_hp.text))
+				cc_d += int(_price_hp.text)
 				hp_d = clamp(hp_d + 10, min_hp_d, max_hp_d)
 				hpL.text = str(hp_d)
 				setGlobalStausDoge()
 			"Monkey":
 				coinL.text = str(int(coinL.text) - int(_price_hp.text))
+				cc_m += int(_price_hp.text)
 				hp_m = clamp(hp_m + 10, min_hp_m, max_hp_m)
 				hpL.text = str(hp_m)
 				setGlobalStausMonkey()
 			"Frog":
 				coinL.text = str(int(coinL.text) - int(_price_hp.text))
+				cc_f += int(_price_hp.text)
 				hp_f = clamp(hp_f + 10, min_hp_f, max_hp_f)
 				hpL.text = str(hp_f)
 				setGlobalStausFrog()
@@ -252,115 +289,218 @@ func _on_plus_hp_pressed():
 		_count_down_timer.start()
 
 func _on_minus_hp_pressed():
+	
 	match Global.player_select:
 		"Doge":
-			hp_d = clamp(hp_d - 10, min_hp_d, max_hp_d)
-			hpL.text = str(hp_d)
-			setGlobalStausDoge()
+			if int(cc_d) >= int(_price_hp.text):
+				coinL.text = str(int(coinL.text) + int(_price_hp.text))
+				cc_d -= int(_price_hp.text)
+				hp_d = clamp(hp_d - 10, min_hp_d, max_hp_d)
+				hpL.text = str(hp_d)
+				setGlobalStausDoge()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Monkey":
-			hp_m = clamp(hp_m - 10, min_hp_m, max_hp_m)
-			hpL.text = str(hp_m)
-			setGlobalStausMonkey()
+			if int(cc_m) >= int(_price_hp.text):
+				coinL.text = str(int(coinL.text) + int(_price_hp.text))
+				cc_m -= int(_price_hp.text)
+				hp_m = clamp(hp_m - 10, min_hp_m, max_hp_m)
+				hpL.text = str(hp_m)
+				setGlobalStausMonkey()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Frog":
-			hp_f = clamp(hp_f - 10, min_hp_f, max_hp_f)
-			hpL.text = str(hp_f)
-			setGlobalStausFrog()
+			if int(cc_f) >= int(_price_hp.text):
+				coinL.text = str(int(coinL.text) + int(_price_hp.text))
+				cc_f -= int(_price_hp.text)
+				hp_f = clamp(hp_f - 10, min_hp_f, max_hp_f)
+				hpL.text = str(hp_f)
+				setGlobalStausFrog()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 	_save_game()
 
 func _on_plus_atk_pressed():
-	match Global.player_select:
-		"Doge":
-			atk_d = clamp(atk_d + 10, min_atk_d, max_atk_d)
-			atkL.text = str(atk_d)
-			setGlobalStausDoge()
-		"Monkey":
-			atk_m = clamp(atk_m + 10, min_atk_m, max_atk_m)
-			atkL.text = str(atk_m)
-			setGlobalStausMonkey()
-		"Frog":
-			atk_f = clamp(atk_f + 10, min_atk_f, max_atk_f)
-			atkL.text = str(atk_f)
-			setGlobalStausFrog()
-	_save_game()
+	if int(coinL.text) >= int(_price_hp.text):
+		match Global.player_select:
+			"Doge":
+				coinL.text = str(int(coinL.text) - int(_price_atk.text))
+				cc_d += int(_price_atk.text)
+				atk_d = clamp(atk_d + 10, min_atk_d, max_atk_d)
+				atkL.text = str(atk_d)
+				setGlobalStausDoge()
+			"Monkey":
+				coinL.text = str(int(coinL.text) - int(_price_atk.text))
+				cc_m += int(_price_atk.text)
+				atk_m = clamp(atk_m + 10, min_atk_m, max_atk_m)
+				atkL.text = str(atk_m)
+				setGlobalStausMonkey()
+			"Frog":
+				coinL.text = str(int(coinL.text) - int(_price_atk.text))
+				cc_f += int(_price_atk.text)
+				atk_f = clamp(atk_f + 10, min_atk_f, max_atk_f)
+				atkL.text = str(atk_f)
+				setGlobalStausFrog()
+		_save_game()
+	else:
+		_popup.show()
+		_count_down_timer.start()
 
 func _on_minus_atk_pressed():
 	match Global.player_select:
 		"Doge":
-			atk_d = clamp(atk_d - 10, min_atk_d, max_atk_d)
-			atkL.text = str(atk_d)
-			setGlobalStausDoge()
+			if int(cc_d) >= int(_price_spd.text):
+				coinL.text = str(int(coinL.text) + int(_price_spd.text))
+				cc_d -= int(_price_hp.text)
+				atk_d = clamp(atk_d - 10, min_atk_d, max_atk_d)
+				atkL.text = str(atk_d)
+				setGlobalStausDoge()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Monkey":
-			atk_m = clamp(atk_m - 10, min_atk_m, max_atk_m)
-			atkL.text = str(atk_m)
-			setGlobalStausMonkey()
+			if int(cc_m) >= int(_price_spd.text):
+				coinL.text = str(int(coinL.text) + int(_price_spd.text))
+				cc_m -= int(_price_hp.text)
+				atk_m = clamp(atk_m - 10, min_atk_m, max_atk_m)
+				atkL.text = str(atk_m)
+				setGlobalStausMonkey()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Frog":
-			atk_f = clamp(atk_f - 10, min_atk_f, max_atk_f)
-			atkL.text = str(atk_f)
-			setGlobalStausFrog()
+			if int(cc_f) >= int(_price_spd.text):
+				coinL.text = str(int(coinL.text) + int(_price_spd.text))
+				cc_f -= int(_price_hp.text)
+				atk_f = clamp(atk_f - 10, min_atk_f, max_atk_f)
+				atkL.text = str(atk_f)
+				setGlobalStausFrog()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 	_save_game()
 
 func _on_plus_spd_pressed():
-	match Global.player_select:
-		"Doge":
-			spd_d = clamp(spd_d + 10, min_spd_d, max_spd_d)
-			spdL.text = str(spd_d)
-			setGlobalStausDoge()
-		"Monkey":
-			spd_m = clamp(spd_m + 10, min_spd_m, max_spd_m)
-			spdL.text = str(spd_m)
-			setGlobalStausMonkey()
-		"Frog":
-			spd_f = clamp(spd_f + 10, min_spd_f, max_spd_f)
-			spdL.text = str(spd_f)
-			setGlobalStausFrog()
-	_save_game()
+	if int(coinL.text) >= int(_price_spd.text):
+		match Global.player_select:
+			"Doge":
+				coinL.text = str(int(coinL.text) - int(_price_spd.text))
+				cc_d += int(_price_spd.text)
+				spd_d = clamp(spd_d + 10, min_spd_d, max_spd_d)
+				spdL.text = str(spd_d)
+				setGlobalStausDoge()
+			"Monkey":
+				coinL.text = str(int(coinL.text) - int(_price_spd.text))
+				cc_m += int(_price_spd.text)
+				spd_m = clamp(spd_m + 10, min_spd_m, max_spd_m)
+				spdL.text = str(spd_m)
+				setGlobalStausMonkey()
+			"Frog":
+				coinL.text = str(int(coinL.text) - int(_price_spd.text))
+				cc_f += int(_price_spd.text)
+				spd_f = clamp(spd_f + 10, min_spd_f, max_spd_f)
+				spdL.text = str(spd_f)
+				setGlobalStausFrog()
+		_save_game()
+	else:
+		_popup.show()
+		_count_down_timer.start()
 
 func _on_minus_spd_pressed():
 	match Global.player_select:
 		"Doge":
-			spd_d = clamp(spd_d - 10, min_spd_d, max_spd_d)
-			spdL.text = str(spd_d)
-			setGlobalStausDoge()
+			if int(cc_d) >= int(_price_spd.text):
+				coinL.text = str(int(coinL.text) + int(_price_spd.text))
+				cc_d -= int(_price_spd.text)
+				spd_d = clamp(spd_d - 10, min_spd_d, max_spd_d)
+				spdL.text = str(spd_d)
+				setGlobalStausDoge()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Monkey":
-			spd_m = clamp(spd_m - 10, min_spd_m, max_spd_m)
-			spdL.text = str(spd_m)
-			setGlobalStausMonkey()
+			if int(cc_m) >= int(_price_spd.text):
+				coinL.text = str(int(coinL.text) + int(_price_spd.text))
+				cc_m -= int(_price_spd.text)
+				spd_m = clamp(spd_m - 10, min_spd_m, max_spd_m)
+				spdL.text = str(spd_m)
+				setGlobalStausMonkey()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Frog":
-			spd_f = clamp(spd_f - 10, min_spd_f, max_spd_f)
-			spdL.text = str(spd_f)
-			setGlobalStausFrog()
+			if int(cc_f) >= int(_price_spd.text):
+				coinL.text = str(int(coinL.text) + int(_price_spd.text))
+				cc_f -= int(_price_spd.text)
+				spd_f = clamp(spd_f - 10, min_spd_f, max_spd_f)
+				spdL.text = str(spd_f)
+				setGlobalStausFrog()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 	_save_game()
 
 func _on_plus_pickupR_pressed():
-	match Global.player_select:
-		"Doge":
-			pr_d = clamp(pr_d + 10, min_pr_d, max_pr_d)
-			prL.text = str(pr_d)
-			setGlobalStausDoge()
-		"Monkey":
-			pr_m = clamp(pr_m + 10, min_hp_m, max_pr_m)
-			prL.text = str(pr_m)
-			setGlobalStausMonkey()
-		"Frog":
-			pr_f = clamp(pr_f + 10, min_pr_f, max_pr_f)
-			prL.text = str(pr_f)
-			setGlobalStausFrog()
-	_save_game()
+	if int(coinL.text) >= int(_price_pr.text):
+		match Global.player_select:
+			"Doge":
+				coinL.text = str(int(coinL.text) - int(_price_pr.text))
+				cc_d += int(_price_pr.text)
+				pr_d = clamp(pr_d + 10, min_pr_d, max_pr_d)
+				prL.text = str(pr_d)
+				setGlobalStausDoge()
+			"Monkey":
+				coinL.text = str(int(coinL.text) - int(_price_pr.text))
+				cc_m += int(_price_pr.text)
+				pr_m = clamp(pr_m + 10, min_hp_m, max_pr_m)
+				prL.text = str(pr_m)
+				setGlobalStausMonkey()
+			"Frog":
+				coinL.text = str(int(coinL.text) - int(_price_pr.text))
+				cc_f += int(_price_pr.text)
+				pr_f = clamp(pr_f + 10, min_pr_f, max_pr_f)
+				prL.text = str(pr_f)
+				setGlobalStausFrog()
+		_save_game()
+	else:
+		_popup.show()
+		_count_down_timer.start()
 
 func _on_minus_pickupR_pressed():
 	match Global.player_select:
 		"Doge":
-			pr_d = clamp(pr_d - 10, min_pr_d, max_pr_d)
-			prL.text = str(pr_d)
-			setGlobalStausDoge()
+			if int(cc_d) >= int(_price_pr.text):
+				coinL.text = str(int(coinL.text) + int(_price_pr.text))
+				cc_d -= int(_price_pr.text)
+				pr_d = clamp(pr_d - 10, min_pr_d, max_pr_d)
+				prL.text = str(pr_d)
+				setGlobalStausDoge()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Monkey":
-			pr_m = clamp(pr_m - 10, min_hp_m, max_pr_m)
-			prL.text = str(pr_m)
-			setGlobalStausMonkey()
+			if int(cc_m) >= int(_price_pr.text):
+				coinL.text = str(int(coinL.text) + int(_price_pr.text))
+				cc_m -= int(_price_pr.text)
+				pr_m = clamp(pr_m - 10, min_hp_m, max_pr_m)
+				prL.text = str(pr_m)
+				setGlobalStausMonkey()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 		"Frog":
-			pr_f = clamp(pr_f - 10, min_pr_f, max_pr_f)
-			prL.text = str(pr_f)
-			setGlobalStausFrog()
+			if int(cc_f) >= int(_price_pr.text):
+				coinL.text = str(int(coinL.text) + int(_price_pr.text))
+				cc_f -= int(_price_pr.text)
+				pr_f = clamp(pr_f - 10, min_pr_f, max_pr_f)
+				prL.text = str(pr_f)
+				setGlobalStausFrog()
+			else:
+				_popup.show()
+				_count_down_timer.start()
 	_save_game()
 
 func _on_switch_skill_toggled(button_pressed):
@@ -368,27 +508,72 @@ func _on_switch_skill_toggled(button_pressed):
 		"Doge":
 			ss_d = button_pressed
 			if ss_d:
-				ssL.text = "Active"
+					ssL.text = "Active"
 			else:
-				ssL.text = "Inactive"
+					ssL.text = "Inactive"
+				
 			setGlobalStausDoge()
 		"Monkey":
 			ss_m = button_pressed
 			if ss_m:
-				ssL.text = "Active"
+				
+					ssL.text = "Active"
 			else:
-				ssL.text = "Inactive"
+					ssL.text = "Inactive"
+				
 			setGlobalStausMonkey()
 		"Frog":
 			ss_f = button_pressed
 			if ss_f:
-				ssL.text = "Active"
+					ssL.text = "Active"
 			else:
-				ssL.text = "Inactive"
+					ssL.text = "Inactive"
 			setGlobalStausFrog()
+			
 	_update_switch_skill()
 	_save_game()
-
+	
+func _on_BuySSBtn_pressed():
+	if int(coinL.text) >= int(_price_ss.text):
+		match Global.player_select:
+				"Doge":
+					if not b_ss_d:
+						coinL.text = str(int(coinL.text) - int(_price_ss.text))
+						cc_d += int(_price_ss.text)
+						_switch_skill.disabled = false
+						b_ss_d = true
+						ss_d = true
+						prL.text = str(ss_d)
+						setGlobalStausDoge()
+					else:
+						_buy_ss_btn.disabled = true
+				"Monkey":
+					if not b_ss_m:
+						coinL.text = str(int(coinL.text) - int(_price_ss.text))
+						cc_m += int(_price_ss.text)
+						_switch_skill.disabled = false
+						b_ss_m = true
+						ss_m = true
+						prL.text = str(ss_m)
+						setGlobalStausMonkey()
+					else:
+						_buy_ss_btn.disabled = true
+				"Frog":
+					if not b_ss_f:
+						coinL.text = str(int(coinL.text) - int(_price_ss.text))
+						cc_f += int(_price_ss.text)
+						_switch_skill.disabled = false
+						b_ss_f = true
+						ss_f = true
+						prL.text = str(ss_f)
+						setGlobalStausFrog()
+					else:
+						_buy_ss_btn.disabled = true
+		_save_game()
+	else:
+		_popup.show()
+		_count_down_timer.start()
+		
 func _on_CountDownTimer_timeout():
 	_popup.hide()
 
@@ -399,6 +584,8 @@ func _on_RefundBtn_pressed():
 			atk_d = 15
 			spd_d = 50
 			pr_d = 20
+			b_ss_d = false
+			_switch_skill.disabled = true
 			ss_d = false
 			coinL.text = str(int(coinL.text) + cc_d)
 			cc_d = 0
@@ -409,6 +596,8 @@ func _on_RefundBtn_pressed():
 			atk_m = 20
 			spd_m = 50
 			pr_m = 20
+			b_ss_m = false
+			_switch_skill.disabled = true
 			ss_m = false
 			coinL.text = str(int(coinL.text) + cc_m)
 			cc_m = 0
@@ -419,6 +608,8 @@ func _on_RefundBtn_pressed():
 			atk_f = 10
 			spd_f = 60
 			pr_f = 20
+			b_ss_f = false
+			_switch_skill.disabled = true
 			ss_f = false
 			coinL.text = str(int(coinL.text) + cc_f)
 			cc_f = 0
@@ -430,17 +621,22 @@ func _update_switch_skill():
 	# ตรวจสอบว่า _current_player_select มีค่าอะไร และตั้งค่าค่า _switch_skill ตามนั้น
 	match Global.player_select:
 		"Doge":
-			_switch_skill.pressed = ss_d
+			
+				_switch_skill.pressed = ss_d
+			
 		"Monkey":
-			_switch_skill.pressed = ss_m
+			
+				_switch_skill.pressed = ss_m
+			
 		"Frog":
-			_switch_skill.pressed = ss_f
+			
+				_switch_skill.pressed = ss_f
+			
 
 
 func _on_DogTextureRect_focus_entered():
 	_label_dog.self_modulate = Color(0.4,0.75,0.03)
 	_label_dog.uppercase = true
-
 
 func _on_DogTextureRect_focus_exited():
 	_label_dog.self_modulate = Color(1,1,1)
@@ -485,3 +681,6 @@ func _on_FrogTextureRect_mouse_entered():
 func _on_FrogTextureRect_mouse_exited():
 	_label_frog.self_modulate = Color(1,1,1)
 	_label_frog.uppercase = false
+
+
+

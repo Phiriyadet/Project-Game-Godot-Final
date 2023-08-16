@@ -14,6 +14,7 @@ onready var _new_upgrade_box: VBoxContainer = $UI/GUI/ChangeNewUpgrade/ChangeCon
 
 export(float) var pickup_radius = 20 setget set_pickup, get_pickup
 export(bool) var spacial_skill = false setget set_sskill, get_sskill
+export(bool) var buy_spacial_skill = false setget set_buy_sskill, get_buy_sskill
 export(int) var collected_coin = 0 setget set_collectedCoin, get_collectedCoin
 
 onready var weapons: Node2D = get_node("Weapons")
@@ -63,6 +64,7 @@ func _ready():
 	set_expbar(experience, calculate_experiencecap())
 	
 	
+	
 func _process(delta):
 	if Global.open_chest==1:
 		levelup()
@@ -91,8 +93,9 @@ func get_input():
 
 	if Input.is_action_pressed("ui_up"):
 		mov_direction += Vector2.UP
-	
-	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill :
+		
+	print_debug("sskill value in player:", spacial_skill)	
+	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill and spacial_skill:
 		can_active_sSkill = false
 		cooldawnTimer.start()
 		animationPlayer.play("spacial_attack")
@@ -226,7 +229,7 @@ func upgrade_character(upgrade):
 			var weapon_name = upgrade
 			var type = "weapon"
 			if not weapons.has_node(weapon_name):
-				print_debug("weapons:", weapons.get_child_count())
+#				print_debug("weapons:", weapons.get_child_count())
 			
 				if weapons.get_child_count() != 4:
 					# Create a new instance of the weapon upgrade
@@ -260,7 +263,7 @@ func upgrade_character(upgrade):
 			var item_name = upgrade
 			var type = "item"
 			if not items.has_node(item_name):
-				print_debug("items:", items.get_child_count())
+#				print_debug("items:", items.get_child_count())
 				
 				if items.get_child_count() != 4:
 					# Create a new instance of the item upgrade
@@ -288,8 +291,7 @@ func upgrade_character(upgrade):
 			
 	Global.collected_allitem = collected_upgrades
 	LevelUp.visible = false
-	if not _change_new_upgrade.is_visible():
-		get_tree().paused = false
+	get_tree().paused = false
 	calculate_experience(0)
 
 
@@ -365,7 +367,13 @@ func set_sskill(ss):
 	
 func get_sskill():
 	return spacial_skill
+
+func set_buy_sskill(bss):
+	buy_spacial_skill = bss
 	
+func get_buy_sskill():
+	return buy_spacial_skill
+		
 func set_collectedCoin(cc):
 	collected_coin = cc
 

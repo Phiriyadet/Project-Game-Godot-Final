@@ -48,6 +48,7 @@ func write_savegame_init():
 		  "SPD": 50,
 		  "Pickup_Radius": 20,
 		  "Spacial_Skill": false,
+		  "Buy_Spacial_Skill": false,
 		  "Collected_Coin": 0
 		},
 		"Monkey_Caesar": {
@@ -57,6 +58,7 @@ func write_savegame_init():
 		  "SPD": 50,
 		  "Pickup_Radius": 20,
 		  "Spacial_Skill": false,
+		  "Buy_Spacial_Skill": false,
 		  "Collected_Coin": 0
 		},
 		"Pepe_The_Frog": {
@@ -66,6 +68,7 @@ func write_savegame_init():
 		  "SPD": 60,
 		  "Pickup_Radius": 20,
 		  "Spacial_Skill": false,
+		  "Buy_Spacial_Skill": false,
 		  "Collected_Coin": 0
 		}
 	  }
@@ -102,6 +105,7 @@ func write_savegame():
 		  "SPD": Dog.spd,
 		  "Pickup_Radius": Dog.pickup_radius,
 		  "Spacial_Skill": Dog.spacial_skill,
+		  "Buy_Spacial_Skill": Dog.buy_spacial_skill,
 		  "Collected_Coin": Dog.collected_coin
 		},
 		"Monkey_Caesar": {
@@ -111,6 +115,7 @@ func write_savegame():
 		  "SPD": Monkey.spd,
 		  "Pickup_Radius": Monkey.pickup_radius,
 		  "Spacial_Skill": Monkey.spacial_skill,
+		  "Buy_Spacial_Skill": Monkey.buy_spacial_skill,
 		  "Collected_Coin": Monkey.collected_coin
 		},
 		"Pepe_The_Frog": {
@@ -120,6 +125,7 @@ func write_savegame():
 		  "SPD": Frog.spd,
 		  "Pickup_Radius": Frog.pickup_radius,
 		  "Spacial_Skill": Frog.spacial_skill,
+		  "Buy_Spacial_Skill": Frog.buy_spacial_skill,
 		  "Collected_Coin": Frog.collected_coin
 		}
 	  }
@@ -159,6 +165,7 @@ func load_savegame():
 	Dog.spd = data.Players.The_Doge.SPD
 	Dog.pickup_radius = data.Players.The_Doge.Pickup_Radius
 	Dog.spacial_skill = data.Players.The_Doge.Spacial_Skill
+	Dog.buy_spacial_skill = data.Players.The_Doge.Buy_Spacial_Skill
 	Dog.collected_coin = data.Players.The_Doge.Collected_Coin
 
 	Monkey.max_hp = data.Players.Monkey_Caesar.Max_HP
@@ -167,6 +174,7 @@ func load_savegame():
 	Monkey.spd = data.Players.Monkey_Caesar.SPD
 	Monkey.pickup_radius = data.Players.Monkey_Caesar.Pickup_Radius
 	Monkey.spacial_skill = data.Players.Monkey_Caesar.Spacial_Skill
+	Monkey.buy_spacial_skill = data.Players.Monkey_Caesar.Buy_Spacial_Skill
 	Monkey.collected_coin = data.Players.Monkey_Caesar.Collected_Coin
 
 	Frog.max_hp = data.Players.Pepe_The_Frog.Max_HP
@@ -174,5 +182,5 @@ func load_savegame():
 	Frog.atk = data.Players.Pepe_The_Frog.ATK
 	Frog.spd = data.Players.Pepe_The_Frog.SPD
 	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
-	Frog.collected_coin = data.Players.Pepe_The_Frog.Spacial_Skill
+	Frog.spacial_skill = data.Players.Pepe_The_Frog.Spacial_Skill
 	Frog.collected_coin = data.Players.Pepe_The_Frog.Collected_Coin
