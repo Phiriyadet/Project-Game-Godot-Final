@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Menus/SelectPlayerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle-1.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb7.png" type="Texture" id=12]
 [ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=13]
 [ext_resource path="res://StyleBoxs/playBtnTheme.tres" type="Theme" id=14]
+[ext_resource path="res://StyleBoxs/easyBtnTheme.tres" type="Theme" id=15]
 
 [sub_resource type="StyleBoxTexture" id=12]
 
@@ -27,13 +28,13 @@ CheckButton/icons/off_disabled = ExtResource( 11 )
 CheckButton/icons/on = ExtResource( 12 )
 CheckButton/icons/on_disabled = null
 
-[sub_resource type="Theme" id=13]
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.27451, 0.0313726, 0.937255, 1 )
+
+[sub_resource type="Theme" id=14]
 default_font = ExtResource( 5 )
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
-Button/styles/pressed = null
+Label/colors/font_color = Color( 1, 0.937255, 0, 1 )
+Label/styles/normal = SubResource( 13 )
 
 [sub_resource type="Theme" id=8]
 default_font = ExtResource( 5 )
@@ -55,7 +56,7 @@ script = ExtResource( 1 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 640.0
 margin_bottom = 360.0
-color = Color( 0.145098, 0.133333, 0.133333, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="PlayersContainer" type="HBoxContainer" parent="ColorRect"]
 anchor_left = 0.5
@@ -71,6 +72,7 @@ margin_right = 64.0
 margin_bottom = 87.0
 
 [node name="DogTextureRect" type="TextureButton" parent="ColorRect/PlayersContainer/VBoxContainer"]
+self_modulate = Color( 0.507813, 0.507813, 0.507813, 1 )
 margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer3/FrogTextureRect")
@@ -437,24 +439,27 @@ custom_constants/separation = 4
 alignment = 1
 
 [node name="Label" type="Label" parent="ColorRect/CoinContainer"]
-margin_left = 11.0
-margin_top = 13.0
-margin_right = 47.0
-margin_bottom = 27.0
+margin_left = 9.0
+margin_top = 10.0
+margin_right = 49.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 5 )
 text = "Coin :"
 
 [node name="coinL" type="Label" parent="ColorRect/CoinContainer"]
-margin_left = 51.0
-margin_top = 13.0
-margin_right = 75.0
-margin_bottom = 27.0
+margin_left = 53.0
+margin_top = 10.0
+margin_right = 77.0
+margin_bottom = 29.0
+theme = SubResource( 14 )
 text = "100"
 
 [node name="Label3" type="Label" parent="ColorRect/CoinContainer"]
-margin_left = 79.0
-margin_top = 13.0
-margin_right = 87.0
-margin_bottom = 27.0
+margin_left = 81.0
+margin_top = 10.0
+margin_right = 90.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 5 )
 text = "$"
 
 [node name="BuySSBtn" type="Button" parent="ColorRect"]
@@ -462,7 +467,7 @@ margin_left = 536.0
 margin_top = 248.0
 margin_right = 546.0
 margin_bottom = 275.0
-theme = SubResource( 13 )
+theme = ExtResource( 15 )
 text = "ซื้อสกิลพิเศษ"
 
 [node name="RefundBtn" type="Button" parent="ColorRect"]

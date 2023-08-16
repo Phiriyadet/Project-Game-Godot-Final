@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Fonts/font16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=3]
 
 [node name="GameOver" type="Control"]
 pause_mode = 2
@@ -14,7 +15,7 @@ script = ExtResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 128.0
 margin_bottom = 128.0
-color = Color( 0.866667, 0.384314, 0.384314, 1 )
+color = Color( 0.898039, 0.337255, 0, 1 )
 
 [node name="Head" type="Label" parent="ColorRect"]
 anchor_left = 0.5
@@ -62,7 +63,8 @@ margin_left = 32.0
 margin_top = 88.0
 margin_right = 96.0
 margin_bottom = 113.0
+theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
-text = "MENU"
+text = "กลับ"
 
 [connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]

@@ -43,6 +43,7 @@ func ShowCollected():
 	_all_collected.show()
 	clearCollectedBox()
 	var collected_list = Global.collected_allitem
+	var collected_list_sort = collected_list.sort()
 	for i in collected_list:
 		var collected_item = collectedAllItems.instance()
 		collected_item.item = i

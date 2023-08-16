@@ -32,7 +32,7 @@ func _ready():
 func _on_NormalModeBtn_pressed():
 	_endless_mode_btn.pressed = false
 	mode_check = true
-	mode_label.text = "โหมดการเล่นจำกัดเวลา 20 นาที บอสจะปรากฎตัวในนาทีที่ 15 กำจัดมันก่อนหมดเวลาจึงจะชนะ" 
+	mode_label.text = "โหมดการเล่นจำกัดเวลา 20 นาที \nบอสจะปรากฎตัวในนาทีที่ 15 กำจัดมันก่อนหมดเวลาจึงจะชนะ" 
 	Global.selectMod = 0
 
 func _on_EndlessModeBtn_pressed():
