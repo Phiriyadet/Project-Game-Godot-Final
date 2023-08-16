@@ -17,7 +17,7 @@ func _ready():
 #	upgrade_character("Punch")
 	upgrade_character("BonkMissile")
 #	upgrade_character("NanomachinesSon")
-#	upgrade_character("TakeMyMoney")
+	upgrade_character("TakeMyMoney")
 #	upgrade_character("TheMotivation")
 #	upgrade_character("Amogus")
 	

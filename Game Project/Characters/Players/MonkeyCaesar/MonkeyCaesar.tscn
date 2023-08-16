@@ -638,6 +638,9 @@ frame = 3
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 10 )
 
+[node name="SpacialSkill" parent="." index="3"]
+visible = false
+
 [node name="Monkey1" type="Sprite" parent="SpacialSkill" index="0"]
 position = Vector2( 64, 0 )
 texture = ExtResource( 2 )
@@ -768,6 +771,9 @@ shape = SubResource( 11 )
 
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 12 )
+
+[node name="Camera2D" parent="." index="10"]
+rotating = true
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 14 )
