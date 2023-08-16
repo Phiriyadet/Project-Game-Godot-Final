@@ -4,6 +4,7 @@ extends Control
 onready var score = $ColorRect/Score as Label
 onready var coin = $ColorRect/Coin as Label
 var _save := SaveGameAsJson.new()
+var once = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
@@ -12,7 +13,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
-	if Global.player_dead:
+	if Global.player_dead and once == 0:
+		once +=1
 		var tree = get_tree()
 		tree.paused = true
 		
@@ -27,9 +29,9 @@ func _process(delta):
 		coin.text = str(int(Global.total_coin))
 		
 		print_debug("Global total coin", Global.total_coin)
-		_save.num_coin += int(Global.total_coin)
+		_save.num_coin_up = int(Global.total_coin)
+		_save.load_savecoin()
 		_save.write_savecoin()
-		
 		show()
 		
 

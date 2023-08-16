@@ -10,11 +10,17 @@ var version := 1
 var	Dog = TheDoge.new()
 var	Monkey = MonkeyCaesar.new()
 var	Frog = PepeTheFrog.new()
-var num_coin = 0
-
+var num_coin 
+var num_coin_up = 0
+var data
 var _file := File.new()
 
-
+#func _init():
+#	var content := _file.get_as_text()
+#	_file.close()
+#	var data: Dictionary = JSON.parse(content).result
+#	num_coin = data.Coin.Num_Coin
+	
 func save_exists() -> bool:
 	return _file.file_exists(SAVE_GAME_PATH)
 
@@ -86,6 +92,8 @@ func write_savecoin():
 	var data := {"Coin":{
 		"Num_Coin": num_coin
 	  }}
+#	var data["Coin"]["Num_Coin"] += num_coin
+	print(data["Coin"]["Num_Coin"])
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
 	_file.close()
@@ -147,6 +155,8 @@ func load_savecoin():
 	var data: Dictionary = JSON.parse(content).result
 
 	num_coin = data.Coin.Num_Coin
+	num_coin+=num_coin_up
+	print(data.Coin.Num_Coin)
 	
 func load_savegame():
 	var error := _file.open(SAVE_GAME_PATH, File.READ)
