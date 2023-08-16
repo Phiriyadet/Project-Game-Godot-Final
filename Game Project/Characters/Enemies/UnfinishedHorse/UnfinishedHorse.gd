@@ -21,6 +21,7 @@ func _physics_process(delta):
 		spd_old = self.spd
 	if self.hp<=0 and Global.selectMod != 1:
 		Global.victory = 1
+		Global.game_Victory()
 	if $AnimatedSprite.flip_h:
 		posi.position.x = -97
 	else:

@@ -63,3 +63,12 @@ func game_over():
 		
 	
 	total_coin = num_coin + bonus1 + bonus2
+
+func game_Victory():
+	total_score = (enemy_dead_count * 100) + ((level_player - 1) * 2000)
+	total_score += total_score*0.3
+	var num_coin = total_score / 1000
+	var bonus1 = num_coin * bonus_coin
+	var bonus2 = num_coin * coin_bonus_diffl
+		
+	total_coin = num_coin + bonus1 + bonus2

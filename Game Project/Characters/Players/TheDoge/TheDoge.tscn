@@ -97,7 +97,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false, true ]
@@ -313,8 +313,8 @@ font_data = ExtResource( 1 )
 collision_layer = 2050
 collision_mask = 13
 script = ExtResource( 5 )
-max_hp = 50
-hp = 50
+max_hp = 50000
+hp = 50000
 atk = 100
 spd = 50
 collected_coin = 50
@@ -354,6 +354,10 @@ shape = SubResource( 12 )
 
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 13 )
+
+[node name="Camera2D" parent="." index="10"]
+rotating = true
+current = true
 
 [node name="Label" parent="UI/GUI/LevelUp" index="0"]
 custom_fonts/font = SubResource( 15 )
