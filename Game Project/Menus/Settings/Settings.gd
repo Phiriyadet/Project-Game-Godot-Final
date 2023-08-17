@@ -32,20 +32,32 @@ func _on_BackBtn_pressed():
 
 func _on_Music_value_changed(value):
 	_settings_data.music_value = value # เปลี่ยน settings.music_value เป็น _settings_data.music_value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), _settings_data.music_value)
+	if _settings_data.music_value == -45:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), false)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), _settings_data.music_value)
 	# Save the settings when the music volume is changed
 	save_settings()
 
 func _on_Sounds_value_changed(value):
 	_settings_data.sound_value = value # เปลี่ยน settings.sound_value เป็น _settings_data.sound_value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sounds"), _settings_data.sound_value)
+	if _settings_data.sound_value == -45:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Sounds"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Sounds"), false)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sounds"), _settings_data.sound_value)
 	# Save the settings when the sound volume is changed
 	save_settings()
 
 func _on_volume_value_changed(value):
 	_settings_data.volume_value = value # เปลี่ยน settings.volume_value เป็น _settings_data.volume_value
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), _settings_data.volume_value)
-	print(value)
+	if _settings_data.volume_value == -45:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), _settings_data.volume_value)
+#	print(value)
 	# Save the settings when the volume is changed
 	save_settings()
 
