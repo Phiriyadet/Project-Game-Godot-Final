@@ -16,14 +16,13 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		var tree = get_tree()
-		tree.paused = not tree.paused
-		if tree.paused:
-			_pause_menu.open()
-			
-			
-			
-		else:
-			_pause_menu.close()
+		if Global.upgrade_options_close:
+			tree.paused = not tree.paused
+			if tree.paused:
+				_pause_menu.open()
+				
+			else:
+				_pause_menu.close()
 			
 			
 			

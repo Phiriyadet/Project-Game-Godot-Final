@@ -31,6 +31,8 @@ var time_stop = 0
 var gio_take_dm = 0
 var selectMod = 0
 
+var upgrade_options_close = false 
+
 var boss_position = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.

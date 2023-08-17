@@ -175,6 +175,7 @@ func levelup():
 			upOpGUI.add_child(option_choice)
 			options += 1
 	LevelUp.visible = true
+	Global.upgrade_options_close = false
 #	LevelUp.show()
 	get_tree().paused = true
 
@@ -294,6 +295,7 @@ func upgrade_character(upgrade):
 	Global.collected_allitem = collected_upgrades
 	present_status()
 	LevelUp.visible = false
+	Global.upgrade_options_close = true
 	get_tree().paused = false
 	calculate_experience(0)
 
