@@ -10,4 +10,9 @@ script = ExtResource( 2 )
 wait_time = 5.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Up_atk" type="Timer" parent="." index="1"]
+wait_time = 0.25
+
+[node name="Check_Hp_Player" type="Timer" parent="." index="2"]
+
+[connection signal="timeout" from="Up_atk" to="." method="_on_Up_atk_timeout"]

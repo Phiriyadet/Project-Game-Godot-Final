@@ -1,12 +1,8 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var ani_U_D_L_R 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass
 
@@ -19,14 +15,6 @@ func _physics_process(delta):
 		ani_U_D_L_R = "L"
 	if $Sprite.rotation_degrees >= 90 and $Sprite.scale.y == -1:
 		ani_U_D_L_R = "R"
-#	print($Sprite.rotation_degrees)
-#	print($Sprite.scale.y)
-#	print(ani_U_D_L_R)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Timer_timeout():
 	if ani_U_D_L_R == "U":

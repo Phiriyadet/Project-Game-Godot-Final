@@ -20,7 +20,7 @@ func _ready():
 #	upgrade_character("TakeMyMoney")
 #	upgrade_character("TheMotivation")
 #	upgrade_character("Amogus")
-#	upgrade_character("Rickroll")
+	upgrade_character("Rickroll")
 	upgrade_character("SuezCanalJam")
 	
 

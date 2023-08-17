@@ -192,7 +192,7 @@ func _on_Timer_timeout():
 			
 			
 			
-	time += 10
+	time += 1
 	if time >= 1200 and Global.selectMod == 0:
 		Global.player_dead = true
 	HUD.update_time(time)

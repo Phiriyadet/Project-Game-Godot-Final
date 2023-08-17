@@ -6,31 +6,23 @@ class_name Rickroll, "res://Assets/Skills/rickroll.png"
 var atk
 var spd
 var pickup_radius
-var swift = 0
+
+var atk_sumAll
+
 var max_hp_player
+var atk_player
+
 func _ready():
 	atk = 40
 	spd = 40
 	pickup_radius = 40
+	atk_player = get_parent().get_parent().atk
+	$Up_atk.start()
+	max_hp_player = get_parent().get_parent().max_hp
 
 func _physics_process(delta):
-	if player != null:
-		max_hp_player = get_parent().get_parent().max_hp
-		if get_parent().get_parent().hp>0 and swift == 0:
-			get_parent().get_parent().hp-=1
-			if get_parent().get_parent().hp < max_hp_player/2:
-				get_parent().get_parent().atk += atk
-		else:
-			swift = 1
-		if get_parent().get_parent().hp<50 and swift == 1:
-			get_parent().get_parent().hp+=1
-			if get_parent().get_parent().hp > max_hp_player/2:
-				get_parent().get_parent().atk -= atk
-		else:
-			swift = 0
+	atk_sumAll = atk_player + atk
 			
-			
-
 func check_level():
 	if player != null:
 		match level:
@@ -51,9 +43,10 @@ func check_level():
 				spd = 100
 				pickup_radius = 100
 			
+func _on_Up_atk_timeout():
+	if get_parent().get_parent().hp < max_hp_player/2:
+		get_parent().get_parent().atk = atk_sumAll
+			
+	if get_parent().get_parent().hp > max_hp_player/2:
+		get_parent().get_parent().atk = atk_player
 
-
-func _on_Timer_timeout():
-	print("My Level: ",self.level)
-	if self.level<7:
-		self.level+=0.5
