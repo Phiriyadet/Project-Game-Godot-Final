@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/PepeTheFrog/PepeTheFrog.gd" type="Script" id=2]
@@ -60,6 +60,21 @@ radius = 11.0
 height = 32.0
 
 [sub_resource type="CircleShape2D" id=20]
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpacialSkill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_local_to_scene = true
@@ -258,6 +273,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("SpacialSkill:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 20.0
@@ -289,7 +316,6 @@ atk = 10
 spd = 60
 
 [node name="AnimatedSprite" parent="." index="1"]
-visible = true
 frames = SubResource( 11 )
 frame = 3
 
@@ -302,8 +328,10 @@ visible = false
 scale = Vector2( 20, 20 )
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
+visible = false
 texture = ExtResource( 12 )
 hframes = 7
+frame = 6
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Sprite" index="0"]
 collision_layer = 0
@@ -312,8 +340,10 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Sprite/Hitbox" index="0"]
 shape = SubResource( 20 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
+anims/RESET = SubResource( 22 )
 anims/dead = SubResource( 15 )
 anims/hurt = SubResource( 16 )
 anims/idle = SubResource( 17 )
@@ -335,7 +365,7 @@ texture_under = ExtResource( 7 )
 [node name="EnemyDestroyedCount" parent="UI/GUI" index="6"]
 custom_fonts/font = SubResource( 13 )
 
-[node name="RichTextLabel" parent="UI/GUI/Popup" index="0"]
+[node name="RichTextLabel" parent="UI/GUI/Popup" index="1"]
 custom_fonts/normal_font = SubResource( 21 )
 
 [editable path="UI/GUI/LevelUp"]

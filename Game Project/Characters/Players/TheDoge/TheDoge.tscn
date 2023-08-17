@@ -324,7 +324,6 @@ spd = 50
 collected_coin = 50
 
 [node name="AnimatedSprite" parent="." index="1"]
-visible = true
 modulate = Color( 1, 0.996078, 0.996078, 1 )
 frames = SubResource( 9 )
 frame = 3
@@ -337,9 +336,11 @@ shape = SubResource( 11 )
 visible = false
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
+position = Vector2( 30, -10 )
 z_index = -1
 texture = ExtResource( 13 )
 hframes = 4
+frame = 2
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Sprite" index="0"]
 collision_layer = 0
@@ -348,6 +349,7 @@ script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Sprite/Hitbox" index="0"]
 shape = SubResource( 23 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/dead = SubResource( 17 )
@@ -371,7 +373,7 @@ texture_under = ExtResource( 9 )
 [node name="EnemyDestroyedCount" parent="UI/GUI" index="6"]
 custom_fonts/font = SubResource( 14 )
 
-[node name="RichTextLabel" parent="UI/GUI/Popup" index="0"]
+[node name="RichTextLabel" parent="UI/GUI/Popup" index="1"]
 custom_fonts/normal_font = SubResource( 24 )
 
 [editable path="UI/GUI/LevelUp"]

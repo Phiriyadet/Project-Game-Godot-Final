@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-move.png" type="Texture" id=2]
@@ -60,6 +60,21 @@ height = 24.0
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 10, 30 )
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpacialSkill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_local_to_scene = true
@@ -605,6 +620,18 @@ tracks/31/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/32/type = "value"
+tracks/32/path = NodePath("SpacialSkill:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 20.0
@@ -635,7 +662,6 @@ atk = 50
 spd = 50
 
 [node name="AnimatedSprite" parent="." index="1"]
-visible = true
 frames = SubResource( 9 )
 frame = 3
 
@@ -646,9 +672,11 @@ shape = SubResource( 10 )
 visible = false
 
 [node name="Monkey1" type="Sprite" parent="SpacialSkill" index="0"]
-position = Vector2( 64, 0 )
+visible = false
+position = Vector2( 264, 0 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey1" index="0"]
 collision_layer = 0
@@ -657,12 +685,15 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey1/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey2" type="Sprite" parent="SpacialSkill" index="1"]
-position = Vector2( -64, 0 )
+visible = false
+position = Vector2( -264, 0 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey2" index="0"]
 rotation = 3.14159
@@ -673,12 +704,15 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey2/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey3" type="Sprite" parent="SpacialSkill" index="2"]
-position = Vector2( 0, -64 )
+visible = false
+position = Vector2( 0, -264 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey3" index="0"]
 rotation = -3.14159
@@ -689,11 +723,14 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey3/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey4" type="Sprite" parent="SpacialSkill" index="3"]
-position = Vector2( 0, 64 )
+visible = false
+position = Vector2( 0, 264 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey4" index="0"]
 collision_layer = 0
@@ -702,11 +739,14 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey4/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey5" type="Sprite" parent="SpacialSkill" index="4"]
-position = Vector2( 64, -64 )
+visible = false
+position = Vector2( 264, -264 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey5" index="0"]
 collision_layer = 0
@@ -715,13 +755,16 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey5/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey6" type="Sprite" parent="SpacialSkill" index="5"]
-position = Vector2( -64, 64 )
+visible = false
+position = Vector2( -264, 264 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey6" index="0"]
 rotation = -3.14159
@@ -732,13 +775,16 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey6/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey7" type="Sprite" parent="SpacialSkill" index="6"]
-position = Vector2( -64, -64 )
+visible = false
+position = Vector2( -264, -264 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey7" index="0"]
 rotation = -3.14159
@@ -749,11 +795,14 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey7/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey8" type="Sprite" parent="SpacialSkill" index="7"]
-position = Vector2( 64, 64 )
+visible = false
+position = Vector2( 264, 264 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey8" index="0"]
 collision_layer = 0
@@ -762,8 +811,10 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey8/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
+anims/RESET = SubResource( 23 )
 anims/dead = SubResource( 15 )
 anims/hurt = SubResource( 16 )
 anims/idle = SubResource( 17 )
@@ -785,7 +836,7 @@ texture_under = ExtResource( 7 )
 [node name="EnemyDestroyedCount" parent="UI/GUI" index="6"]
 custom_fonts/font = SubResource( 13 )
 
-[node name="RichTextLabel" parent="UI/GUI/Popup" index="0"]
+[node name="RichTextLabel" parent="UI/GUI/Popup" index="1"]
 custom_fonts/normal_font = SubResource( 22 )
 
 [editable path="UI/GUI/LevelUp"]
