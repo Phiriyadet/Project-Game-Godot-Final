@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jiihoy.mp3-51fcb9ff9e740fd5570dca5330f2e0b1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/ItemSoundEffect/jiihoy.mp3"
+dest_files=[ "res://.import/jiihoy.mp3-51fcb9ff9e740fd5570dca5330f2e0b1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
