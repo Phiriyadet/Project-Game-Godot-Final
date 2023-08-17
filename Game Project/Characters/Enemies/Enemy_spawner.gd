@@ -98,7 +98,7 @@ onready var enemies := get_node("../Enemies")
 onready var event:= get_node("../Enemy_Event")
 onready var count_time = $Timer
 # Declare member variables here. Examples:
-var time = 890
+var time = 0
 var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0
@@ -241,7 +241,7 @@ func _on_Timer_timeout():
 		enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 
-	if (time>=140 and time<=180) or (time>=300 and time<=340)or time > 4 and time%2==0:
+	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0:
 		enemy_spawn = enemy_Event_shot.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
