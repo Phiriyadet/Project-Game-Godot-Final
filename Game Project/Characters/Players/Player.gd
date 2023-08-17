@@ -206,10 +206,6 @@ func popup_collected_full(upgrade, type):
 #	_change_new_upgrade.show()
 
 	
-func select_old_upgrade(o_up):
-#	_change_new_upgrade.old_upgrade = old_upgrade
-	old_upgrade = o_up
-	
 func print_debug_upgrade(upgrade, instance):
 	print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
@@ -236,6 +232,8 @@ func upgrade_character(upgrade):
 					instance = upgrade_scenes[weapon_name].instance()
 					weapons.add_child(instance)
 					adjust_gui_collection(upgrade)
+					if not collected_upgrades.has(upgrade):
+						collected_upgrades.append(upgrade)
 					increase_dataLevel_upgrade(upgrade)
 #					icon_pass = true
 				else:
@@ -252,6 +250,8 @@ func upgrade_character(upgrade):
 				# Create a new instance of the skill upgrade
 				instance = upgrade_scenes[skill_name].instance()
 				skills.add_child(instance)
+				if not collected_upgrades.has(upgrade):
+					collected_upgrades.append(upgrade)
 				increase_dataLevel_upgrade(upgrade)
 			else:
 				instance = skills.get_node(skill_name)
@@ -270,6 +270,8 @@ func upgrade_character(upgrade):
 					instance = upgrade_scenes[item_name].instance()
 					items.add_child(instance)
 					adjust_gui_collection(upgrade)
+					if not collected_upgrades.has(upgrade):
+						collected_upgrades.append(upgrade)
 					increase_dataLevel_upgrade(upgrade)
 #					icon_pass = true
 				else:
@@ -286,8 +288,8 @@ func upgrade_character(upgrade):
 	for i in option_children:
 		i.queue_free()
 	upgrade_options.clear()
-	if not collected_upgrades.has(upgrade):
-		collected_upgrades.append(upgrade)
+#	if not collected_upgrades.has(upgrade):
+#		collected_upgrades.append(upgrade)
 			
 	Global.collected_allitem = collected_upgrades
 	present_status()

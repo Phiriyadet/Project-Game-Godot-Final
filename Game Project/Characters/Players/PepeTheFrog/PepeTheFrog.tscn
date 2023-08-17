@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Characters/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Players/PepeTheFrog/PepeTheFrog.gd" type="Script" id=2]
@@ -273,6 +273,10 @@ font_data = ExtResource( 6 )
 resource_local_to_scene = true
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=21]
+resource_local_to_scene = true
+font_data = ExtResource( 6 )
+
 [node name="PepeTheFrog" instance=ExtResource( 1 )]
 collision_mask = 12
 script = ExtResource( 2 )
@@ -330,5 +334,8 @@ texture_under = ExtResource( 7 )
 
 [node name="EnemyDestroyedCount" parent="UI/GUI" index="6"]
 custom_fonts/font = SubResource( 13 )
+
+[node name="RichTextLabel" parent="UI/GUI/Popup" index="0"]
+custom_fonts/normal_font = SubResource( 21 )
 
 [editable path="UI/GUI/LevelUp"]
