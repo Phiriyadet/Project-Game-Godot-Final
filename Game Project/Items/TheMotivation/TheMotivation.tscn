@@ -148,7 +148,7 @@ shape = SubResource( 1 )
 wait_time = 5.0
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource( 5 )
 bus = "Sounds"
 

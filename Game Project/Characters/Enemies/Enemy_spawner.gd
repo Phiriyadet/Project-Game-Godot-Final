@@ -181,6 +181,7 @@ func _on_Timer_timeout():
 					event.call_deferred("add_child", enemy_spawn)
 				
 		if timeupspeed >= 600 and timeupspeed%600 == 0:
+			BackgroundMusic.change_music()
 			enemy_spawn = BOSS_SPAWN[3]["enemy"].instance()
 			enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))

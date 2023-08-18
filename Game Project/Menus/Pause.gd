@@ -38,6 +38,7 @@ func _on_ExitBtn_pressed():
 func _on_BackToMainMenu_pressed():
 	close()
 	Global.player_dead = true
+	Global.game_over()
 
 func ShowCollected():
 	_all_collected.show()

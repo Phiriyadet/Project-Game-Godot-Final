@@ -25,7 +25,7 @@ func _process(delta):
 func check_level():
 	match level:
 		1,2:
-			slow += 0.21
+			slow += 0.1
 		3,4:
 			slow += 0.2
 		5,6:

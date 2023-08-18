@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/X2Download.com - PUMPKIN! (TikTok Meme) - Sound Effect for editing (128 kbps).mp3-faad8978d0adf4688bc1d82fbb7694f5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffect/ItemSoundEffect/X2Download.com - PUMPKIN! (TikTok Meme) - Sound Effect for editing (128 kbps).mp3"
+dest_files=[ "res://.import/X2Download.com - PUMPKIN! (TikTok Meme) - Sound Effect for editing (128 kbps).mp3-faad8978d0adf4688bc1d82fbb7694f5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

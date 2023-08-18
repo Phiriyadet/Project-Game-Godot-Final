@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Items/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/NanomachinesSon/NanomachinesSon.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Audio/SoundEffect/ItemSoundEffect/tomp3.cc - MGR   Senator Armstrong   NANOMACHINE SON Sound effect.mp3" type="AudioStream" id=3]
 
 [node name="NanomachinesSon" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -10,6 +11,9 @@ script = ExtResource( 2 )
 
 [node name="ActiveTimer" type="Timer" parent="." index="1"]
 wait_time = 10.0
+
+[node name="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource( 3 )
 
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
 [connection signal="timeout" from="ActiveTimer" to="." method="_on_ActiveTimer_timeout"]

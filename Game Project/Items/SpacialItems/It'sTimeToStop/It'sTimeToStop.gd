@@ -21,9 +21,9 @@ func _on_Area2D_body_entered(body):
 #	for enemy in get_tree().current_scene.get_node("Enemies").get_children():
 #		enemy.set_spd(0)
 
-	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_IN)
+	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_OUT)
 	assert(__)
-	__ = tween.interpolate_property(self, "position", position, position + Vector2.UP * 16, 0.6, Tween.TRANS_SINE, Tween.EASE_IN)
+	__ = tween.interpolate_property(self, "position", position, position + Vector2.UP * 16, 0.6, Tween.TRANS_SINE, Tween.EASE_OUT)
 	assert(__)
 	__ = tween.start()
 	assert(__)

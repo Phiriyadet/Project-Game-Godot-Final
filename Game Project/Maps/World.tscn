@@ -65,6 +65,12 @@ margin_bottom = -112.0
 [node name="JiiHoy" parent="Loot" instance=ExtResource( 20 )]
 position = Vector2( -808, 529 )
 
+[node name="JiiHoy2" parent="Loot" instance=ExtResource( 20 )]
+position = Vector2( -240, 320 )
+
+[node name="JiiHoy3" parent="Loot" instance=ExtResource( 20 )]
+position = Vector2( -280, 96.0001 )
+
 [node name="Giorno\'sPiano" parent="Loot" instance=ExtResource( 21 )]
 position = Vector2( 0, -80 )
 

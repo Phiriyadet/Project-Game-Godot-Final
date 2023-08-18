@@ -2,6 +2,11 @@ extends Node2D
 
 class_name Skill
 
+
+### Automatic References Start ###
+onready var _audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+### Automatic References Stop ###
+
 onready var player: Player = get_tree().current_scene.get_node("Player").get_child(0) as Player
 
 export(int) var level = 0 setget set_newlevel, get_level
@@ -33,4 +38,8 @@ func check_level():
 				print_debug("skill level :", level)
 			7:
 				print_debug("skill level :", level)
+		_audio_stream_player_2d.play()
 
+
+func _on_AudioStreamPlayer2D_finished():
+	_audio_stream_player_2d.stop()

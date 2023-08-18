@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/font16.tres" type="DynamicFont" id=2]
@@ -17,7 +17,15 @@ font_data = ExtResource( 3 )
 resource_local_to_scene = true
 font_data = ExtResource( 3 )
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.454902, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.454902, 1, 0, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -31,6 +39,9 @@ expand_margin_right = 5.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.101961, 1, 0, 1 )
+
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 1 )
 
@@ -40,7 +51,10 @@ border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="Theme" id=6]
 default_font = ExtResource( 2 )
+Button/styles/focus = SubResource( 7 )
+Button/styles/hover = SubResource( 8 )
 Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 9 )
 PopupDialog/styles/panel = SubResource( 4 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
 WindowDialog/styles/panel = SubResource( 5 )

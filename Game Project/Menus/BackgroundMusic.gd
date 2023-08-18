@@ -1,12 +1,7 @@
 extends AudioStreamPlayer
 
+var redSun:AudioStream = preload("res://Assets/Audio/Music/tomp3.cc - mao zedong propaganda music Red Sun in the Sky.mp3") 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
@@ -14,3 +9,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func change_music():
+	stop()
+	self.stream = redSun
+	play()

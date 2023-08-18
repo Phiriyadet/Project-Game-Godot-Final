@@ -1,6 +1,11 @@
 extends Node2D
 
 
+### Automatic References Start ###
+onready var _audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+### Automatic References Stop ###
+
+
 onready var tween = $Area2D/Tween 
 onready var collision_shape2D: CollisionShape2D = $Area2D/CollisionShape2D
 # Called when the node enters the scene tree for the first time.
