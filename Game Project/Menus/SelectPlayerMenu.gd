@@ -516,7 +516,7 @@ func _on_switch_skill_toggled(button_pressed):
 		"Monkey":
 			ss_m = button_pressed
 			if ss_m:
-				
+
 					ssL.text = "Active"
 			else:
 					ssL.text = "Inactive"
@@ -543,7 +543,6 @@ func _on_BuySSBtn_pressed():
 						_switch_skill.disabled = false
 						b_ss_d = true
 						ss_d = true
-						prL.text = str(ss_d)
 						setGlobalStausDoge()
 					else:
 						_buy_ss_btn.disabled = true
@@ -554,7 +553,6 @@ func _on_BuySSBtn_pressed():
 						_switch_skill.disabled = false
 						b_ss_m = true
 						ss_m = true
-						prL.text = str(ss_m)
 						setGlobalStausMonkey()
 					else:
 						_buy_ss_btn.disabled = true
@@ -565,7 +563,6 @@ func _on_BuySSBtn_pressed():
 						_switch_skill.disabled = false
 						b_ss_f = true
 						ss_f = true
-						prL.text = str(ss_f)
 						setGlobalStausFrog()
 					else:
 						_buy_ss_btn.disabled = true
