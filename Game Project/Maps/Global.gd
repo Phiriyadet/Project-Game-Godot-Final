@@ -6,9 +6,11 @@ var player_status setget set_playerstatus, get_playerstatus
 
 var player_present_status setget set_present_playerstatus, get_present_playerstatus
 
-var enemy_dead_count = 0
+var enemy_dead_count = 0 
+#setget set_enemyDeadCount, get_enemyDeadCount
 var player_dead = false
-var level_player = 1
+var level_player = 1 
+#setget set_playerLevel, get_playerLevel
 var difficulty_level = 1
 var collected_allitem 
 
@@ -56,6 +58,19 @@ func set_present_playerstatus(pps):
 	
 func get_present_playerstatus():
 	return player_present_status
+	
+#func set_enemyDeadCount(edc):
+#	enemy_dead_count = edc
+#
+#func get_enemyDeadCount():
+#	return enemy_dead_count
+#
+#func set_playerLevel(new_pl):
+#	level_player = new_pl
+#
+#func get_playerLevel():
+#	return level_player
+
 
 func game_over():
 	print_debug("enemy dead:", enemy_dead_count," ","player level:", level_player)
