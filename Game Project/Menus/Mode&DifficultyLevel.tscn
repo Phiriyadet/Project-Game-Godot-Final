@@ -148,6 +148,7 @@ align = 1
 autowrap = true
 
 [node name="Alert" type="Label" parent="ColorRect"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -142.0

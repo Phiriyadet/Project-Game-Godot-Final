@@ -30,42 +30,42 @@ var UPGRADES = {
 	"BonkBat":{
 		"icon": WEAPON_PATH + "bat.png",
 		"displayname": "Bonk Bat",
-		"details": "Bonk Bat have ",
+		"details": "Bonk Bat โจมตีตามทิศทางที่เดิน ",
 		"level": 1,
 		"type": "weapon"
 	},
 	"BonkMissile":{
 		"icon": WEAPON_PATH + "bonk_missile.png",
 		"displayname": "Bonk Missile",
-		"details": "Bonk Missile have ",
+		"details": "Bonk Missile สุ่มโจมตีรอบทิศ ",
 		"level": 1,
 		"type": "weapon"
 	},
 	"GunHand":{
 		"icon": WEAPON_PATH + "gunhand.png",
 		"displayname": "Gun Hand",
-		"details": "Gun Hand have ",
+		"details": "Gun Hand ยิงกระสุนตามแนวนอน",
 		"level": 1,
 		"type": "weapon"
 	},
 	"Nokia3310":{
 		"icon": WEAPON_PATH + "indestructible_nokia3310.png",
 		"displayname": "Nokia3310",
-		"details": "Nokia3310 have ",
+		"details": "Nokia3310 โจมตีตามทิศที่หันแนวนอน ",
 		"level": 1,
 		"type": "weapon"
 	},
 	"Punch":{
 		"icon": WEAPON_PATH + "punch.png",
 		"displayname": "Punch",
-		"details": "Punch have ",
+		"details": "Punch โจมตีตามทิศที่หันแนวนอน ",
 		"level": 1,
 		"type": "weapon"
 	},
 	"TwoGuitars":{
 		"icon": WEAPON_PATH + "two_guitars.png",
 		"displayname": "Two Guitars",
-		"details": "Two Guitars have ",
+		"details": "Two Guitars ปล่อยคลื่นโจมตีทิศทางที่เดิน ",
 		"level": 1,
 		"type": "weapon"
 	},
@@ -130,7 +130,7 @@ var UPGRADES = {
 	"SuezCanalJam": {
 		"icon": ITEM_PATH + "evergreen.png",
 		"displayname": "Suez Canal Jam",
-		"details": "สร้างการป้องกันขึ้นด้านหลังของตัวละคร เวลาคูลดาวน์ 5 วินาทีและจะคงอยู่นานตามเลเวล (วินาที)",
+		"details": "สร้างการป้องกันขึ้นด้านหลังของตัวละคร",
 		"level": 1,
 		"type": "item"
 	},

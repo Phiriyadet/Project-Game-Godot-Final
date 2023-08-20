@@ -25,7 +25,7 @@ func _process(delta):
 #		var total_coin = num_coin + bonus1 + bonus2
 		
 		score.text = str(Global.total_score)
-		coin.text = str(int(Global.total_coin))
+		coin.text = str(Global.total_coin)
 		
 		print_debug("Global total coin", Global.total_coin)
 		_save.num_coin_up = int(Global.total_coin)

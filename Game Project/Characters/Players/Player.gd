@@ -4,11 +4,8 @@ class_name Player
 
 
 ### Automatic References Start ###
-onready var _change_new_upgrade: Panel = $UI/GUI/ChangeNewUpgrade
 onready var _collected_items: GridContainer = $UI/GUI/CollectedItems
-onready var _collected_upgrades_box: VBoxContainer = $UI/GUI/ChangeNewUpgrade/ChangeContainer/SelectContainer/CollectedUpgrades
 onready var _collected_weapons: GridContainer = $UI/GUI/CollectedWeapons
-onready var _new_upgrade_box: VBoxContainer = $UI/GUI/ChangeNewUpgrade/ChangeContainer/SelectContainer/NewUpgrade
 ### Automatic References Stop ###
 
 
@@ -146,65 +143,43 @@ func set_healthbar():
 func levelup():
 	Global.open_chest=0
 	levelLabel.text = str("LV. ",experience_level)
-	
-	var options = 0
-	var optionsmax = 3
+	LevelUp.levelup()
+#	var options = 0
+#	var optionsmax = 3
+##	while options < optionsmax:
+##		var option_choice = upgradeOpScene.instance()
+##		option_choice.item = get_random_item()
+##		upOpGUI.add_child(option_choice)
+##		options += 1
+#	var itemCheck = []
+#	var fff = []
+#	var hhh = ""
+#	var itemLike = 0
 #	while options < optionsmax:
 #		var option_choice = upgradeOpScene.instance()
-#		option_choice.item = get_random_item()
-#		upOpGUI.add_child(option_choice)
-#		options += 1
-	var itemCheck = []
-	var fff = []
-	var hhh = ""
-	var itemLike = 0
-	while options < optionsmax:
-		var option_choice = upgradeOpScene.instance()
-		var random_item = get_random_item()
-		if fff.has(random_item):
-			itemLike = 1
-		else:
-			itemLike = 0
-		fff.append(random_item)
-#		while random_item in upgrade_options:
-#			random_item = get_random_item()
-		
-		if itemLike == 0:
-			itemCheck = random_item
-			option_choice.item = random_item
-			upOpGUI.add_child(option_choice)
-			options += 1
-	LevelUp.visible = true
-	Global.upgrade_options_close = false
+#		var random_item = get_random_item()
+#		if fff.has(random_item):
+#			itemLike = 1
+#		else:
+#			itemLike = 0
+#		fff.append(random_item)
+##		while random_item in upgrade_options:
+##			random_item = get_random_item()
+#
+#		if itemLike == 0:
+#			itemCheck = random_item
+#			option_choice.item = random_item
+#			upOpGUI.add_child(option_choice)
+#			options += 1
+#	LevelUp.visible = true
+#	Global.upgrade_options_close = false
 #	LevelUp.show()
 	get_tree().paused = true
 
 func popup_collected_full(upgrade, type):
 	popup.show()
 	popup_countdown_timer.start()
-#	var children = _collected_upgrades_box.get_children()
-#	for i in children:
-#		i.queue_free()
-#
-#	children = _new_upgrade_box.get_children()
-#	for i in children:
-#		i.queue_free()
-##	_collected_upgrades_box.remove_children()  # Clear the box before adding new children
-#
-#	var collected_item = collet_wis.instance()
-#	collected_item.item = upgrade
-#	new_upgrade = upgrade
-#	type_upgrade = type
-#	_new_upgrade_box.add_child(collected_item)
-#
-#	for collected_upgrade in collected_upgrades:
-#		var collected_upgrade_type = UpgradeDb.UPGRADES[collected_upgrade]["type"]
-#		if collected_upgrade_type == type:
-#			collected_item = selectNewUpgrade.instance()
-#			collected_item.item = collected_upgrade
-#			_collected_upgrades_box.add_child(collected_item)
-#
-#	_change_new_upgrade.show()
+
 
 	
 func print_debug_upgrade(upgrade, instance):
@@ -285,10 +260,10 @@ func upgrade_character(upgrade):
 #	if icon_pass:
 #	adjust_gui_collection(upgrade)
 
-	var option_children = upOpGUI.get_children()
-	for i in option_children:
-		i.queue_free()
-	upgrade_options.clear()
+#	var option_children = upOpGUI.get_children()
+#	for i in option_children:
+#		i.queue_free()
+#	upgrade_options.clear()
 #	if not collected_upgrades.has(upgrade):
 #		collected_upgrades.append(upgrade)
 			
@@ -316,11 +291,11 @@ func get_random_item():
 		if i in collected_upgrades:
 			if not i in dblist:
 				dblist.append(i)
-				print("i in collected_upgrades")
+#				print("i in collected_upgrades")
 		elif i in upgrade_options:
 			if not i in dblist:
 				dblist.append(i)
-				print("i in upgrade_options")
+#				print("i in upgrade_options")
 		elif UpgradeDb.UPGRADES[i]["type"] == "skill":
 			dblist.append(i)	
 		elif UpgradeDb.UPGRADES[i]["type"] == "weapon" and collected_weapon_count < 4 and not i in collected_upgrades:

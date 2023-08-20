@@ -13,11 +13,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
-	if Global.player_dead and once == 0:
+	if Global.player_dead :
 		once +=1
 		var tree = get_tree()
 		tree.paused = true
-		
+#
 #		var total_score = (Global.enemy_dead_count * 100) + ((Global.level_player - 1) * 2000)
 #		var num_coin = total_score / 1000
 #		var bonus1 = num_coin * Global.bonus_coin
@@ -26,9 +26,9 @@ func _process(delta):
 #		var total_coin = num_coin + bonus1 + bonus2
 		
 		score.text = str(Global.total_score)
-		coin.text = str(int(Global.total_coin))
+		coin.text = str(Global.total_coin)
 		
-		print_debug("Global total coin", Global.total_coin)
+		print_debug("Global total coin:", Global.total_coin)
 		_save.num_coin_up = int(Global.total_coin)
 		_save.load_savecoin()
 		_save.write_savecoin()

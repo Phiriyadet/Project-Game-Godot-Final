@@ -19,9 +19,9 @@ func _ready():
 #	upgrade_character("NanomachinesSon")
 #	upgrade_character("TakeMyMoney")
 #	upgrade_character("TheMotivation")
-	upgrade_character("Amogus")
-	upgrade_character("Rickroll")
-	upgrade_character("SuezCanalJam")
+#	upgrade_character("Amogus")
+#	upgrade_character("Rickroll")
+#	upgrade_character("SuezCanalJam")
 	
 
 func _process(delta):

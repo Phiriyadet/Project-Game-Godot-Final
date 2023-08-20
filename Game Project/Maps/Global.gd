@@ -58,19 +58,18 @@ func get_present_playerstatus():
 	return player_present_status
 
 func game_over():
+	print_debug("enemy dead:", enemy_dead_count," ","player level:", level_player)
 	total_score = (enemy_dead_count * 100) + ((level_player - 1) * 2000)
 	var num_coin = total_score / 1000
 	var bonus1 = num_coin * bonus_coin
 	var bonus2 = num_coin * coin_bonus_diffl
-		
-	
 	total_coin = num_coin + bonus1 + bonus2
 
 func game_Victory():
+	print_debug("enemy dead:", enemy_dead_count," ","player level:", level_player)
 	total_score = (enemy_dead_count * 100) + ((level_player - 1) * 2000)
 	total_score += total_score*0.3
 	var num_coin = total_score / 1000
 	var bonus1 = num_coin * bonus_coin
 	var bonus2 = num_coin * coin_bonus_diffl
-		
 	total_coin = num_coin + bonus1 + bonus2

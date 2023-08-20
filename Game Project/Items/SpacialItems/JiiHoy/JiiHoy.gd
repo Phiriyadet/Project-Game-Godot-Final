@@ -2,7 +2,7 @@ extends "res://Items/SpacialItems/SpacialItem.gd"
 
 
 class_name JiiHoy, "res://Assets/Items/Spacial_Items/jiihoy.png"
-onready var player := get_tree().current_scene.get_node("Player").get_child(0)
+var player
 var heal = preload("res://Items/SpacialItems/JiiHoy/heal.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():

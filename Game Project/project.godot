@@ -328,7 +328,7 @@ _global_script_class_icons={
 
 config/name="Game Project Final"
 run/main_scene="res://Menus/MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Characters/Players/Dog/dog-idle-1.png"
 
 [autoload]
 

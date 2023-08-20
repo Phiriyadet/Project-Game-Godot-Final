@@ -3,7 +3,7 @@ extends "res://Items/SpacialItems/SpacialItem.gd"
 
 class_name GiornosPiano, "res://Assets/Items/Spacial_Items/Giorno's_Piano.png"
 var jojo_ef = preload("res://Items/SpacialItems/Giorno\'sPiano/Jojo_Ef.tscn")
-onready var player := get_tree().current_scene.get_node("Player").get_child(0)
+var player 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
