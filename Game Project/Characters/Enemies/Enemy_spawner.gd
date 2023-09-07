@@ -103,6 +103,7 @@ var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0
 var enemy_number = 0
+var count_change = 0
 
 var enemy_Event_cycle = preload("res://Characters/Enemy_Event/Cycle2.tscn")
 var enemy_Event_RunOn = preload("res://Characters/Enemy_Event/Enemy_run_to_player.tscn")
@@ -133,6 +134,9 @@ func player_start(player):
 var upspeed = 20
 var timeupspeed = 0
 func _on_Timer_timeout():
+	if count_change == 0:
+		count_change += 1
+		BackgroundMusic.change_music()
 	if time > 1200 and Global.selectMod == 1:
 		timeupspeed +=2
 		for i in range(0,3):
@@ -181,7 +185,7 @@ func _on_Timer_timeout():
 					event.call_deferred("add_child", enemy_spawn)
 				
 		if timeupspeed >= 600 and timeupspeed%600 == 0:
-			BackgroundMusic.change_music()
+			
 			enemy_spawn = BOSS_SPAWN[3]["enemy"].instance()
 			enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 			enemy_spawn.set_maxhp(enemy_spawn.get_maxhp()+(enemy_spawn.get_maxhp()*plus_status))

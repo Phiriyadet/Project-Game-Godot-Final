@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Fonts/ZFTerminal/ZFTERMIN__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Characters/Players/Dog/dog-move.png" type="Texture" id=2]
@@ -305,6 +305,10 @@ radius = 2.23607
 resource_local_to_scene = true
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=25]
+resource_local_to_scene = true
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=14]
 resource_local_to_scene = true
 font_data = ExtResource( 1 )
@@ -369,7 +373,10 @@ custom_fonts/font = SubResource( 15 )
 [node name="SpacialSkillProgress" parent="UI/GUI" index="3"]
 texture_under = ExtResource( 9 )
 
-[node name="EnemyDestroyedCount" parent="UI/GUI" index="6"]
+[node name="EDC" parent="UI/GUI" index="6"]
+custom_fonts/font = SubResource( 25 )
+
+[node name="EnemyDestroyedCount" parent="UI/GUI" index="7"]
 custom_fonts/font = SubResource( 14 )
 
 [node name="RichTextLabel" parent="UI/GUI/Popup" index="1"]

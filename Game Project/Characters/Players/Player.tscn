@@ -312,7 +312,15 @@ margin_bottom = -11.0
 custom_fonts/font = ExtResource( 8 )
 text = "LV. 1"
 
-[node name="EnemyDestroyedCount" type="Label" parent="UI/GUI" index="6"]
+[node name="EDC" type="Label" parent="UI/GUI" index="6"]
+margin_left = 569.0
+margin_top = 1.0
+margin_right = 609.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 9 )
+text = "dead"
+
+[node name="EnemyDestroyedCount" type="Label" parent="UI/GUI" index="7"]
 margin_left = 584.0
 margin_top = 16.0
 margin_right = 624.0
@@ -321,7 +329,7 @@ custom_fonts/font = ExtResource( 9 )
 text = "0
 "
 
-[node name="CollectedWeapons" type="GridContainer" parent="UI/GUI" index="7"]
+[node name="CollectedWeapons" type="GridContainer" parent="UI/GUI" index="8"]
 margin_left = 16.0
 margin_top = 8.0
 margin_right = 166.0
@@ -330,7 +338,7 @@ theme = SubResource( 9 )
 custom_constants/hseparation = 50
 columns = 4
 
-[node name="CollectedItems" type="GridContainer" parent="UI/GUI" index="8"]
+[node name="CollectedItems" type="GridContainer" parent="UI/GUI" index="9"]
 margin_left = 16.0
 margin_top = 64.0
 margin_right = 166.0
@@ -338,7 +346,7 @@ margin_bottom = 80.0
 custom_constants/hseparation = 50
 columns = 4
 
-[node name="Popup" type="Popup" parent="UI/GUI" index="9"]
+[node name="Popup" type="Popup" parent="UI/GUI" index="10"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

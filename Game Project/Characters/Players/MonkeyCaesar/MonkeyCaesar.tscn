@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-move.png" type="Texture" id=2]
@@ -643,6 +643,10 @@ radius = 1.0
 resource_local_to_scene = true
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=24]
+resource_local_to_scene = true
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=13]
 resource_local_to_scene = true
 font_data = ExtResource( 6 )
@@ -833,7 +837,10 @@ custom_fonts/font = SubResource( 14 )
 [node name="SpacialSkillProgress" parent="UI/GUI" index="3"]
 texture_under = ExtResource( 7 )
 
-[node name="EnemyDestroyedCount" parent="UI/GUI" index="6"]
+[node name="EDC" parent="UI/GUI" index="6"]
+custom_fonts/font = SubResource( 24 )
+
+[node name="EnemyDestroyedCount" parent="UI/GUI" index="7"]
 custom_fonts/font = SubResource( 13 )
 
 [node name="RichTextLabel" parent="UI/GUI/Popup" index="1"]
