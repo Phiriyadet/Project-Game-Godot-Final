@@ -21,6 +21,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
+	print($Nokia_new.scale)
 	$AnimationPlayer.stop()
 	$Node2D/Sprite.hide()
 	$Sprite.hide()
@@ -33,14 +34,23 @@ func _process(delta):
 		Ef_posi_x = 192
 		Ef_posi_y = -10
 		
-	if old_Lv < now_Lv:
-		$Nokia_new.scale.x +=0.2
-		$Nokia_new.scale.y +=0.2
-		up_posi_nokia_right +=10
-		up_posi_nokia_left -=10
-		$Ef_Attack.scale.x +=0.2
-		$Ef_Attack.scale.y +=0.2
-		old_Lv+=1
+#	if old_Lv < now_Lv:
+#		$Nokia_new.scale.x +=0.3
+#		$Nokia_new.scale.y +=0.3
+#		up_posi_nokia_right +=10
+#		up_posi_nokia_left -=10
+#		$Ef_Attack.scale.x +=0.3
+#		$Ef_Attack.scale.y +=0.3
+#		old_Lv+=1
+	
+	$Nokia_new.scale.x = 1 + (0.2 * self.level)
+	$Nokia_new.scale.y = 1 + (0.2 * self.level)
+	
+	$Ef_Attack.scale.x = 1 + (0.2 * self.level)
+	$Ef_Attack.scale.y = 1 + (0.2 * self.level)
+	
+#	up_posi_nokia_right = 1 + (10 * self.level)
+#	up_posi_nokia_left = 1 + (10 * self.level) * -1
 #	if Input.is_action_pressed("ui_left"):
 #		scale.x = -1
 #	if Input.is_action_pressed("ui_right"):
@@ -50,16 +60,24 @@ func _process(delta):
 
 func check_level():
 	match level:
-		1,2:
+		2:
+			up_posi_nokia_right +=10
+			up_posi_nokia_left -=10
 			self.atk_w += 50
 			print_debug("Nokia3310 : ", level)
 		3,4:
+			up_posi_nokia_right +=10
+			up_posi_nokia_left -=10
 			self.atk_w += 80
 			print_debug("Nokia3310 : ", level)
 		5,6:
+			up_posi_nokia_right +=10
+			up_posi_nokia_left -=10
 			self.atk_w += 120
 			print_debug("Nokia3310 : ", level)
 		7:
+			up_posi_nokia_right +=10
+			up_posi_nokia_left -=10
 			self.atk_w += 180
 			print_debug("Nokia3310 : ", level)
 
