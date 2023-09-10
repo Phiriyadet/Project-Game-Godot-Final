@@ -13,7 +13,7 @@ var item = null
 func _ready():
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
-	lbl_level.text = "level "+ str(clamp(UpgradeDb.UPGRADES[item]["level"]-1, 1, 7))
+	lbl_level.text = "level "+ str(clamp(UpgradeDb.UPGRADES[item]["level"], 1, 7))
 	lbl_type.text = UpgradeDb.UPGRADES[item]["type"]
 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 
