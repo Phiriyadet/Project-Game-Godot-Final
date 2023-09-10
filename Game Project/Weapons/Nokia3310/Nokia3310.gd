@@ -21,7 +21,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
-	print($Nokia_new.scale)
 	$AnimationPlayer.stop()
 	$Node2D/Sprite.hide()
 	$Sprite.hide()
@@ -46,8 +45,8 @@ func _process(delta):
 	$Nokia_new.scale.x = 1 + (0.2 * self.level)
 	$Nokia_new.scale.y = 1 + (0.2 * self.level)
 	
-	$Ef_Attack.scale.x = 1 + (0.2 * self.level)
-	$Ef_Attack.scale.y = 1 + (0.2 * self.level)
+	$Ef_Attack.scale.x = 2 + (0.25 * self.level)
+	$Ef_Attack.scale.y = 2 + (0.25 * self.level)
 	
 #	up_posi_nokia_right = 1 + (10 * self.level)
 #	up_posi_nokia_left = 1 + (10 * self.level) * -1

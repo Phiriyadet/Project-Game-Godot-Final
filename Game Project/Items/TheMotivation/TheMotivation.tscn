@@ -150,7 +150,11 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource( 5 )
-bus = "Sounds"
+
+[node name="set_spd_old" type="Timer" parent="." index="4"]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="body_entered" from="Node2D/Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="set_spd_old" to="." method="_on_set_spd_old_timeout"]

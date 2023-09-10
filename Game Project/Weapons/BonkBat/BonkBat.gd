@@ -76,7 +76,7 @@ func _process(_delta):
 
 func check_level():
 	match level:
-		1,2:
+		2:
 			self.atk_w += 40
 		3,4:
 			self.atk_w += 60
