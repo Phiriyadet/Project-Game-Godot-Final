@@ -28,6 +28,7 @@ func _process(delta):
 		score.text = str(total_score)
 		coin.text = str(total_coin)
 		
+		BackgroundMusic.change_music_dead()
 #		print_debug("total coin", Global.total_coin)
 		_save.num_coin_up = int(total_coin)
 		_save.load_savecoin()

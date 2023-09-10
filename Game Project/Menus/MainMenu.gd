@@ -20,6 +20,7 @@ func _ready():
 	start_btn.grab_focus()
 	Global.player_dead = false
 	Global.level_player = 1
+	BackgroundMusic.change_music_init()
 	_settings.hide()
 	
 	
