@@ -66,6 +66,7 @@ func _on_VeryHardLevelBtn_pressed():
 
 func _on_PlayBtn_pressed():
 	if mode_check and diff_check:
+		Global.show_hide_menu = 1
 		get_tree().change_scene("res://Maps/World.tscn")
 	else:
 		_alert.visible = true

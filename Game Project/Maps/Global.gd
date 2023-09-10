@@ -37,6 +37,8 @@ var upgrade_options_close = false
 
 var boss_position = Vector2.ZERO
 
+var show_hide_menu = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -70,6 +72,7 @@ func get_present_playerstatus():
 #
 #func get_playerLevel():
 #	return level_player
+
 
 
 func game_over():

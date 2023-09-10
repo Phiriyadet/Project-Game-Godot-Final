@@ -17,6 +17,7 @@ func _init():
 	OS.set_window_position(screen_size * 0.5 - window_size * 0.5)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.show_hide_menu = 0
 	start_btn.grab_focus()
 	Global.player_dead = false
 	Global.level_player = 1
@@ -24,7 +25,9 @@ func _ready():
 	_settings.hide()
 	
 	
-
+func _physics_process(delta):
+	if Global.show_hide_menu == 1:
+		hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
