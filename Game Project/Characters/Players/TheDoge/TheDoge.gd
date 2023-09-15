@@ -19,13 +19,15 @@ func _ready():
 #	upgrade_character("NanomachinesSon")
 #	upgrade_character("TakeMyMoney")
 	upgrade_character("TheMotivation")
+	upgrade_character("ThePumpkinDance")
 #	upgrade_character("Amogus")
 #	upgrade_character("Rickroll")
 #	upgrade_character("SuezCanalJam")
+#	upgrade_character("ThisIsFine")
 	
 
 func _process(delta):
-#	print(self.atk)
+	print(atk)
 	if Input.is_action_pressed("ui_left"):
 		spacialSkill.scale.x = -1
 

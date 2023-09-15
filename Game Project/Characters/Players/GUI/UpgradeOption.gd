@@ -12,7 +12,6 @@ onready var player:  = get_tree().current_scene.get_node("Player").get_child(0)
 var mouse_over = false
 var item = null
 
-
 signal selected_upgrade(upgrade)
 
 func _ready():

@@ -54,7 +54,6 @@ func _on_Timer2_timeout():
 	elif check_move == "L":
 		canal.get_node("Sprite").scale.y = 1
 		canal.get_node("Sprite").rotation_degrees = 90
-		print(check_move)
 	elif check_move == "U":
 		canal.get_node("Sprite").scale.y = -1
 		canal.get_node("Sprite").rotation_degrees = 0

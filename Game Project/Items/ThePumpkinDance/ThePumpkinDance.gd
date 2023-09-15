@@ -149,6 +149,5 @@ func _on_Timer_timeout():
 		var spw_pum = pumdance.instance()
 		spw_pum.position = get_parent().get_parent().get_global_position()
 		get_parent().get_parent().get_parent().get_node("../Loot").call_deferred("add_child",spw_pum)
-		print(get_parent().get_parent().get_parent().get_node("../Loot").name)
 		pumpkin_num+=1
 #

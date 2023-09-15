@@ -13,6 +13,8 @@ onready var _all_collected = $AllCollected
 onready var collectedBox = $AllCollected/ScrollContainer/CollectedBox
 onready var collectedAllItems = preload("res://Characters/Players/GUI/CollectedWIS.tscn")
 
+onready var player_status:  = get_tree().current_scene.get_node("Player").get_child(0)
+
 func _ready():
 	hide()
 
@@ -21,6 +23,8 @@ func close():
 	hide()
 
 func open():
+	player_status  = get_tree().current_scene.get_node("Player").get_child(0)
+	print(player_status.atk)
 #	อาวุธ สกิล และไอเทมทั้งหมด
 	clearCollectedBox()
 	var collected_list = Global.collected_allitem
@@ -30,10 +34,10 @@ func open():
 		collected_item.item = i
 		collectedBox.add_child(collected_item)
 #	สถานะตัวละคร
-	_hp_label.text = str(Global.player_present_status.HP)
-	_atk_label.text = str(Global.player_present_status.ATK)
-	_spd_label.text = str(Global.player_present_status.SPD)
-	_pr_label.text = str(Global.player_present_status.PR)
+	_hp_label.text = str(player_status.hp)
+	_atk_label.text = str(player_status.atk)
+	_spd_label.text = str(player_status.spd)
+	_pr_label.text = str(player_status.pickup_radius)
 	show()
 
 func _on_ResumeBtn_pressed():
