@@ -20,11 +20,6 @@ func levelup():
 	upgrade_options.clear()	
 	var options = 0
 	var optionsmax = 3
-#	while options < optionsmax:
-#		var option_choice = upgradeOpScene.instance()
-#		option_choice.item = get_random_item()
-#		upOpGUI.add_child(option_choice)
-#		options += 1
 	var itemCheck = []
 	var fff = []
 	var hhh = ""
@@ -32,14 +27,21 @@ func levelup():
 	while options < optionsmax:
 		var option_choice = upgradeOpScene.instance()
 		var random_item = get_random_item()
+		var checkLevel = UpgradeDb.UPGRADES[random_item]["level"]
+		var checkType = UpgradeDb.UPGRADES[random_item]["type"]
+		if checkType=="weapon" and Global.countWeapon >= 4 and not random_item in Global.list_W_S:
+			continue
+		if checkType=="item" and Global.countItem >= 4 and not random_item in Global.list_W_S:
+			continue
+		if checkType!="skill" and checkLevel >=7:
+			continue
 		if fff.has(random_item):
 			itemLike = 1
 		else:
 			itemLike = 0
+
 		fff.append(random_item)
-#		while random_item in upgrade_options:
-#			random_item = get_random_item()
-		
+
 		if itemLike == 0:
 			itemCheck = random_item
 			option_choice.item = random_item
@@ -61,25 +63,23 @@ func get_random_item():
 			collected_item_count += 1
 	
 	for i in UpgradeDb.UPGRADES:
-		if i in collected_upgrades:
-			if not i in dblist:
-				dblist.append(i)
-#				print("i in collected_upgrades")
-		elif i in upgrade_options:
-			if not i in dblist:
-				dblist.append(i)
-#				print("i in upgrade_options")
-		elif UpgradeDb.UPGRADES[i]["type"] == "skill":
-			dblist.append(i)	
-		elif UpgradeDb.UPGRADES[i]["type"] == "weapon" and collected_weapon_count < 4 and not i in collected_upgrades:
-			dblist.append(i)
-#			print("i is weapon")
-		elif UpgradeDb.UPGRADES[i]["type"] == "item" and collected_item_count < 4 and not i in collected_upgrades:
-			dblist.append(i)
-#			print("i is weapon")
-		
+		dblist.append(i)
+#		if i in collected_upgrades:
+#			if not i in dblist:
+#				dblist.append(i)
+###				print("i in collected_upgrades")
+##		elif i in upgrade_options:
+##			if not i in dblist:
+##				dblist.append(i)
+##				print("i in upgrade_options")
+#		if UpgradeDb.UPGRADES[i]["type"] == "skill":
+#			dblist.append(i)	
+#		elif UpgradeDb.UPGRADES[i]["type"] == "weapon" and collected_weapon_count < 4 :
+#			dblist.append(i)
+#		elif UpgradeDb.UPGRADES[i]["type"] == "item" and collected_item_count < 4 :
+#			dblist.append(i)
 	if dblist.size() > 0:
-		var randomitem = dblist[rand_range(0, dblist.size() - 1)]
+		var randomitem = dblist[rand_range(0, dblist.size())]
 		upgrade_options.append(randomitem)
 		return randomitem
 	else:

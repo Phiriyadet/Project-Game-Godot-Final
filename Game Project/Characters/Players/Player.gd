@@ -55,6 +55,9 @@ var old_upgrade
 var new_upgrade
 
 func _ready():
+	Global.list_W_S = []
+	Global.countWeapon = 0
+	Global.countItem = 0
 	Global.open_chest = 0
 	set_healthbar()
 	LevelUp.visible = false
@@ -186,8 +189,9 @@ func print_debug_upgrade(upgrade, instance):
 	print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 func increase_dataLevel_upgrade(upgrade):
+	
 	var currentLevel = UpgradeDb.UPGRADES[upgrade]["level"]
-	var newLevel = clamp(currentLevel + 1, 1, 7)
+	var newLevel = clamp(currentLevel+1, 1, 7)
 	UpgradeDb.UPGRADES[upgrade]["level"] = newLevel
 		
 func upgrade_character(upgrade):
@@ -204,6 +208,8 @@ func upgrade_character(upgrade):
 #				print_debug("weapons:", weapons.get_child_count())
 			
 				if weapons.get_child_count() != 4:
+					Global.countWeapon+=1
+					Global.list_W_S.append(upgrade)
 					# Create a new instance of the weapon upgrade
 					instance = upgrade_scenes[weapon_name].instance()
 					weapons.add_child(instance)
@@ -242,6 +248,8 @@ func upgrade_character(upgrade):
 #				print_debug("items:", items.get_child_count())
 				
 				if items.get_child_count() != 4:
+					Global.countItem+=1
+					Global.list_W_S.append(upgrade)
 					# Create a new instance of the item upgrade
 					instance = upgrade_scenes[item_name].instance()
 					items.add_child(instance)
@@ -276,43 +284,43 @@ func upgrade_character(upgrade):
 
 
 	
-func get_random_item():
-	var dblist = []
-	var collected_weapon_count = 0
-	var collected_item_count = 0
-	for collected_upgrade in collected_upgrades:
-		var collected_upgrade_type = UpgradeDb.UPGRADES[collected_upgrade]["type"]
-		if collected_upgrade_type == "weapon":
-			collected_weapon_count += 1
-		elif collected_upgrade_type == "item":
-			collected_item_count += 1
-	
-	for i in UpgradeDb.UPGRADES:
-		if i in collected_upgrades:
-			if not i in dblist:
-				dblist.append(i)
-#				print("i in collected_upgrades")
-		elif i in upgrade_options:
-			if not i in dblist:
-				dblist.append(i)
-#				print("i in upgrade_options")
-		elif UpgradeDb.UPGRADES[i]["type"] == "skill":
-			dblist.append(i)	
-		elif UpgradeDb.UPGRADES[i]["type"] == "weapon" and collected_weapon_count < 4 and not i in collected_upgrades:
-			dblist.append(i)
-			print("i is weapon")
-		elif UpgradeDb.UPGRADES[i]["type"] == "item" and collected_item_count < 4 and not i in collected_upgrades:
-			dblist.append(i)
-			print("i is weapon")
-		
-		
-	
-	if dblist.size() > 0:
-		var randomitem = dblist[rand_range(0, dblist.size() - 1)]
-		upgrade_options.append(randomitem)
-		return randomitem
-	else:
-		return null
+#func get_random_item():
+#	var dblist = []
+#	var collected_weapon_count = 0
+#	var collected_item_count = 0
+#	for collected_upgrade in collected_upgrades:
+#		var collected_upgrade_type = UpgradeDb.UPGRADES[collected_upgrade]["type"]
+#		if collected_upgrade_type == "weapon":
+#			collected_weapon_count += 1
+#		elif collected_upgrade_type == "item":
+#			collected_item_count += 1
+#
+#	for i in UpgradeDb.UPGRADES:
+#		if i in collected_upgrades:
+#			if not i in dblist:
+#				dblist.append(i)
+##				print("i in collected_upgrades")
+#		elif i in upgrade_options:
+#			if not i in dblist:
+#				dblist.append(i)
+##				print("i in upgrade_options")
+#		elif UpgradeDb.UPGRADES[i]["type"] == "skill":
+#			dblist.append(i)	
+#		elif UpgradeDb.UPGRADES[i]["type"] == "weapon" and collected_weapon_count < 4 and not i in collected_upgrades:
+#			dblist.append(i)
+#			print("i is weapon")
+#		elif UpgradeDb.UPGRADES[i]["type"] == "item" and collected_item_count < 4 and not i in collected_upgrades:
+#			dblist.append(i)
+#			print("i is weapon")
+#
+#
+#
+#	if dblist.size() > 0:
+#		var randomitem = dblist[rand_range(0, dblist.size() - 1)]
+#		upgrade_options.append(randomitem)
+#		return randomitem
+#	else:
+#		return null
 
 
 

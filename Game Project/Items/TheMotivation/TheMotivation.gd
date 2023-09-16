@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
+#	print(self.level)
 	now_Lv = self.level
 	if old_Lv < now_Lv:
 		$Node2D.scale.x +=0.2

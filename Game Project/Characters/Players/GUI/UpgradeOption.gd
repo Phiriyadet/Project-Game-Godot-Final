@@ -20,7 +20,7 @@ func _ready():
 #		item = "food"
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
-	lbl_level.text = "level "+ str(UpgradeDb.UPGRADES[item]["level"])
+	lbl_level.text = "level "+ str(UpgradeDb.UPGRADES[item]["level"]+1)
 	lbl_type.text = UpgradeDb.UPGRADES[item]["type"]
 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 #	print_debug("item icon: ",UpgradeDb.UPGRADES[item]["icon"])

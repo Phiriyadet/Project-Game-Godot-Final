@@ -14,6 +14,10 @@ var level_player = 1
 var difficulty_level = 1
 var collected_allitem 
 
+var list_W_S = []
+var countWeapon = 0
+var countItem = 0
+
 var coin_bonus_diffl = 0
 var bonus_coin = 0
 var bonus_exp = 0
@@ -38,6 +42,8 @@ var upgrade_options_close = false
 var boss_position = Vector2.ZERO
 
 var show_hide_menu = 0
+
+var set_level_IWS = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

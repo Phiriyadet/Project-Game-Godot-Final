@@ -12,22 +12,22 @@ func _ready():
 #	self.spd = 50
 #	self.pickup_radius = 20
 #	self.spacial_skill = false
-#	upgrade_character("BonkBat")
+	upgrade_character("BonkBat")
 #	upgrade_character("TwoGuitars")
 #	upgrade_character("Punch")
 #	upgrade_character("BonkMissile")
 #	upgrade_character("NanomachinesSon")
 #	upgrade_character("TakeMyMoney")
-	upgrade_character("TheMotivation")
-	upgrade_character("ThePumpkinDance")
+#	upgrade_character("TheMotivation")
+#	upgrade_character("ThePumpkinDance")
 #	upgrade_character("Amogus")
 #	upgrade_character("Rickroll")
 #	upgrade_character("SuezCanalJam")
 #	upgrade_character("ThisIsFine")
-	
+	pass
 
 func _process(delta):
-	print(atk)
+#	print(atk)
 	if Input.is_action_pressed("ui_left"):
 		spacialSkill.scale.x = -1
 

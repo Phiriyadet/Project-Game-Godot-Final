@@ -17,6 +17,14 @@ func _init():
 	OS.set_window_position(screen_size * 0.5 - window_size * 0.5)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for key in UpgradeDb.UPGRADES.keys():
+		UpgradeDb.UPGRADES[key]["level"] = 0
+#	for key in UpgradeDb.UPGRADES.keys():
+#		var upgrade = UpgradeDb.UPGRADES[key]
+#		print("Key:", key)
+#		print("Display Name:", upgrade["displayname"])
+#		print("Level:", upgrade["level"])
+#		print()
 	Global.show_hide_menu = 0
 	start_btn.grab_focus()
 	Global.player_dead = false
