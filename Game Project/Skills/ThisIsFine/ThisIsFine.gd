@@ -6,7 +6,6 @@ class_name ThisIsFine, "res://Assets/Skills/this_is_fine.png"
 var atk = 0
 var old_Lv = 1
 var now_Lv = self.level
-onready var player_atk:  = get_tree().current_scene.get_node("Player").get_child(0)
 
 func _ready():
 	pass
@@ -14,13 +13,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	player_atk  = get_tree().current_scene.get_node("Player").get_child(0)
 #	print(player_atk.atk)
-#	now_Lv = self.level
-#	if old_Lv <= now_Lv:
-#		player_atk.plus_atk = 20
-#		old_Lv+=1
-#	player_atk.atk = atk
+	now_Lv = self.level
+	if old_Lv <= now_Lv:
+		atk += 20
+		Global.sum_atk_skill +=20
+		old_Lv+=1
+	
 
 #func check_level():
 #	match level:

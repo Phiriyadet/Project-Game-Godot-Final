@@ -28,7 +28,7 @@ func _ready():
 	pass
 
 func _process(delta):
-#	print(atk)
+#	print(pickup_radius)
 	if Input.is_action_pressed("ui_left"):
 		spacialSkill.scale.x = -1
 

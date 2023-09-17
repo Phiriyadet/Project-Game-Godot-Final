@@ -14,7 +14,6 @@ export(int) var hp: int = 100 setget set_hp, get_hp
 
 # Attack power of the character
 export(int) var atk = 0 setget set_atk, get_atk
-export(int) var plus_atk = 0
 
 # Speed of the character
 export(int) var spd = 100 setget set_spd, get_spd

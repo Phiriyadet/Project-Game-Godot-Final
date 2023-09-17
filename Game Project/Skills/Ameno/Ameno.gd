@@ -14,12 +14,13 @@ func _process(delta):
 
 func check_level():
 	if player != null:
-		match level:
-			1,2:
-				player.set_pickup(player.get_pickup() + 10)
-			3,4:
-				player.set_pickup(player.get_pickup() + 25)
-			5,6:
-				player.set_pickup(player.get_pickup() + 40)
-			7:
-				player.set_pickup(player.get_pickup() + 55)
+		pass
+#		match level:
+#			1,2:
+#				player.set_pickup(player.get_pickup() + 10)
+#			3,4:
+#				player.set_pickup(player.get_pickup() + 25)
+#			5,6:
+#				player.set_pickup(player.get_pickup() + 40)
+#			7:
+#				player.set_pickup(player.get_pickup() + 55)
