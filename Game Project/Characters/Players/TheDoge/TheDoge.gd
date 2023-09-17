@@ -10,10 +10,11 @@ func _ready():
 #	self.hp = 50
 #	self.atk = 15
 #	self.spd = 50
+#	upgrade_character("Nokia3310")
 #	self.pickup_radius = 20
 #	self.spacial_skill = false
-	upgrade_character("BonkBat")
-#	upgrade_character("TwoGuitars")
+#	upgrade_character("BonkBat")
+	upgrade_character("TwoGuitars")
 #	upgrade_character("Punch")
 #	upgrade_character("BonkMissile")
 #	upgrade_character("NanomachinesSon")

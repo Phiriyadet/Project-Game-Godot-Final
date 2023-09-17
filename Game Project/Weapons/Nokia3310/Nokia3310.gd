@@ -24,6 +24,7 @@ func _process(delta):
 	$AnimationPlayer.stop()
 	$Node2D/Sprite.hide()
 	$Sprite.hide()
+	$Nokia_new/Hitbox.damage = self.atk_all
 	if Input.is_action_pressed("ui_left"):
 		state_attack = "left"
 		Ef_posi_x = -180
@@ -93,4 +94,5 @@ func _on_att_timeout():
 		$AnimationPlayer_new.play("attack_right")
 
 
-
+func _on_Hitbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	print($Node2D/Sprite/Hitbox.damage)

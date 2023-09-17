@@ -8,7 +8,6 @@ script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="." index="0"]
 wait_time = 5.0
-autostart = true
 
 [node name="Up_atk" type="Timer" parent="." index="1"]
 wait_time = 0.25

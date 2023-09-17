@@ -583,3 +583,4 @@ texture = ExtResource( 6 )
 hframes = 7
 
 [connection signal="timeout" from="att" to="." method="_on_att_timeout"]
+[connection signal="area_shape_entered" from="Nokia_new/Hitbox" to="." method="_on_Hitbox_area_shape_entered"]

@@ -18,9 +18,6 @@ func _ready():
 	load_saved_settings()
 #	_on_volume_value_changed(-40)
 
-func _process(delta):
-	pass
-
 func _on_FullScreen_CheckButton_pressed():
 	_settings_data.fullscreen_value = _fullscreenBtn.pressed # เปลี่ยน settings.fullscreen_value เป็น _settings_data.fullscreen_value
 	OS.set_window_fullscreen(_settings_data.fullscreen_value)

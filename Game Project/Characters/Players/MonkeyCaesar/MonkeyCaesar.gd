@@ -14,24 +14,25 @@ func _ready():
 #	self.spacial_skill = false
 	#weapons
 #	upgrade_character("BonkBat")
-	upgrade_character("BonkMissile")
+#	upgrade_character("BonkMissile")
 	upgrade_character("GunHand")
-	upgrade_character("Nokia3310")
+#	upgrade_character("Nokia3310")
 #	upgrade_character("Punch")
 #	upgrade_character("TwoGuitars")
 	
 	#skills
-	upgrade_character("Ameno")
-	upgrade_character("Family")
-	upgrade_character("Gigachad")
-	upgrade_character("GottaGoFast")
+#	upgrade_character("Ameno")
+#	upgrade_character("Family")
+#	upgrade_character("Gigachad")
+#	upgrade_character("GottaGoFast")
 #	upgrade_character("Rickroll")
 #	upgrade_character("ThisIsFine")
 	
 	#items
-	upgrade_character("Amogus")
-	upgrade_character("NanomachinesSon")
-	upgrade_character("SuezCanalJam")
-	upgrade_character("TakeMyMoney")
-	upgrade_character("TheMotivation")
-	upgrade_character("ThePumpkinDance")
+#	upgrade_character("Amogus")
+#	upgrade_character("NanomachinesSon")
+#	upgrade_character("SuezCanalJam")
+#	upgrade_character("TakeMyMoney")
+#	upgrade_character("TheMotivation")
+#	upgrade_character("ThePumpkinDance")
+

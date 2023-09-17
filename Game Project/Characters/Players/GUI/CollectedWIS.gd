@@ -13,7 +13,10 @@ func _ready():
 	
 	lbl_name.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lbl_desription.text = UpgradeDb.UPGRADES[item]["details"]
-	lbl_level.text = "level "+ str(UpgradeDb.UPGRADES[item]["level"])
+	if UpgradeDb.UPGRADES[item]["level"] == 7 and UpgradeDb.UPGRADES[item]["type"] != "skill":
+		lbl_level.text = "level Max"
+	else:
+		lbl_level.text = "level "+ str(UpgradeDb.UPGRADES[item]["level"])
 	lbl_type.text = UpgradeDb.UPGRADES[item]["type"]
 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 

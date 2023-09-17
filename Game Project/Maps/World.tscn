@@ -88,25 +88,5 @@ position = Vector2( -301, -449 )
 [node name="Giorno\'sPiano3" parent="Loot" instance=ExtResource( 21 )]
 position = Vector2( 497, -380 )
 
-[node name="Exp_gem2" parent="Loot" instance=ExtResource( 7 )]
-position = Vector2( 807, -315 )
-experience = 30000
-
-[node name="Exp_gem3" parent="Loot" instance=ExtResource( 7 )]
-position = Vector2( 756, -314 )
-experience = 30000
-
-[node name="Exp_gem4" parent="Loot" instance=ExtResource( 7 )]
-position = Vector2( 777, -296 )
-experience = 30000
-
-[node name="Exp_gem5" parent="Loot" instance=ExtResource( 7 )]
-position = Vector2( 751, -284 )
-experience = 30000
-
-[node name="Exp_gem6" parent="Loot" instance=ExtResource( 7 )]
-position = Vector2( 735, -325 )
-experience = 300000
-
 [node name="Treasure" parent="." instance=ExtResource( 9 )]
 position = Vector2( -109, 71 )

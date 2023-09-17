@@ -4,6 +4,7 @@ class_name SaveGameAsJson
 
 const SAVE_GAME_PATH := "user://save.json"
 const COIN_DATA_PATH := "user://coin.json"
+const check_have_setting := "user://save_settings.json"
 
 var version := 1
 
@@ -44,41 +45,45 @@ func write_savegame_init():
 	if error != OK:
 		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [SAVE_GAME_PATH, error])
 		return
-	
-	var data := {
-	  "Players": {
-		"The_Doge": {
-		  "Max_HP": 50,
-		  "HP": 50,
-		  "ATK": 15,
-		  "SPD": 50,
-		  "Pickup_Radius": 20,
-		  "Spacial_Skill": false,
-		  "Buy_Spacial_Skill": false,
-		  "Collected_Coin": 0
-		},
-		"Monkey_Caesar": {
-		  "Max_HP": 40,
-		  "HP": 40,
-		  "ATK": 20,
-		  "SPD": 50,
-		  "Pickup_Radius": 20,
-		  "Spacial_Skill": false,
-		  "Buy_Spacial_Skill": false,
-		  "Collected_Coin": 0
-		},
-		"Pepe_The_Frog": {
-		  "Max_HP": 50,
-		  "HP": 50,
-		  "ATK": 10,
-		  "SPD": 60,
-		  "Pickup_Radius": 20,
-		  "Spacial_Skill": false,
-		  "Buy_Spacial_Skill": false,
-		  "Collected_Coin": 0
+	var file = File.new()
+	if file.file_exists(check_have_setting):
+		pass
+	else:
+	# The file does not exist
+		var data := {
+		  "Players": {
+			"The_Doge": {
+			  "Max_HP": 50,
+			  "HP": 50,
+			  "ATK": 15,
+			  "SPD": 50,
+			  "Pickup_Radius": 20,
+			  "Spacial_Skill": false,
+			  "Buy_Spacial_Skill": false,
+			  "Collected_Coin": 0
+			},
+			"Monkey_Caesar": {
+			  "Max_HP": 40,
+			  "HP": 40,
+			  "ATK": 20,
+			  "SPD": 50,
+			  "Pickup_Radius": 20,
+			  "Spacial_Skill": false,
+			  "Buy_Spacial_Skill": false,
+			  "Collected_Coin": 0
+			},
+			"Pepe_The_Frog": {
+			  "Max_HP": 50,
+			  "HP": 50,
+			  "ATK": 10,
+			  "SPD": 60,
+			  "Pickup_Radius": 20,
+			  "Spacial_Skill": false,
+			  "Buy_Spacial_Skill": false,
+			  "Collected_Coin": 0
+			}
+		  }
 		}
-	  }
-	}
 	
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)

@@ -118,7 +118,7 @@ tracks/1/path = NodePath("AnimatedSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
@@ -130,7 +130,7 @@ tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -206,7 +206,6 @@ anims/hurt = SubResource( 7 )
 anims/move = SubResource( 8 )
 
 [node name="Collision_enemy" type="CollisionPolygon2D" parent="." index="5"]
-disabled = true
 
 [node name="Timer" type="Timer" parent="." index="6"]
 wait_time = 5.0

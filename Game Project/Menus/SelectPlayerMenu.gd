@@ -38,7 +38,7 @@ var min_pr_d = 20
 var max_hp_d = 500
 var max_atk_d = 200
 var max_spd_d = 200
-var max_pr_d = 100
+var max_pr_d = 300
 
 var min_hp_m = 40
 var min_atk_m = 20
@@ -47,7 +47,7 @@ var min_pr_m = 20
 var max_hp_m = 400
 var max_atk_m = 300
 var max_spd_m = 200
-var max_pr_m = 100
+var max_pr_m = 300
 
 var min_hp_f = 50
 var min_atk_f = 10
@@ -56,7 +56,7 @@ var min_pr_f = 20
 var max_hp_f = 300
 var max_atk_f = 200
 var max_spd_f = 300
-var max_pr_f = 100
+var max_pr_f = 300
 
 var hp_d = 0
 var atk_d = 0
@@ -269,7 +269,7 @@ func _on_plus_hp_pressed():
 				if int(coinL.text) >= int(_price_hp.text):
 					coinL.text = str(int(coinL.text) - int(_price_hp.text))
 					cc_d += int(_price_hp.text)
-					hp_d = clamp(hp_d + 10, min_hp_d, max_hp_d)
+					hp_d = clamp(hp_d + 5, min_hp_d, max_hp_d)
 					hpL.text = str(hp_d)
 					setGlobalStausDoge()
 				else:
@@ -279,7 +279,7 @@ func _on_plus_hp_pressed():
 				if int(coinL.text) >= int(_price_hp.text):
 					coinL.text = str(int(coinL.text) - int(_price_hp.text))
 					cc_m += int(_price_hp.text)
-					hp_m = clamp(hp_m + 10, min_hp_m, max_hp_m)
+					hp_m = clamp(hp_m + 5, min_hp_m, max_hp_m)
 					hpL.text = str(hp_m)
 					setGlobalStausMonkey()
 				else:
@@ -289,7 +289,7 @@ func _on_plus_hp_pressed():
 				if int(coinL.text) >= int(_price_hp.text):
 					coinL.text = str(int(coinL.text) - int(_price_hp.text))
 					cc_f += int(_price_hp.text)
-					hp_f = clamp(hp_f + 10, min_hp_f, max_hp_f)
+					hp_f = clamp(hp_f + 5, min_hp_f, max_hp_f)
 					hpL.text = str(hp_f)
 					setGlobalStausFrog()
 				else:
@@ -305,7 +305,7 @@ func _on_minus_hp_pressed():
 			if int(cc_d) >= int(_price_hp.text):
 				coinL.text = str(int(coinL.text) + int(_price_hp.text))
 				cc_d -= int(_price_hp.text)
-				hp_d = clamp(hp_d - 10, min_hp_d, max_hp_d)
+				hp_d = clamp(hp_d - 5, min_hp_d, max_hp_d)
 				hpL.text = str(hp_d)
 				setGlobalStausDoge()
 			else:
@@ -315,7 +315,7 @@ func _on_minus_hp_pressed():
 			if int(cc_m) >= int(_price_hp.text):
 				coinL.text = str(int(coinL.text) + int(_price_hp.text))
 				cc_m -= int(_price_hp.text)
-				hp_m = clamp(hp_m - 10, min_hp_m, max_hp_m)
+				hp_m = clamp(hp_m - 5, min_hp_m, max_hp_m)
 				hpL.text = str(hp_m)
 				setGlobalStausMonkey()
 			else:
@@ -325,7 +325,7 @@ func _on_minus_hp_pressed():
 			if int(cc_f) >= int(_price_hp.text):
 				coinL.text = str(int(coinL.text) + int(_price_hp.text))
 				cc_f -= int(_price_hp.text)
-				hp_f = clamp(hp_f - 10, min_hp_f, max_hp_f)
+				hp_f = clamp(hp_f - 5, min_hp_f, max_hp_f)
 				hpL.text = str(hp_f)
 				setGlobalStausFrog()
 			else:
@@ -340,7 +340,7 @@ func _on_plus_atk_pressed():
 				if int(coinL.text) >= int(_price_hp.text):
 					coinL.text = str(int(coinL.text) - int(_price_atk.text))
 					cc_d += int(_price_atk.text)
-					atk_d = clamp(atk_d + 10, min_atk_d, max_atk_d)
+					atk_d = clamp(atk_d + 2, min_atk_d, max_atk_d)
 					atkL.text = str(atk_d)
 					setGlobalStausDoge()
 				else:
@@ -350,7 +350,7 @@ func _on_plus_atk_pressed():
 				if int(coinL.text) >= int(_price_hp.text):
 					coinL.text = str(int(coinL.text) - int(_price_atk.text))
 					cc_m += int(_price_atk.text)
-					atk_m = clamp(atk_m + 10, min_atk_m, max_atk_m)
+					atk_m = clamp(atk_m + 2, min_atk_m, max_atk_m)
 					atkL.text = str(atk_m)
 					setGlobalStausMonkey()
 				else:
@@ -360,7 +360,7 @@ func _on_plus_atk_pressed():
 				if int(coinL.text) >= int(_price_hp.text):
 					coinL.text = str(int(coinL.text) - int(_price_atk.text))
 					cc_f += int(_price_atk.text)
-					atk_f = clamp(atk_f + 10, min_atk_f, max_atk_f)
+					atk_f = clamp(atk_f + 2, min_atk_f, max_atk_f)
 					atkL.text = str(atk_f)
 					setGlobalStausFrog()
 				else:
@@ -374,7 +374,7 @@ func _on_minus_atk_pressed():
 			if int(cc_d) >= int(_price_spd.text):
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_d -= int(_price_hp.text)
-				atk_d = clamp(atk_d - 10, min_atk_d, max_atk_d)
+				atk_d = clamp(atk_d - 2, min_atk_d, max_atk_d)
 				atkL.text = str(atk_d)
 				setGlobalStausDoge()
 			else:
@@ -384,7 +384,7 @@ func _on_minus_atk_pressed():
 			if int(cc_m) >= int(_price_spd.text):
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_m -= int(_price_hp.text)
-				atk_m = clamp(atk_m - 10, min_atk_m, max_atk_m)
+				atk_m = clamp(atk_m - 2, min_atk_m, max_atk_m)
 				atkL.text = str(atk_m)
 				setGlobalStausMonkey()
 			else:
@@ -394,7 +394,7 @@ func _on_minus_atk_pressed():
 			if int(cc_f) >= int(_price_spd.text):
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_f -= int(_price_hp.text)
-				atk_f = clamp(atk_f - 10, min_atk_f, max_atk_f)
+				atk_f = clamp(atk_f - 2, min_atk_f, max_atk_f)
 				atkL.text = str(atk_f)
 				setGlobalStausFrog()
 			else:
@@ -409,7 +409,7 @@ func _on_plus_spd_pressed():
 				if int(coinL.text) >= int(_price_spd.text):
 					coinL.text = str(int(coinL.text) - int(_price_spd.text))
 					cc_d += int(_price_spd.text)
-					spd_d = clamp(spd_d + 10, min_spd_d, max_spd_d)
+					spd_d = clamp(spd_d + 2, min_spd_d, max_spd_d)
 					spdL.text = str(spd_d)
 					setGlobalStausDoge()
 				else:
@@ -419,7 +419,7 @@ func _on_plus_spd_pressed():
 				if int(coinL.text) >= int(_price_spd.text):
 					coinL.text = str(int(coinL.text) - int(_price_spd.text))
 					cc_m += int(_price_spd.text)
-					spd_m = clamp(spd_m + 10, min_spd_m, max_spd_m)
+					spd_m = clamp(spd_m + 2, min_spd_m, max_spd_m)
 					spdL.text = str(spd_m)
 					setGlobalStausMonkey()
 				else:
@@ -429,7 +429,7 @@ func _on_plus_spd_pressed():
 				if int(coinL.text) >= int(_price_spd.text):
 					coinL.text = str(int(coinL.text) - int(_price_spd.text))
 					cc_f += int(_price_spd.text)
-					spd_f = clamp(spd_f + 10, min_spd_f, max_spd_f)
+					spd_f = clamp(spd_f + 2, min_spd_f, max_spd_f)
 					spdL.text = str(spd_f)
 					setGlobalStausFrog()
 				else:
@@ -443,7 +443,7 @@ func _on_minus_spd_pressed():
 			if int(cc_d) >= int(_price_spd.text):
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_d -= int(_price_spd.text)
-				spd_d = clamp(spd_d - 10, min_spd_d, max_spd_d)
+				spd_d = clamp(spd_d - 2, min_spd_d, max_spd_d)
 				spdL.text = str(spd_d)
 				setGlobalStausDoge()
 			else:
@@ -453,7 +453,7 @@ func _on_minus_spd_pressed():
 			if int(cc_m) >= int(_price_spd.text):
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_m -= int(_price_spd.text)
-				spd_m = clamp(spd_m - 10, min_spd_m, max_spd_m)
+				spd_m = clamp(spd_m - 2, min_spd_m, max_spd_m)
 				spdL.text = str(spd_m)
 				setGlobalStausMonkey()
 			else:
@@ -463,7 +463,7 @@ func _on_minus_spd_pressed():
 			if int(cc_f) >= int(_price_spd.text):
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_f -= int(_price_spd.text)
-				spd_f = clamp(spd_f - 10, min_spd_f, max_spd_f)
+				spd_f = clamp(spd_f - 2, min_spd_f, max_spd_f)
 				spdL.text = str(spd_f)
 				setGlobalStausFrog()
 			else:
@@ -478,7 +478,7 @@ func _on_plus_pickupR_pressed():
 				if int(coinL.text) >= int(_price_pr.text):
 					coinL.text = str(int(coinL.text) - int(_price_pr.text))
 					cc_d += int(_price_pr.text)
-					pr_d = clamp(pr_d + 10, min_pr_d, max_pr_d)
+					pr_d = clamp(pr_d + 2, min_pr_d, max_pr_d)
 					prL.text = str(pr_d)
 					setGlobalStausDoge()
 				else:
@@ -488,7 +488,7 @@ func _on_plus_pickupR_pressed():
 				if int(coinL.text) >= int(_price_pr.text):
 					coinL.text = str(int(coinL.text) - int(_price_pr.text))
 					cc_m += int(_price_pr.text)
-					pr_m = clamp(pr_m + 10, min_hp_m, max_pr_m)
+					pr_m = clamp(pr_m + 2, min_hp_m, max_pr_m)
 					prL.text = str(pr_m)
 					setGlobalStausMonkey()
 				else:
@@ -498,7 +498,7 @@ func _on_plus_pickupR_pressed():
 				if int(coinL.text) >= int(_price_pr.text):
 					coinL.text = str(int(coinL.text) - int(_price_pr.text))
 					cc_f += int(_price_pr.text)
-					pr_f = clamp(pr_f + 10, min_pr_f, max_pr_f)
+					pr_f = clamp(pr_f + 2, min_pr_f, max_pr_f)
 					prL.text = str(pr_f)
 					setGlobalStausFrog()
 				else:
@@ -512,7 +512,7 @@ func _on_minus_pickupR_pressed():
 			if int(cc_d) >= int(_price_pr.text):
 				coinL.text = str(int(coinL.text) + int(_price_pr.text))
 				cc_d -= int(_price_pr.text)
-				pr_d = clamp(pr_d - 10, min_pr_d, max_pr_d)
+				pr_d = clamp(pr_d - 2, min_pr_d, max_pr_d)
 				prL.text = str(pr_d)
 				setGlobalStausDoge()
 			else:
@@ -522,7 +522,7 @@ func _on_minus_pickupR_pressed():
 			if int(cc_m) >= int(_price_pr.text):
 				coinL.text = str(int(coinL.text) + int(_price_pr.text))
 				cc_m -= int(_price_pr.text)
-				pr_m = clamp(pr_m - 10, min_hp_m, max_pr_m)
+				pr_m = clamp(pr_m - 2, min_hp_m, max_pr_m)
 				prL.text = str(pr_m)
 				setGlobalStausMonkey()
 			else:
@@ -532,7 +532,7 @@ func _on_minus_pickupR_pressed():
 			if int(cc_f) >= int(_price_pr.text):
 				coinL.text = str(int(coinL.text) + int(_price_pr.text))
 				cc_f -= int(_price_pr.text)
-				pr_f = clamp(pr_f - 10, min_pr_f, max_pr_f)
+				pr_f = clamp(pr_f - 2, min_pr_f, max_pr_f)
 				prL.text = str(pr_f)
 				setGlobalStausFrog()
 			else:

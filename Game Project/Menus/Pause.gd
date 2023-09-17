@@ -23,8 +23,6 @@ func close():
 	hide()
 
 func open():
-	for i in Global.list_W_S:
-		print(i)
 	player_status  = get_tree().current_scene.get_node("Player").get_child(0)
 #	อาวุธ สกิล และไอเทมทั้งหมด
 	clearCollectedBox()
@@ -34,7 +32,7 @@ func open():
 		var collected_item = collectedAllItems.instance()
 		collected_item.item = i
 		collectedBox.add_child(collected_item)
-		print(UpgradeDb.UPGRADES[i]["level"])
+#		print(UpgradeDb.UPGRADES[i]["level"])
 #	สถานะตัวละคร
 	_hp_label.text = str(player_status.hp)
 	_atk_label.text = str(player_status.atk)

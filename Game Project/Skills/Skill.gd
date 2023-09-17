@@ -21,7 +21,7 @@ func _process(delta):
 	pass
 
 func set_newlevel(old_level:int):
-	level = clamp(old_level+1, 1, 7)
+	level = old_level+1
 	check_level()
 	
 func get_level() -> int:
@@ -29,15 +29,15 @@ func get_level() -> int:
 	
 func check_level():
 	if player != null:
-		match self.level:
-			1,2:
-				print_debug("skill level :", level)
-			3,4:
-				print_debug("skill level :", level)
-			5,6:
-				print_debug("skill level :", level)
-			7:
-				print_debug("skill level :", level)
+#		match self.level:
+#			1,2:
+#				print_debug("skill level :", level)
+#			3,4:
+#				print_debug("skill level :", level)
+#			5,6:
+#				print_debug("skill level :", level)
+#			7:
+#				print_debug("skill level :", level)
 		_audio_stream_player_2d.play()
 
 

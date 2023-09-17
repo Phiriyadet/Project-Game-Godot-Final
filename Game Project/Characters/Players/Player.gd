@@ -59,6 +59,7 @@ func _ready():
 	Global.countWeapon = 0
 	Global.countItem = 0
 	Global.open_chest = 0
+	Global.sum_atk_skill = self.atk
 	set_healthbar()
 	LevelUp.visible = false
 	set_expbar(experience, calculate_experiencecap())
@@ -66,6 +67,7 @@ func _ready():
 	
 	
 func _process(delta):
+	self.atk = Global.sum_atk_skill
 	if Global.open_chest==1:
 		levelup()
 	set_healthbar()
@@ -100,6 +102,7 @@ func get_input():
 		cooldawnTimer.start()
 		animationPlayer.play("spacial_attack")
 		recharge_sskill(cooldawnTimer.wait_time)
+		self.hp-=max_hp/2
 		
 
 func recharge_sskill(time:float):
@@ -147,36 +150,6 @@ func levelup():
 	Global.open_chest=0
 	levelLabel.text = str("LV. ",experience_level)
 	LevelUp.levelup()
-#	var options = 0
-#	var optionsmax = 3
-##	while options < optionsmax:
-##		var option_choice = upgradeOpScene.instance()
-##		option_choice.item = get_random_item()
-##		upOpGUI.add_child(option_choice)
-##		options += 1
-#	var itemCheck = []
-#	var fff = []
-#	var hhh = ""
-#	var itemLike = 0
-#	while options < optionsmax:
-#		var option_choice = upgradeOpScene.instance()
-#		var random_item = get_random_item()
-#		if fff.has(random_item):
-#			itemLike = 1
-#		else:
-#			itemLike = 0
-#		fff.append(random_item)
-##		while random_item in upgrade_options:
-##			random_item = get_random_item()
-#
-#		if itemLike == 0:
-#			itemCheck = random_item
-#			option_choice.item = random_item
-#			upOpGUI.add_child(option_choice)
-#			options += 1
-#	LevelUp.visible = true
-#	Global.upgrade_options_close = false
-#	LevelUp.show()
 	get_tree().paused = true
 
 func popup_collected_full(upgrade, type):
@@ -189,9 +162,12 @@ func print_debug_upgrade(upgrade, instance):
 	print_debug("upgrade: ", upgrade, ":", instance.get_level())
 	
 func increase_dataLevel_upgrade(upgrade):
-	
+	var newLevel
 	var currentLevel = UpgradeDb.UPGRADES[upgrade]["level"]
-	var newLevel = clamp(currentLevel+1, 1, 7)
+	if UpgradeDb.UPGRADES[upgrade]["type"] != "skill":
+		newLevel = clamp(currentLevel+1, 1, 7)
+	else:
+		newLevel = currentLevel+1
 	UpgradeDb.UPGRADES[upgrade]["level"] = newLevel
 		
 func upgrade_character(upgrade):

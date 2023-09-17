@@ -60,7 +60,7 @@ radius = 8.0
 height = 28.0
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 10, 20 )
+extents = Vector2( 14.2, 9 )
 
 [sub_resource type="Animation" id=17]
 resource_local_to_scene = true
@@ -221,13 +221,14 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=21]
 resource_local_to_scene = true
 resource_name = "spacial_attack"
+length = 1.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("SpacialSkill/Sprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -239,9 +240,9 @@ tracks/1/path = NodePath("SpacialSkill/Sprite:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.95, 1 ),
+"times": PoolRealArray( 0, 0.05, 1.1, 1.15 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ -1, 0, 0, -1 ]
@@ -251,12 +252,12 @@ tracks/2/path = NodePath("SpacialSkill/Sprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 20, 0 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ), Vector2( 30, 10 ), Vector2( 30, -10 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 100, 0 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ), Vector2( 100, 10 ), Vector2( 100, -10 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("SpacialSkill/Sprite:frame")
@@ -265,7 +266,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2 ]
@@ -277,7 +278,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -289,7 +290,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -330,6 +331,7 @@ collected_coin = 50
 [node name="AnimatedSprite" parent="." index="1"]
 modulate = Color( 1, 0.996078, 0.996078, 1 )
 frames = SubResource( 9 )
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 1, 0 )
@@ -339,8 +341,8 @@ shape = SubResource( 11 )
 visible = false
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
-position = Vector2( 30, -10 )
-z_index = -1
+position = Vector2( 100, -10 )
+scale = Vector2( 5, 5 )
 texture = ExtResource( 13 )
 hframes = 4
 frame = 2
@@ -351,6 +353,7 @@ collision_mask = 4
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Sprite/Hitbox" index="0"]
+position = Vector2( -4.2, 0.4 )
 shape = SubResource( 23 )
 disabled = true
 

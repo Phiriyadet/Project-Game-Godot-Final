@@ -332,10 +332,9 @@ visible = false
 scale = Vector2( 20, 20 )
 
 [node name="Sprite" type="Sprite" parent="SpacialSkill" index="0"]
-visible = false
 texture = ExtResource( 12 )
 hframes = 7
-frame = 6
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Sprite" index="0"]
 collision_layer = 0
@@ -344,7 +343,6 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Sprite/Hitbox" index="0"]
 shape = SubResource( 20 )
-disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 22 )

@@ -68,7 +68,7 @@ func _process(_delta):
 
 func check_level():
 	match level:
-		1,2:
+		2:
 			self.atk_w += 30
 			print_debug("TwoGuitars : ", level)
 		3,4:
@@ -87,7 +87,7 @@ func _on_wave_att_timeout():
 	var ff = get_parent()
 	var waveAtt = wave.instance()
 	waveAtt.position = ff.get_global_position()
-	waveAtt.get_node("waveWave/Area2D").damage = self.atk_w
+	waveAtt.get_node("waveWave/Area2D").damage = self.atk_all
 	if rota == "r":
 		waveAtt.scale.x = 0.5 + up_size_wave
 		waveAtt.scale.y = 0.5 + up_size_wave

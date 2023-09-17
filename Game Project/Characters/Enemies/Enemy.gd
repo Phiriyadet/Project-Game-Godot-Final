@@ -18,6 +18,9 @@ var nummm = 0
 var get_speed_old
 var once = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
+
+func _ready():
+	show()
 func _physics_process(delta):
 	
 	if self.spd>0:
