@@ -13,8 +13,8 @@ func _ready():
 #	upgrade_character("Nokia3310")
 #	self.pickup_radius = 20
 #	self.spacial_skill = false
-#	upgrade_character("BonkBat")
-	upgrade_character("TwoGuitars")
+	upgrade_character("BonkBat")
+#	upgrade_character("TwoGuitars")
 #	upgrade_character("Punch")
 #	upgrade_character("BonkMissile")
 #	upgrade_character("NanomachinesSon")
@@ -25,10 +25,15 @@ func _ready():
 #	upgrade_character("Rickroll")
 #	upgrade_character("SuezCanalJam")
 #	upgrade_character("ThisIsFine")
+#	upgrade_character("Ameno")
+#	upgrade_character("Family")
+#	upgrade_character("Gigachad")
+	upgrade_character("GottaGoFast")
 	pass
 
 func _process(delta):
-#	print(pickup_radius)
+#	print(spd)
+#	print(self.acceleration)
 	if Input.is_action_pressed("ui_left"):
 		spacialSkill.scale.x = -1
 

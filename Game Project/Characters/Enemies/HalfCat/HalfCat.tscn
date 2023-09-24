@@ -46,7 +46,7 @@ __meta__ = {
 max_hp = 30
 hp = 30
 atk = 5
-spd = 10
+spd = 30
 exp_enemy = 5
 
 [node name="AnimatedSprite" parent="." index="1"]

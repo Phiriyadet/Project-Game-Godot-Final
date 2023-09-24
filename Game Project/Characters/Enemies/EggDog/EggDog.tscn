@@ -41,7 +41,7 @@ height = 17.0
 [node name="EggDog" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 atk = 5
-spd = 30
+spd = 80
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )

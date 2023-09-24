@@ -6,7 +6,7 @@ class_name Character
 const FRICTION: float = 0.15
 
 # Acceleration of the character
-export(int) var acceleration: int = 20
+export(int) var acceleration: int = 200
 
 # Maximum and current hitpoints of the character
 export(int) var max_hp: int = 100  setget set_maxhp, get_maxhp
@@ -53,8 +53,11 @@ func move():
 	# Increase the velocity based on the movement direction and acceleration
 	velocity += mov_direction * acceleration
 	# Limit the velocity to the character's max speed
-	velocity = velocity.limit_length(self.spd)
 	
+	if is_in_group("player"):
+		velocity = velocity.limit_length(self.spd+30)
+	if is_in_group("enemy"):
+		velocity = velocity.limit_length(self.spd)
 	
 func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 	# Check if the character is not already in a hurt or dead state

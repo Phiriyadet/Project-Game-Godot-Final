@@ -55,6 +55,7 @@ var old_upgrade
 var new_upgrade
 
 func _ready():
+	
 	Global.list_W_S = []
 	Global.countWeapon = 0
 	Global.countItem = 0
@@ -77,7 +78,8 @@ func _process(delta):
 		collision2d.disabled = true
 	enemyDesCount.text = str(Global.enemy_dead_count)
 	picradius.shape.radius = self.pickup_radius 
-	
+	var upspeed = self.spd*1.5
+#	self.spd = upspeed
 
 func get_input():
 	

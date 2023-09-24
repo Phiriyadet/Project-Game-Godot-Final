@@ -134,7 +134,7 @@ __meta__ = {
 }
 hp = 50
 atk = 8
-spd = 10
+spd = 30
 exp_enemy = 5
 
 [node name="AnimatedSprite" parent="." index="1"]

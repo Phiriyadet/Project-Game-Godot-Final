@@ -42,7 +42,7 @@ script = ExtResource( 2 )
 max_hp = 400
 hp = 400
 atk = 40
-spd = 8
+spd = 40
 exp_enemy = 200
 
 [node name="AnimatedSprite" parent="." index="1"]
