@@ -6,6 +6,8 @@ var doge = preload("res://Characters/Players/TheDoge/Big_Doge.tscn")
 
 onready var spacialSkill: Node2D = $SpacialSkill
 func _ready():
+	$SpacialSkill/Sprite2/Sprite/Area2D/CollisionShape2D.disabled = true
+	$SpacialSkill/Sprite2/Sprite2/Area2D/CollisionShape2D.disabled =true
 #	self.max_hp = 50
 #	self.hp = 50
 #	self.atk = 15
@@ -13,7 +15,7 @@ func _ready():
 #	upgrade_character("Nokia3310")
 #	self.pickup_radius = 20
 #	self.spacial_skill = false
-	upgrade_character("BonkBat")
+#	upgrade_character("BonkBat")
 #	upgrade_character("TwoGuitars")
 #	upgrade_character("Punch")
 #	upgrade_character("BonkMissile")
@@ -32,6 +34,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	print($SpacialSkill/Sprite2/Sprite/Area2D/CollisionShape2D.disabled)
 #	print(spd)
 #	print(self.acceleration)
 	if Input.is_action_pressed("ui_left"):

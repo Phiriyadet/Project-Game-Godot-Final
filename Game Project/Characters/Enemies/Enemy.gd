@@ -31,7 +31,7 @@ func _physics_process(delta):
 			$Timer.start()
 			once+=1
 	if Global.time_stop == 0:
-		once = 0
+#		once = 0
 		if once > 0:
 			self.spd = get_speed_old
 	if $AnimatedSprite.flip_h:

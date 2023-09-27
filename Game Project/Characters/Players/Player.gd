@@ -102,9 +102,10 @@ func get_input():
 	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill and spacial_skill:
 		can_active_sSkill = false
 		cooldawnTimer.start()
-		animationPlayer.play("spacial_attack")
+		$AnimationPlayer_spell.play("spell_attack")
+#		animationPlayer.play("spacial_attack")
 		recharge_sskill(cooldawnTimer.wait_time)
-		self.hp-=max_hp/2
+#		self.hp-=max_hp/2
 		
 
 func recharge_sskill(time:float):

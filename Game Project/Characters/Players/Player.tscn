@@ -384,6 +384,8 @@ text = "แจ้งเตือน: อาวุธหรือไอเทม�
 [node name="CountDownTimer" type="Timer" parent="UI/GUI/Popup" index="2"]
 wait_time = 5.0
 
+[node name="AnimationPlayer_spell" type="AnimationPlayer" parent="." index="13"]
+
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_CollectArea_area_entered"]
