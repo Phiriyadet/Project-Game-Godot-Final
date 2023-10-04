@@ -170,43 +170,43 @@ align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AllStatus"]
 margin_top = 24.0
-margin_right = 212.0
-margin_bottom = 92.0
+margin_right = 192.0
+margin_bottom = 112.0
 
 [node name="StatusContainer" type="VBoxContainer" parent="AllStatus/HBoxContainer"]
-margin_right = 112.0
+margin_right = 31.0
 margin_bottom = 88.0
 
 [node name="Label" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
-margin_right = 112.0
+margin_right = 31.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "HP:"
 
 [node name="Label2" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
 margin_top = 23.0
-margin_right = 112.0
+margin_right = 31.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
 text = "ATK:"
 
 [node name="Label3" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
 margin_top = 46.0
-margin_right = 112.0
+margin_right = 31.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 1 )
 text = "SPD:"
 
 [node name="Label4" type="Label" parent="AllStatus/HBoxContainer/StatusContainer"]
 margin_top = 69.0
-margin_right = 112.0
+margin_right = 31.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 1 )
-text = "PICKUP RADIUS: "
+text = "PR: "
 
 [node name="StatusContainer2" type="VBoxContainer" parent="AllStatus/HBoxContainer"]
-margin_left = 116.0
-margin_right = 224.0
+margin_left = 35.0
+margin_right = 143.0
 margin_bottom = 88.0
 
 [node name="HpLabel" type="Label" parent="AllStatus/HBoxContainer/StatusContainer2"]

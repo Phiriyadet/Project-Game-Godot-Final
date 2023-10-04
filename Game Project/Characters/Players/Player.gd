@@ -141,9 +141,9 @@ func calculate_experiencecap():#คำนวน exp ที่ต้องกา�
 	if experience_level < 20:
 		exp_cap = experience_level*10
 	elif experience_level < 40:
-		exp_cap = 95 + (experience_level)*16
+		exp_cap = 1500 + (experience_level)*64
 	else:
-		exp_cap = 255 + (experience_level)*24
+		exp_cap = 3001 + (experience_level)*128
 	return exp_cap * 2
 
 func set_expbar(set_value = 1, set_max_value = 100):
