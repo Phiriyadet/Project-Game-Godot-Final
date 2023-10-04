@@ -566,7 +566,70 @@ text = "$ เงินไม่พอ
 ต้องเก็บเงินให้พอก่อน จึงจะอัพสเตตัสได้ $"
 
 [node name="CountDownTimer" type="Timer" parent="Popup"]
-wait_time = 4.0
+wait_time = 2.0
+
+[node name="status_max" type="Popup" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -52.0
+margin_right = 44.0
+margin_bottom = -12.0
+
+[node name="ColorRect" type="ColorRect" parent="status_max"]
+margin_right = 96.0
+margin_bottom = 34.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="status_max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -16.0
+margin_right = 38.0
+margin_bottom = 9.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=red]ไม่สามารถทำรายการได้มากกว่านี้[/color]"
+text = "ไม่สามารถทำรายการได้มากกว่านี้"
+
+[node name="CountDownTimer2" type="Timer" parent="status_max"]
+
+[node name="status_min" type="Popup" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 37.0
+margin_top = -20.0
+margin_right = 133.0
+margin_bottom = 20.0
+
+[node name="ColorRect" type="ColorRect" parent="status_min"]
+margin_right = 96.0
+margin_bottom = 34.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="status_min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -16.0
+margin_right = 33.0
+margin_bottom = 9.0
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=red]ไม่สามารถลดได้มากกว่านี้[/color]"
+text = "ไม่สามารถลดได้มากกว่านี้"
+
+[node name="CountDownTimer3" type="Timer" parent="status_min"]
 
 [connection signal="focus_entered" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_DogTextureRect_focus_entered"]
 [connection signal="focus_exited" from="ColorRect/PlayersContainer/VBoxContainer/DogTextureRect" to="." method="_on_DogTextureRect_focus_exited"]
@@ -597,3 +660,8 @@ wait_time = 4.0
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
 [connection signal="timeout" from="Popup/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
+[connection signal="timeout" from="status_max/CountDownTimer2" to="." method="_on_CountDownTimer_timeout"]
+[connection signal="timeout" from="status_max/CountDownTimer2" to="." method="_on_CountDownTimer2_timeout"]
+[connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer_timeout"]
+[connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer2_timeout"]
+[connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer3_timeout"]

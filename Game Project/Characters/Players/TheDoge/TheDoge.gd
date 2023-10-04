@@ -15,7 +15,8 @@ func _ready():
 #	upgrade_character("Nokia3310")
 #	self.pickup_radius = 20
 #	self.spacial_skill = false
-#	upgrade_character("BonkBat")
+	upgrade_character("BonkBat")
+#	upgrade_character("GunHand")
 #	upgrade_character("TwoGuitars")
 #	upgrade_character("Punch")
 #	upgrade_character("BonkMissile")
@@ -30,11 +31,10 @@ func _ready():
 #	upgrade_character("Ameno")
 #	upgrade_character("Family")
 #	upgrade_character("Gigachad")
-	upgrade_character("GottaGoFast")
+#	upgrade_character("GottaGoFast")
 	pass
 
 func _process(delta):
-	print($SpacialSkill/Sprite2/Sprite/Area2D/CollisionShape2D.disabled)
 #	print(spd)
 #	print(self.acceleration)
 	if Input.is_action_pressed("ui_left"):

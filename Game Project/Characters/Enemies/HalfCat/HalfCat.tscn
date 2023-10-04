@@ -51,6 +51,7 @@ exp_enemy = 5
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 3, -3 )

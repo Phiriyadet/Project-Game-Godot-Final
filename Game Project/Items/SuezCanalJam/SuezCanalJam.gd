@@ -42,7 +42,6 @@ func check_level():
 			$Timer2.wait_time-= 0.5
 
 func _on_Timer2_timeout():
-
 	var canal = spwn.instance()
 	canal.position = get_parent().get_parent().get_position()
 	canal.scale.x += canal_size

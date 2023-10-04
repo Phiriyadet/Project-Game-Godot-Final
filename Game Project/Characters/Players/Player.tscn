@@ -195,8 +195,8 @@ font_data = ExtResource( 13 )
 [sub_resource type="Theme" id=9]
 
 [node name="Player" groups=["player"] instance=ExtResource( 1 )]
-collision_layer = 2
-collision_mask = 2061
+collision_layer = 2050
+collision_mask = 9
 script = ExtResource( 2 )
 pickup_radius = 20.0
 spacial_skill = false
@@ -386,10 +386,15 @@ wait_time = 5.0
 
 [node name="AnimationPlayer_spell" type="AnimationPlayer" parent="." index="13"]
 
+[node name="color" type="Timer" parent="." index="14"]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_PickupRadius_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_CollectArea_area_entered"]
 [connection signal="timeout" from="CoolDawnTimer" to="." method="_on_CoolDawnTimer_timeout"]
 [connection signal="timeout" from="UI/GUI/Popup/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
+[connection signal="timeout" from="color" to="." method="_on_color_timeout"]
 
 [editable path="UI/GUI/LevelUp"]

@@ -9,7 +9,7 @@ func _ready():
 	for i in range(21):
 		if i>0:
 			Cock = get_node("Cockroach/Cockroach"+str(i))
-			Cock.spd = 0
+			Cock.spd = 0.1
 
 func _physics_process(delta):
 	position+=move_to*2

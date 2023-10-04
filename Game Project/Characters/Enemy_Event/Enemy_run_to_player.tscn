@@ -4,6 +4,7 @@
 [ext_resource path="res://Characters/Enemy_Event/Enemy_run_to_player.gd" type="Script" id=2]
 
 [node name="Enemy_run_to_player" type="KinematicBody2D"]
+collision_layer = 0
 collision_mask = 16
 script = ExtResource( 2 )
 
@@ -14,83 +15,63 @@ position = Vector2( 47, 24 )
 
 [node name="Cockroach18" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -92, -86 )
-collision_mask = 0
 
 [node name="Cockroach1" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -22, -29 )
-collision_mask = 0
 
 [node name="Cockroach2" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -42, 4 )
-collision_mask = 0
 
 [node name="Cockroach3" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -12, 11 )
-collision_mask = 0
 
 [node name="Cockroach4" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( 16, -22 )
-collision_mask = 0
 
 [node name="Cockroach5" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -56, -45 )
-collision_mask = 0
 
 [node name="Cockroach6" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -75, -5 )
-collision_mask = 0
 
 [node name="Cockroach7" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -19, -72 )
-collision_mask = 0
 
 [node name="Cockroach8" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( 10, -60 )
-collision_mask = 0
 
 [node name="Cockroach9" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -112, -20 )
-collision_mask = 0
 
 [node name="Cockroach10" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -86, -49 )
-collision_mask = 0
 
 [node name="Cockroach11" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -57, -84 )
-collision_mask = 0
 
 [node name="Cockroach12" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -49, -122 )
-collision_mask = 0
 
 [node name="Cockroach13" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -56, 40 )
-collision_mask = 0
 
 [node name="Cockroach14" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -137, 10 )
-collision_mask = 0
 
 [node name="Cockroach15" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -100, 25 )
-collision_mask = 0
 
 [node name="Cockroach16" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -159, -25 )
-collision_mask = 0
 
 [node name="Cockroach17" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -130, -61 )
-collision_mask = 0
 
 [node name="Cockroach19" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( -23, -109 )
-collision_mask = 0
 
 [node name="Cockroach20" parent="Cockroach" instance=ExtResource( 1 )]
 position = Vector2( 14, -103 )
-collision_mask = 0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

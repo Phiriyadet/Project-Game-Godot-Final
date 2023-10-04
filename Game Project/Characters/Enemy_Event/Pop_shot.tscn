@@ -4,8 +4,8 @@
 [ext_resource path="res://Characters/Enemy_Event/Pop_shot.gd" type="Script" id=2]
 
 [node name="Pop_shot" type="KinematicBody2D"]
-collision_layer = 8
-collision_mask = 2
+collision_layer = 4
+collision_mask = 18
 script = ExtResource( 2 )
 
 [node name="PopCat" parent="." instance=ExtResource( 1 )]

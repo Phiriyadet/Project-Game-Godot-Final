@@ -98,7 +98,7 @@ func write_savecoin():
 		"Num_Coin": num_coin
 	  }}
 #	var data["Coin"]["Num_Coin"] += num_coin
-	print(data["Coin"]["Num_Coin"])
+#	print(data["Coin"]["Num_Coin"])
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
 	_file.close()

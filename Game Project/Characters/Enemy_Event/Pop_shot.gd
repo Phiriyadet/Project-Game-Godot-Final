@@ -8,7 +8,7 @@ var mov_direction = Vector2.ZERO
 var fire_ball = preload("res://Characters/Enemy_Event/Fireball.tscn")
 
 func _ready():
-	pop_shot.spd = 0
+	pop_shot.spd = 0.1
 
 func _physics_process(delta):
 	player = get_tree().current_scene.get_node("Player").get_child(0)

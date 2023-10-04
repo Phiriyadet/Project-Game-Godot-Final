@@ -80,13 +80,19 @@ position = Vector2( -914, -77 )
 
 [node name="Exp_gem" parent="Loot" instance=ExtResource( 7 )]
 position = Vector2( 714, -290 )
-experience = 300000
+experience = 30
 
 [node name="Giorno\'sPiano2" parent="Loot" instance=ExtResource( 21 )]
 position = Vector2( -301, -449 )
 
 [node name="Giorno\'sPiano3" parent="Loot" instance=ExtResource( 21 )]
 position = Vector2( 497, -380 )
+
+[node name="It\'sTimeToStop2" parent="Loot" instance=ExtResource( 22 )]
+position = Vector2( 289, -208 )
+
+[node name="It\'sTimeToStop3" parent="Loot" instance=ExtResource( 22 )]
+position = Vector2( -408, -205 )
 
 [node name="Treasure" parent="." instance=ExtResource( 9 )]
 position = Vector2( -109, 71 )

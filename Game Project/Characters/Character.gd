@@ -21,6 +21,7 @@ export(int) var spd = 100 setget set_spd, get_spd
 # Signals for when hp changes 
 signal hp_changed
 
+onready var ani_color = 0
 
 # Reference to the FiniteStateMachine and AnimatedSprite nodes
 onready var state_machine: Node = get_node("FiniteStateMachine")
@@ -43,7 +44,7 @@ func move():
 	mov_direction = mov_direction.normalized()
 	
 	# Flip the animation if the character is moving left
-	if spd != 0:
+	if spd > 0.1:
 		if mov_direction.x < 0:
 			animated_sprite.flip_h  = true
 		# Unflip the animation if the character is moving right
@@ -70,7 +71,8 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 			if is_in_group("player"):
 				emit_signal("hp_changed")
 			# Set the state machine to the hurt state
-			state_machine.set_state(state_machine.states.hurt)
+			ani_color = 1
+#			state_machine.set_state(state_machine.states.hurt)
 			# Increase the velocity based on the direction and force of the attack
 			velocity += dir * force
 		else:

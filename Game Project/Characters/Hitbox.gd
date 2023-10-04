@@ -10,7 +10,7 @@ var body_inside: bool = false
 
 onready var collision_shape = $CollisionShape2D
 onready var timer: Timer = Timer.new()
-
+onready var timer2: Timer = Timer.new()
 
 func _init():
 	var __ = connect("body_entered", self, "_on_body_entered")
@@ -32,11 +32,12 @@ func _on_body_entered(body):# body ของตัวที่โดน
 #		print_debug(body)
 	else:
 		body.take_damage(damage, knockback_direction, knockback_force)
-#	body_inside = true
-#	timer.start()
-#	while body_inside:
-#		_collide(body)
-#		yield(timer, "timeout")
+		
+	body_inside = true
+	timer.start()
+	while body_inside:
+		_collide(body)
+		yield(timer, "timeout")
 	
 	
 func _on_body_exited(_body):

@@ -196,7 +196,8 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=18]
 resource_local_to_scene = true
 resource_name = "hurt"
-length = 0.4
+length = 0.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -228,10 +229,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.05, 0.1, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false, true ]
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -643,8 +644,6 @@ tracks/10/keys = {
 }
 
 [node name="TheDoge" instance=ExtResource( 4 )]
-collision_layer = 2050
-collision_mask = 13
 script = ExtResource( 5 )
 max_hp = 50
 hp = 50
@@ -655,7 +654,6 @@ collected_coin = 50
 [node name="AnimatedSprite" parent="." index="1"]
 modulate = Color( 1, 0.996078, 0.996078, 1 )
 frames = SubResource( 9 )
-animation = "move"
 frame = 3
 
 [node name="CollisionShape2D" parent="." index="2"]
@@ -754,6 +752,7 @@ anims/spacial_attack = SubResource( 21 )
 
 [node name="CollisionShape2D" parent="PickupRadius" index="0"]
 shape = SubResource( 12 )
+disabled = true
 
 [node name="CollisionShape2D" parent="CollectArea" index="0"]
 shape = SubResource( 13 )

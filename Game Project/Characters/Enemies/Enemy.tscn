@@ -193,10 +193,14 @@ script = ExtResource( 2 )
 frames = SubResource( 6 )
 animation = "move"
 
+[node name="CollisionShape2D" parent="." index="2"]
+disabled = true
+
 [node name="Hitbox" type="Area2D" parent="." index="3"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 3 )
+knockback_force = 0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hitbox" index="0"]
 
@@ -211,5 +215,10 @@ anims/move = SubResource( 8 )
 wait_time = 5.0
 one_shot = true
 
+[node name="cooldawn_damage" type="Timer" parent="." index="7"]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="area_shape_entered" from="Hitbox" to="Hitbox" method="_on_Hitbox_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="cooldawn_damage" to="." method="_on_cooldawn_damage_timeout"]

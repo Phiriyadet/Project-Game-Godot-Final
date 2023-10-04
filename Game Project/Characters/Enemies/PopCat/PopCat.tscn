@@ -108,8 +108,10 @@ frames = SubResource( 5 )
 visible = false
 shape = SubResource( 6 )
 
+[node name="Hitbox" parent="." index="3"]
+collision_layer = 4
+
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-visible = false
 polygon = PoolVector2Array( -22, -31, -23, -19, -15, 0, -15, 6, -27, 24, -28, 31, 22, 31, 22, 9, 26, 1, 27, -8, 21, -20, 20, -32, 13, -32, 8, -28, -8, -25, -13, -30 )
 
 [node name="AnimationPlayer" parent="." index="4"]

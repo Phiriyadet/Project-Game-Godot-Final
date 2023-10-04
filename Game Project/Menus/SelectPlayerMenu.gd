@@ -132,6 +132,7 @@ func _create_or_load_save():
 func _save_game():
 	_save.num_coin = int(coinL.text)
 
+	_save.Dog.max_hp = max_hp_d
 	_save.Dog.hp = hp_d
 	_save.Dog.atk = atk_d
 	_save.Dog.spd = spd_d
@@ -140,6 +141,7 @@ func _save_game():
 	_save.Dog.buy_spacial_skill = b_ss_d
 	_save.Dog.collected_coin = cc_d
 
+	_save.Monkey.max_hp = max_hp_m
 	_save.Monkey.hp = hp_m
 	_save.Monkey.atk = atk_m
 	_save.Monkey.spd = spd_m
@@ -148,6 +150,7 @@ func _save_game():
 	_save.Monkey.buy_spacial_skill = b_ss_m
 	_save.Monkey.collected_coin = cc_m
 
+	_save.Frog.max_hp = max_hp_f
 	_save.Frog.hp = hp_f
 	_save.Frog.atk = atk_f
 	_save.Frog.spd = spd_f
@@ -161,7 +164,7 @@ func _save_game():
 
 func setGlobalStausDoge():
 	Global.player_status = {
-		"Max_HP": hp_d,
+		"Max_HP": max_hp_d,
 		"HP": hp_d,
 		"ATK": atk_d,
 		"SPD": spd_d,
@@ -263,38 +266,40 @@ func setStatusLabel(hp, atk, spd, pr, ss):
 	_update_switch_skill()
 	
 func _on_plus_hp_pressed():
-	
 		match Global.player_select:
 			"Doge":
-				if int(coinL.text) >= int(_price_hp.text):
+				if int(coinL.text) >= int(_price_hp.text) and max_hp_d > hp_d:
 					coinL.text = str(int(coinL.text) - int(_price_hp.text))
 					cc_d += int(_price_hp.text)
 					hp_d = clamp(hp_d + 5, min_hp_d, max_hp_d)
 					hpL.text = str(hp_d)
 					setGlobalStausDoge()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,128)
+					$status_max/CountDownTimer2.start()
 			"Monkey":
-				if int(coinL.text) >= int(_price_hp.text):
+				if int(coinL.text) >= int(_price_hp.text) and max_hp_m > hp_m:
 					coinL.text = str(int(coinL.text) - int(_price_hp.text))
 					cc_m += int(_price_hp.text)
 					hp_m = clamp(hp_m + 5, min_hp_m, max_hp_m)
 					hpL.text = str(hp_m)
 					setGlobalStausMonkey()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,128)
+					$status_max/CountDownTimer2.start()
 			"Frog":
-				if int(coinL.text) >= int(_price_hp.text):
+				if int(coinL.text) >= int(_price_hp.text) and max_hp_f > hp_f:
 					coinL.text = str(int(coinL.text) - int(_price_hp.text))
 					cc_f += int(_price_hp.text)
 					hp_f = clamp(hp_f + 5, min_hp_f, max_hp_f)
 					hpL.text = str(hp_f)
 					setGlobalStausFrog()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,128)
+					$status_max/CountDownTimer2.start()
 		_save_game()
 	
 
@@ -302,242 +307,263 @@ func _on_minus_hp_pressed():
 	
 	match Global.player_select:
 		"Doge":
-			if int(cc_d) >= int(_price_hp.text):
+			if int(cc_d) >= int(_price_hp.text) and hp_d > min_hp_d:
 				coinL.text = str(int(coinL.text) + int(_price_hp.text))
 				cc_d -= int(_price_hp.text)
 				hp_d = clamp(hp_d - 5, min_hp_d, max_hp_d)
 				hpL.text = str(hp_d)
 				setGlobalStausDoge()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,128)
+				$status_min/CountDownTimer3.start()
 		"Monkey":
-			if int(cc_m) >= int(_price_hp.text):
+			if int(cc_m) >= int(_price_hp.text) and hp_m > min_hp_m:
 				coinL.text = str(int(coinL.text) + int(_price_hp.text))
 				cc_m -= int(_price_hp.text)
 				hp_m = clamp(hp_m - 5, min_hp_m, max_hp_m)
 				hpL.text = str(hp_m)
 				setGlobalStausMonkey()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,128)
+				$status_min/CountDownTimer3.start()
 		"Frog":
-			if int(cc_f) >= int(_price_hp.text):
+			if int(cc_f) >= int(_price_hp.text) and hp_f > min_hp_f:
 				coinL.text = str(int(coinL.text) + int(_price_hp.text))
 				cc_f -= int(_price_hp.text)
 				hp_f = clamp(hp_f - 5, min_hp_f, max_hp_f)
 				hpL.text = str(hp_f)
 				setGlobalStausFrog()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,128)
+				$status_min/CountDownTimer3.start()
 	_save_game()
 
 func _on_plus_atk_pressed():
 	
 		match Global.player_select:
 			"Doge":
-				if int(coinL.text) >= int(_price_hp.text):
+				if int(coinL.text) >= int(_price_hp.text) and max_atk_d > atk_d:
 					coinL.text = str(int(coinL.text) - int(_price_atk.text))
 					cc_d += int(_price_atk.text)
-					atk_d = clamp(atk_d + 2, min_atk_d, max_atk_d)
+					atk_d = clamp(atk_d + 1, min_atk_d, max_atk_d)
 					atkL.text = str(atk_d)
 					setGlobalStausDoge()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,160)
+					$status_max/CountDownTimer2.start()
 			"Monkey":
-				if int(coinL.text) >= int(_price_hp.text):
+				if int(coinL.text) >= int(_price_hp.text) and max_atk_m > atk_m:
 					coinL.text = str(int(coinL.text) - int(_price_atk.text))
 					cc_m += int(_price_atk.text)
-					atk_m = clamp(atk_m + 2, min_atk_m, max_atk_m)
+					atk_m = clamp(atk_m + 1, min_atk_m, max_atk_m)
 					atkL.text = str(atk_m)
 					setGlobalStausMonkey()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,160)
+					$status_max/CountDownTimer2.start()
 			"Frog":
-				if int(coinL.text) >= int(_price_hp.text):
+				if int(coinL.text) >= int(_price_hp.text) and max_atk_f > atk_f:
 					coinL.text = str(int(coinL.text) - int(_price_atk.text))
 					cc_f += int(_price_atk.text)
-					atk_f = clamp(atk_f + 2, min_atk_f, max_atk_f)
+					atk_f = clamp(atk_f + 1, min_atk_f, max_atk_f)
 					atkL.text = str(atk_f)
 					setGlobalStausFrog()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,160)
+					$status_max/CountDownTimer2.start()
 		_save_game()
 
 func _on_minus_atk_pressed():
 	match Global.player_select:
 		"Doge":
-			if int(cc_d) >= int(_price_spd.text):
+			if int(cc_d) >= int(_price_spd.text) and atk_d > min_atk_d:
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_d -= int(_price_hp.text)
-				atk_d = clamp(atk_d - 2, min_atk_d, max_atk_d)
+				atk_d = clamp(atk_d - 1, min_atk_d, max_atk_d)
 				atkL.text = str(atk_d)
 				setGlobalStausDoge()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,160)
+				$status_min/CountDownTimer3.start()
 		"Monkey":
-			if int(cc_m) >= int(_price_spd.text):
+			if int(cc_m) >= int(_price_spd.text) and atk_m > min_atk_m:
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_m -= int(_price_hp.text)
-				atk_m = clamp(atk_m - 2, min_atk_m, max_atk_m)
+				atk_m = clamp(atk_m - 1, min_atk_m, max_atk_m)
 				atkL.text = str(atk_m)
 				setGlobalStausMonkey()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,160)
+				$status_min/CountDownTimer3.start()
 		"Frog":
-			if int(cc_f) >= int(_price_spd.text):
+			if int(cc_f) >= int(_price_spd.text) and atk_f > min_atk_f:
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_f -= int(_price_hp.text)
-				atk_f = clamp(atk_f - 2, min_atk_f, max_atk_f)
+				atk_f = clamp(atk_f - 1, min_atk_f, max_atk_f)
 				atkL.text = str(atk_f)
 				setGlobalStausFrog()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,160)
+				$status_min/CountDownTimer3.start()
 	_save_game()
 
 func _on_plus_spd_pressed():
 	
 		match Global.player_select:
 			"Doge":
-				if int(coinL.text) >= int(_price_spd.text):
+				if int(coinL.text) >= int(_price_spd.text) and max_spd_d > spd_d:
 					coinL.text = str(int(coinL.text) - int(_price_spd.text))
 					cc_d += int(_price_spd.text)
 					spd_d = clamp(spd_d + 2, min_spd_d, max_spd_d)
 					spdL.text = str(spd_d)
 					setGlobalStausDoge()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,198)
+					$status_max/CountDownTimer2.start()
 			"Monkey":
-				if int(coinL.text) >= int(_price_spd.text):
+				if int(coinL.text) >= int(_price_spd.text) and max_spd_m > spd_m:
 					coinL.text = str(int(coinL.text) - int(_price_spd.text))
 					cc_m += int(_price_spd.text)
 					spd_m = clamp(spd_m + 2, min_spd_m, max_spd_m)
 					spdL.text = str(spd_m)
 					setGlobalStausMonkey()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,198)
+					$status_max/CountDownTimer2.start()
 			"Frog":
-				if int(coinL.text) >= int(_price_spd.text):
+				if int(coinL.text) >= int(_price_spd.text) and max_spd_f > spd_f:
 					coinL.text = str(int(coinL.text) - int(_price_spd.text))
 					cc_f += int(_price_spd.text)
 					spd_f = clamp(spd_f + 2, min_spd_f, max_spd_f)
 					spdL.text = str(spd_f)
 					setGlobalStausFrog()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,198)
+					$status_max/CountDownTimer2.start()
 		_save_game()
 
 func _on_minus_spd_pressed():
 	match Global.player_select:
 		"Doge":
-			if int(cc_d) >= int(_price_spd.text):
+			if int(cc_d) >= int(_price_spd.text) and spd_d > min_spd_d:
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_d -= int(_price_spd.text)
 				spd_d = clamp(spd_d - 2, min_spd_d, max_spd_d)
 				spdL.text = str(spd_d)
 				setGlobalStausDoge()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,198)
+				$status_min/CountDownTimer3.start()
 		"Monkey":
-			if int(cc_m) >= int(_price_spd.text):
+			if int(cc_m) >= int(_price_spd.text) and spd_m > min_spd_m:
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_m -= int(_price_spd.text)
 				spd_m = clamp(spd_m - 2, min_spd_m, max_spd_m)
 				spdL.text = str(spd_m)
 				setGlobalStausMonkey()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,198)
+				$status_min/CountDownTimer3.start()
 		"Frog":
-			if int(cc_f) >= int(_price_spd.text):
+			if int(cc_f) >= int(_price_spd.text) and spd_f > min_spd_f:
 				coinL.text = str(int(coinL.text) + int(_price_spd.text))
 				cc_f -= int(_price_spd.text)
 				spd_f = clamp(spd_f - 2, min_spd_f, max_spd_f)
 				spdL.text = str(spd_f)
 				setGlobalStausFrog()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,198)
+				$status_min/CountDownTimer3.start()
 	_save_game()
 
 func _on_plus_pickupR_pressed():
 	
 		match Global.player_select:
 			"Doge":
-				if int(coinL.text) >= int(_price_pr.text):
+				if int(coinL.text) >= int(_price_pr.text) and max_pr_d > pr_d:
 					coinL.text = str(int(coinL.text) - int(_price_pr.text))
 					cc_d += int(_price_pr.text)
 					pr_d = clamp(pr_d + 2, min_pr_d, max_pr_d)
 					prL.text = str(pr_d)
 					setGlobalStausDoge()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,233)
+					$status_max/CountDownTimer2.start()
 			"Monkey":
-				if int(coinL.text) >= int(_price_pr.text):
+				if int(coinL.text) >= int(_price_pr.text) and max_pr_m > pr_m:
 					coinL.text = str(int(coinL.text) - int(_price_pr.text))
 					cc_m += int(_price_pr.text)
 					pr_m = clamp(pr_m + 2, min_hp_m, max_pr_m)
 					prL.text = str(pr_m)
 					setGlobalStausMonkey()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,233)
+					$status_max/CountDownTimer2.start()
 			"Frog":
-				if int(coinL.text) >= int(_price_pr.text):
+				if int(coinL.text) >= int(_price_pr.text) and max_pr_f > pr_f:
 					coinL.text = str(int(coinL.text) - int(_price_pr.text))
 					cc_f += int(_price_pr.text)
 					pr_f = clamp(pr_f + 2, min_pr_f, max_pr_f)
 					prL.text = str(pr_f)
 					setGlobalStausFrog()
 				else:
-					_popup.show()
-					_count_down_timer.start()
+					$status_max.show()
+					$status_max.rect_position = Vector2(272,233)
+					$status_max/CountDownTimer2.start()
 		_save_game()
 	
 func _on_minus_pickupR_pressed():
 	match Global.player_select:
 		"Doge":
-			if int(cc_d) >= int(_price_pr.text):
+			if int(cc_d) >= int(_price_pr.text) and pr_d > min_pr_d:
 				coinL.text = str(int(coinL.text) + int(_price_pr.text))
 				cc_d -= int(_price_pr.text)
 				pr_d = clamp(pr_d - 2, min_pr_d, max_pr_d)
 				prL.text = str(pr_d)
 				setGlobalStausDoge()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,233)
+				$status_min/CountDownTimer3.start()
 		"Monkey":
-			if int(cc_m) >= int(_price_pr.text):
+			if int(cc_m) >= int(_price_pr.text) and pr_m > min_pr_m:
 				coinL.text = str(int(coinL.text) + int(_price_pr.text))
 				cc_m -= int(_price_pr.text)
 				pr_m = clamp(pr_m - 2, min_hp_m, max_pr_m)
 				prL.text = str(pr_m)
 				setGlobalStausMonkey()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,233)
+				$status_min/CountDownTimer3.start()
 		"Frog":
-			if int(cc_f) >= int(_price_pr.text):
+			if int(cc_f) >= int(_price_pr.text) and pr_f > min_pr_f:
 				coinL.text = str(int(coinL.text) + int(_price_pr.text))
 				cc_f -= int(_price_pr.text)
 				pr_f = clamp(pr_f - 2, min_pr_f, max_pr_f)
 				prL.text = str(pr_f)
 				setGlobalStausFrog()
 			else:
-				_popup.show()
-				_count_down_timer.start()
+				$status_min.show()
+				$status_min.rect_position = Vector2(357,233)
+				$status_min/CountDownTimer3.start()
 	_save_game()
 
 func _on_switch_skill_toggled(button_pressed):
@@ -726,3 +752,11 @@ func _on_FrogTextureRect_mouse_exited():
 
 
 
+
+
+func _on_CountDownTimer2_timeout():
+	$status_max.hide()
+
+
+func _on_CountDownTimer3_timeout():
+	$status_min.hide()

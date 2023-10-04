@@ -13,28 +13,28 @@ script = ExtResource( 2 )
 scale = Vector2( 1.46433, 1.49773 )
 
 [node name="ShrekTPost1" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( -160, 0 )
+position = Vector2( -151.296, -4.48997 )
 
 [node name="ShrekTPost2" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( -144, -64 )
+position = Vector2( -138.639, -64.057 )
 
 [node name="ShrekTPost3" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( -104, -104 )
+position = Vector2( -97.7246, -104.167 )
 
 [node name="ShrekTPost4" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( 0, -152 )
+position = Vector2( 3.53221, -147.271 )
 
 [node name="ShrekTPost5" parent="TPost" instance=ExtResource( 1 )]
 position = Vector2( -56, -136 )
 
 [node name="ShrekTPost6" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( 0, 144 )
+position = Vector2( 0.588702, 139.189 )
 
 [node name="ShrekTPost7" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( 56, 128 )
+position = Vector2( 57.6928, 122.427 )
 
 [node name="ShrekTPost8" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( 160, 0 )
+position = Vector2( 154.829, -1.49666 )
 
 [node name="ShrekTPost9" parent="TPost" instance=ExtResource( 1 )]
 position = Vector2( 104, 96 )
@@ -43,10 +43,10 @@ position = Vector2( 104, 96 )
 position = Vector2( 144, 56 )
 
 [node name="ShrekTPost11" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( 144, -64 )
+position = Vector2( 136.873, -55.6757 )
 
 [node name="ShrekTPost12" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( 104, -104 )
+position = Vector2( 104.2, -100.575 )
 
 [node name="ShrekTPost13" parent="TPost" instance=ExtResource( 1 )]
 position = Vector2( 56, -136 )
@@ -55,10 +55,10 @@ position = Vector2( 56, -136 )
 position = Vector2( -56, 128 )
 
 [node name="ShrekTPost15" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( -104, 104 )
+position = Vector2( -104.495, 95.1874 )
 
 [node name="ShrekTPost16" parent="TPost" instance=ExtResource( 1 )]
-position = Vector2( -144, 56 )
+position = Vector2( -141.288, 51.7844 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0

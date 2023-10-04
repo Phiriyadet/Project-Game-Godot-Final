@@ -144,7 +144,6 @@ frame = 2
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( -1, -2 )
 shape = SubResource( 4 )
-disabled = true
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( 0, -1 )

@@ -648,7 +648,7 @@ texture = ExtResource( 3 )
 collision_layer = 65536
 collision_mask = 65540
 script = ExtResource( 6 )
-damage = 500
+damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bonk_new/Hitbox" index="0"]
 rotation = 0.725933

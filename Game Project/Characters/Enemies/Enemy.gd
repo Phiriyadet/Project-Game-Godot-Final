@@ -42,16 +42,20 @@ func _physics_process(delta):
 			$Hitbox/CollisionShape2D.scale.x = 1
 			
 	posi_player = player.global_position
-	if self.spd>0:
-		if (position.x-posi_player.x) > 800 or (position.x-posi_player.x) < -800:
+	if self.spd>0.1:
+		if (position.x-posi_player.x) > 700 or (position.x-posi_player.x) < -700:
 	#			print(position - posi_player)
 				queue_free()
 				Global.num0-=1
-		elif (position.y-posi_player.y) > 800 or (position.y-posi_player.y) < -800:
+		elif (position.y-posi_player.y) > 600 or (position.y-posi_player.y) < -600:
 	#			print(position - posi_player)
 				queue_free()
 				Global.num0-=1
-			
+	
+	if ani_color == 1:
+		ani_color=0
+		$AnimatedSprite.modulate = Color(0,0,0,0)
+		$cooldawn_damage.start()
 
 #ฟังก์ชัน ค้นหาเส้นทางเพื่อไล่ตามตัวละครผู้เล่น
 func chase():
@@ -60,15 +64,18 @@ func chase():
 		mov_direction = global_position.direction_to(player.global_position)
 		
 func dropgem():
-	var new_gem = exp_gem.instance()
-	new_gem.global_position = global_position
-	new_gem.experience = exp_enemy + Global.bonus_exp
+	if Global.lim_exp <= 100:
+		var new_gem = exp_gem.instance()
+		new_gem.global_position = global_position
+		new_gem.experience = exp_enemy + Global.bonus_exp
 #	print_debug("drop exp:", exp_enemy ," bonus:", Global.bonus_exp)
-	loot.call_deferred("add_child", new_gem)
+		loot.call_deferred("add_child", new_gem)
+		Global.lim_exp +=1
 	if Type == "Boss":
 		var open_chest = chest.instance()
 		open_chest.position = global_position
 		loot.call_deferred("add_child", open_chest)
+	print(Global.lim_exp)
 		
 func set_expmon(new_exp):
 	exp_enemy = new_exp 
@@ -132,3 +139,7 @@ func get_expmon():
 
 func _on_Timer_timeout():
 	Global.time_stop = 0
+
+func _on_cooldawn_damage_timeout():
+	$AnimatedSprite.modulate = Color(1,1,1,1)
+	ani_color = 0

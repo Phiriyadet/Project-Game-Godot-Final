@@ -8,9 +8,11 @@
 script = ExtResource( 2 )
 
 [node name="CoolDownTimer" type="Timer" parent="." index="0"]
+one_shot = true
 
 [node name="ActiveTimer" type="Timer" parent="." index="1"]
 wait_time = 10.0
+one_shot = true
 
 [node name="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource( 3 )

@@ -66,7 +66,8 @@ func _ready():
 	set_expbar(experience, calculate_experiencecap())
 	
 	
-	
+
+var once_ani_color = 0
 func _process(delta):
 	self.atk = Global.sum_atk_skill
 	if Global.open_chest==1:
@@ -79,6 +80,10 @@ func _process(delta):
 	enemyDesCount.text = str(Global.enemy_dead_count)
 	picradius.shape.radius = self.pickup_radius 
 	var upspeed = self.spd*1.5
+	if ani_color == 1 and once_ani_color == 0:
+		once_ani_color+=1
+		$AnimatedSprite.modulate = Color(0,0,0,0)
+		$color.start()
 #	self.spd = upspeed
 
 func get_input():
@@ -375,3 +380,10 @@ func present_status():
 		"PR": self.pickup_radius,
 	}
 
+
+
+func _on_color_timeout():
+	print("im heree")
+	ani_color = 0
+	once_ani_color = 0
+	$AnimatedSprite.modulate = Color(1,1,1,1)
