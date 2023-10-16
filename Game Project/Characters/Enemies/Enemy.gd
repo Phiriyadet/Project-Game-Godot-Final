@@ -42,15 +42,14 @@ func _physics_process(delta):
 			$Hitbox/CollisionShape2D.scale.x = 1
 			
 	posi_player = player.global_position
-	if self.spd>0.1:
-		if (position.x-posi_player.x) > 700 or (position.x-posi_player.x) < -700:
-	#			print(position - posi_player)
+	if posi_player != null:
+		if self.spd > 0.1:
+			if (position.x - posi_player.x) > 700 or (position.x - posi_player.x) < -700:
 				queue_free()
-				Global.num0-=1
-		elif (position.y-posi_player.y) > 600 or (position.y-posi_player.y) < -600:
-	#			print(position - posi_player)
+				Global.num0 -= 1
+			elif (position.y - posi_player.y) > 600 or (position.y - posi_player.y) < -600:
 				queue_free()
-				Global.num0-=1
+				Global.num0 -= 1
 	
 	if ani_color == 1:
 		ani_color=0
@@ -70,12 +69,12 @@ func dropgem():
 		new_gem.experience = exp_enemy + Global.bonus_exp
 #	print_debug("drop exp:", exp_enemy ," bonus:", Global.bonus_exp)
 		loot.call_deferred("add_child", new_gem)
-		Global.lim_exp +=1
+#		Global.lim_exp +=1
 	if Type == "Boss":
 		var open_chest = chest.instance()
 		open_chest.position = global_position
 		loot.call_deferred("add_child", open_chest)
-	print(Global.lim_exp)
+#	print(Global.lim_exp)
 		
 func set_expmon(new_exp):
 	exp_enemy = new_exp 

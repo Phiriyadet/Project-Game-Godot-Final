@@ -15,7 +15,8 @@ func _ready():
 	scale.x = explosion_size
 	scale.y = explosion_size
 
-
+#func _physics_process(delta):
+#	print(atk_w)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

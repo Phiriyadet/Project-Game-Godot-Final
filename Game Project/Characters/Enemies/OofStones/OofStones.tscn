@@ -39,7 +39,7 @@ extents = Vector2( 17.5, 6.5 )
 
 [node name="OofStones" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-max_hp = 150
+max_hp = 20000
 hp = 150
 atk = 10
 spd = 120

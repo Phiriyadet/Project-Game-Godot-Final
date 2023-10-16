@@ -41,7 +41,7 @@ height = 31.6592
 [node name="TRexCostume" instance=ExtResource( 1 )]
 z_index = 1
 script = ExtResource( 2 )
-max_hp = 3000
+max_hp = 20000
 hp = 3000
 atk = 50
 spd = 150

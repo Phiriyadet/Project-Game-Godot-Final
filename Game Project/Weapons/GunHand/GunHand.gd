@@ -34,6 +34,7 @@ func _process(_delta):
 func _physics_process(delta):
 	$AnimationPlayer.stop()
 	
+	
 func check_level():
 	match level:
 		2:
@@ -53,7 +54,7 @@ func check_level():
 #			print_debug("GunHand : ", level)
 		7:
 			self.atk_w += 55
-			$Timer.wait_time-=0.2
+			$Timer.wait_time=0.25
 			speed_bullet+=1
 #			print_debug("GunHand : ", level)	
 		

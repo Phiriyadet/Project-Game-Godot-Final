@@ -39,7 +39,7 @@ radius = 9.0
 
 [node name="UgandaKnuckles" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
-max_hp = 200
+max_hp = 20000
 hp = 200
 atk = 10
 spd = 150

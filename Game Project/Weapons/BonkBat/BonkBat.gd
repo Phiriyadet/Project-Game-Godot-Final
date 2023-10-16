@@ -12,6 +12,7 @@ func _init():
 	$Node2D.visible = false
 
 func _process(_delta):
+	$bonk_new/Hitbox.damage = self.atk_all
 	now_Lv = self.level
 	$AnimationPlayer.stop()
 	$Node2D/Sprite.hide()

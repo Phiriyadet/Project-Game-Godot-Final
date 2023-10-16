@@ -27,7 +27,7 @@ shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 65540
 script = ExtResource( 3 )
 damage = 30
 

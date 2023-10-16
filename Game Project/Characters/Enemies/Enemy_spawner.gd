@@ -98,7 +98,7 @@ onready var enemies := get_node("../Enemies")
 onready var event:= get_node("../Enemy_Event")
 onready var count_time = $Timer
 # Declare member variables here. Examples:
-var time = 118
+var time = 0
 var enemy_spawn :KinematicBody2D
 var player_in_map : KinematicBody2D
 var plus_status = 0

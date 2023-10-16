@@ -383,7 +383,6 @@ func present_status():
 
 
 func _on_color_timeout():
-	print("im heree")
 	ani_color = 0
 	once_ani_color = 0
 	$AnimatedSprite.modulate = Color(1,1,1,1)

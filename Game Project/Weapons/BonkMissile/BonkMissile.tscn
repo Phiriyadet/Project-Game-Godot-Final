@@ -64,7 +64,7 @@ radius = 480.0
 
 [node name="BonkMissile" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
-atk_w = 100000
+atk_w = 50
 
 [node name="Node2D" parent="." index="0"]
 rotation = 0.0

@@ -110,7 +110,7 @@ func _on_DetectEnemy_area_exited(area):
 func _on_spw_missile_timeout():
 	var spw_mis = missileS.instance()
 	spw_mis.position = get_parent().get_parent().get_global_position()
-	spw_mis.atk_w = self.atk_w
+	spw_mis.atk_w = self.atk_all
 	spw_mis.explosion_size += up_size_explosion 
 	get_parent().get_parent().get_parent().get_node("../Loot").call_deferred("add_child",spw_mis)
 	$AudioStreamPlayer2D.play()

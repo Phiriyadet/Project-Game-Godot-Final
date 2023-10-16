@@ -117,7 +117,7 @@ position = Vector2( -55.0169, -12.0472 )
 rotation = 0.0554145
 frames = SubResource( 3 )
 animation = "fire_ef_misslie"
-frame = 19
+frame = 5
 playing = true
 
 [node name="Colision_missile" type="Area2D" parent="Sprite"]

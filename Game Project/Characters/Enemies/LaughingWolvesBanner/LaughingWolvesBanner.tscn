@@ -40,7 +40,7 @@ height = 44.0
 
 [node name="LaughingWolvesBanner" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-max_hp = 1600
+max_hp = 20000
 hp = 1600
 atk = 30
 spd = 80

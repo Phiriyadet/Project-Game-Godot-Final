@@ -70,20 +70,19 @@ func check_level():
 	match level:
 		2:
 			self.atk_w += 30
-			print_debug("TwoGuitars : ", level)
+#			print_debug("TwoGuitars : ", level)
 		3,4:
 			self.atk_w += 50
-			print_debug("TwoGuitars : ", level)
+#			print_debug("TwoGuitars : ", level)
 		5,6:
 			self.atk_w += 70
-			print_debug("TwoGuitars : ", level)
+#			print_debug("TwoGuitars : ", level)
 		7:
 			self.atk_w += 90
-			print_debug("TwoGuitars : ", level)
+#			print_debug("TwoGuitars : ", level)
 
 
 func _on_wave_att_timeout():
-	
 	var ff = get_parent()
 	var waveAtt = wave.instance()
 	waveAtt.position = ff.get_global_position()

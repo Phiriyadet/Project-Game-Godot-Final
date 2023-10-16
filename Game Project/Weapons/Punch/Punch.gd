@@ -14,10 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	if Input.is_action_pressed("ui_left"):
-#		scale.x = -1*size
-#	if Input.is_action_pressed("ui_right"):
-#		scale.x = 1*size
+	
 	if Input.is_action_pressed("ui_left"):
 		L_And_R="L"
 	if Input.is_action_pressed("ui_right"):
@@ -27,19 +24,19 @@ func _process(delta):
 func check_level():
 	match level:
 		2:
-			size+=1
+			size+=0.5
 			self.atk_w += 60
 #			print_debug("Punch : ", level)
 		3,4:
-			size+=1
+			size+=0.5
 			self.atk_w += 80
 #			print_debug("Punch : ", level)
 		5,6:
-			size+=1
+			size+=0.5
 			self.atk_w += 100
 #			print_debug("Punch : ", level)
 		7:
-			size+=1
+			size+=0.5
 			self.atk_w += 180
 #			print_debug("Punch : ", level)
 

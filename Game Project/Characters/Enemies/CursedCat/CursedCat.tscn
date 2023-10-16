@@ -132,6 +132,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+max_hp = 20000
 hp = 50
 atk = 8
 spd = 30

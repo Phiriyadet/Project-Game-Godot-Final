@@ -39,7 +39,7 @@ extents = Vector2( 12.5, 14 )
 
 [node name="CoffinDance" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-max_hp = 400
+max_hp = 20000
 hp = 400
 atk = 40
 spd = 40

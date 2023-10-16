@@ -77,7 +77,7 @@ func take_damage(dam: int, dir: Vector2, force: int): #รับ damage
 			velocity += dir * force
 		else:
 			if is_in_group("player"):
-				print("player dead")
+#				print("player dead")
 				Global.player_dead = true
 			if is_in_group("enemy"):
 				Global.enemy_dead_count+=1
