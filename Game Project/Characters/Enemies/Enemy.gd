@@ -20,7 +20,10 @@ var once = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 
 func _ready():
+	var hp_eny = self.hp
+	self.hp = player.experience_level*10+hp_eny
 	show()
+	print(hp)
 func _physics_process(delta):
 	
 	if self.spd>0:

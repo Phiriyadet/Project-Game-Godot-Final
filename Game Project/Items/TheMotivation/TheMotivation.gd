@@ -20,7 +20,7 @@ func _process(delta):
 	if old_Lv < now_Lv:
 		$Node2D.scale.x +=0.2
 		$Node2D.scale.y +=0.2
-		$cooldown.wait_time -= 0.7
+		$cooldown.wait_time -= 0.1
 		$set_spd_old.wait_time = 2 + slow
 		old_Lv+=1
 

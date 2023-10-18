@@ -84,7 +84,6 @@ var cc_f = 0
 
 
 func _ready():
-	print(1000)
 	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)

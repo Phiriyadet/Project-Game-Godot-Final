@@ -280,6 +280,7 @@ custom_fonts/font = SubResource( 7 )
 pause_mode = 2
 
 [node name="SpacialSkillProgress" type="TextureProgress" parent="UI/GUI" index="3"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
@@ -383,6 +384,14 @@ text = "แจ้งเตือน: อาวุธหรือไอเทม�
 
 [node name="CountDownTimer" type="Timer" parent="UI/GUI/Popup" index="2"]
 wait_time = 5.0
+
+[node name="inputZ" type="Label" parent="UI/GUI" index="11"]
+visible = false
+margin_left = 51.0
+margin_top = 320.0
+margin_right = 91.0
+margin_bottom = 334.0
+text = "Z"
 
 [node name="AnimationPlayer_spell" type="AnimationPlayer" parent="." index="13"]
 

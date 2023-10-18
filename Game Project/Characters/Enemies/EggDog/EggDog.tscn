@@ -46,9 +46,13 @@ spd = 80
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 5 )
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 polygon = PoolVector2Array( -11, -33, 12, -33, 27, -24, 30, -13, 30, 4, 14, 22, 14, 27, 13, 31, 1, 31, -1, 28, -2, 28, -6, 31, -17, 31, -19, 26, -16, 23, -16, 20, -20, 17, -27, 12, -31, 4, -31, -11, -27, -18 )
+
+[node name="Collision_enemy" parent="." index="5"]
+polygon = PoolVector2Array( -10, -31, -25, -18, -29, -10, -29, 5, -25, 12, -18, 16, -15, 20, -15, 25, -17, 27, -15, 30, -6, 29, -3, 26, 1, 27, 2, 30, 12, 29, 13, 20, 28, 4, 28, -16, 25, -23, 12, -31 )

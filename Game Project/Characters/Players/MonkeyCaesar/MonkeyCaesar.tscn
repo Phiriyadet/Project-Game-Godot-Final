@@ -1074,6 +1074,7 @@ shape = SubResource( 10 )
 
 [node name="SpacialSkill" parent="." index="3"]
 visible = false
+light_mask = 0
 
 [node name="Monkey1" type="Sprite" parent="SpacialSkill" index="0"]
 position = Vector2( 64, 0 )
@@ -1082,7 +1083,7 @@ hframes = 4
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey1" index="0"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1099,7 +1100,7 @@ hframes = 4
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1116,7 +1117,7 @@ hframes = 4
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1130,7 +1131,7 @@ hframes = 4
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey4" index="0"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1144,7 +1145,7 @@ hframes = 4
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey5" index="0"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1162,7 +1163,7 @@ hframes = 4
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1180,7 +1181,7 @@ hframes = 4
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 
@@ -1194,7 +1195,7 @@ hframes = 4
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey8" index="0"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 0
 script = ExtResource( 10 )
 damage = 80
 

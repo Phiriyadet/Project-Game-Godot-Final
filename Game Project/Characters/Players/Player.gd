@@ -64,7 +64,9 @@ func _ready():
 	set_healthbar()
 	LevelUp.visible = false
 	set_expbar(experience, calculate_experiencecap())
-	
+	if can_active_sSkill and spacial_skill:
+		$UI/GUI/SpacialSkillProgress.show()
+		$UI/GUI/inputZ.show()
 	
 
 var once_ani_color = 0
