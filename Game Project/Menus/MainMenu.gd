@@ -5,6 +5,7 @@ extends Control
 onready var _confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
 onready var _settings: Settings = $Settings
 ### Automatic References Stop ###
+var _save := SaveGameAsJson.new()
 
 
 onready var start_btn := $VBoxContainer/StartBtn
@@ -61,9 +62,12 @@ func _on_ConfirmationDialog_confirmed():
 	var dir = Directory.new()
 	dir.remove("user://save.json")
 	dir.remove("user://coin.json")
-	dir.remove("user://save_settings.json")
+#	dir.remove("user://save_settings.json")
 	print_debug("delete save successfully!")
 	_confirmation_dialog.hide()
+#	_save.write_savegame_init()
+#	_save.write_savecoin_init()
+	
 
 func _on_DeleteSaveBtn_pressed():
 	_confirmation_dialog.show()

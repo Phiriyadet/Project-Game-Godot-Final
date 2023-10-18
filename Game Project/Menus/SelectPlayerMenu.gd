@@ -84,12 +84,14 @@ var cc_f = 0
 
 
 func _ready():
+	print(1000)
 	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	playBtn.disabled = true
 	Global.enemy_dead_count = 0
 	_create_or_load_save()
+	
 
 func _create_or_load_save():
 	if _save.save_exists() and _save.money_exists():
@@ -97,7 +99,6 @@ func _create_or_load_save():
 		_save.load_savecoin()
 		print_debug("load save")
 	else:
-		
 		_save.write_savegame_init()
 		_save.write_savecoin_init()
 		print_debug("write_savegame_init")

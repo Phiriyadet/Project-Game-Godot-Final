@@ -45,49 +45,90 @@ func write_savegame_init():
 	if error != OK:
 		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [SAVE_GAME_PATH, error])
 		return
-	var file = File.new()
-	if file.file_exists(check_have_setting):
-		pass
-	else:
-	# The file does not exist
-		var data := {
-		  "Players": {
-			"The_Doge": {
-			  "Max_HP": 50,
-			  "HP": 50,
-			  "ATK": 15,
-			  "SPD": 50,
-			  "Pickup_Radius": 20,
-			  "Spacial_Skill": false,
-			  "Buy_Spacial_Skill": false,
-			  "Collected_Coin": 0
-			},
-			"Monkey_Caesar": {
-			  "Max_HP": 40,
-			  "HP": 40,
-			  "ATK": 20,
-			  "SPD": 50,
-			  "Pickup_Radius": 20,
-			  "Spacial_Skill": false,
-			  "Buy_Spacial_Skill": false,
-			  "Collected_Coin": 0
-			},
-			"Pepe_The_Frog": {
-			  "Max_HP": 50,
-			  "HP": 50,
-			  "ATK": 10,
-			  "SPD": 60,
-			  "Pickup_Radius": 20,
-			  "Spacial_Skill": false,
-			  "Buy_Spacial_Skill": false,
-			  "Collected_Coin": 0
-			}
-		  }
+#	var file = File.new()
+#	if file.file_exists(SAVE_GAME_PATH):
+	var data := {
+	  "Players": {
+		"The_Doge": {
+		  "Max_HP": 50,
+		  "HP": 50,
+		  "ATK": 15,
+		  "SPD": 50,
+		  "Pickup_Radius": 20,
+		  "Spacial_Skill": false,
+		  "Buy_Spacial_Skill": false,
+		  "Collected_Coin": 0
+		},
+		"Monkey_Caesar": {
+		  "Max_HP": 40,
+		  "HP": 40,
+		  "ATK": 20,
+		  "SPD": 50,
+		  "Pickup_Radius": 20,
+		  "Spacial_Skill": false,
+		  "Buy_Spacial_Skill": false,
+		  "Collected_Coin": 0
+		},
+		"Pepe_The_Frog": {
+		  "Max_HP": 50,
+		  "HP": 50,
+		  "ATK": 10,
+		  "SPD": 60,
+		  "Pickup_Radius": 20,
+		  "Spacial_Skill": false,
+		  "Buy_Spacial_Skill": false,
+		  "Collected_Coin": 0
 		}
-	
+	  }
+	}
+# The file does not exist
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)
 	_file.close()
+#	else:
+#		pass
+#		var data := {
+#		  "Players": {
+#			"The_Doge": {
+#			  "Max_HP": 50,
+#			  "HP": 50,
+#			  "ATK": 15,
+#			  "SPD": 50,
+#			  "Pickup_Radius": 20,
+#			  "Spacial_Skill": false,
+#			  "Buy_Spacial_Skill": false,
+#			  "Collected_Coin": 0
+#			},
+#			"Monkey_Caesar": {
+#			  "Max_HP": 40,
+#			  "HP": 40,
+#			  "ATK": 20,
+#			  "SPD": 50,
+#			  "Pickup_Radius": 20,
+#			  "Spacial_Skill": false,
+#			  "Buy_Spacial_Skill": false,
+#			  "Collected_Coin": 0
+#			},
+#			"Pepe_The_Frog": {
+#			  "Max_HP": 50,
+#			  "HP": 50,
+#			  "ATK": 10,
+#			  "SPD": 60,
+#			  "Pickup_Radius": 20,
+#			  "Spacial_Skill": false,
+#			  "Buy_Spacial_Skill": false,
+#			  "Collected_Coin": 0
+#			}
+#		  }
+#		}
+#	# The file does not exist
+#		var json_string := JSON.print(data)
+#		_file.store_string(json_string)
+#		_file.close()
+	
+#	var json_string := JSON.print(data)
+#	_file.store_string(json_string)
+#	_file.close()
 
 func write_savecoin():
 	var error := _file.open(COIN_DATA_PATH, File.WRITE)
@@ -171,7 +212,8 @@ func load_savegame():
 
 	var content := _file.get_as_text()
 	_file.close()
-
+		
+	print("Content from file:", content)
 	var data: Dictionary = JSON.parse(content).result
 
 	Dog.max_hp = data.Players.The_Doge.Max_HP
