@@ -16,8 +16,6 @@ func _ready():
 func _physics_process(delta):
 	player = get_tree().current_scene.get_node("Player").get_child(0)
 	if (position.x-player.get_global_position().x) > 800 or (position.x-player.get_global_position().x) < -800 or (position.y-player.get_global_position().y) > 800 or (position.y-player.get_global_position().y) < -800:
-#		eXp.clear()
-#		eXpnum += 1
 		move_to = Vector2.ZERO
 		$Sprite.hide()
 		position = player.get_global_position()
@@ -49,12 +47,10 @@ func _on_Area_Detect_Exp_area_entered(area):
 			eXp.append(area)
 			eXpnum-=1
 
-
 func _on_Area_Detect_Exp_area_exited(area):
 	if eXp.has(area):
 		eXp.erase(area)
 		eXpnum += 1
-	
 	
 func _on_Area_Move_Exp_To_Player_area_entered(area):
 	area.position = player.get_global_position()

@@ -79,7 +79,6 @@ func check_level():
 
 
 func _on_att_timeout():
-	
 	if state_attack == "left":
 		$Ef_Attack.position.x = Ef_posi_x + up_posi_nokia_left
 		$Ef_Attack.position.y = Ef_posi_y 

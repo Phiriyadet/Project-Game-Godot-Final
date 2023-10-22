@@ -15,12 +15,12 @@ func _process(delta):
 func check_level():
 	match level:
 		1,2:
-			bonus_exp += 20
+			bonus_exp = 2
 		3,4:
-			bonus_exp += 40
+			bonus_exp = 3
 		5,6:
-			bonus_exp += 60
+			bonus_exp = 3.5
 		7:
-			bonus_exp += 80
+			bonus_exp = 4
 	
 	Global.bonus_exp = bonus_exp

@@ -14,12 +14,6 @@ func _physics_process(delta):
 		position.y += upposi
 	if scale.x > 0 and rotation_degrees == -90:
 		position.y -= upposi
-#	var two_g_node = get_parent().get_node("../Player/Doge")
-#	var two_g_node = weapons_node.get_node("TwoGuitars")
-#	print(two_g_node.name)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Timer_timeout():

@@ -45,42 +45,17 @@ func _process(_delta):
 		up_size_wave += 0.25
 		$wave_att.wait_time -=0.25
 		old_Lv+=1
-#	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_up"):
-#		scale.x = 1
-#		rotation_degrees = 90
-#
-#
-#
-#	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_up"):
-#		scale.x = -1
-#		rotation_degrees = 90
-#
-#
-#	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
-#		scale.x = 1
-#		rotation_degrees = -90
-#
-#
-#
-#	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
-#		scale.x = -1
-#		rotation_degrees = -90
 
 func check_level():
 	match level:
 		2:
 			self.atk_w += 30
-#			print_debug("TwoGuitars : ", level)
 		3,4:
 			self.atk_w += 50
-#			print_debug("TwoGuitars : ", level)
 		5,6:
 			self.atk_w += 70
-#			print_debug("TwoGuitars : ", level)
 		7:
 			self.atk_w += 90
-#			print_debug("TwoGuitars : ", level)
-
 
 func _on_wave_att_timeout():
 	var ff = get_parent()

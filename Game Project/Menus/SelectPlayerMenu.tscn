@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menus/SelectPlayerMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Characters/Players/Monkey/monkey-idle-1.png" type="Texture" id=2]
@@ -10,23 +10,11 @@
 [ext_resource path="res://StyleBoxs/greenColor.tres" type="StyleBox" id=8]
 [ext_resource path="res://StyleBoxs/box_Theme1.tres" type="Theme" id=9]
 [ext_resource path="res://StyleBoxs/orangeColor.tres" type="StyleBox" id=10]
-[ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb1.png" type="Texture" id=11]
-[ext_resource path="res://Assets/MemeAssetsPack/weapon/UwUBomb7.png" type="Texture" id=12]
+[ext_resource path="res://Menus/SelectPlayerMenu_buySS.tres" type="Theme" id=11]
 [ext_resource path="res://StyleBoxs/backBtnTheme.tres" type="Theme" id=13]
 [ext_resource path="res://StyleBoxs/playBtnTheme.tres" type="Theme" id=14]
 [ext_resource path="res://StyleBoxs/easyBtnTheme.tres" type="Theme" id=15]
-
-[sub_resource type="StyleBoxTexture" id=12]
-
-[sub_resource type="Theme" id=11]
-Button/styles/focus = SubResource( 12 )
-
-[sub_resource type="Theme" id=9]
-default_font = ExtResource( 5 )
-CheckButton/icons/off = ExtResource( 11 )
-CheckButton/icons/off_disabled = ExtResource( 11 )
-CheckButton/icons/on = ExtResource( 12 )
-CheckButton/icons/on_disabled = null
+[ext_resource path="res://Menus/SelectPlayerMenu.tres" type="Theme" id=16]
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.27451, 0.0313726, 0.937255, 1 )
@@ -77,7 +65,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer3/FrogTextureRect")
 focus_neighbour_right = NodePath("../../VBoxContainer2/MonkeyTextureRect")
-theme = SubResource( 11 )
+theme = ExtResource( 16 )
 keep_pressed_outside = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 3 )
@@ -102,6 +90,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer/DogTextureRect")
 focus_neighbour_right = NodePath("../../VBoxContainer3/FrogTextureRect")
+theme = ExtResource( 16 )
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
@@ -125,6 +114,7 @@ margin_right = 64.0
 margin_bottom = 64.0
 focus_neighbour_left = NodePath("../../VBoxContainer2/MonkeyTextureRect")
 focus_neighbour_right = NodePath("../../VBoxContainer/DogTextureRect")
+theme = ExtResource( 16 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 4 )
@@ -242,22 +232,23 @@ text = "Active"
 align = 1
 
 [node name="ButtonpContainer" type="VBoxContainer" parent="ColorRect/Panel"]
-margin_left = 282.0
-margin_top = 3.0
-margin_right = 386.0
-margin_bottom = 198.0
+margin_left = 278.0
+margin_top = -4.0
+margin_right = 382.0
+margin_bottom = 191.0
 custom_constants/separation = 20
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/ButtonpContainer"]
-margin_top = 14.0
+anchor_bottom = 0.035
+margin_top = 19.0
 margin_right = 104.0
 margin_bottom = 29.0
 alignment = 1
 
 [node name="plus_hp" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer"]
 margin_right = 50.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "+"
@@ -265,7 +256,7 @@ text = "+"
 [node name="minus_hp" type="Button" parent="ColorRect/Panel/ButtonpContainer/HBoxContainer"]
 margin_left = 54.0
 margin_right = 104.0
-margin_bottom = 15.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 theme = ExtResource( 9 )
 text = "-"
@@ -345,10 +336,9 @@ margin_right = 66.0
 margin_bottom = 27.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = SubResource( 9 )
+theme = ExtResource( 11 )
 pressed = true
 align = 1
-icon_align = 1
 
 [node name="PriceContainer" type="VBoxContainer" parent="ColorRect/Panel"]
 margin_left = 434.0
@@ -658,8 +648,8 @@ text = "ไม่สามารถลดได้มากกว่านี้
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]
 [connection signal="pressed" from="PlayBtn" to="." method="_on_PlayBtn_pressed"]
 [connection signal="timeout" from="Popup/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
-[connection signal="timeout" from="status_max/CountDownTimer2" to="." method="_on_CountDownTimer2_timeout"]
 [connection signal="timeout" from="status_max/CountDownTimer2" to="." method="_on_CountDownTimer_timeout"]
+[connection signal="timeout" from="status_max/CountDownTimer2" to="." method="_on_CountDownTimer2_timeout"]
+[connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer_timeout"]
 [connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer2_timeout"]
 [connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer3_timeout"]
-[connection signal="timeout" from="status_min/CountDownTimer3" to="." method="_on_CountDownTimer_timeout"]

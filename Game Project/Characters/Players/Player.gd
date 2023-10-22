@@ -61,6 +61,7 @@ func _ready():
 	Global.countItem = 0
 	Global.open_chest = 0
 	Global.sum_atk_skill = self.atk
+	Global.bonus_exp = 1
 	set_healthbar()
 	LevelUp.visible = false
 	set_expbar(experience, calculate_experiencecap())
@@ -105,14 +106,11 @@ func get_input():
 	if Input.is_action_pressed("ui_up"):
 		mov_direction += Vector2.UP
 		
-#	print_debug("sskill value in player:", spacial_skill)	
 	if Input.is_action_pressed("ui_spacial_skill") and can_active_sSkill and spacial_skill:
 		can_active_sSkill = false
 		cooldawnTimer.start()
 		$AnimationPlayer_spell.play("spell_attack")
-#		animationPlayer.play("spacial_attack")
 		recharge_sskill(cooldawnTimer.wait_time)
-#		self.hp-=max_hp/2
 		
 
 func recharge_sskill(time:float):

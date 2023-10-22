@@ -81,8 +81,7 @@ var pr_f = 0
 var ss_f = false
 var b_ss_f = false
 var cc_f = 0
-
-
+	
 func _ready():
 	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
@@ -90,17 +89,17 @@ func _ready():
 	playBtn.disabled = true
 	Global.enemy_dead_count = 0
 	_create_or_load_save()
-	
+	_on_TextureRect_pressed()
 
 func _create_or_load_save():
 	if _save.save_exists() and _save.money_exists():
 		_save.load_savegame()
 		_save.load_savecoin()
-		print_debug("load save")
+#		print_debug("load save")
 	else:
 		_save.write_savegame_init()
 		_save.write_savecoin_init()
-		print_debug("write_savegame_init")
+#		print_debug("write_savegame_init")
 		_save.load_savegame()
 		_save.load_savecoin()
 
@@ -205,15 +204,18 @@ func _on_PlayBtn_pressed():
 	get_tree().change_scene("res://Menus/Mode&DifficultyLevel.tscn")
 
 func _on_TextureRect_pressed():
+
 	doge_btn.self_modulate = Color(1, 1, 1, 1)
 	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	if b_ss_d:
 		_buy_ss_btn.disabled = true
 		_switch_skill.disabled = false
+		_switch_skill.show()
 	else:
 		_buy_ss_btn.disabled = false
 		_switch_skill.disabled = true
+		_switch_skill.hide()
 	setStatusLabel(hp_d, atk_d, spd_d, pr_d, ss_d)
 	playBtn.disabled = false
 	Global.player_select = "Doge"
@@ -221,15 +223,18 @@ func _on_TextureRect_pressed():
 	_update_switch_skill()
 
 func _on_TextureRect2_pressed():
+
 	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	monkey_btn.self_modulate = Color(1, 1, 1, 1)
 	frog_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	if b_ss_m:
 		_buy_ss_btn.disabled = true
 		_switch_skill.disabled = false
+		_switch_skill.show()
 	else:
 		_buy_ss_btn.disabled = false
 		_switch_skill.disabled = true
+		_switch_skill.hide()
 	setStatusLabel(hp_m, atk_m, spd_m, pr_m, ss_m)
 	playBtn.disabled = false
 	Global.player_select = "Monkey"
@@ -238,15 +243,18 @@ func _on_TextureRect2_pressed():
 	_update_switch_skill()
 
 func _on_TextureRect3_pressed():
+
 	doge_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	monkey_btn.self_modulate = Color(0.5, 0.5, 0.5, 1)
 	frog_btn.self_modulate = Color(1, 1, 1, 1)
-	if b_ss_m:
+	if b_ss_f:
 		_buy_ss_btn.disabled = true
 		_switch_skill.disabled = false
+		_switch_skill.show()
 	else:
 		_buy_ss_btn.disabled = false
 		_switch_skill.disabled = true
+		_switch_skill.hide()
 	setStatusLabel(hp_f, atk_f, spd_f, pr_f, ss_f)
 	playBtn.disabled = false
 	Global.player_select = "Frog"
@@ -598,44 +606,54 @@ func _on_BuySSBtn_pressed():
 	
 		match Global.player_select:
 				"Doge":
-					if int(coinL.text) >= int(_price_ss.text):
+					if int(coinL.text) >= int(_price_ss.text) and $ColorRect/BuySSBtn.disabled == false:
 						if not b_ss_d:
 							coinL.text = str(int(coinL.text) - int(_price_ss.text))
 							cc_d += int(_price_ss.text)
 							_switch_skill.disabled = false
 							b_ss_d = true
 							ss_d = true
+							$ColorRect/BuySSBtn.disabled = true
+							$ColorRect/BuySSBtn.set_focus_mode(FOCUS_NONE)
+							$ColorRect/Panel/ButtonpContainer/HBoxContainer5/switch_skill.pressed = true
+							_switch_skill.show()
 							setGlobalStausDoge()
-						else:
-							_buy_ss_btn.disabled = true 
 					else:
 						_popup.show()
 						_count_down_timer.start()
 				"Monkey":
-					if int(coinL.text) >= int(_price_ss.text):
+					
+					if int(coinL.text) >= int(_price_ss.text) and $ColorRect/BuySSBtn.disabled == false:
 						if not b_ss_m:
 							coinL.text = str(int(coinL.text) - int(_price_ss.text))
 							cc_m += int(_price_ss.text)
 							_switch_skill.disabled = false
 							b_ss_m = true
 							ss_m = true
+							$ColorRect/BuySSBtn.disabled = true
+							$ColorRect/BuySSBtn.set_focus_mode(FOCUS_NONE)
+							$ColorRect/Panel/ButtonpContainer/HBoxContainer5/switch_skill.pressed = true
+							_switch_skill.show()
 							setGlobalStausMonkey()
-						else:
-							_buy_ss_btn.disabled = true
+#						else:
+#							_buy_ss_btn.disabled = true
 					else:
 						_popup.show()
 						_count_down_timer.start()
 				"Frog":
-					if int(coinL.text) >= int(_price_ss.text):
+					
+					if int(coinL.text) >= int(_price_ss.text) and $ColorRect/BuySSBtn.disabled == false:
 						if not b_ss_f:
 							coinL.text = str(int(coinL.text) - int(_price_ss.text))
 							cc_f += int(_price_ss.text)
 							_switch_skill.disabled = false
 							b_ss_f = true
 							ss_f = true
+							$ColorRect/BuySSBtn.disabled = true
+							$ColorRect/BuySSBtn.set_focus_mode(FOCUS_NONE)
+							$ColorRect/Panel/ButtonpContainer/HBoxContainer5/switch_skill.pressed = true
+							_switch_skill.show()
 							setGlobalStausFrog()
-						else:
-							_buy_ss_btn.disabled = true
 					else:
 						_popup.show()
 						_count_down_timer.start()
@@ -657,6 +675,8 @@ func _on_RefundBtn_pressed():
 			ss_d = false
 			coinL.text = str(int(coinL.text) + cc_d)
 			cc_d = 0
+			_switch_skill.hide()
+			$ColorRect/BuySSBtn.disabled = false
 			setStatusLabel(hp_d, atk_d, spd_d, pr_d, ss_d)
 			setGlobalStausDoge()
 		"Monkey":
@@ -669,6 +689,8 @@ func _on_RefundBtn_pressed():
 			ss_m = false
 			coinL.text = str(int(coinL.text) + cc_m)
 			cc_m = 0
+			_switch_skill.hide()
+			$ColorRect/BuySSBtn.disabled = false
 			setStatusLabel(hp_m, atk_m, spd_m, pr_m, ss_m)
 			setGlobalStausMonkey()
 		"Frog":
@@ -681,6 +703,8 @@ func _on_RefundBtn_pressed():
 			ss_f = false
 			coinL.text = str(int(coinL.text) + cc_f)
 			cc_f = 0
+			_switch_skill.hide()
+			$ColorRect/BuySSBtn.disabled = false
 			setStatusLabel(hp_f, atk_f, spd_f, pr_f, ss_f)
 			setGlobalStausFrog()
 	_save_game()

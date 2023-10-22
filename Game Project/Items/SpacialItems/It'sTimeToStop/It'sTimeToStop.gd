@@ -18,8 +18,6 @@ func _on_Area2D_body_entered(body):
 	get_parent().call_deferred("add_child", ice_ef)
 	collision_shape2D.set_deferred("disabled", true)
 	Global.time_stop = 1
-#	for enemy in get_tree().current_scene.get_node("Enemies").get_children():
-#		enemy.set_spd(0)
 
 	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_OUT)
 	assert(__)

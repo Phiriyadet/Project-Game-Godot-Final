@@ -18,7 +18,7 @@ func _on_Area2D_body_entered(body):
 	Global.gio_take_dm = 1
 	collision_shape2D.set_deferred("disabled", true)
 	for enemy in get_tree().current_scene.get_node("Enemies").get_children():
-		enemy.take_damage(2000, Vector2.ZERO, 0)
+		enemy.take_damage(3000, Vector2.ZERO, 0)
 	var __ = tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.6, Tween.TRANS_SINE, Tween.EASE_IN)
 	assert(__)
 	__ = tween.interpolate_property(self, "position", position, position + Vector2.UP * 16, 0.6, Tween.TRANS_SINE, Tween.EASE_IN)

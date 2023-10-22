@@ -19,17 +19,16 @@ func _physics_process(delta):
 	position += move_to*3
 	rotation = angle.angle()
 #	print(enemy_list.size())
+
 func get_random_enemy():
 	if enemy_list.size() > 0:
 		var ran = enemy_list[randi() % enemy_list.size()].get_global_position()
 		return ran
-		print("random")
 	else:
 		return Vector2.UP	
 
 func _on_Detect_Enemy_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	$Dis_collision.start()
-#	print(body.get_global_position())
 	if !enemy_list.has(body):
 		enemy_list.append(body)
 
@@ -44,7 +43,6 @@ func _on_Colision_missile_body_shape_entered(body_rid, body, body_shape_index, l
 	spw_Explosion.atk_w = self.atk_w
 	spw_Explosion.explosion_size = explosion_size
 	get_parent().call_deferred("add_child",spw_Explosion)
-#	print(get_parent().name)
 	queue_free()
 
 

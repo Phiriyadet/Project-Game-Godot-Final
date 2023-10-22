@@ -20,10 +20,10 @@ var once = 0
 #onready var enemy_spawn = preload("res://Characters/Enemies/Enemy_spawner.gd")
 
 func _ready():
+	exp_enemy+=20
 	var hp_eny = self.hp
 	self.hp = player.experience_level*10+hp_eny
 	show()
-	print(hp)
 func _physics_process(delta):
 	
 	if self.spd>0:
@@ -34,9 +34,9 @@ func _physics_process(delta):
 			$Timer.start()
 			once+=1
 	if Global.time_stop == 0:
-#		once = 0
 		if once > 0:
 			self.spd = get_speed_old
+			
 	if $AnimatedSprite.flip_h:
 			$Collision_enemy.scale.x = -1
 			$Hitbox/CollisionShape2D.scale.x = -1
@@ -66,13 +66,12 @@ func chase():
 		mov_direction = global_position.direction_to(player.global_position)
 		
 func dropgem():
-	if Global.lim_exp <= 100:
+	if Global.lim_exp <= 1000:
 		var new_gem = exp_gem.instance()
 		new_gem.global_position = global_position
-		new_gem.experience = exp_enemy + Global.bonus_exp
-#	print_debug("drop exp:", exp_enemy ," bonus:", Global.bonus_exp)
+		new_gem.experience = exp_enemy * Global.bonus_exp
 		loot.call_deferred("add_child", new_gem)
-#		Global.lim_exp +=1
+
 	if Type == "Boss":
 		var open_chest = chest.instance()
 		open_chest.position = global_position

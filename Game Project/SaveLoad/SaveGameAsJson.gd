@@ -240,4 +240,5 @@ func load_savegame():
 	Frog.spd = data.Players.Pepe_The_Frog.SPD
 	Frog.pickup_radius = data.Players.Pepe_The_Frog.Pickup_Radius
 	Frog.spacial_skill = data.Players.Pepe_The_Frog.Spacial_Skill
+	Frog.buy_spacial_skill = data.Players.Pepe_The_Frog.Buy_Spacial_Skill
 	Frog.collected_coin = data.Players.Pepe_The_Frog.Collected_Coin

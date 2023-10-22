@@ -1077,9 +1077,11 @@ visible = false
 light_mask = 0
 
 [node name="Monkey1" type="Sprite" parent="SpacialSkill" index="0"]
-position = Vector2( 64, 0 )
+visible = false
+position = Vector2( 264, 0 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey1" index="0"]
 collision_layer = 0
@@ -1089,12 +1091,15 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey1/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey2" type="Sprite" parent="SpacialSkill" index="1"]
-position = Vector2( -64, 0 )
+visible = false
+position = Vector2( -264, 0 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey2" index="0"]
 rotation = 3.14159
@@ -1106,12 +1111,15 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey2/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey3" type="Sprite" parent="SpacialSkill" index="2"]
-position = Vector2( 0, -64 )
+visible = false
+position = Vector2( 0, -264 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey3" index="0"]
 rotation = -3.14159
@@ -1123,11 +1131,14 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey3/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey4" type="Sprite" parent="SpacialSkill" index="3"]
-position = Vector2( 0, 64 )
+visible = false
+position = Vector2( 0, 264 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey4" index="0"]
 collision_layer = 0
@@ -1137,11 +1148,14 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey4/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey5" type="Sprite" parent="SpacialSkill" index="4"]
-position = Vector2( 64, -64 )
+visible = false
+position = Vector2( 264, -264 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey5" index="0"]
 collision_layer = 0
@@ -1151,13 +1165,16 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey5/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey6" type="Sprite" parent="SpacialSkill" index="5"]
-position = Vector2( -64, 64 )
+visible = false
+position = Vector2( -264, 264 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey6" index="0"]
 rotation = -3.14159
@@ -1169,13 +1186,16 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey6/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey7" type="Sprite" parent="SpacialSkill" index="6"]
-position = Vector2( -64, -64 )
+visible = false
+position = Vector2( -264, -264 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey7" index="0"]
 rotation = -3.14159
@@ -1187,11 +1207,14 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey7/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="Monkey8" type="Sprite" parent="SpacialSkill" index="7"]
-position = Vector2( 64, 64 )
+visible = false
+position = Vector2( 264, 264 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 3
 
 [node name="Hitbox" type="Area2D" parent="SpacialSkill/Monkey8" index="0"]
 collision_layer = 0
@@ -1201,6 +1224,7 @@ damage = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpacialSkill/Monkey8/Hitbox" index="0"]
 shape = SubResource( 21 )
+disabled = true
 
 [node name="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 23 )
