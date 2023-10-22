@@ -242,12 +242,12 @@ func _on_Timer_timeout():
 		enemy_spawn.position = player_in_map.position
 		event.call_deferred("add_child", enemy_spawn)
 		
-	if (time>=120 and time<=140) or (time>=240 and time<=280) and time%2==0:
+	if (time>=120 and time<=140) or (time>=240 and time<=280) or (time>=480 and time<=500) or (time>=720 and time<=760) and time%2==0:
 		enemy_spawn = enemy_Event_RunOn.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(700, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)
 
-	if (time>=140 and time<=180) or (time>=300 and time<=340) and time%2==0:
+	if (time>=140 and time<=180) or (time>=300 and time<=340) or (time>=500 and time<=540) or (time>=800 and time<=840) and time%2==0:
 		enemy_spawn = enemy_Event_shot.instance()
 		enemy_spawn.position = player_in_map.position + Vector2(500, 100).rotated(rand_range(0, 2 * PI))
 		event.call_deferred("add_child", enemy_spawn)

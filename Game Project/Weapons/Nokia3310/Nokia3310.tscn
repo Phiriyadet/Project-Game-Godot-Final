@@ -257,6 +257,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "attack_left"
@@ -546,7 +558,6 @@ anims/attack = SubResource( 3 )
 
 [node name="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 5 )
-volume_db = -26.0
 
 [node name="att" type="Timer" parent="." index="5"]
 wait_time = 3.0
@@ -582,5 +593,10 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 hframes = 7
 
+[node name="Timer" type="Timer" parent="." index="9"]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="att" to="." method="_on_att_timeout"]
 [connection signal="area_shape_entered" from="Nokia_new/Hitbox" to="." method="_on_Hitbox_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

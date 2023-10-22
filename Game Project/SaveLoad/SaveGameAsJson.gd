@@ -34,7 +34,7 @@ func write_savecoin_init():
 		printerr("Could not open the file %s. Aborting save operation. Error code: %s" % [COIN_DATA_PATH, error])
 		return
 	var data := {"Coin":{
-		"Num_Coin": 50
+		"Num_Coin": 200
 	  }}
 	var json_string := JSON.print(data)
 	_file.store_string(json_string)

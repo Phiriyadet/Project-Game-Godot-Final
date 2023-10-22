@@ -17,7 +17,7 @@ var old_Lv = 1
 var now_Lv = self.level
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
@@ -79,10 +79,12 @@ func check_level():
 
 
 func _on_att_timeout():
+	
 	if state_attack == "left":
 		$Ef_Attack.position.x = Ef_posi_x + up_posi_nokia_left
 		$Ef_Attack.position.y = Ef_posi_y 
 		$AnimationPlayer_new.play("attack_left")
+		
 	elif state_attack == "right":
 		$Ef_Attack.position.x = Ef_posi_x + up_posi_nokia_right
 		$Ef_Attack.position.y = Ef_posi_y 
@@ -92,3 +94,8 @@ func _on_att_timeout():
 func _on_Hitbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 #	print($Node2D/Sprite/Hitbox.damage)
 	pass
+
+
+func _on_Timer_timeout():
+	print($AudioStreamPlayer2D.volume_db)
+	$AudioStreamPlayer2D.play()

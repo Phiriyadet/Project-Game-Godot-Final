@@ -76,7 +76,7 @@ func countNumCheck():
 		numCheck +=1
 	
 func _spawn_props(var x_1, y_1, x_2, y_2, num):
-	var numIterations = num  # Set the desired number of iterations
+	var numIterations = num
 	
 	for i in range(numIterations):
 			var propInstance = SPAWN_PROPS[randi() % SPAWN_PROPS.size()].instance()
